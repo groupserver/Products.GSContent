@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<configure xmlns="http://namespaces.zope.org/zope"
+  xmlns:browser="http://namespaces.zope.org/browser"
+  xmlns:rdb="http://namespaces.zope.org/rdb"
+  xmlns:sqlos="http://namespaces.sqlobject.org/sqlos"
+  xmlns:five="http://namespaces.zope.org/five">
+  
+  <!-- declare a marker interface on the Folder class to allow us 
+    to add marker Interfaces, views and adaptation -->
+  <five:implements class="OFS.Folder.Folder"
+    interface="zope.app.folder.interfaces.IFolder" />
+  
+  <!-- make it known to Five -->
+  <five:traversable class="OFS.Folder.Folder" />
+  
+  <!--View of the index-pages -->
+  <browser:page for="*" name="index.html" 
+    template="browser/templates/standard.pt" permission="zope2.View" />
+
+  <!-- A marker interface -->
+  <interface interface=".interfaces.IGSContentFolder"
+    type="zope.app.content.interfaces.IContentType" />
+
+  <!--The resources used by the pages. -->
+  <browser:resourceDirectory name="smileys"
+    directory="browser/icons/smileys/default" permission="zope2.View" />
+  <browser:resourceDirectory name="icons"
+    directory="browser/icons" permission="zope2.View" />
+
+  <browser:page for="*" template="browser/skin/gs_template.pt"
+    name="gs_template" permission="zope.Public" />
+  
+  <browser:layer name="tofu" />
+  <browser:skin name="Groupserver" layers="tofu default" />
+  
+  <browser:page for="*" template="browser/skin/tofu_template.pt"
+    name="gs_template" layer="tofu" permission="zope.Public" />
+  
+</configure>

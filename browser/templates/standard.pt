@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" 
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:metal="http://xml.zope.org/namespaces/metal"
+  xmlns:tal="http://xml.zope.org/namespaces/tal"
+  metal:use-macro="context/@@gs_template/page">
+  <head>
+    
+  	<title metal:fill-slot="title" 
+      tal:content="context/title | nothing">
+      Standard GroupServer Template for Basic (Static) Content Objects
+    </title>
+    
+    <tal:block metal:fill-slot="metadata"
+      tal:condition="python:hasattr(context, 'metadata.xml')"
+      tal:replace="structure python:getattr(context, 'metadata.xml')()">
+      
+      <meta name="title" content="Standard Content Template"/>
+      <meta name="author" content="Michael JasonSmith" />
+      <meta name="description" 
+        content="This is the basic template used to render static content" />
+      <meta name="generator" content="screem 0.16.1" />
+      <meta name="date" content="2006-09-25"/>
+    </tal:block>
+
+    <script metal:fill-slot="javascript"
+      tal:condition="python:hasattr(context, 'javascript.xml')"
+      tal:replace="structure python:getattr(context, 'javascript.xml')()">
+    </script>
+    
+    <script metal:fill-slot="style"
+      tal:condition="python:hasattr(context, 'style.xml')"
+      tal:replace="structure python:getattr(context, 'style.xml')(method='html')">
+    </script>    
+	</head>
+  
+	<body>
+    <div metal:fill-slot="body" id="content"
+      tal:replace="structure python:getattr(context, 'content_en.xml')(method='html')">
+      This standard GroupServer content should never be seen.
+    </div>
+	</body>
+</html>
