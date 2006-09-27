@@ -23,7 +23,7 @@
   </head>
   <body
     tal:define="site context/Scripts/get/division_object;
-    siteName python:context.Scripts.get.option('siteName') or site/title_or_id">
+    siteName python:context.Scripts.get.option('siteName') or (site and site.title_or_id())">
     <div id="toparea">
       <div id="externalbar" 
         metal:define-slot="externallinks"
@@ -31,8 +31,7 @@
       <div id="titlebar">
         <span class="logo"></span>
         <span class="group"></span>
-        <span class="division"
-          tal:content="site/title_or_id | nothing">Site Name</span>
+        <span class="division" tal:content="siteName">Site Name</span>
       </div><!--titlebar-->
       <div id="utilities">
         <div id="utilitylinks">
@@ -43,14 +42,14 @@
             <tal:block tal:condition="userId">
               <li>
                 <a id="log-out-link"
-                  tal:attributes="title string:Log out from ${site}"
+                  tal:attributes="title string:Log out from ${siteName}"
                   href="/cookie_authentication/logout">Log Out</a>
               </li>
               <li>
-                <a id="profile-link"
+                <a tal:attributes="href string:/contacts/${userId}/;
+                  title string:Profile for ${fullName}"
                   tal:define="fullName string:${user/firstName | nothing} ${user/lastName | nothing}"
-                  tal:attributes="href string:/contacts/${userId}/;
-                  title string:Profile for ${fullName}"><span tal:replace="string:${user/preferredName | fullName}"/>
+                  id="profile-link"><span tal:replace="string:${user/preferredName | fullName}"/>
                   (profile)</a>
               </li>
             </tal:block>
