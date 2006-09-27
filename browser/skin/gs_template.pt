@@ -35,7 +35,8 @@
       </div><!--titlebar-->
       <div id="utilities">
         <div id="utilitylinks">
-          <ul tal:define="userId user/getId">
+          <ul tal:define="userId user/getId;
+            fullName string:${user/firstName | nothing} ${user/lastName | nothing}">
             <li tal:condition="not:userId">
               <a id="log-in-link" href="/login" title="Log in here">Log In</a>
             </li>
@@ -48,7 +49,6 @@
               <li>
                 <a tal:attributes="href string:/contacts/${userId}/;
                   title string:Profile for ${fullName}"
-                  tal:define="fullName string:${user/firstName | nothing} ${user/lastName | nothing}"
                   id="profile-link"><span tal:replace="string:${user/preferredName | fullName}"/>
                   (profile)</a>
               </li>

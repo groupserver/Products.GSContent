@@ -9,7 +9,7 @@
     
   	<title metal:fill-slot="title" 
       tal:content="context/title | nothing">
-      Standard GroupServer Template for Basic (Static) Content Objects
+      Standard GroupServer Template for Static Content Objects
     </title>
     
     <tal:block metal:fill-slot="metadata"
@@ -19,26 +19,52 @@
       <meta name="title" content="Standard Content Template"/>
       <meta name="author" content="Michael JasonSmith" />
       <meta name="description" 
-        content="This is the basic template used to render static content" />
-      <meta name="generator" content="screem 0.16.1" />
-      <meta name="date" content="2006-09-25"/>
+        content="This template is used to render static content" />
+      <meta name="date" content="2006-09-27"/>
     </tal:block>
 
+    <!-- 
+      - This template martials the content from Zope, placing the 
+      - data in various slots. The resulting object is then passed
+      - to the skin (gs_template), which adds all the navigation fluff.
+      -
+      - There are five slots that are filled by this template:
+      -   1. The title of the page, aquired from the title of the 
+      -      context-object (which is normally a folder),
+      -   2. The meatadata, acquired from an optional "metadata.xml" 
+      -      object in the context,
+      -   3. The Javascript, acquired from an optional "javascript.xml"
+      -      object in the context,
+      -   4. The CSS-style, acquired from an optional "style.xml" object
+      -      in the context, and
+      -   5. The content of the page, acquired from "content_en.xml".
+      - (At some stage the name of the content-object has to be altered so
+      - we can grab the content according the user's preferred langage.)
+      -
+      - It is assumed that the XML documents understand the "method='html'"
+      - argument. The objects can be of any XML format: XHTML1, XHTML2, or
+      - Joshbook. However, for the most part only "content.xml" will be in
+      - a format other than XHTML1. (The optional metadata may also be in
+      - XHTM2, because it has a metadata format that makes sense, unlike 
+      - XHTML1.) 
+      -->
+    
     <script metal:fill-slot="javascript"
       tal:condition="python:hasattr(context, 'javascript.xml')"
-      tal:replace="structure python:getattr(context, 'javascript.xml')()">
+      tal:replace="structure python:getattr(context, 'javascript.xml')(method='html')">
     </script>
     
-    <script metal:fill-slot="style"
+    <style metal:fill-slot="style"
       tal:condition="python:hasattr(context, 'style.xml')"
       tal:replace="structure python:getattr(context, 'style.xml')(method='html')">
-    </script>    
+      /*This should never be seen.*/
+    </style>    
 	</head>
   
-	<body>
+  <body>
     <div metal:fill-slot="body" id="content"
       tal:replace="structure python:getattr(context, 'content_en.xml')(method='html')">
-      This standard GroupServer content should never be seen.
+      This should never be seen.
     </div>
-	</body>
+  </body>
 </html>
