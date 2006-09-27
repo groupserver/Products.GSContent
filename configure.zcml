@@ -14,7 +14,7 @@
   <five:traversable class="OFS.Folder.Folder" />
   
   <!--View of the index-pages -->
-  <browser:page for="*" name="index.html" 
+  <browser:page for=".interfaces.IGSContentFolder" name="index.html" 
     template="browser/templates/standard.pt" permission="zope2.View" />
 
   <!-- A marker interface -->
