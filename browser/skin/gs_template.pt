@@ -22,7 +22,8 @@
     <base tal:attributes="href request/URL1" />
   </head>
   <body
-    tal:define="site python:context.Scripts.get.division_object()">
+    tal:define="site context/Scripts/get/division_object;
+    siteName python:context.Scripts.get.option('siteName') or site/title_or_id">
     <div id="toparea">
       <div id="externalbar" 
         metal:define-slot="externallinks"

@@ -22,10 +22,8 @@
     type="zope.app.content.interfaces.IContentType" />
 
   <!--The resources used by the pages. -->
-  <browser:resourceDirectory name="smileys"
-    directory="browser/icons/smileys/default" permission="zope2.View" />
-  <browser:resourceDirectory name="icons"
-    directory="browser/icons" permission="zope2.View" />
+    <browser:resourceDirectory name="images"
+    directory="browser/images" permission="zope2.View" />
 
   <browser:page for="*" template="browser/skin/gs_template.pt"
     name="gs_template" permission="zope.Public" />
