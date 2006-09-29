@@ -29,7 +29,8 @@
     name="groupserver_layout" permission="zope.Public" />
   
   <browser:layer name="groupserver_tofu" />
-  <browser:skin name="Groupserver" layers="groupserver_tofu default" />
+  <browser:skin name="a_stupid_name_because_of_the_lack_of_namespaces" 
+    layers="groupserver_tofu default" />
   
   <browser:page for="*" template="browser/skin/groupserver_tofu_layout.pt"
     name="groupserver_layout" layer="groupserver_tofu" permission="zope.Public" />
