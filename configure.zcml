@@ -28,10 +28,10 @@
   <browser:page for="*" template="browser/skin/groupserver_layout.pt"
     name="groupserver_layout" permission="zope.Public" />
   
-  <browser:layer name="tofu" />
-  <browser:skin name="Groupserver" layers="tofu default" />
+  <browser:layer name="groupserver_tofu" />
+  <browser:skin name="Groupserver" layers="groupserver_tofu default" />
   
   <browser:page for="*" template="browser/skin/groupserver_tofu_layout.pt"
-    name="groupserver_layout" layer="tofu" permission="zope.Public" />
+    name="groupserver_layout" layer="groupserver_tofu" permission="zope.Public" />
   
 </configure>
