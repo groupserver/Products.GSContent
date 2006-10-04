@@ -66,5 +66,9 @@
       tal:replace="structure python:getattr(context, 'content_en.xml')(method='html')">
       This should never be seen.
     </div>
+    
+    <div metal:fill-slot="contextTest" 
+      tal:content="structure python:getattr(context, 'menumain.xml', getattr(context.Templates.output, 'menumain.xml'))(method='html')"/>
+    
   </body>
 </html>
