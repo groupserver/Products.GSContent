@@ -74,7 +74,5 @@
     <div class="noFloat"/>
     <metal:block metal:define-slot="footer"
       tal:content="structure python:getattr(context, 'footerlinks.xml', getattr(context.Templates.output, 'footerlinks.xml'))(method='html')" />
-    
-    <metal:block metal:define-slot="contextTest"/>
-  </body>
+      </body>
 </html>
