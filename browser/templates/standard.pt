@@ -63,7 +63,7 @@
   
   <body>
     <div metal:fill-slot="body" id="content"
-      tal:replace="structure python:getattr(context, 'content_en.xml')(method='html')">
+      tal:replace="structure python:getattr(context, 'content_en')(method='html')">
       This should never be seen.
     </div>
     
