@@ -14,9 +14,9 @@
   <five:traversable class="OFS.Folder.Folder" />
   
   <!--View of the index-pages -->
-  <browser:page for=".interfaces.IGSContentFolder" name="index.html" 
+  <browser:page for=".interfaces.IGSContentFolder" name="index.html"
     template="browser/templates/standard.pt" permission="zope2.View" />
-
+ 
   <!-- A marker interface -->
   <interface interface=".interfaces.IGSContentFolder"
     type="zope.app.content.interfaces.IContentType" />
@@ -33,6 +33,6 @@
     layers="groupserver_tofu default" />
   
   <browser:page for="*" template="browser/skin/groupserver_tofu_layout.pt"
-    name="groupserver_layout" layer="groupserver_tofu" permission="zope.Public" />
-  
+    name="groupserver_layout" layer="groupserver_tofu" 
+    permission="zope.Public" />
 </configure>
