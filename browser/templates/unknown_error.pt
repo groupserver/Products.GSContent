@@ -17,7 +17,7 @@
     </tal:block>
   </head>
   <body>
-    <div metal:fill-slot="body" id="content">
+    <div metal:fill-slot="body">
       <h1>Unexpected Error</h1>
       <p>
         An unexpected error has occured. 
