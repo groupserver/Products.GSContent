@@ -17,6 +17,9 @@
   <browser:page for=".interfaces.IGSContentFolder" name="index.html"
     template="browser/templates/standard.pt" permission="zope2.View" />
  
+  <browser:page for=".interfaces.IGSContentFolder" name="raw.html"
+    template="browser/templates/non_standard.pt" permission="zope2.View" />
+  
   <!--browser:page for="*" name="not_found.html"
     template="browser/templates/not_found.pt" permission="zope2.Public" />
 

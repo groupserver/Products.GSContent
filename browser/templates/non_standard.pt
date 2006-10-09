@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" 
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:metal="http://xml.zope.org/namespaces/metal"
+  xmlns:tal="http://xml.zope.org/namespaces/tal">
+  <head>
+    
+  	<title tal:content="context/title | nothing">
+      Standard GroupServer Template for Static Content Objects
+    </title>
+    
+    <tal:block tal:condition="python:hasattr(context, 'metadata.xml')"
+      tal:replace="structure python:getattr(context, 'metadata.xml')()">
+      
+      <meta name="title" content="Standard Content Template"/>
+      <meta name="author" content="Michael JasonSmith" />
+      <meta name="description" 
+        content="This template is used to render static content" />
+      <meta name="date" content="2006-09-27"/>
+    </tal:block>
+
+    <!-- 
+      - This template martials the content from Zope, placing the 
+      - data in various slots. The resulting object is then passed
+      - to the skin (gs_template), which adds all the navigation fluff.
+      -
+      - There are five slots that are filled by this template:
+      -   1. The title of the page, aquired from the title of the 
+      -      context-object (which is normally a folder),
+      -   2. The meatadata, acquired from an optional "metadata.xml" 
+      -      object in the context,
+      -   3. The Javascript, acquired from an optional "javascript.xml"
+      -      object in the context,
+      -   4. The CSS-style, acquired from an optional "style.xml" object
+      -      in the context, and
+      -   5. The content of the page, acquired from "content_en.xml".
+      - (At some stage the name of the content-object has to be altered so
+      - we can grab the content according the user's preferred langage.)
+      -
+      - It is assumed that the XML documents understand the "method='html'"
+      - argument. The objects can be of any XML format: XHTML1, XHTML2, or
+      - Joshbook. However, for the most part only "content.xml" will be in
+      - a format other than XHTML1. (The optional metadata may also be in
+      - XHTM2, because it has a metadata format that makes sense, unlike 
+      - XHTML1.) 
+      -->
+    
+    <script tal:condition="python:hasattr(context, 'javascript.xml')"
+      tal:replace="structure python:getattr(context, 'javascript.xml')(method='html')">
+    </script>
+    
+    <style tal:condition="python:hasattr(context, 'style.xml')"
+      tal:replace="structure python:getattr(context, 'style.xml')(method='html')">
+      /*This should never be seen.*/
+    </style>    
+  </head>
+  
+  <body>
+    <div id="content"
+      tal:replace="structure python:getattr(context, 'content_en')(method='html')">
+      This should never be seen.
+    </div>
+  </body>
+</html>
