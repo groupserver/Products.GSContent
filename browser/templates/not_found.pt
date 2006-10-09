@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" 
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:metal="http://xml.zope.org/namespaces/metal"
+  xmlns:tal="http://xml.zope.org/namespaces/tal"
+  metal:use-macro="context/@@groupserver_layout/page">
+  <head>
+  	<title metal:fill-slot="title">
+      OnlineGroups.Net: Page Not Found
+    </title>
+    
+    <tal:block metal:fill-slot="metadata">
+      <meta name="author" content="OnlineGroups.Net" />
+      <meta name="description" content="Page not found page" />
+    </tal:block>
+    
+	</head>
+  <body>
+    <div metal:fill-slot="body" id="content">
+      <h1>Page Not Found</h1>
+      <p>
+        The page you were looking for was not found. 
+        It's likely that this is just an accident, but if you received the
+        link via email, please check it carefully. 
+        If you still are unable to access the page you were 
+        looking for, please contact 
+        <a title="OnlineGroups.Net Support Email" class="email"
+          href="mailto:support@onlinegroups.net">support@onlinegroups.net</a>.
+      </p>
+    </div>
+  </body>
+</html>
