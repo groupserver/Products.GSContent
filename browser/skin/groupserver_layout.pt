@@ -6,7 +6,7 @@
   xmlns:tal="http://xml.zope.org/namespaces/tal"
   metal:define-macro="page">
   <head>
-    <meta http-equiv="Content-Type"	content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     
     <metal:block define-slot="title" />    
     
