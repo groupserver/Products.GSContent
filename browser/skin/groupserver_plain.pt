@@ -19,8 +19,7 @@
     
     <metal:block define-slot="style" />
 
-    
-    <meta http-equiv="Content-Type"	content="text/html; charset=UTF-8" />
+    <base tal:attributes="href string:${request/URL1}/" />
   </head>
   <body
     tal:define="site context/Scripts/get/division_object;
