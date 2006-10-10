@@ -7,6 +7,20 @@
   metal:define-macro="page">
   <head>
     <meta http-equiv="Content-Type"	content="text/html; charset=UTF-8" />
+    
+    <metal:block define-slot="title" />    
+    
+    <metal:block define-slot="javascript" />
+    
+    <link rel="stylesheet" type="text/css" 
+      href="/Presentation/Tofu/Common/css/globalstyle.css"/>
+    <link rel="stylesheet" type="text/css" media="print"
+      href="/Presentation/Tofu/Common/css/print.css"/>
+    
+    <metal:block define-slot="style" />
+
+    
+    <meta http-equiv="Content-Type"	content="text/html; charset=UTF-8" />
   </head>
   <body
     tal:define="site context/Scripts/get/division_object;
