@@ -35,7 +35,7 @@
     <browser:resourceDirectory name="images"
     directory="browser/images" permission="zope2.View" />
 
-  <browser:page for="*" template="browser/skin/groupserver_plain.pt"
+  <browser:page for="*" template="browser/skin/groupserver_layout.pt"
     name="groupserver_layout" permission="zope.Public" />
   
   <browser:layer name="groupserver_tofu" />
