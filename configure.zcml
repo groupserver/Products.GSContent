@@ -20,12 +20,12 @@
   <browser:page for=".interfaces.IGSContentFolder" name="raw.html"
     template="browser/templates/non_standard.pt" permission="zope2.View" />
   
-  <!--browser:page for="*" name="not_found.html"
+  <browser:page for="*" name="not_found.html"
     template="browser/templates/not_found.pt" permission="zope2.Public" />
 
   <browser:page for="*" name="unknown_error.html"
     template="browser/templates/unknown_error.pt" 
-    permission="zope2.Public" /-->
+    permission="zope2.Public" />
   
   <!-- A marker interface -->
   <interface interface=".interfaces.IGSContentFolder"
