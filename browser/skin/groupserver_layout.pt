@@ -34,26 +34,8 @@
         <span class="division" tal:content="siteName">Site Name</span>
       </div><!--titlebar-->
       <div id="utilities">
-        <div id="utilitylinks">
-          <ul tal:define="userId user/getId;
-            fullName string:${user/firstName | nothing} ${user/lastName | nothing}">
-            <li tal:condition="not:userId">
-              <a id="log-in-link" href="/login" title="Log in here">Log In</a>
-            </li>
-            <tal:block tal:condition="userId">
-              <li>
-                <a id="log-out-link"
-                  tal:attributes="title string:Log out from ${siteName}"
-                  href="/cookie_authentication/logout">Log Out</a>
-              </li>
-              <li>
-                <a tal:attributes="href string:/contacts/${userId}/;
-                  title string:Profile for ${fullName}"
-                  id="profile-link"><span tal:replace="string:${user/preferredName | fullName}"/>
-                  (profile)</a>
-              </li>
-            </tal:block>
-          </ul>
+        <div id="utilitylinks" 
+          tal:content="structure python:getattr(context.Templates.output, 'utilitylinks.xml')(method='html')">
         </div>
       </div><!--utilities-->
       <div id="sitenavigation" metal:define-slot="sitenavigation"
