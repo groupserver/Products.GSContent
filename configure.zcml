@@ -13,16 +13,29 @@
   <!-- make it known to Five -->
   <five:traversable class="OFS.Folder.Folder" />
   
+  <browser:page for="*" template="browser/skin/groupserver_layout.pt"
+    name="groupserver_layout" permission="zope.Public" />
+
+  <!-- The "fullpage" layer-->
+  <browser:layer name="groupserver_fullpage"/>
+  <browser:skin name="groupserver_fullpage_skin"
+    layers="groupserver_fullpage default"/>
+  <browser:page for="*"  layer="groupserver_fullpage"
+    template="browser/skin/groupserver_fullpage_layout.pt"
+    name="groupserver_layout" permission="zope.Public" />
+
   <!--View of the index-pages -->
   <browser:page for=".interfaces.IGSContentFolder" name="index.html"
     template="browser/templates/standard.pt" permission="zope2.View" />
  
   <browser:page for=".interfaces.IGSContentFolder" name="raw.html"
     template="browser/templates/non_standard.pt" permission="zope2.View" />
-  
-  <browser:page for="*" name="not_found.html"
+
+  <!-- The Not Found (404) page -->
+  <browser:page for="*" name="not_found.html" 
     template="browser/templates/not_found.pt" permission="zope2.Public" />
 
+  <!-- Unknown Error (500) page -->
   <browser:page for="*" name="unknown_error.html"
     template="browser/templates/unknown_error.pt" 
     permission="zope2.Public" />
@@ -34,15 +47,5 @@
   <!--The resources used by the pages. -->
     <browser:resourceDirectory name="images"
     directory="browser/images" permission="zope2.View" />
-
-  <browser:page for="*" template="browser/skin/groupserver_layout.pt"
-    name="groupserver_layout" permission="zope.Public" />
   
-  <browser:layer name="groupserver_tofu" />
-  <browser:skin name="a_stupid_name_because_of_the_lack_of_namespaces" 
-    layers="groupserver_tofu default" />
-  
-  <browser:page for="*" template="browser/skin/groupserver_tofu_layout.pt"
-    name="groupserver_layout" layer="groupserver_tofu" 
-    permission="zope.Public" />
 </configure>
