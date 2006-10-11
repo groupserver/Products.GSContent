@@ -70,7 +70,7 @@
       tal:replace="structure python:getattr(context.aq_explicit, 'models.xml')(method='html')"/>
 
     <div metal:fill-slot="messages"
-      tal:define="result python:context.Scripts.forms.process_form();
+      tal:define="result view/process_form;
       isError python:result and result.has_key('error') and result['error'];"
       tal:condition="python:result and result.has_key('message')"
       tal:attributes="class python:(isError and 'message-error') or 'message-result'"

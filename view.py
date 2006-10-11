@@ -8,10 +8,10 @@ import Products.Five, DateTime, Globals
 from Products.Five.browser.pagetemplatefile import ZopeTwoPageTemplateFile
 
 class GSView(Products.Five.BrowserView):
-    def process_form():
+    def process_form(self):
         result = {}
         
-        form = context.REQUEST.form
+        form = self.context.REQUEST.form
         result['form'] = form
 
         if not form.get('submitted', False):
@@ -27,7 +27,7 @@ class GSView(Products.Five.BrowserView):
             cb = getattr(self.model, submission)
             result = cb()
         elif hasattr(oldForms.aq_explicit, model):
-            cb_container = getattr(container.aq_explicit, model)
+            cb_container = getattr(oldForms.aq_explicit, model)
             cb = getattr(cb_container, submission)
             result = cb()
         else:
