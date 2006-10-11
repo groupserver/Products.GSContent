@@ -11,7 +11,7 @@
     <metal:block define-slot="title" />    
     
     <script type="text/javascript" 
-      src="/Presentation/Tofu/XForms/js/xforms.js"></script>
+      src="/Presentation/Tofu/XForms/js/xforms.js">&#160;</script>
     <metal:block define-slot="javascript" />
     
     <link rel="stylesheet" type="text/css" 
