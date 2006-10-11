@@ -17,11 +17,12 @@ class GSView(Products.Five.BrowserView):
         if not form.get('submitted', False):
             return result
 
-        submit = form.get('__submit__')
-        model, submission = submit.split('+')
+        model, submission = form.get('__submit__')
+        # m = '''<p>Submit: %s</p>''' % submit
+        # return {'error': False, 'message': m}
         model = form.get('model_override', model)
 
-        oldForms = Products.GroupServer.Scripts.forms
+        oldForms = self.context.Scripts.forms
         
         if hasattr(self, model):
             cb = getattr(self.model, submission)
@@ -37,7 +38,8 @@ class GSView(Products.Five.BrowserView):
               This should not have happened, please contact
               <a title="OnlineGroups.Net Support" 
                 href="mailto:support@onlinegroups.net" 
-                class="email">support@onlinegroups.net</a>.</p>'''
+                class="email">support@onlinegroups.net</a>.</p>''' \
+              % (model, submission)
             result['message'] = m
         return result
     
