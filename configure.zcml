@@ -15,19 +15,21 @@
   
   <!--View of the index-pages -->
   <browser:page for=".interfaces.IGSContentFolder" name="index.html"
+    class=".view.GSView"
     template="browser/templates/standard.pt" permission="zope2.View" />
-
+ 
   <browser:page for=".interfaces.IGSContentFolder" name="raw.html"
     template="browser/templates/non_standard.pt" permission="zope2.View" />
 
   <!-- The Not Found (404) page -->
   <browser:page for="*" name="not_found.html" 
-    class=".view.GSNotFoundError" permission="zope2.Public" />
+    template="browser/templates/not_found.pt" permission="zope2.Public" />
 
   <!-- Unknown Error (500) page -->
   <browser:page for="*" name="unknown_error.html"
-    class=".view.GSUnknownError" permission="zope2.Public" />
-   
+    template="browser/templates/unknown_error.pt" 
+    permission="zope2.Public" />
+  
   <!-- A marker interface -->
   <interface interface=".interfaces.IGSContentFolder"
     type="zope.app.content.interfaces.IContentType" />
