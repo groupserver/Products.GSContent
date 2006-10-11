@@ -8,9 +8,40 @@ import Products.Five, DateTime, Globals
 from Products.Five.browser.pagetemplatefile import ZopeTwoPageTemplateFile
 
 class GSView(Products.Five.BrowserView):
-    pass
+    def process_form():
+        result = {}
+        
+        form = context.REQUEST.form
+        result['form'] = form
+
+        if not form.get('submitted', False):
+            return result
+
+        submit = form.get('__submit__')
+        model, submission = submit.split('+')
+        model = form.get('model_override', model)
+
+        oldForms = Products.GroupServer.Scripts.forms
+        
+        if hasattr(self, model):
+            cb = getattr(self.model, submission)
+            result = cb()
+        elif hasattr(oldForms.aq_explicit, model):
+            cb_container = getattr(container.aq_explicit, model)
+            cb = getattr(cb_container, submission)
+            result = cb()
+        else:
+            result['error'] = True
+            m = '''<p>Could not find the form for the model <code>%s</code>, 
+              and the submission <code>%s</code>. 
+              This should not have happened, please contact
+              <a title="OnlineGroups.Net Support" 
+                href="mailto:support@onlinegroups.net" 
+                class="email">support@onlinegroups.net</a>.</p>'''
+            result['message'] = m
+        return result
     
-    # First one to be converted: Scripts.get_firstLevelFolder(context)
+    # To be converted: Scripts.get_firstLevelFolder(context)
 
 class GSNotFoundError(Products.Five.BrowserView):
     index = ZopeTwoPageTemplateFile('browser/templates/not_found.pt')

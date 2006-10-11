@@ -13,17 +13,6 @@
   <!-- make it known to Five -->
   <five:traversable class="OFS.Folder.Folder" />
   
-  <browser:page for="*" template="browser/skin/groupserver_layout.pt"
-    name="groupserver_layout" permission="zope.Public" />
-
-  <!-- The "fullpage" layer-->
-  <browser:layer name="groupserver_fullpage"/>
-  <browser:skin name="groupserver_fullpage_skin"
-    layers="groupserver_fullpage default"/>
-  <browser:page for="*"  layer="groupserver_fullpage"
-    template="browser/skin/groupserver_fullpage_layout.pt"
-    name="groupserver_layout" permission="zope.Public" />
-
   <!--View of the index-pages -->
   <browser:page for=".interfaces.IGSContentFolder" name="index.html"
     template="browser/templates/standard.pt" permission="zope2.View" />
@@ -42,6 +31,17 @@
   <!-- A marker interface -->
   <interface interface=".interfaces.IGSContentFolder"
     type="zope.app.content.interfaces.IContentType" />
+
+    <browser:page for="*" template="browser/skin/groupserver_layout.pt"
+    name="groupserver_layout" permission="zope.Public" />
+
+  <!-- The "fullpage" layer-->
+  <browser:layer name="groupserver_fullpage"/>
+  <browser:skin name="groupserver_fullpage_skin"
+    layers="groupserver_fullpage default"/>
+  <browser:page for="*"  layer="groupserver_fullpage"
+    template="browser/skin/groupserver_fullpage_layout.pt"
+    name="groupserver_layout" permission="zope.Public" />
 
   <!--The resources used by the pages. -->
     <browser:resourceDirectory name="images"

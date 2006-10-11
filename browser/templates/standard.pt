@@ -58,10 +58,24 @@
       tal:condition="python:hasattr(context, 'style.xml')"
       tal:replace="structure python:getattr(context, 'style.xml')(method='html')">
       /*This should never be seen.*/
-    </style>    
+    </style>
   </head>
   
   <body>
+    
+    <!-- Get the XForms models. Unlike most things, we do not want
+      - aquisition for this. -->
+    <div metal:fill-slot="xforms_models"
+      tal:condition="python:hasattr(context.aq_explicit, 'models.xml')"
+      tal:replace="structure python:getattr(context.aq_explicit, 'models.xml')(method='html')"/>
+
+    <div metal:fill-slot="messages"
+      tal:define="result python:context.Scripts.forms.process_form();
+      isError python:result and result.has_key('error') and result['error'];"
+      tal:condition="python:result and result.has_key('message')"
+      tal:attributes="class python:(isError and 'message-error') or 'message-result'"
+      tal:replace="structure result/message"/>
+
     <div metal:fill-slot="body" id="content"
       tal:replace="structure python:getattr(context, 'content_en')(method='html')">
       This should never be seen.
