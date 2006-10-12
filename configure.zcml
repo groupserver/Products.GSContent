@@ -15,7 +15,7 @@
   
   <!--View of the index-pages -->
   <browser:page for=".interfaces.IGSContentFolder" name="index.html"
-    class=".view.GSView"
+    class=".view.GSContentView"
     template="browser/templates/standard.pt" permission="zope2.View" />
  
   <browser:page for=".interfaces.IGSContentFolder" name="raw.html"

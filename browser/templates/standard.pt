@@ -75,7 +75,7 @@
       isError python:result and result.has_key('error') and result['error'];"
       tal:condition="python:result and result.has_key('message')"
       tal:attributes="class python:(isError and 'message-error') or 'message-result'"
-      tal:replace="structure result/message"/>
+      tal:content="structure result/message"/>
 
     <!-- The body of the document. Most of the body is created from 
       - content_en object in our context, but we also add the One True
