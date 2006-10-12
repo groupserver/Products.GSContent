@@ -10,8 +10,6 @@
     
     <metal:block define-slot="title" />    
     
-    <script type="text/javascript" 
-      src="/Presentation/Tofu/XForms/js/xforms.js">&#160;</script>
     <metal:block define-slot="javascript" />
     
     <link rel="stylesheet" type="text/css" 
@@ -23,70 +21,46 @@
     
     <base tal:attributes="href string:${request/URL1}/" />
   </head>
-  <body
+  <body 
     tal:define="site context/Scripts/get/division_object;
     siteName python:context.Scripts.get.option('siteName') or (site and site.title_or_id())"
     tal:attributes="id python:request.URLPATH1.strip('/').replace('/','_');">
-    <form method="post" action="" 
-      enctype="application/x-www-form-urlencoded"
-      onkeypress="javascript:return keypressEventHandler(this, event)">
-      
-      <div class="xforms_model">
-        <!-- The site-search model -->
-        <input type="hidden" name="__submit__" value=""/>
-        <input type="hidden" name="__models__" value="sitesearch"/>
-        <input type="hidden" name="__instance+sitesearch+query" value=""/>
-        <input type="hidden" name="__submission_action+sitesearch+search" 
-          value="search_all.xml"/>
-        <input type="hidden" name="__submission_method+sitesearch+search"
-          value="get"/>
-
-        <!-- The page-specific models -->
-        <metal:block define-slot="xforms_models"/>
-      </div>
-      
-      <div id="toparea">
-        <div id="externalbar" 
-          metal:define-slot="externallinks"
-          tal:content="structure python:getattr(context, 'menuexternal.xml', getattr(context.Templates.output, 'menuexternal.xml'))(method='html')" />
-        <div id="titlebar">
-          <span class="logo">&#160;</span>
-          <span class="group">&#160;</span>
-          <span class="division" tal:content="siteName">Site Name</span>
+    
+    <div id="toparea">
+      <div id="externalbar" 
+        metal:define-slot="externallinks"
+        tal:content="structure python:getattr(context, 'menuexternal.xml', getattr(context.Templates.output, 'menuexternal.xml'))(method='html')" />
+      <div id="titlebar">
+        <span class="logo">&#160;</span>
+        <span class="group">&#160;</span>
+        <span class="division" tal:content="siteName">Site Name</span>
         </div><!--titlebar-->
-        <div id="utilities">
-          <div id="utilitylinks" 
-            tal:content="structure python:getattr(context.Templates.output, 'utilitylinks.xml')(method='html')">
+      <div id="utilities">
+        <div id="utilitylinks" 
+          tal:content="structure python:getattr(context.Templates.output, 'utilitylinks.xml')(method='html')">
           </div>
         </div><!--utilities-->
-        <div id="sitenavigation" metal:define-slot="sitenavigation"
-          tal:content="structure python:getattr(context, 'menumain.xml', getattr(context.Templates.output, 'menumain.xml'))(method='html')" />
+      <div id="sitenavigation" metal:define-slot="sitenavigation"
+        tal:content="structure python:getattr(context, 'menumain.xml', getattr(context.Templates.output, 'menumain.xml'))(method='html')" />
       </div><!--toparea-->
+    
+    <metal:block metal:define-slot="search" />
+    
+    <metal:block metal:define-slot="contextnavigation"
+      tal:content="structure python:getattr(context, 'contextmenu.xml', getattr(context.Templates.output, 'contextmenu.xml'))(method='html')" />
+    
+    <div id="content">
+      <div class="breadcrumb" metal:define-slot="breadcrumb"
+        tal:content="structure python:getattr(context.Templates.output, 'context.xml')(method='html')"/>
       
-      <!-- Site Search -->
-      <div id="searcharea">
-        <h3>Site Search</h3>
-        <input type="text" class="text" name="sitesearch+query"/>
-        <input type="submit" name="__submit+sitesearch+search" 
-          onclick="submitButtonHandler(this)" value="Go" class="button"/>
-      </div>
+      <div id="messages" metal:define-slot="messages"/>
       
-      <metal:block metal:define-slot="contextnavigation"
-        tal:content="structure python:getattr(context, 'contextmenu.xml', getattr(context.Templates.output, 'contextmenu.xml'))(method='html')" />
+      <metal:block metal:define-slot="pagetitle"/>
       
-      <div id="content">
-        <div class="breadcrumb" metal:define-slot="breadcrumb"
-          tal:content="structure python:getattr(context.Templates.output, 'context.xml')(method='html')"/>
-        
-        <div id="messages" metal:define-slot="messages"/>
-        
-        <metal:block metal:define-slot="pagetitle"/>
-        
       <metal:block define-slot="body" />   
       </div><!--content-->
-      <div class="noFloat"/>
-      <metal:block metal:define-slot="footer"
-        tal:content="structure python:getattr(context, 'footerlinks.xml', getattr(context.Templates.output, 'footerlinks.xml'))(method='html')" />
-    </form>
-  </body>
+    <div class="noFloat"/>
+    <metal:block metal:define-slot="footer"
+      tal:content="structure python:getattr(context, 'footerlinks.xml', getattr(context.Templates.output, 'footerlinks.xml'))(method='html')" />
+    </body>
 </html>
