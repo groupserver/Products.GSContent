@@ -49,10 +49,14 @@
     <browser:resourceDirectory name="images"
     directory="browser/images" permission="zope2.View" />
 
-    <five:defaultViewable
+  <!-- Mark all DirectoryView folders as using the defaultViewable, 
+       which by default is index.html (as opposed to the zope2 default which
+       is index_html -->
+  
+  <five:defaultViewable
       class="Products.FileSystemSite.DirectoryView.DirectoryViewSurrogate"/>
     
-    <five:implements class="Products.FileSystemSite.DirectoryView.DirectoryViewSurrogate"
+  <five:implements class="Products.FileSystemSite.DirectoryView.DirectoryViewSurrogate"
       interface=".interfaces.IGSContentFolder" />
   
 </configure>
