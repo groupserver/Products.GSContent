@@ -43,7 +43,7 @@
         tal:content="structure python:getattr(context, 'menumain.xml', getattr(context.Templates.output, 'menumain.xml'))(method='html') or ''" />
     </div><!--toparea-->
     
-    <div id="fullpage-content">
+    <div id="divisionHomeContent">
       <div class="breadcrumb" metal:define-slot="breadcrumb"
         tal:content="structure python:getattr(context.Templates.output, 'context.xml')(method='html') or ''"/>
       
