@@ -28,6 +28,7 @@ groupserverHelp_BaseURL = 'http://onlinegroups.net/help/manual/raw.html';
 groupserverHelp_LoadingSection = '';
 // * Internal variable: set to true if we are loading a page. 
 groupserverHelp__isLoading  = false;
+groupserverHelp__window  = null;
 
 // popup: Popup the help for a particular section
 //
@@ -48,16 +49,23 @@ groupserverHelp__isLoading  = false;
 //    Calls "display_help_section", which displays the help pane.
 //
 groupserverHelp_popup = function (helpSectionId) {
-  //netscape.security.PrivilegeManager.enablePrivilege("UniversalBrowserRead");
-  //netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect");
+  netscape.security.PrivilegeManager.enablePrivilege("UniversalBrowserRead");
+  netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect");
 
   if (groupserverHelp_isLoading())
   {
     return;
   }
   
-  w = groupserverHelp_create_window();
-  w.setContent("<p>Loading help-documentation&#8230;</p>");
+  if (groupserverHelp__window == null)
+  {
+      groupserverHelp__window = groupserverHelp_create_window();
+  }
+  else
+  {
+      document.body.appendChild(groupserverHelp__window.domNode);
+  }
+  groupserverHelp__window.setContent("<p>Loading help-documentation&#8230;</p>");
   
   groupserverHelp_LoadingSection = helpSectionId;
   groupserverHelp_set_loading(true);
@@ -69,7 +77,8 @@ groupserverHelp_popup = function (helpSectionId) {
     transport: "XMLHTTPTransport",
     useCache: 1,
     handler: function(type, data, event) {
-      groupserverHelp_display_help_section(data, helpSectionId, w);
+      groupserverHelp_display_help_section(data, helpSectionId, 
+                                           groupserverHelp__window);
       groupserverHelp_set_loading(false);
       }
     })
@@ -230,20 +239,63 @@ groupserverHelp_create_more_link = function (sectionId)
     return p;
 }
 
-
-// ---=mpj17=--- The folowing do not go. Yet.
+// add_popup_to_helpLink: Add popups to the helpLink anchors
+//
+// The links to sections within the user manual *should* be marked with
+// the "helpLink" class. This is good as it allows the links to function
+// correctly when this JavaScript help library has not loaded. However,
+// when this library is present, we want to pop-up the help window. So
+// this function replaces all the anchor-elements with span-elements that
+// pop up the help window, extracting the section-name out of the "href"
+// attribute of the anchor element.
+//
+// ARGUMENTS
+//   None.
+//
+// RETURNS
+//   None.
+//
+// SIDE EFFECTS
+//   All anchor-elements, which have "helpLink" as the class, are replaced
+//   with spans, also of the "helpLink" class, that have the onclick
+//   callback attached to the "popup" method. 
 //
 groupserverHelp_add_popup_to_helpLink = function () {
-  // Add a callback to groupserverHelp_popup for every element that has
-  //   the "helpLink" class. 
-  helpLinks = groupserverHelp_getElementsByClass(document.body, "helpLink", "a");
-  for(i=0; i< helpLinks.length; i++)
+
+  alert("Wibble");
+
+  // Get all the anchor-elements that have "helpLink" as the class
+  var helpLinks = groupserverHelp_getElementsByClass(document.body,
+                                                     "helpLink", "a");
+  // For each anchor element
+  for(var i=0; i< helpLinks.length; i++)
   {
-    section = helpLinks[i].href.split("#",2)[1];
-    dojo.event.connect(helpLinks[i], "onhover", 
-                       "groupserverHelp_popup("+section+")");
+    // Create a span element
+    var span = document.createElement("span");
+    var classAttr = document.createAttribute("class");
+    classAttr.value = "helpLink";
+    span.setAttributeNode(classAttr); 
+
+    // Get the section from the URL and add it to the onclick callback of
+    // the span
+    var section = helpLinks[i].href.split("#",2)[1];
+    var onclick = document.createAttribute("onclick");
+    onclick.value = "groupserverHelp_popup('"+ section+"')";
+    span.setAttributeNode(onclick);
+
+    // Move all the children of the anchor to the span
+    for(var j=0; j<helpLinks[i].childNodes.length; j++)
+    {
+        span.appendChild(helpLinks[i].childNodes[j]);
+    }
+
+    // Replace the anchor with the new span.
+    var parent = helpLinks[i].parentNode; 
+    parent.replaceChild(span, helpLinks[i]);
   }
 }
+// Call "add_popup_to_helpLink" when the page loads.
+dojo.addOnLoad(groupserverHelp_add_popup_to_helpLink);
 
 // The following (very useful) function was taken from 
 //   http://domscripting.com/blog/display/18
