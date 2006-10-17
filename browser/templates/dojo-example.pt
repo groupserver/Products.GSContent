@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+  	<title>Dojo Floating Pane Example</title>
+		
+    <meta name="author" content="Michael JasonSmith" />
+		<meta name="generator" content="screem 0.16.1" />
+		<meta name="description" 
+      content="An example of a floating pane widget in Dojo" />
+		<meta name="keywords" content="Dojo, floating pane, widget" />
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+		<meta http-equiv="Content-Script-Type" content="text/javascript" />
+		<meta http-equiv="Content-Style-Type" content="text/css" />
+    
+    <script type="text/javascript" src="++resource++dojo/dojo.js"></script>
+    <script type="text/javascript" src="++resource++help.js"> </script>
+    <script type="text/javascript"></script>
+    
+    <style type="text/css">
+      .helpPane {
+      width:40%;
+      }
+    </style>
+	</head>
+  <body>
+    <div id="content">
+      <p onclick="groupserverHelp_popup('groupserver-posting-a-message-using-the-web')">
+        I am a fish.
+      </p>
+      
+      <p>
+        I like to 
+        <a class="helpLink" 
+          href="/help/#groupserver-posting-a-message-using-email">swim in the sea.</a>
+      </p>
+      <div id="replacedHelpPane" style="width: 400px; height: 247px;"/>
+    </div>
+  </body>
+</html>

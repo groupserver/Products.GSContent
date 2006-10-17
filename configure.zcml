@@ -58,5 +58,18 @@
     
   <five:implements class="Products.FileSystemSite.DirectoryView.DirectoryViewSurrogate"
       interface=".interfaces.IGSContentFolder" />
+
+  
+  <!-- Dojo -->
+  
+  <browser:resourceDirectory name="dojo"
+            directory="browser/javascript/dojo/" permission="zope2.View" />
+
+  <!-- test -->
+  <browser:page for="*" name="dojo-example.html"
+    template="browser/templates/dojo-example.pt" permission="zope2.View" />
+
+  <browser:resource name="help.js"
+    file="browser/javascript/groupserverHelp/groupserverHelp.js" permission="zope2.View" />
   
 </configure>

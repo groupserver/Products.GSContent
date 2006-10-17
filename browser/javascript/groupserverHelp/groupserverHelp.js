@@ -8,7 +8,7 @@
 
 //Dojo require statements
 dojo.require("dojo.io.*" );
-dojo.require("dojo.XML.*" );
+//dojo.require("dojo.XML.*" );
 dojo.require("dojo.dom.*" );
 dojo.require("dojo.widget.*" );
 dojo.require("dojo.event.*");
@@ -19,9 +19,9 @@ dojo.require();
 
 // Constants
 // * The "pretty" manual page, with all the navigation and stylesheets.
-groupserverHelp_PrettyURL = 'http://onlinegroups.net/help/manual/';
+groupserverHelp_PrettyURL = 'http://wellington3.iopen.net:8080/help/manual/';
 // * The basic page, which loads quickly
-groupserverHelp_BaseURL = 'http://onlinegroups.net/help/manual/raw.html';
+groupserverHelp_BaseURL = 'http://wellington3.iopen.net:8080/help/manual/raw.html';
 
 // Globals 
 // * The ID of the section we are trying to load 
@@ -49,8 +49,8 @@ groupserverHelp__window  = null;
 //    Calls "display_help_section", which displays the help pane.
 //
 groupserverHelp_popup = function (helpSectionId) {
-  netscape.security.PrivilegeManager.enablePrivilege("UniversalBrowserRead");
-  netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect");
+  //netscape.security.PrivilegeManager.enablePrivilege("UniversalBrowserRead");
+  //netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect");
 
   if (groupserverHelp_isLoading())
   {
@@ -137,7 +137,7 @@ groupserverHelp_create_window = function ()
    // Uncomment the next two lines of code to use the replacement 
    //    widget-creation method.
    d = document.getElementById("replacedHelpPane");
-   var w = dojo.widget.fromScript("FloatingPane", properties, d);
+   var w = dojo.widget.createWidget("FloatingPane", properties, d);
       
    // Uncomment the next two lines of code to use the DOM append 
    //    widget-creation method.
