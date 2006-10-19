@@ -55,8 +55,13 @@
       <span
         tal:condition="python:hasattr(context, 'javascript.xml')"
         tal:replace="structure python:getattr(context, 'javascript.xml')(method='html')"/>
+      <!-- Standard GroupServer JavaScript: XForms, Dojo and popup help -->
       <script type="text/javascript" 
         src="/Presentation/Tofu/XForms/js/xforms.js">&#160;</script>
+      <script type="text/javascript" 
+        src="++resource++dojo/dojo.js">&#160;</script>
+      <script type="text/javascript" 
+        src="++resource++help.js">&#160;</script>
     </tal:block>
     
     <style metal:fill-slot="style"
@@ -112,6 +117,9 @@
           tal:replace="structure python:getattr(context, 'content_en')(method='html')">
           This should never be seen.
         </div>
+        
+        <!--This pane is used by the Dojo-based popup help-->
+        <div id="replacedHelpPane" style="width: 400px; height: 247px;"/>
       </form><!-- The One True XFrom-->
     </tal:block>
   </body>

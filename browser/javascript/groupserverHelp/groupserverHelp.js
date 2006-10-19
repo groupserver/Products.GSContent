@@ -19,9 +19,9 @@ dojo.require();
 
 // Constants
 // * The "pretty" manual page, with all the navigation and stylesheets.
-groupserverHelp_PrettyURL = 'http://wellington3.iopen.net:8080/help/manual/';
+groupserverHelp_PrettyURL = 'help/manual/';
 // * The basic page, which loads quickly
-groupserverHelp_BaseURL = 'http://wellington3.iopen.net:8080/help/manual/raw.html';
+groupserverHelp_BaseURL = 'help/manual/raw.html';
 
 // Globals 
 // * The ID of the section we are trying to load 
@@ -261,9 +261,6 @@ groupserverHelp_create_more_link = function (sectionId)
 //   callback attached to the "popup" method. 
 //
 groupserverHelp_add_popup_to_helpLink = function () {
-
-  alert("Wibble");
-
   // Get all the anchor-elements that have "helpLink" as the class
   var helpLinks = groupserverHelp_getElementsByClass(document.body,
                                                      "helpLink", "a");
