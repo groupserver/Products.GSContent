@@ -131,12 +131,14 @@ groupserverHelp_create_window = function ()
     title:"Help", widgetId: "helpPane",
     displayMaximizeAction: 0, displayMinimizeAction:0, displayCloseAction:1,
     constrainToContainer: 0, resizable: 1, doLayout: 1, cacheContent: 1,
-    hasShadow: 0, titleBarDisplay:"fancy", windowState:"normal",
-    width:"400px", height:"247px"
+    hasShadow: 1, titleBarDisplay:"fancy", windowState:"normal",
+    // The ratio betwen width and height is golden
+    width:"600px", height:"371px"
    };
    // Uncomment the next two lines of code to use the replacement 
    //    widget-creation method.
    d = document.getElementById("replacedHelpPane");
+   d.setAttribute("style", "width: 600px; height: 371px;");
    var w = dojo.widget.createWidget("FloatingPane", properties, d);
       
    // Uncomment the next two lines of code to use the DOM append 
@@ -174,9 +176,12 @@ groupserverHelp_create_window = function ()
 groupserverHelp_display_help_section = function (data, sectionId, w) 
 {
     var originalSection = data.getElementById(sectionId);
-
+    titleId = sectionId + "-t"; 
+    titleNode = data.getElementById(titleId);
+    w.titleBarText.innerHTML = titleNode.childNodes[0].nodeValue;
+    originalSection.removeChild(titleNode);
     var section = groupserverHelp_get_fixed_section(originalSection);
-
+    
     p = groupserverHelp_create_more_link(sectionId);
     section.appendChild(p);
 

@@ -1,0 +1,38 @@
+/*
+ * Dojo Floating Pane Support
+ *
+ * The body element is needed to over-ride the original Dojo styles.  
+*/
+body .dojoFloatingPane, body .dojoFloatingPaneClient {
+  color: black;
+  background: white;
+  border-top: thick solid #718b38; /*Standard thick border*/
+  border-right: thin solid #5c797c;
+  border-bottom: thin solid #5c797c; 
+  border-left: thin solid #718b38;
+}
+
+body .dojoFloatingPaneClient {
+  border-top: thin solid #718b38; /*Standard thick border*/
+  padding: 30px;
+}
+
+body .dojoFloatingPaneClient a {
+  color: #6C911D;
+}
+
+body .dojoFloatingPaneTitleText, body .dojoFloatingPaneTitleBar {
+  font-family: "Trebuchet MS", "Lucida Grande", Verdana, sans-serif;
+  font-size: 1.4em;  /*Same as an H2*/
+  font-weight: bold;
+  color: #6c911d;
+  background: white;
+}
+
+body .dojoFloatingPaneResizebar {
+  background-color: white;
+}
+
+body .dojoFloatingPaneCloseIcon {
+  background-image: url("++resource++helpClose.png");
+}

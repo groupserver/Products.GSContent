@@ -17,14 +17,14 @@
   <browser:page for=".interfaces.IGSContentFolder" name="index.html"
     class=".view.GSContentView"
     template="browser/templates/standard.pt" permission="zope2.View" />
- 
+  
   <browser:page for=".interfaces.IGSContentFolder" name="raw.html"
     template="browser/templates/non_standard.pt" permission="zope2.View" />
-
+  
   <!-- The Not Found (404) page -->
   <browser:page for="*" name="not_found.html" 
     template="browser/templates/not_found.pt" permission="zope2.Public" />
-
+  
   <!-- Unknown Error (500) page -->
   <browser:page for="*" name="unknown_error.html"
     template="browser/templates/unknown_error.pt" 
@@ -33,10 +33,10 @@
   <!-- A marker interface -->
   <interface interface=".interfaces.IGSContentFolder"
     type="zope.app.content.interfaces.IContentType" />
-
-    <browser:page for="*" template="browser/skin/groupserver_layout.pt"
+  
+  <browser:page for="*" template="browser/skin/groupserver_layout.pt"
     name="groupserver_layout" permission="zope.Public" />
-
+  
   <!-- The "fullpage" layer-->
   <browser:layer name="groupserver_fullpage"/>
   <browser:skin name="groupserver_fullpage_skin"
@@ -44,32 +44,39 @@
   <browser:page for="*"  layer="groupserver_fullpage"
     template="browser/skin/groupserver_fullpage_layout.pt"
     name="groupserver_layout" permission="zope.Public" />
-
+  
   <!--The resources used by the pages. -->
-    <browser:resourceDirectory name="images"
+  <browser:resourceDirectory name="images"
     directory="browser/images" permission="zope2.View" />
-
+  
   <!-- Mark all DirectoryView folders as using the defaultViewable, 
-       which by default is index.html (as opposed to the zope2 default which
-       is index_html -->
+    which by default is index.html (as opposed to the zope2 default which
+    is index_html -->
   
   <five:defaultViewable
-      class="Products.FileSystemSite.DirectoryView.DirectoryViewSurrogate"/>
-    
-  <five:implements class="Products.FileSystemSite.DirectoryView.DirectoryViewSurrogate"
-      interface=".interfaces.IGSContentFolder" />
-
+    class="Products.FileSystemSite.DirectoryView.DirectoryViewSurrogate"/>
   
+  <five:implements class="Products.FileSystemSite.DirectoryView.DirectoryViewSurrogate"
+    interface=".interfaces.IGSContentFolder" />
+
   <!-- Dojo -->
   
   <browser:resourceDirectory name="dojo"
-            directory="browser/javascript/dojo/" permission="zope2.View" />
+    directory="browser/javascript/dojo/" permission="zope2.View" />
 
+  <!-- Popup Help -->
+  <browser:resource name="help.js"
+    file="browser/javascript/groupserverHelp/groupserverHelp.js" 
+    permission="zope2.View" />
+  <browser:resource name="help.css"
+    file="browser/stylesheets/dojo-floating-pane.css" 
+    permission="zope2.View" />
+  <browser:resource name="helpClose.png"
+    file="browser/images/helpImages/22x22/floating-pane-close.png" 
+    permission="zope2.View" />
+  
   <!-- test -->
   <browser:page for="*" name="dojo-example.html"
     template="browser/templates/dojo-example.pt" permission="zope2.View" />
-
-  <browser:resource name="help.js"
-    file="browser/javascript/groupserverHelp/groupserverHelp.js" permission="zope2.View" />
-  
+    
 </configure>
