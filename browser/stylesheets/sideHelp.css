@@ -1,0 +1,35 @@
+.sideHelpHiddenMode {
+  display: none;
+}
+
+.sideHelpHelpMode {
+  display: block; 
+  position: fixed; 
+  width: 300px;
+  top: 195px; /* Equal with the first heading on the page. */
+  right: 30px; 
+  padding-left: 30px;
+}
+
+#helpPaneTitleBar h2 {
+  padding-bottom: 5px;
+  margin-bottom: 5px;
+  border-bottom: thin solid #5c791c;
+}
+#helpPaneLabel {
+  overflow: hidden;
+  white-space: nowrap;
+}
+#helpPaneClose {
+  vertical-align: middle;
+  height: 22px;
+  width: 22px;
+  position: absolute;
+  top: 10px;
+  right: 0px;
+  background-image: url("++resource++helpClose.png");
+}
+
+#content.contentHelpMode {
+  padding-right: 360px;
+}

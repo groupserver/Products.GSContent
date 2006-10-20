@@ -66,10 +66,16 @@
 
   <!-- Popup Help -->
   <browser:resource name="help.js"
+    file="browser/javascript/groupserverHelp/sideHelp.js" 
+    permission="zope2.View" />
+  <browser:resource name="popupHelp.js"
     file="browser/javascript/groupserverHelp/groupserverHelp.js" 
     permission="zope2.View" />
-  <browser:resource name="help.css"
+  <browser:resource name="popupHelp.css"
     file="browser/stylesheets/dojo-floating-pane.css" 
+    permission="zope2.View" />
+  <browser:resource name="help.css"
+    file="browser/stylesheets/sideHelp.css" 
     permission="zope2.View" />
   <browser:resource name="helpClose.png"
     file="browser/images/helpImages/22x22/floating-pane-close.png" 

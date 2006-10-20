@@ -113,14 +113,15 @@
           <div tal:condition="python:hasattr(context.aq_explicit, 'models.xml')"
             tal:replace="structure python:getattr(context.aq_explicit, 'models.xml')(method='html')"/>
         </div>
+
+        <div id="replacedHelpPane" 
+          style="width: 0px; height 0px;">&#160;</div>
         
         <div id="content"
           tal:replace="structure python:getattr(context, 'content_en')(method='html')">
           This should never be seen.
         </div>
-        
-        <!--This pane is used by the Dojo-based popup help-->
-        <div id="replacedHelpPane" style="width: 0px; height 0px;"/>
+
       </form><!-- The One True XFrom-->
     </tal:block>
   </body>
