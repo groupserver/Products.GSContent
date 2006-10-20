@@ -80,8 +80,11 @@ groupserverHelp_popup = function (helpSectionId) {
       groupserverHelp_display_help_section(data, helpSectionId, 
                                            groupserverHelp__window);
       groupserverHelp_set_loading(false);
-      }
-    })
+    },
+    errro: function(type, errror) {
+      groupserverHelp_loadError(error, groupserverHelp__window);
+    },
+  })
 }
 
 // isLoading: Is the help code trying to load a page?
@@ -175,15 +178,27 @@ groupserverHelp_create_window = function ()
 // 
 groupserverHelp_display_help_section = function (data, sectionId, w) 
 {
-    var originalSection = data.getElementById(sectionId);
-    titleId = sectionId + "-t"; 
-    titleNode = data.getElementById(titleId);
-    w.titleBarText.innerHTML = titleNode.childNodes[0].nodeValue;
-    originalSection.removeChild(titleNode);
-    var section = groupserverHelp_get_fixed_section(originalSection);
+    try 
+    {
+        var originalSection = data.getElementById(sectionId);
+
+        titleId = sectionId + "-t";
+        titleNode = data.getElementById(titleId);
+
+        w.titleBarText.innerHTML = titleNode.childNodes[0].nodeValue;
+        originalSection.removeChild(titleNode);
+        var section = groupserverHelp_get_fixed_section(originalSection);
     
-    p = groupserverHelp_create_more_link(sectionId);
-    section.appendChild(p);
+        p = groupserverHelp_create_more_link(sectionId);
+        section.appendChild(p);
+    }
+    catch (e)
+    {
+        var m = "the section <q>" + sectionId + "</q> could not be loaded ";
+        m = m + "<code>(" + e + ")</code>";
+        groupserverHelp_loadError(m, w);
+        return;
+    }
 
     w.setContent(section);
 }
@@ -313,4 +328,16 @@ groupserverHelp_getElementsByClass = function (node,searchClass,tag) {
     }
   }
   return classElements;
+}
+
+
+groupserverHelp_loadError = function (error, w) 
+{
+  var m = "<p>There was an error loading the context-sensitive help: "
+  m = m + error + ". This is a bug, please contact ";
+  m = m + '<a class="email" title="OnlineGroups.Net Support" '
+  m = m + 'href="mailto:support@onlinegroups.net">support@onlinegroups.net</a>, '
+  m = m + "sending the contents of this window with your message. "
+  m = m + "Thank you.</p>" 
+  w.setContent(m);
 }
