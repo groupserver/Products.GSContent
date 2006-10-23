@@ -10,10 +10,10 @@
 dojo.require("dojo.io.*" );
 //dojo.require("dojo.XML.*" );
 dojo.require("dojo.dom.*" );
-dojo.require("dojo.widget.*" );
+//dojo.require("dojo.widget.*" );
 dojo.require("dojo.event.*");
-dojo.require("dojo.widget.LayoutContainer"); 
-dojo.require("dojo.widget.FloatingPane" );
+//dojo.require("dojo.widget.LayoutContainer"); 
+//dojo.require("dojo.widget.FloatingPane" );
 //all dojo.require above this line
 dojo.require();
 
@@ -62,8 +62,6 @@ groupserverHelp_popup = function (helpSectionId) {
       groupserverHelp__window = groupserverHelp_create_window();
   }
   groupserverHelp_show_window();
-  
-  //groupserverHelp__window.setContent("<p>Loading help-documentation&#8230;</p>");
   
   groupserverHelp_LoadingSection = helpSectionId;
   groupserverHelp_set_loading(true);
@@ -164,8 +162,14 @@ groupserverHelp_show_window = function() {
     p.appendChild(document.createTextNode("Loading help\u2026"));
 
     var helpPaneContent = document.getElementById("helpPaneContent");
-    helpPaneContent.appendChild(p);
-
+    if (helpPaneContent.childNodes.length > 0) 
+    {
+        helpPaneContent.replaceChild(p, helpPaneContent.childNodes[0]);
+    }
+    else
+    {
+        helpPaneContent.appendChild(p);
+    }
     var content = document.getElementById("content");
     content.setAttribute("class", "contentHelpMode");
 }

@@ -5,10 +5,14 @@
 .sideHelpHelpMode {
   display: block; 
   position: fixed; 
-  width: 300px;
+  width: 400px;
   top: 195px; /* Equal with the first heading on the page. */
   right: 30px; 
   padding-left: 30px;
+}
+
+#content.contentHelpMode {
+  padding-right: 460px;
 }
 
 #helpPaneTitleBar h2 {
@@ -28,8 +32,4 @@
   top: 10px;
   right: 0px;
   background-image: url("++resource++helpClose.png");
-}
-
-#content.contentHelpMode {
-  padding-right: 360px;
 }
