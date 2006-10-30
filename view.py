@@ -1,7 +1,4 @@
 '''GroupServer-Content View Class
-
-This does not do anything yet; I created it to remind myself to do something
-hoopy later.
 '''
 import sys, re, datetime, time
 import Products.Five, DateTime, Globals
