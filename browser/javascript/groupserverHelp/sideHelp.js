@@ -224,7 +224,7 @@ groupserverHelp_display_help_section = function (data, sectionId, w)
     //try 
     //{
         var originalSection = data.getElementById(sectionId);
-
+  
         var titleId = sectionId + "-t";
         var titleNode = data.getElementById(titleId);
         
@@ -327,37 +327,17 @@ groupserverHelp_create_more_link = function (sectionId)
 //   with spans, also of the "helpLink" class, that have the onclick
 //   callback attached to the "popup" method. 
 //
-groupserverHelp_add_popup_to_helpLink = function () {
-  // Get all the anchor-elements that have "helpLink" as the class
-  var helpLinks = groupserverHelp_getElementsByClass(document.body,
-                                                     "helpLink", "a");
-  // For each anchor element
-  for(var i=0; i< helpLinks.length; i++)
-  {
-    // Create a span element
-    var span = document.createElement("span");
-    var classAttr = document.createAttribute("class");
-    classAttr.value = "helpLink";
-    span.setAttributeNode(classAttr); 
-
-    // Get the section from the URL and add it to the onclick callback of
-    // the span
-    var section = helpLinks[i].href.split("#",2)[1];
-    var onclick = document.createAttribute("onclick");
-    onclick.value = "groupserverHelp_popup('"+ section+"')";
-    span.setAttributeNode(onclick);
-
-    // Move all the children of the anchor to the span
-    for(var j=0; j<helpLinks[i].childNodes.length; j++)
+groupserverHelp_add_popup_to_helpLink = function() {
+    var helpLinks = groupserverHelp_getElementsByClass(document.body,
+                                                       "helpLink", "a");
+    for(var i = 0; i < helpLinks.length; i++)
     {
-        span.appendChild(helpLinks[i].childNodes[j]);
+        var section = helpLinks[i].href.split("#",2)[1];
+        var url = "javascript:groupserverHelp_popup('"+ section+"')";
+        helpLinks[i].href = url;
     }
-
-    // Replace the anchor with the new span.
-    var parent = helpLinks[i].parentNode; 
-    parent.replaceChild(span, helpLinks[i]);
-  }
 }
+
 // Call "add_popup_to_helpLink" when the page loads.
 if (!dojo.render.html.ie)
 {
