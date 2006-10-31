@@ -29,6 +29,7 @@ groupserverHelp_LoadingSection = '';
 // * Internal variable: set to true if we are loading a page. 
 groupserverHelp__isLoading  = false;
 groupserverHelp__window  = null;
+groupserverHelp__currentSectionId = '';
 
 // popup: Popup the help for a particular section
 //
@@ -56,6 +57,13 @@ groupserverHelp_popup = function (helpSectionId) {
   {
     return;
   }
+ 
+  if (helpSectionId == groupserverHelp__currentSectionId)
+  {
+      return;
+  }
+  groupserverHelp__currentSectionId = helpSectionId;
+
   
   if (groupserverHelp__window == null)
   {
@@ -77,11 +85,11 @@ groupserverHelp_popup = function (helpSectionId) {
                                            groupserverHelp__window);
       groupserverHelp_set_loading(false);
     },
-    errro: function(type, errror) {
+    errror: function(type, errror) {
       groupserverHelp_loadError(error, groupserverHelp__window);
-    },
-  })
-}
+    }
+  });
+};
 
 // isLoading: Is the help code trying to load a page?
 // 
@@ -175,6 +183,7 @@ groupserverHelp_show_window = function() {
 }
 
 groupserverHelp_hide_window = function() {
+    groupserverHelp__currentSectionId = '';
     var helpPane = document.getElementById("helpPane");
     helpPane.setAttribute("class", "sideHelpHiddenMode");
     var content = document.getElementById("content");
@@ -215,29 +224,32 @@ groupserverHelp_hide_window = function() {
 //   * The section is displayed in the Dojo floating pane widget. 
 // 
 groupserverHelp_display_help_section = function (data, sectionId, w) 
-{
-    try 
-    {
+{    
+    //try 
+    //{
         var originalSection = data.getElementById(sectionId);
 
         var titleId = sectionId + "-t";
         var titleNode = data.getElementById(titleId);
+        
         var label = document.getElementById("helpPaneLabel");
-        label.replaceChild(titleNode.childNodes[0], label.childNodes[0]);
+        titleChild0 = titleNode.childNodes[0];
+        labelChild0 = label.childNodes[0];
+        label.childNodes[0].data = titleNode.childNodes[0].data;
 
-        originalSection.removeChild(titleNode);
+        //originalSection.removeChild(titleNode);
         var section = groupserverHelp_get_fixed_section(originalSection);
     
         var p = groupserverHelp_create_more_link(sectionId);
         section.appendChild(p);
-    }
-    catch (e)
-    {
-        var m = "the section <q>" + sectionId + "</q> could not be loaded ";
-        m = m + "<code>(" + e + ")</code>";
-        groupserverHelp_loadError(m, w);
-        return;
-    }
+//    }
+    //catch (e)
+    //{
+     //   var m = "the section <q>" + sectionId + "</q> could not be loaded ";
+       // m = m + "<code>(" + e + ")</code>";
+        //groupserverHelp_loadError(m, w);
+        //return;
+    //}
     var helpPaneContent = document.getElementById("helpPaneContent");
     helpPaneContent.replaceChild(section, helpPaneContent.childNodes[0]);
 }
