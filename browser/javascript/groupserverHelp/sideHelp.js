@@ -8,12 +8,8 @@
 
 //Dojo require statements
 dojo.require("dojo.io.*" );
-//dojo.require("dojo.XML.*" );
 dojo.require("dojo.dom.*" );
-//dojo.require("dojo.widget.*" );
 dojo.require("dojo.event.*");
-//dojo.require("dojo.widget.LayoutContainer"); 
-//dojo.require("dojo.widget.FloatingPane" );
 //all dojo.require above this line
 dojo.require();
 
@@ -363,7 +359,10 @@ groupserverHelp_add_popup_to_helpLink = function () {
   }
 }
 // Call "add_popup_to_helpLink" when the page loads.
-dojo.addOnLoad(groupserverHelp_add_popup_to_helpLink);
+if (!dojo.render.html.ie)
+{
+    dojo.addOnLoad(groupserverHelp_add_popup_to_helpLink);
+}
 
 // The following (very useful) function was taken from 
 //   http://domscripting.com/blog/display/18
