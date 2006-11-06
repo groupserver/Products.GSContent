@@ -3,50 +3,133 @@
 import sys, re, datetime, time
 import Products.Five, DateTime, Globals
 from Products.Five.browser.pagetemplatefile import ZopeTwoPageTemplateFile
+import zope.interface
+import Products.GSContent.interfaces
+
+class GSSiteInfo:
+    """An implementation of the GroupServer Site Information Interface
+    
+    This adaptor provides information about the site, based on the context
+    of the object.
+    """
+    zope.interface.implements(Products.GSContent.interfaces.IGSSiteInfo)
+    def __init__(self, context):
+        """Create an GSSiteInfo instance.
+        
+        ARGUMENTS
+            "context" The context of the page.
+        
+        SIDE EFFECTS
+            Sets 
+              * "self.context" to the context argument, 
+              * "self.siteObj" to the site-instance, and 
+              * "self.config" to the site-configuration instance.
+        """
+        assert context
+        
+        self.context = context
+        self.siteObj = self.__get_site_object()
+        self.config = self.__get_site_config()
+        
+    def __get_site_object(self):
+        """Get the site-object, which contains the current instance.
+        
+        This method preforms a search for the site instance among the 
+        ancestors of the current object, walking back up the tree looking
+        for the object that has the "is_division" property set to "True".
+        
+        ARGUMENTS
+            None.
+            
+        RETURNS
+            The site object.
+
+        SIDE EFFECTS
+            None.
+            
+        ENVIRONMENT
+            "self.context": The context of the object.     
+        """
+        assert self.context
+        retval = self.context
+        markerAttr = 'is_division'
+        
+        while retval:
+            try:
+                if getattr(retval.aq_inner.aq_explicit, markerAttr, False):
+                    break
+                else:
+                    retval = retval.aq_parent
+            except:
+                break
+        retval = retval.aq_inner.aq_explicit
+        assert retval 
+        assert hasattr(retval, markerAttr)
+        assert getattr(retval, markerAttr)
+        return retval
+                
+    def __get_site_config(self):
+        """Get the site configuration instance from the site object.
+        
+        ARGUMENTS
+            None.
+        
+        RETURNS
+            The site configuration instance.
+            
+        SIDE EFFECTS
+            None.
+            
+        ENVIRONMENT
+            "self.siteObject": The site object."""
+        assert self.siteObj
+        retval = getattr(self.siteObj, 'DivisionConfiguration', None)
+        assert retval
+        return retval
+        
+    def get_name(self):
+        assert self.config
+        
+        retval = self.config.getProperty('siteName')
+        if not retval:
+            retval = self.siteObj.title_or_id()
+            
+        assert retval
+        return retval
+        
+    def get_url(self):
+        assert self.siteObj
+        assert self.config
+        retval = ''
+        cannonicalHost = self.config.getProperty('canonicalHost', '')
+        if cannonicalHost:
+            retval = 'http://%s' % cannonicalHost
+        else:
+            retval = '/%s' % self.siteObj.absolute_url(1)
+
+        assert retval
+        return retval
 
 class GSContentView(Products.Five.BrowserView):
     '''View object for standard GroupServer content objects'''
     
-    def process_form(self):
-        '''process_form: Process the submitted faux-XForms form.
-        
-        DESCRIPTION
-           The "process_form" method takes an XHTML1 form and determines
-           the method of "self", or the external script, that should be
-           run. This takes the hassle out of specifying, in Web pages,
-           which script should be run, as "process_form" determines it
-           based on the submitted faux-XForms model and faux-XForms 
-           submission method.
-        
-        ARGUMENTS
-          None, technically. The HTML form, "self.context.REQUEST.form"
-          is examined (looking for the "___submit___" key) to determine
-          which script should be run, based on the faux-XForms model and the
-          faux-XForms submission method: the submitted XForms model and 
-          faux-XForms submission method should be seperated by a "+" 
-          character in the "__submit__" string.
-          
-        RETURNS
-          A result dictionary. Normally the dictionary will contain
-          three values. 
-              The "error" key: A boolean value, set to True if there is
-                  an error.
-              The "message" key: The message to be displayed, formatted
-                  in XHTML1.
-              The "form" key: The form that was submitted.
-          If the dictionary is empty then the form was not submitted 
-          manually (the "submitted" key of the form was set to False).
+    def __init__(self, context, request):
+          Products.Five.BrowserView.__init__(self, context, request)
+          self.__set_site_info(GSSiteInfo(context))
+
+    def __set_site_info(self, siteInfo):
+          assert siteInfo
+          assert Products.GSContent.interfaces.IGSSiteInfo.providedBy(siteInfo)
+          self.__siteInfo = siteInfo
+          assert self.__siteInfo
            
-        SIDE EFFECTS
-          Too many to be a work of God. The side-effects are caused by
-          the methods and scripts that "process_form" calls, rather
-          than "process_form".
-          
-        ENVIRONMENT
-          "self.context.Scripts.forms": The folder that contains
-              the scripts that should be run, if the appropriate
-              callback cannot be found in "self" 
-        '''
+    def get_site_info(self):
+          assert self.__siteInfo
+          retval = self.__siteInfo
+          assert retval
+          return retval
+
+    def process_form(self):
         form = self.context.REQUEST.form
 
         result = {'error': True, 
