@@ -19,6 +19,7 @@
     template="browser/templates/standard.pt" permission="zope2.View" />
   
   <browser:page for=".interfaces.IGSContentFolder" name="raw.html"
+    class=".view.GSContentView"
     template="browser/templates/non_standard.pt" permission="zope2.View" />
   
   <!-- The Not Found (404) page -->

@@ -46,19 +46,11 @@
       - XHTML1.) 
       -->
     
-    <script tal:condition="python:hasattr(context, 'javascript.xml')"
-      tal:replace="structure python:getattr(context, 'javascript.xml')(method='html')">
-    </script>
-    
-    <style tal:condition="python:hasattr(context, 'style.xml')"
-      tal:replace="structure python:getattr(context, 'style.xml')(method='html')">
-      /*This should never be seen.*/
-    </style>    
   </head>
   
-  <body>
+  <body tal:define="siteName python:view.get_site_info().get_name()">
     <div id="content"
-      tal:replace="structure python:getattr(context, 'content_en')(method='html')">
+      tal:replace="structure python:getattr(context, 'content_en')(method='html', siteName=view.get_site_info().get_name())">
       This should never be seen.
     </div>
   </body>
