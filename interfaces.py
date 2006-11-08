@@ -6,7 +6,7 @@ class IGSContentFolder(Interface):
     """A folder that displays static (or near-static) content on a 
     GroupServer site"""
 
-    def get_site_info(self):
+    def get_site_info():
           """Get information about the current GroupServer site
           
           ARGUMENTS
@@ -20,19 +20,19 @@ class IGSContentFolder(Interface):
           """
           pass
           
-    def process_form(self):
+    def process_form():
         """process_form: Process the submitted faux-XForms form.
         
         DESCRIPTION
            The "process_form" method takes an XHTML1 form and determines
-           the method of "self", or the external script, that should be
+           the method of "", or the external script, that should be
            run. This takes the hassle out of specifying, in Web pages,
            which script should be run, as "process_form" determines it
            based on the submitted faux-XForms model and faux-XForms 
            submission method.
         
         ARGUMENTS
-          None, technically. The HTML form, "self.context.REQUEST.form"
+          None, technically. The HTML form, ".context.REQUEST.form"
           is examined (looking for the "___submit___" key) to determine
           which script should be run, based on the faux-XForms model and the
           faux-XForms submission method: the submitted XForms model and 
@@ -56,9 +56,9 @@ class IGSContentFolder(Interface):
           than "process_form".
           
         ENVIRONMENT
-          "self.context.Scripts.forms": The folder that contains
+          ".context.Scripts.forms": The folder that contains
               the scripts that should be run, if the appropriate
-              callback cannot be found in "self"
+              callback cannot be found in ""
         """
         pass
 
@@ -74,7 +74,22 @@ class IGSSiteInfo(Interface):
     "division" scripts, located in "Products/GroupServer/Scripts/get/"
     in GroupServer 0.9./ 
     """
-    def get_name(self):
+    def get_id():
+        """Get the ID of the site.
+       
+        ARGUMENTS
+            None.
+            
+        RETURNS
+            A string, containing the site ID.
+            
+        SIDE EFFECTS
+            None.
+        """
+        pass
+
+
+    def get_name():
         """Get the name of the site.
        
         ARGUMENTS
@@ -88,7 +103,7 @@ class IGSSiteInfo(Interface):
         """
         pass
     
-    def get_url(self):
+    def get_url():
         """Get the URL, which can be used to retrieve the site homepage
         
         The URL of the site can be used to form other URLs on the site, or

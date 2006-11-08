@@ -87,6 +87,12 @@ class GSSiteInfo:
         assert retval
         return retval
         
+    def get_id(self):
+        assert self.siteObj
+        retval = self.siteObj.getId()
+        assert retval
+        return retval
+        
     def get_name(self):
         assert self.config
         
