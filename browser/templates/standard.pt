@@ -68,16 +68,16 @@
       <script type="text/javascript" 
         src="/Presentation/Tofu/XForms/js/xforms.js">&#160;</script>
       <script type="text/javascript"
-        src="++resource++dojo/dojo.js">&#160;</script>
+        src="/++resource++dojo/dojo.js">&#160;</script>
       <script type="text/javascript" defer="defer"
-        src="++resource++help.js">&#160;</script>
+        src="/++resource++help.js">&#160;</script>
     </tal:block>
     
     <tal:block metal:fill-slot="style">
       <style tal:condition="python:hasattr(context, 'style.xml')"
         tal:replace="structure python:getattr(context, 'style.xml')(method='html')"/>
       <link rel="stylesheet" title="Popup-Help Stylesheet" type="text/css" 
-        href="++resource++help.css"/>
+        href="/++resource++help.css"/>
     </tal:block>
   </head>
   

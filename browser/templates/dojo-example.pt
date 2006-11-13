@@ -13,8 +13,8 @@
 		<meta http-equiv="Content-Script-Type" content="text/javascript" />
 		<meta http-equiv="Content-Style-Type" content="text/css" />
     
-    <script type="text/javascript" src="++resource++dojo/dojo.js"></script>
-    <script type="text/javascript" src="++resource++help.js"> </script>
+    <script type="text/javascript" src="/++resource++dojo/dojo.js"></script>
+    <script type="text/javascript" src="/++resource++help.js"> </script>
     <script type="text/javascript"></script>
     
     <style type="text/css">
