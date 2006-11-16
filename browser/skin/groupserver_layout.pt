@@ -24,8 +24,8 @@
   </head>
   <body 
     tal:define="site context/Scripts/get/division_object;
-    siteName python:view.get_site_info().get_name()">
-    
+    siteName python:view.get_site_info().get_name()"
+    tal:attributes="id python:'page-%s' % request.URLPATH1.strip('/').replace('/','_');">
     <div id="toparea">
       <div id="externalbar" 
         metal:define-slot="externallinks"
@@ -34,15 +34,15 @@
         <span class="logo">&#160;</span>
         <span class="group">&#160;</span>
         <span class="division" tal:content="siteName">Site Name</span>
-        </div><!--titlebar-->
+      </div><!--titlebar-->
       <div id="utilities">
         <div id="utilitylinks" 
           tal:content="structure python:getattr(context.Templates.output, 'utilitylinks.xml')(method='html')">
           </div>
-        </div><!--utilities-->
+      </div><!--utilities-->
       <div id="sitenavigation" metal:define-slot="sitenavigation"
         tal:content="structure python:getattr(context, 'menumain.xml', getattr(context.Templates.output, 'menumain.xml'))(method='html')" />
-      </div><!--toparea-->
+    </div><!--toparea-->
     
     <metal:block metal:define-slot="search" />
     
