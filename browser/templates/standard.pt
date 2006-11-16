@@ -27,10 +27,10 @@
       </tal:block>
       <link rel="home" 
         tal:attributes="title python:'%s Homepage' % view.get_site_info().get_name();
-        href python:view.get_site_info().get_url()">&#160;</link>
+        href python:view.get_site_info().get_url()"/>
       <link rel="help" 
         tal:attributes="title python:'%s Help' % view.get_site_info().get_name();
-        href python:'%s/help' % view.get_site_info().get_url()">&#160;</link>
+        href python:'%s/help' % view.get_site_info().get_url()"/>
     </tal:block>
     <!-- 
       - This template martials the content from Zope, placing the 
