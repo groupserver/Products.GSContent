@@ -24,8 +24,7 @@
   </head>
   <body 
     tal:define="site context/Scripts/get/division_object;
-    siteName python:view.get_site_info().get_name()"
-    tal:attributes="id python:request.URLPATH1.strip('/').replace('/','_');">
+    siteName python:view.get_site_info().get_name()">
     
     <div id="toparea">
       <div id="externalbar" 
