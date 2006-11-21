@@ -41,7 +41,7 @@
           </div>
       </div><!--utilities-->
       <div id="sitenavigation" metal:define-slot="sitenavigation"
-        tal:replace="structure python:getattr(context, 'menumain.xml', getattr(context.Templates.output, 'menumain.xml'))(method='html')" />
+        tal:content="structure python:getattr(context, 'menumain.xml', getattr(context.Templates.output, 'menumain.xml'))(method='html')" />
     </div><!--toparea-->
     
     <metal:block metal:define-slot="search" />
