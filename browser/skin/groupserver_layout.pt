@@ -41,7 +41,7 @@
           </div>
       </div><!--utilities-->
       <div id="sitenavigation" metal:define-slot="sitenavigation"
-        tal:content="structure python:getattr(context, 'menumain.xml', getattr(context.Templates.output, 'menumain.xml'))(method='html')" />
+        tal:replace="structure python:getattr(context, 'menumain.xml', getattr(context.Templates.output, 'menumain.xml'))(method='html')" />
     </div><!--toparea-->
     
     <metal:block metal:define-slot="search" />
@@ -58,9 +58,10 @@
       <metal:block metal:define-slot="pagetitle"/>
       
       <metal:block define-slot="body" />   
-      </div><!--content-->
-    <div class="noFloat"/>
-    <metal:block metal:define-slot="footer"
-      tal:content="structure python:getattr(context, 'footerlinks.xml', getattr(context.Templates.output, 'footerlinks.xml'))(method='html')" />
-    </body>
+      <div class="noFloat"/>
+      <!--Footer-->
+      <metal:block metal:define-slot="footer"
+        tal:content="structure python:getattr(context, 'footerlinks.xml', getattr(context.Templates.output, 'footerlinks.xml'))(method='html')" />
+    </div><!--content-->
+  </body>
 </html>
