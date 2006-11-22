@@ -4,7 +4,10 @@ class IFolder(Interface):
 
 class IGSContentFolder(Interface):
     pass
-    
+
+class IGSSiteFolder(Interface):
+    pass
+
 class IGSSiteInfo(Interface):
     pass
     

@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" 
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:metal="http://xml.zope.org/namespaces/metal"
+  xmlns:tal="http://xml.zope.org/namespaces/tal"
+  metal:use-macro="context/@@groupserver_site_home_layout/page">
+  <head>
+    
+  	<title metal:fill-slot="title">
+      <span tal:replace="python:view.get_site_info().get_name()"/>
+    </title>
+    
+    <tal:block metal:fill-slot="metadata">
+      <tal:block 
+        tal:condition="python:hasattr(context, 'metadata.xml')"
+        tal:replace="structure python:getattr(context, 'metadata.xml')()">
+        
+        <meta name="title" content="Site Homepage Template"/>
+        <meta name="author" content="Michael JasonSmith" />
+        <meta name="description" 
+          content="This template is used to render the site homepage" />
+        <meta name="date" content="2006-11-22"/>
+      </tal:block>
+      <link rel="home" 
+        tal:attributes="title python:'%s Homepage' % view.get_site_info().get_name();
+        href python:view.get_site_info().get_url()"/>
+      <link rel="help" 
+        tal:attributes="title python:'%s Help' % view.get_site_info().get_name();
+        href python:'%s/help' % view.get_site_info().get_url()"/>
+    </tal:block>
+    <!-- 
+      - This template martials the content from Zope, placing the 
+      - data in various slots. The resulting object is then passed
+      - to the skin (gs_template), which adds all the navigation fluff.
+      -
+      - There are five slots that are filled by this template:
+      -   1. The title of the page, aquired from the title of the 
+      -      context-object (which is normally a folder),
+      -   2. The meatadata, acquired from an optional "metadata.xml" 
+      -      object in the context,
+      -   3. The Javascript, acquired from an optional "javascript.xml"
+      -      object in the context,
+      -   4. The CSS-style, acquired from an optional "style.xml" object
+      -      in the context, and
+      -   5. The content of the page, acquired from "content_en.xml".
+      - (At some stage the name of the content-object has to be altered so
+      - we can grab the content according the user's preferred langage.)
+      -
+      - It is assumed that the XML documents understand the "method='html'"
+      - argument. The objects can be of any XML format: XHTML1, XHTML2, or
+      - Joshbook. However, for the most part only "content.xml" will be in
+      - a format other than XHTML1. (The optional metadata may also be in
+      - XHTM2, because it has a metadata format that makes sense, unlike 
+      - XHTML1.) 
+      -->
+    
+    <!-- Grab any javascript that is defined in our context, and also 
+      - load the XForms javascript, which we need for search. -->
+    <tal:block metal:fill-slot="javascript">
+      <span
+        tal:condition="python:hasattr(context, 'javascript.xml')"
+        tal:replace="structure python:getattr(context, 'javascript.xml')(method='html')"/>
+      <!-- Standard GroupServer JavaScript: XForms, Dojo and popup help -->
+      <script type="text/javascript" 
+        src="/Presentation/Tofu/XForms/js/xforms.js">&#160;</script>
+      <script type="text/javascript"
+        src="/++resource++dojo/dojo.js">&#160;</script>
+      <script type="text/javascript" defer="defer"
+        src="/++resource++help.js">&#160;</script>
+    </tal:block>
+    
+    <tal:block metal:fill-slot="style">
+      <style tal:condition="python:hasattr(context, 'style.xml')"
+        tal:replace="structure python:getattr(context, 'style.xml')(method='html')"/>
+      <link rel="stylesheet" title="Popup-Help Stylesheet" type="text/css" 
+        href="/++resource++help.css"/>
+    </tal:block>
+  </head>
+  
+  <body>
+    <!-- The body of the document. Most of the body is created from 
+      - content_en object in our context, but we also add the One True
+      - Form, which is needed for XForms and Search.
+    -->
+    <tal:block metal:fill-slot="body">
+      <form method="post" action="" 
+        enctype="application/x-www-form-urlencoded"
+        onkeypress="javascript:return keypressEventHandler(this, event)">
+      
+        <!-- Site Search -->
+        <div id="searcharea">
+          <h3>Site Search</h3>
+          <input type="text" class="text" name="sitesearch+query"/>
+          <input type="submit" name="__submit+sitesearch+search" 
+            onclick="submitButtonHandler(this)" value="Go" class="button"/>
+        </div>
+        
+        <div class="xforms_model">
+        <!-- The site-search model -->
+          <input type="hidden" name="__submit__" value=""/>
+          <input type="hidden" name="__models__" value="sitesearch"/>
+          <input type="hidden" name="__instance+sitesearch+query" value=""/>
+          <input type="hidden" name="__submission_action+sitesearch+search" 
+            value="search_all.xml"/>
+          <input type="hidden" name="__submission_method+sitesearch+search"
+            value="get"/>
+        </div>
+      </form>
+      <div id="replacedHelpPane" 
+        style="width: 0px; height: 0px;">&#160;</div>
+      
+      <div id="content"
+        tal:replace="structure python:getattr(context, 'content_en')(method='html', siteName=view.get_site_info().get_name())">
+        This should never be seen.
+      </div>
+    </tal:block>
+  </body>
+</html>

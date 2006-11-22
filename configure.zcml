@@ -17,11 +17,16 @@
   <browser:page for=".interfaces.IGSContentFolder" name="index.html"
     class=".view.GSContentView"
     template="browser/templates/standard.pt" permission="zope2.View" />
-  
+
   <browser:page for=".interfaces.IGSContentFolder" name="raw.html"
     class=".view.GSContentView"
     template="browser/templates/non_standard.pt" permission="zope2.View" />
-  
+
+  <!--Site homepage-->
+  <browser:page for=".interfaces.IGSSiteFolder" name="index.html"
+    class=".view.GSContentView"
+    template="browser/templates/site_home.pt" permission="zope2.View" />
+
   <!-- The Not Found (404) page -->
   <browser:page for="*" name="not_found.html" 
     template="browser/templates/not_found.pt" permission="zope2.Public" />
@@ -37,15 +42,10 @@
   
   <browser:page for="*" template="browser/skin/groupserver_layout.pt"
     name="groupserver_layout" permission="zope.Public" />
-  
-  <!-- The "fullpage" layer-->
-  <browser:layer name="groupserver_fullpage"/>
-  <browser:skin name="groupserver_fullpage_skin"
-    layers="groupserver_fullpage default"/>
-  <browser:page for="*"  layer="groupserver_fullpage"
-    template="browser/skin/groupserver_fullpage_layout.pt"
-    name="groupserver_layout" permission="zope.Public" />
-  
+
+  <browser:page for="*" template="browser/skin/groupserver_site_home_layout.pt"
+    name="groupserver_site_home_layout" permission="zope.Public" />
+ 
   <!--The resources used by the pages. -->
   <browser:resourceDirectory name="images"
     directory="browser/images" permission="zope2.View" />
