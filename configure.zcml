@@ -85,5 +85,11 @@
   <!-- test -->
   <browser:page for="*" name="dojo-example.html"
     template="browser/templates/dojo-example.pt" permission="zope2.View" />
+
+  <adapter provides=".interfaces.IGSSiteInfo"
+                for="zope.app.folder.interfaces.IFolder"
+                permission="zope2.View"
+                factory=".view.GSSiteInfo"
+                />       
     
 </configure>

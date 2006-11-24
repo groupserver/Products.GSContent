@@ -118,22 +118,8 @@ class GSSiteInfo:
 
 class GSContentView(Products.Five.BrowserView):
     '''View object for standard GroupServer content objects'''
-    
-    def __init__(self, context, request):
-          Products.Five.BrowserView.__init__(self, context, request)
-          self.__set_site_info(GSSiteInfo(context))
-
-    def __set_site_info(self, siteInfo):
-          assert siteInfo
-          assert Products.GSContent.interfaces.IGSSiteInfo.providedBy(siteInfo)
-          self.__siteInfo = siteInfo
-          assert self.__siteInfo
-           
     def get_site_info(self):
-          assert self.__siteInfo
-          retval = self.__siteInfo
-          assert retval
-          return retval
+        return Products.GSContent.interfaces.IGSSiteInfo(self.context)
 
     def process_form(self):
         form = self.context.REQUEST.form
