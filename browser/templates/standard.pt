@@ -119,8 +119,8 @@
           <input type="hidden" name="__submission_method+sitesearch+search"
             value="get"/>
           <!-- The page-specific models -->
-          <div tal:condition="python:hasattr(context.aq_explicit, 'models.xml')"
-            tal:replace="structure python:getattr(context.aq_explicit, 'models.xml')(method='html')"/>
+          <div tal:condition="python:hasattr(context.aq_explicit, 'models')"
+            tal:replace="structure python:getattr(context, 'models')(method='html')"/>
         </div>
 
         <div id="replacedHelpPane" 
@@ -130,7 +130,7 @@
           tal:replace="structure python:getattr(context, 'content_en')(method='html', siteName=view.get_site_info().get_name())">
           This should never be seen.
         </div>
-
+        
       </form><!-- The One True XFrom-->
     </tal:block>
   </body>
