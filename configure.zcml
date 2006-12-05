@@ -18,6 +18,10 @@
     class=".view.GSContentView"
     template="browser/templates/standard.pt" permission="zope2.View" />
 
+  <browser:page for=".interfaces.IGSFullPageContentFolder" name="index.html"
+    class=".view.GSContentView"
+    template="browser/templates/standard.pt" permission="zope2.View" />
+    
   <browser:page for=".interfaces.IGSContentFolder" name="raw.html"
     class=".view.GSContentView"
     template="browser/templates/non_standard.pt" permission="zope2.View" />
@@ -39,12 +43,14 @@
   <!-- A marker interface -->
   <interface interface=".interfaces.IGSContentFolder"
     type="zope.app.content.interfaces.IContentType" />
-  
-  <browser:page for="*" template="browser/skin/groupserver_layout.pt"
+
+  <browser:page for=".interfaces.IGSContentFolder"
+    template="browser/skin/groupserver_layout.pt"
     name="groupserver_layout" permission="zope.Public" />
 
-  <browser:page for="*" template="browser/skin/groupserver_site_home_layout.pt"
-    name="groupserver_site_home_layout" permission="zope.Public" />
+  <browser:page for="*" 
+        template="browser/skin/groupserver_site_home_layout.pt"
+        name="groupserver_site_home_layout" permission="zope.Public" />
  
   <!--The resources used by the pages. -->
   <browser:resourceDirectory name="images"
