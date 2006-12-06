@@ -44,7 +44,7 @@
   <interface interface=".interfaces.IGSContentFolder"
     type="zope.app.content.interfaces.IContentType" />
 
-  <browser:page for=".interfaces.IGSContentFolder"
+  <browser:page for="*"
     template="browser/skin/groupserver_layout.pt"
     name="groupserver_layout" permission="zope.Public" />
 
