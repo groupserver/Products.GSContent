@@ -6,13 +6,15 @@ from Products.Five.browser.pagetemplatefile import ZopeTwoPageTemplateFile
 import zope.interface
 import Products.GSContent.interfaces
 
+from interfaces import IGSSiteInfo
+
 class GSSiteInfo:
     """An implementation of the GroupServer Site Information Interface
     
     This adaptor provides information about the site, based on the context
     of the object.
     """
-    zope.interface.implements(Products.GSContent.interfaces.IGSSiteInfo)
+    zope.interface.implements( IGSSiteInfo )
     def __init__(self, context):
         """Create an GSSiteInfo instance.
         
@@ -118,9 +120,11 @@ class GSSiteInfo:
 
 class GSContentView(Products.Five.BrowserView):
     '''View object for standard GroupServer content objects'''
-    def get_site_info(self):
-        return Products.GSContent.interfaces.IGSSiteInfo(self.context)
-
+    def __init__(self, context, request):
+        self.context = context
+        self.request = request
+        self.siteInfo = IGSSiteInfo( context )
+    
     def process_form(self):
         form = self.context.REQUEST.form
         result = {}

@@ -48,9 +48,9 @@
     
   </head>
   
-  <body tal:define="siteName python:view.get_site_info().get_name()">
+  <body>
     <div id="content"
-      tal:replace="structure python:getattr(context, 'content_en')(method='html', siteName=view.get_site_info().get_name())">
+      tal:replace="structure python:getattr(context, 'content_en')(method='html', siteName=view.siteInfo.get_name())">
       This should never be seen.
     </div>
   </body>

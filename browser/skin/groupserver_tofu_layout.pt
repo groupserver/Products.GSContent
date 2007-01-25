@@ -19,7 +19,7 @@
 	</head>
 	<body>
 		<div id="toparea">
-			<div id="externalbar">
+                    <div id="externalbar">
 			<div id="externallinks" 
                              metal:define-slot="externallinks"
                              tal:content="structure python:getattr(context, 'menuexternal.xml')(method='html')" />
