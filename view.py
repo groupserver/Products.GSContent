@@ -27,8 +27,6 @@ class GSSiteInfo:
               * "self.siteObj" to the site-instance, and 
               * "self.config" to the site-configuration instance.
         """
-        assert context
-        
         self.context = context
         self.siteObj = self.__get_site_object()
         self.config = self.__get_site_config()
@@ -52,10 +50,8 @@ class GSSiteInfo:
         ENVIRONMENT
             "self.context": The context of the object.     
         """
-        assert self.context
         retval = self.context
         markerAttr = 'is_division'
-        
         while retval:
             try:
                 if getattr(retval.aq_inner.aq_explicit, markerAttr, False):
@@ -64,14 +60,16 @@ class GSSiteInfo:
                     retval = retval.aq_parent
             except:
                 break
-        retval = retval.aq_inner.aq_explicit
-        assert retval 
-        assert hasattr(retval, markerAttr)
-        assert getattr(retval, markerAttr)
+
+        try:
+            retval = retval.aq_inner.aq_explicit
+        except AttributeError:
+            retval = None
+        
         return retval
                 
     def __get_site_config(self):
-        """Get the site configuration instance from the site object.
+        """ Get the site configuration instance from the site object.
         
         ARGUMENTS
             None.
@@ -83,39 +81,38 @@ class GSSiteInfo:
             None.
             
         ENVIRONMENT
-            "self.siteObject": The site object."""
-        assert self.siteObj
-        retval = getattr(self.siteObj, 'DivisionConfiguration', None)
-        assert retval
+            "self.siteObject": The site object.
+
+        """
+        if self.siteObj:
+            retval = getattr(self.siteObj, 'DivisionConfiguration', None)
+        else:
+            retval = getattr(self.context, 'GlobalConfiguration', None)
+        
         return retval
         
     def get_id(self):
-        assert self.siteObj
-        retval = self.siteObj.getId()
-        assert retval
+        retval = None
+        if self.siteObj:
+            retval = self.siteObj.getId()
+        
         return retval
         
     def get_name(self):
-        assert self.config
-        
-        retval = self.config.getProperty('siteName')
-        if not retval:
+        retval = self.config.getProperty('siteName', '')
+        if not retval and self.siteObj:
             retval = self.siteObj.title_or_id()
-            
-        assert retval
+
         return retval
         
     def get_url(self):
-        assert self.siteObj
-        assert self.config
         retval = ''
-        cannonicalHost = self.config.getProperty('canonicalHost', '')
-        if cannonicalHost:
-            retval = 'http://%s' % cannonicalHost
-        else:
+        canonicalHost = self.config.getProperty('canonicalHost', '')
+        if canonicalHost:
+            retval = 'http://%s' % canonicalHost
+        elif self.siteObj:
             retval = '/%s' % self.siteObj.absolute_url(1)
 
-        assert retval
         return retval
 
 class GSContentView(Products.Five.BrowserView):
