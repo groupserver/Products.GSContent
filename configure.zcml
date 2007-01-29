@@ -71,6 +71,14 @@
   <browser:resourceDirectory name="dojo"
     directory="browser/javascript/dojo/" permission="zope2.View" />
 
+  <!-- Prototype and Scriptaculous -->
+
+  <browser:resourceDirectory name="scriptaculous"
+    directory="browser/javascript/scriptaculous-js-1.7.0/src/" permission="zope2.View" />
+
+  <browser:resourceDirectory name="prototype"
+    directory="browser/javascript/scriptaculous-js-1.7.0/lib/" permission="zope2.View" />
+
   <!-- Popup Help -->
   <browser:resource name="help.js"
     file="browser/javascript/groupserverHelp/sideHelp.js" 
