@@ -63,7 +63,8 @@
       <div class="noFloat">&#160;</div>
       <!--Footer-->
       <metal:block metal:define-slot="footer"
-        tal:content="structure python:getattr(context, 'footerlinks.xml', getattr(context.Templates.output, 'footerlinks.xml'))(method='html')" />
+        tal:define="footer python:getattr(context, 'footerlinks.xml', getattr(context.Templates.output, 'footerlinks.xml', None))"
+        tal:content="structure python:footer and footer(method='html') or ''" />
     </div><!--content-->
   </body>
 </html>
