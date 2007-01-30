@@ -79,6 +79,11 @@
   <browser:resourceDirectory name="prototype"
     directory="browser/javascript/scriptaculous-js-1.7.0/lib/" permission="zope2.View" />
 
+  <!-- Javascript Crypto Implementations -->
+
+  <browser:resourceDirectory name="crypto"
+    directory="browser/javascript/crypto/" permission="zope2.View" />
+
   <!-- Popup Help -->
   <browser:resource name="help.js"
     file="browser/javascript/groupserverHelp/sideHelp.js" 
