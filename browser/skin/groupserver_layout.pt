@@ -15,10 +15,12 @@
     
     <link rel="stylesheet" type="text/css" 
       href="/Presentation/Tofu/Common/css/globalstyle.css" />
-    <link rel="stylesheet" type="text/css" 
-      href="/PresentationCustom/Tofu/Common/css/globalstyle.css" />
+    <link 
+        tal:condition="python: hasattr(context, 'PresentationCustom')"
+        rel="stylesheet" type="text/css" 
+        href="/PresentationCustom/Tofu/Common/css/globalstyle.css" />
     <link rel="stylesheet" type="text/css" media="print"
-      href="/Presentation/Tofu/Common/css/print.css" />
+        href="/Presentation/Tofu/Common/css/print.css" />
     
     <metal:block define-slot="style" />
     <link rel="stylesheet" type="text/css" href="/++resource++local.css"/>    
