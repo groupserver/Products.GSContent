@@ -23,7 +23,7 @@
         href="/Presentation/Tofu/Common/css/print.css" />
     
     <metal:block define-slot="style" />
-    <link rel="stylesheet" type="text/css" href="/++resource++local.css"/>    
+    <!-- <link rel="stylesheet" type="text/css" href="/++resource++local.css"/>  -->
     <base tal:attributes="href string:${request/URL1}/" />
   </head>
   <body 
