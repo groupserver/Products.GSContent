@@ -92,6 +92,10 @@
     directory="browser/images/16x16/blue/" permission="zope2.Public" />
   <browser:resourceDirectory name="greenIcons"
     directory="browser/images/16x16/green/" permission="zope2.Public" />
+  <browser:resourceDirectory name="blackIcons"
+    directory="browser/images/16x16/black/" permission="zope2.Public" />
+  <browser:resourceDirectory name="yellowIcons"
+    directory="browser/images/16x16/yellow/" permission="zope2.Public" />
 
   <!-- Popup Help -->
   <browser:resource name="help.js"
