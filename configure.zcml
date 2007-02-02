@@ -46,11 +46,13 @@
 
   <browser:page for="*"
     template="browser/skin/groupserver_layout.pt"
-    name="groupserver_layout" permission="zope.Public" />
+    name="groupserver_layout" 
+    permission="zope.Public" />
 
   <browser:page for="*" 
         template="browser/skin/groupserver_site_home_layout.pt"
-        name="groupserver_site_home_layout" permission="zope.Public" />
+        name="groupserver_site_home_layout" 
+        permission="zope.Public" />
  
   <!--The resources used by the pages. -->
   <browser:resourceDirectory name="images"
@@ -74,15 +76,22 @@
   <!-- Prototype and Scriptaculous -->
 
   <browser:resourceDirectory name="scriptaculous"
-    directory="browser/javascript/scriptaculous-js-1.7.0/src/" permission="zope2.View" />
+    directory="browser/javascript/scriptaculous-js-1.7.0/src/" 
+    permission="zope2.View" />
 
   <browser:resourceDirectory name="prototype"
-    directory="browser/javascript/scriptaculous-js-1.7.0/lib/" permission="zope2.View" />
+    directory="browser/javascript/scriptaculous-js-1.7.0/lib/" 
+    permission="zope2.View" />
 
   <!-- Javascript Crypto Implementations -->
-
   <browser:resourceDirectory name="crypto"
     directory="browser/javascript/crypto/" permission="zope2.View" />
+
+  <!-- Colour Schemes -->
+  <browser:resourceDirectory name="blueIcons"
+    directory="browser/images/16x16/blue/" permission="zope2.Public" />
+  <browser:resourceDirectory name="greenIcons"
+    directory="browser/images/16x16/green/" permission="zope2.Public" />
 
   <!-- Popup Help -->
   <browser:resource name="help.js"
