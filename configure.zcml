@@ -56,7 +56,7 @@
  
   <!--The resources used by the pages. -->
   <browser:resourceDirectory name="images"
-    directory="browser/images" permission="zope2.View" />
+    directory="browser/images" permission="zope2.Public" />
   
   <!-- Mark all DirectoryView folders as using the defaultViewable, 
     which by default is index.html (as opposed to the zope2 default which
@@ -71,21 +71,21 @@
   <!-- Dojo -->
   
   <browser:resourceDirectory name="dojo"
-    directory="browser/javascript/dojo/" permission="zope2.View" />
+    directory="browser/javascript/dojo/" permission="zope2.Public" />
 
   <!-- Prototype and Scriptaculous -->
 
   <browser:resourceDirectory name="scriptaculous"
     directory="browser/javascript/scriptaculous-js-1.7.0/src/" 
-    permission="zope2.View" />
+    permission="zope2.Public" />
 
   <browser:resourceDirectory name="prototype"
     directory="browser/javascript/scriptaculous-js-1.7.0/lib/" 
-    permission="zope2.View" />
+    permission="zope2.Public" />
 
   <!-- Javascript Crypto Implementations -->
   <browser:resourceDirectory name="crypto"
-    directory="browser/javascript/crypto/" permission="zope2.View" />
+    directory="browser/javascript/crypto/" permission="zope2.Public" />
 
   <!-- Colour Schemes -->
   <browser:resourceDirectory name="blueIcons"
@@ -100,27 +100,27 @@
   <!-- Popup Help -->
   <browser:resource name="help.js"
     file="browser/javascript/groupserverHelp/sideHelp.js" 
-    permission="zope2.View" />
+    permission="zope2.Public" />
   <browser:resource name="popupHelp.js"
     file="browser/javascript/groupserverHelp/groupserverHelp.js" 
-    permission="zope2.View" />
+    permission="zope2.Public" />
   <browser:resource name="popupHelp.css"
     file="browser/stylesheets/dojo-floating-pane.css" 
-    permission="zope2.View" />
+    permission="zope2.Public" />
   <browser:resource name="help.css"
     file="browser/stylesheets/sideHelp.css" 
-    permission="zope2.View" />
+    permission="zope2.Public" />
   <browser:resource name="helpClose.png"
     file="browser/images/helpImages/22x22/floating-pane-close.png" 
-    permission="zope2.View" />
+    permission="zope2.Public" />
   
   <!-- test -->
   <browser:page for="*" name="dojo-example.html"
-    template="browser/templates/dojo-example.pt" permission="zope2.View" />
+    template="browser/templates/dojo-example.pt" permission="zope2.Public" />
 
   <adapter provides=".interfaces.IGSSiteInfo"
                 for="zope.app.folder.interfaces.IFolder"
-                permission="zope2.View"
+                permission="zope2.Public"
                 factory=".view.GSSiteInfo"
                 />       
     
