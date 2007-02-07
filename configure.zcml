@@ -70,8 +70,8 @@
 
   <!-- Dojo -->
   
-  <browser:resourceDirectory name="dojo"
-    directory="browser/javascript/dojo/" permission="zope2.Public" />
+  <!--browser:resourceDirectory name="dojo"
+    directory="browser/javascript/dojo/" permission="zope2.Public" /-->
 
   <!-- Prototype and Scriptaculous -->
 
@@ -108,7 +108,7 @@
     directory="browser/images/16x16/white/" permission="zope2.Public" />
 
   <!-- Popup Help -->
-  <browser:resource name="help.js"
+  <!--browser:resource name="help.js"
     file="browser/javascript/groupserverHelp/sideHelp.js" 
     permission="zope2.Public" />
   <browser:resource name="popupHelp.js"
@@ -122,11 +122,11 @@
     permission="zope2.Public" />
   <browser:resource name="helpClose.png"
     file="browser/images/helpImages/22x22/floating-pane-close.png" 
-    permission="zope2.Public" />
+    permission="zope2.Public" /-->
   
   <!-- test -->
-  <browser:page for="*" name="dojo-example.html"
-    template="browser/templates/dojo-example.pt" permission="zope2.Public" />
+  <!--browser:page for="*" name="dojo-example.html"
+    template="browser/templates/dojo-example.pt" permission="zope2.Public" /-->
 
   <adapter provides=".interfaces.IGSSiteInfo"
                 for="zope.app.folder.interfaces.IFolder"
