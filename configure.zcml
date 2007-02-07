@@ -88,9 +88,12 @@
     directory="browser/javascript/crypto/" permission="zope2.Public" />
 
   <!-- Javascript Date Implementations -->
-
   <browser:resourceDirectory name="date"
     directory="browser/javascript/date/" permission="zope2.Public" />
+
+  <!-- Javascript AJAX Pane Loader -->
+  <browser:resourceDirectory name="pane"
+    directory="browser/javascript/pane/" permission="zope2.Public" />
 
   <!-- Colour Schemes -->
   <browser:resourceDirectory name="blueIcons"

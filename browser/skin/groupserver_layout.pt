@@ -50,13 +50,13 @@
     
     <metal:block metal:define-slot="search" />
     
-    <metal:block metal:define-slot="contextnavigation"
+    <!-- <metal:block metal:define-slot="contextnavigation"
       tal:content="structure python:getattr(context, 'contextmenu.xml', getattr(context.Templates.output, 'contextmenu.xml'))(method='html')" />
-    
+    -->
     <div id="content">
-      <div class="breadcrumb" metal:define-slot="breadcrumb"
+<!--      <div class="breadcrumb" metal:define-slot="breadcrumb"
         tal:content="structure python:getattr(context.Templates.output, 'context.xml')(method='html')"/>
-      
+    -->  
       <div id="messages" metal:define-slot="messages"/>
       
       <metal:block metal:define-slot="pagetitle"/>
