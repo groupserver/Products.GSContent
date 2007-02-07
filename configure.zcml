@@ -87,6 +87,11 @@
   <browser:resourceDirectory name="crypto"
     directory="browser/javascript/crypto/" permission="zope2.Public" />
 
+  <!-- Javascript Date Implementations -->
+
+  <browser:resourceDirectory name="date"
+    directory="browser/javascript/date/" permission="zope2.Public" />
+
   <!-- Colour Schemes -->
   <browser:resourceDirectory name="blueIcons"
     directory="browser/images/16x16/blue/" permission="zope2.Public" />
