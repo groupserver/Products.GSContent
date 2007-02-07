@@ -33,10 +33,12 @@
 
   <!-- The Not Found (404) page -->
   <browser:page for="*" name="not_found.html" 
+    class=".view.GSContentView"
     template="browser/templates/not_found.pt" permission="zope2.Public" />
   
   <!-- Unknown Error (500) page -->
   <browser:page for="*" name="unknown_error.html"
+    class=".view.GSContentView"
     template="browser/templates/unknown_error.pt" 
     permission="zope2.Public" />
   
@@ -67,11 +69,6 @@
   
   <five:implements class="Products.FileSystemSite.DirectoryView.DirectoryViewSurrogate"
     interface=".interfaces.IGSContentFolder" />
-
-  <!-- Dojo -->
-  
-  <!--browser:resourceDirectory name="dojo"
-    directory="browser/javascript/dojo/" permission="zope2.Public" /-->
 
   <!-- Prototype and Scriptaculous -->
 
@@ -106,27 +103,6 @@
     directory="browser/images/16x16/yellow/" permission="zope2.Public" />
   <browser:resourceDirectory name="whiteIcons"
     directory="browser/images/16x16/white/" permission="zope2.Public" />
-
-  <!-- Popup Help -->
-  <!--browser:resource name="help.js"
-    file="browser/javascript/groupserverHelp/sideHelp.js" 
-    permission="zope2.Public" />
-  <browser:resource name="popupHelp.js"
-    file="browser/javascript/groupserverHelp/groupserverHelp.js" 
-    permission="zope2.Public" />
-  <browser:resource name="popupHelp.css"
-    file="browser/stylesheets/dojo-floating-pane.css" 
-    permission="zope2.Public" />
-  <browser:resource name="help.css"
-    file="browser/stylesheets/sideHelp.css" 
-    permission="zope2.Public" />
-  <browser:resource name="helpClose.png"
-    file="browser/images/helpImages/22x22/floating-pane-close.png" 
-    permission="zope2.Public" /-->
-  
-  <!-- test -->
-  <!--browser:page for="*" name="dojo-example.html"
-    template="browser/templates/dojo-example.pt" permission="zope2.Public" /-->
 
   <adapter provides=".interfaces.IGSSiteInfo"
                 for="zope.app.folder.interfaces.IFolder"

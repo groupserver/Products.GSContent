@@ -4,12 +4,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
   xmlns:metal="http://xml.zope.org/namespaces/metal"
   xmlns:tal="http://xml.zope.org/namespaces/tal"
-  metal:use-macro="context/++skin++groupserver_fullpage_skin/@@groupserver_layout/page">
+  metal:use-macro="context/@@groupserver_site_home_layout/page">
   <head>
   	<title metal:fill-slot="title">
-      OnlineGroups.Net: Unexpected Error
+      Unexpected Error
     </title>
-    
     <tal:block metal:fill-slot="metadata">
       <meta name="author" content="OnlineGroups.Net" />
       <meta name="description" 

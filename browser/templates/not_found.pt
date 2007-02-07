@@ -4,30 +4,46 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
   xmlns:metal="http://xml.zope.org/namespaces/metal"
   xmlns:tal="http://xml.zope.org/namespaces/tal"
-  metal:use-macro="context/++skin++groupserver_fullpage_skin/@@groupserver_layout/page">
-  <head>
-  	<title metal:fill-slot="title">
-      OnlineGroups.Net: Page Not Found
-    </title>
-    
-    <tal:block metal:fill-slot="metadata">
-      <meta name="author" content="OnlineGroups.Net" />
-      <meta name="description" content="Page not found page" />
-    </tal:block>
-    
-	</head>
-  <body>
-    <div metal:fill-slot="body">
-      <h1>Page Not Found</h1>
-      <p>
-        The page you were looking for was not found. 
-        It's likely that this is just an accident, but if you received the
-        link via email, please check it carefully. 
-        If you still are unable to access the page you were 
-        looking for, please contact 
-        <a title="OnlineGroups.Net Support Email" class="email"
-          href="mailto:support@onlinegroups.net">support@onlinegroups.net</a>.
-      </p>
-    </div>
-  </body>
+  tal:define="site context/Scripts/get/division_object;
+  siteName python:view.siteInfo.get_name()">
+  <tal:block metal:use-macro="context/@@groupserver_site_home_layout/page">
+    <head>
+      <title metal:fill-slot="title">
+        <span tal:replace="siteName"/>: Page Not Found
+      </title>
+      
+      <tal:block metal:fill-slot="metadata">
+        <meta name="author" content="OnlineGroups.Net" />
+        <meta name="description" content="Page not found page" />
+      </tal:block>
+      
+    </head>
+    <body>
+      <div metal:fill-slot="externallinks" />
+      <div metal:fill-slot="sitenavigation" id="sitenavigation">
+        <ul>
+          <li>
+            <a href="/">Home</a>
+          </li>
+        </ul>
+      </div>
+      <div metal:fill-slot="contextnavigation" />
+      <div metal:fill-slot="breadcrumb" />
+      <div metal:fill-slot="footer"/>
+      
+      <div metal:fill-slot="body">
+        <h1>Page Not Found</h1>
+        <p>
+          The page you were looking for was not found. 
+          It's likely that this is just an accident, but if you received
+          the link in an email message, please check it carefully. 
+          If you still are unable to access the page you were 
+          looking for, please contact 
+          <a title="Email OnlineGroups.Net Support"
+            href="mailto:support@onlinegroups.net"
+            class="email">support@onlinegroups.net</a>.
+        </p>
+      </div>
+    </body>
+  </tal:block>
 </html>
