@@ -116,9 +116,6 @@
           <div tal:condition="python:hasattr(context.aq_explicit, 'models')"
             tal:replace="structure python:getattr(context, 'models')(method='html')"/>
         </div>
-
-        <div id="replacedHelpPane" 
-          style="width: 0px; height: 0px;">&#160;</div>
         
         <div id="content"
           tal:replace="structure python:getattr(context, 'content_en')(method='html', siteName=view.siteInfo.get_name())">

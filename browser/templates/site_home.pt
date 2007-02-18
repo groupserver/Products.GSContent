@@ -69,8 +69,6 @@
     <tal:block metal:fill-slot="style">
       <style tal:condition="python:hasattr(context, 'style.xml')"
         tal:replace="structure python:getattr(context, 'style.xml')(method='html')"/>
-      <link rel="stylesheet" title="Popup-Help Stylesheet" type="text/css" 
-        href="/++resource++help.css"/>
     </tal:block>
   </head>
   
@@ -103,9 +101,7 @@
             value="get"/>
         </div>
       </form>
-      <div id="replacedHelpPane" 
-        style="width: 0px; height: 0px;">&#160;</div>
-      
+
       <div id="content"
         tal:replace="structure python:getattr(context, 'content_en')(method='html', siteName=view.siteInfo.get_name())">
         This should never be seen.
