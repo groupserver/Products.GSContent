@@ -21,9 +21,11 @@
         href="/PresentationCustom/Tofu/Common/css/globalstyle.css" />
     <link rel="stylesheet" type="text/css" media="print"
         href="/Presentation/Tofu/Common/css/print.css" />
+    <link rel="stylesheet" type="text/css" media="handheld"
+        href="/Presentation/Tofu/Common/css/handheld.css" />
     
     <metal:block define-slot="style" />
-    <!-- <link rel="stylesheet" type="text/css" href="/++resource++local.css"/>  -->
+    
     <base tal:attributes="href string:${request/URL1}/" />
   </head>
   <body 
