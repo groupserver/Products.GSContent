@@ -20,7 +20,7 @@
 
   <browser:page for=".interfaces.IGSFullPageContentFolder" name="index.html"
     class=".view.GSContentView"
-    template="browser/templates/standard.pt" permission="zope2.View" />
+    template="browser/templates/site_home.pt" permission="zope2.View" />
     
   <browser:page for=".interfaces.IGSContentFolder" name="raw.html"
     class=".view.GSContentView"
