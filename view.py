@@ -130,23 +130,25 @@ class GSContentView(Products.Five.BrowserView):
             model, instance = submit.split('+')
             model = form.get('model_override', model)
             
+            localScripts = self.context.LocalScripts.forms  
             oldScripts = self.context.Scripts.forms
-            if hasattr(oldScripts, model):
-                modelDir = getattr(oldScripts, model)
+            
+            modelDir = getattr(localScripts, model, 
+                               getattr(oldScripts, model, None))
+            if modelDir:
                 if hasattr(modelDir, instance):
                     script = getattr(modelDir, instance)
                     assert script
                     retval = script()
-                    #retval['form'] = form
                     return retval
                 else:
                     m = """<p>Could not find the instance
-                           <code>%s</code></p>.""" % instance
+                           <code>%s</code>.</p>""" % instance
                     result['error'] = True
                     result['message'] = m
             else:
                 m = """<p>Could not find the model 
-                       <code>%s</code></p>.""" % model
+                       <code>%s</code>.</p>""" % model
                 result['error'] = True
                 result['message'] = m
             assert result.has_key('error')
