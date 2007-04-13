@@ -26,6 +26,10 @@
     class=".view.GSContentView"
     template="browser/templates/non_standard.pt" permission="zope2.View" />
 
+  <browser:defaultView for=".interfaces.IGSContentFolder" name="index.html"/>
+
+  <five:defaultViewable class="OFS.Folder.Folder"/>
+
   <!--Site homepage-->
   <browser:page for=".interfaces.IGSSiteFolder" name="index.html"
     class=".view.GSContentView"
