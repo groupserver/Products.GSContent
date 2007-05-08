@@ -13,4 +13,12 @@ class IGSSiteFolder(Interface):
 
 class IGSSiteInfo(Interface):
     pass
-    
+
+class IGSGroupInfo(Interface):
+    def get_id():
+        """Get the ID of the group"""
+    def get_name():
+        """Get the name of the group"""
+    def get_url():
+        """Get the URL of the group"""
+
