@@ -114,6 +114,12 @@ class GSSiteInfo:
             retval = '/%s' % self.siteObj.absolute_url(1)
 
         return retval
+        
+    def get_path(self):
+        retval = ''
+        retval = '/'.join(self.siteObj.getPhysicalPath())
+        assert len(retval) >= 1
+        return retval
 
 class GSContentView(Products.Five.BrowserView):
     '''View object for standard GroupServer content objects'''
