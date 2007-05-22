@@ -78,6 +78,6 @@ class GSGroupInfo(object):
     def get_url(self):
         retval = '%s/groups' % self.siteInfo.get_url()
         if self.group_exists():
-            retval = '%s/%s' % (retval, self.getId)
+            retval = '%s/%s' % (retval, self.groupObj.getId())
         return retval
 
