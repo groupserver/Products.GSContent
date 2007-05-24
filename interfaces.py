@@ -22,3 +22,13 @@ class IGSGroupInfo(Interface):
     def get_url():
         """Get the URL of the group"""
 
+class IGSGroupsInfo(Interface):
+    def get_visible_group_ids():
+        """Get the IDs of Visible Groups
+        
+        ARGUMENTS
+            None.
+            
+        RETURNS
+            A list of strings, representing the IDs of visible groups.
+        """
