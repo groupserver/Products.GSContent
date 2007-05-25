@@ -121,9 +121,9 @@
                 permission="zope2.Public"
                 factory=".groupsInfo.GSGroupsInfo"/>
                 
-  <!--utility factory=".groupInfo.GSGroupInfoFactory"
+  <utility factory=".groupInfo.GSGroupInfoFactory"
     name="groupserver.GroupInfo"
-    permission="zope.Public"/-->
+    permission="zope.Public"/>
     
   <adapter provides=".interfaces.IGSGroupInfo"
                 for="zope.app.folder.interfaces.IFolder"

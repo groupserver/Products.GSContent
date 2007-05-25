@@ -67,6 +67,5 @@ class GSGroupsInfo(object):
 
     def filter_visible_group_ids(self, gIds):
         visibleGroupIds = self.get_visible_group_ids()
-        print visibleGroupIds
         return [g for g in gIds if (g in visibleGroupIds)]
 

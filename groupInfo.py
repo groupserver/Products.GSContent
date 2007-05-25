@@ -1,8 +1,46 @@
 import zope.interface
-from interfaces import IGSSiteInfo, IGSGroupInfo
+import zope.interface 
+from zope.interface import implements, implementedBy
+from zope.component import adapts
+from zope.app.folder.interfaces import IFolder
+from interfaces import IGSSiteInfo, IGSGroupsInfo, IGSGroupInfo
+from zope.component.interfaces import IFactory
+
+class GSGroupInfoFactory(object):
+    implements(IFactory)
+    
+    title = u'GroupServer Group Info Factory'
+    descripton = u'Create a new GroupServer group information instance'
+    
+    def __call__(self, context, groupId=None):
+        retval = None
+        if groupId:
+            group = self.__get_group_object_by_id(context, groupId)
+            retval = GSGroupInfo(group)
+        else:
+            retval = GSGroupInfo(context)
+        return retval
+        
+    def getInterfaces(self):
+        retval = implementedBy(GSGroupInfo)
+        assert retval
+        return retval
+        
+    #########################################
+    # Non-Standard methods below this point #
+    #########################################
+
+    def __get_group_object_by_id(self, context, groupId):
+        groupsInfo = IGSGroupsInfo(context)
+        assert hasattr(groupsInfo.groupsObj, groupId),\
+          'No group with the ID %s' % groupId
+        retval = getattr(groupsInfo.groupsObj, groupId)
+        print retval
+        return retval
 
 class GSGroupInfo(object):
-    zope.interface.implements( IGSGroupInfo )
+    implements( IGSGroupInfo )
+    adapts( IFolder )
     
     def __init__(self, context, groupId=None):
         self.context=context
@@ -46,15 +84,18 @@ class GSGroupInfo(object):
         retval = None
         
         group_object = self.context
-        while group_object:
-            try:
-                group_object = group_object.aq_parent
-                if getattr(group_object.aq_inner.aq_explicit, 'is_group', 0):
+        if getattr(group_object.aq_inner.aq_explicit, 'is_group', False):
+            retval = group_object
+        else:
+            while group_object:
+                try:
+                    group_object = group_object.aq_parent
+                    if getattr(group_object.aq_inner.aq_explicit, 'is_group', False):
+                        break
+                except:
                     break
-            except:
-                break
         try:
-            if getattr(group_object.aq_inner.aq_explicit, 'is_group', 0):
+            if getattr(group_object.aq_inner.aq_explicit, 'is_group', False):
                 retval = group_object.aq_inner.aq_explicit
         except:
             pass
@@ -80,4 +121,9 @@ class GSGroupInfo(object):
         if self.group_exists():
             retval = '%s/%s' % (retval, self.groupObj.getId())
         return retval
+        
+    def get_property(self, prop, default=None):
+        assert self.groupObj, 'Group instance does not exist\n'\
+          'Context %s\nID %s' % (self.context, self.groupId)
+        return self.groupObj.get_property(prop, default)
 
