@@ -125,5 +125,6 @@ class GSGroupInfo(object):
     def get_property(self, prop, default=None):
         assert self.groupObj, 'Group instance does not exist\n'\
           'Context %s\nID %s' % (self.context, self.groupId)
-        return self.groupObj.get_property(prop, default)
+        print 'get_property %s' % self.groupObj
+        return self.groupObj.getProperty(prop, default)
 
