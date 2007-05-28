@@ -35,7 +35,6 @@ class GSGroupInfoFactory(object):
         assert hasattr(groupsInfo.groupsObj, groupId),\
           'No group with the ID %s' % groupId
         retval = getattr(groupsInfo.groupsObj, groupId)
-        print retval
         return retval
 
 class GSGroupInfo(object):
@@ -125,6 +124,5 @@ class GSGroupInfo(object):
     def get_property(self, prop, default=None):
         assert self.groupObj, 'Group instance does not exist\n'\
           'Context %s\nID %s' % (self.context, self.groupId)
-        print 'get_property %s' % self.groupObj
         return self.groupObj.getProperty(prop, default)
 
