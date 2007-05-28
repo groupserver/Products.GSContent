@@ -110,6 +110,10 @@
   <browser:resourceDirectory name="whiteIcons"
     directory="browser/images/16x16/white/" permission="zope2.Public" />
 
+  <utility factory=".view.GSSiteInfoFactory"
+    name="groupserver.SiteInfo"
+    permission="zope.Public"/>
+
   <adapter provides=".interfaces.IGSSiteInfo"
                 for="zope.app.folder.interfaces.IFolder"
                 permission="zope2.Public"

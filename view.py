@@ -1,12 +1,29 @@
 '''GroupServer-Content View Class
 '''
-import sys, re, datetime, time
-import Products.Five, DateTime, Globals
+import Globals
+from Products.Five import BrowserView
 from Products.Five.browser.pagetemplatefile import ZopeTwoPageTemplateFile
-import zope.interface
+from zope.interface import implements
+from zope.component.interfaces import IFactory
 import Products.GSContent.interfaces
 
 from interfaces import IGSSiteInfo
+
+class GSSiteInfoFactory(object):
+    implements(IFactory)
+    
+    title = u'GroupServer Site Info Factory'
+    descripton = u'Create a new GroupServer site information instance'
+    
+    def __call__(self, context):
+        retval = None
+        retval = GSSiteInfo(context)
+        return retval
+        
+    def getInterfaces(self):
+        retval = implementedBy(GSSiteInfo)
+        assert retval
+        return retval
 
 class GSSiteInfo:
     """An implementation of the GroupServer Site Information Interface
@@ -14,7 +31,7 @@ class GSSiteInfo:
     This adaptor provides information about the site, based on the context
     of the object.
     """
-    zope.interface.implements( IGSSiteInfo )
+    implements( IGSSiteInfo )
     def __init__(self, context):
         """Create an GSSiteInfo instance.
         
@@ -121,7 +138,7 @@ class GSSiteInfo:
         assert len(retval) >= 1
         return retval
 
-class GSContentView(Products.Five.BrowserView):
+class GSContentView(BrowserView):
     '''View object for standard GroupServer content objects'''
     def __init__(self, context, request):
         self.context = context
@@ -170,14 +187,14 @@ class GSContentView(Products.Five.BrowserView):
 
     # To be converted: Scripts.get_firstLevelFolder(context)
 
-class GSNotFoundError(Products.Five.BrowserView):
+class GSNotFoundError(BrowserView):
     index = ZopeTwoPageTemplateFile('browser/templates/not_found.pt')
     # make the template publishable
     def __call__(self, *args, **kw):
         self.request.response.setStatus(404)
         return self.index(self, *args, **kw)
 
-class GSUnknownError(Products.Five.BrowserView):
+class GSUnknownError(BrowserView):
    index = ZopeTwoPageTemplateFile('browser/templates/unknown_error.pt')
    def __call__(self, *args, **kw):
        # should this really be a 500, that suggests a server error?
