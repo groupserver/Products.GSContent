@@ -1,7 +1,7 @@
 import zope.interface
 import zope.interface 
 from zope.interface import implements, implementedBy
-from zope.component import adapts
+from zope.component import adapts, createObject
 from zope.app.folder.interfaces import IFolder
 from interfaces import IGSSiteInfo, IGSGroupsInfo, IGSGroupInfo
 from zope.component.interfaces import IFactory
@@ -44,7 +44,7 @@ class GSGroupInfo(object):
     def __init__(self, context, groupId=None):
         self.context=context
         self.groupId = groupId
-        self.siteInfo = IGSSiteInfo(context)
+        self.siteInfo = createObject('groupserver.SiteInfo', self.context)
         self.groupObj = self.__get_group_object()
         
     def __get_group_object(self):

@@ -1,4 +1,7 @@
 from zope.interface.interface import Interface
+from zope.contentprovider.interfaces import IContentProvider
+from zope.schema import *
+
 class IFolder(Interface):
     pass
 
@@ -21,7 +24,6 @@ class IGSGroupInfo(Interface):
         """Get the name of the group"""
     def get_url():
         """Get the URL of the group"""
-
 class IGSGroupsInfo(Interface):
     def get_visible_group_ids():
         """Get the IDs of Visible Groups
@@ -32,3 +34,5 @@ class IGSGroupsInfo(Interface):
         RETURNS
             A list of strings, representing the IDs of visible groups.
         """
+
+
