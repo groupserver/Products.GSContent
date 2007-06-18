@@ -4,6 +4,22 @@ from zope.component import adapts, provideAdapter
 from zope.publisher.interfaces import IRequest
 from interfaces import IGSSiteInfo, IGSGroupsInfo
 from zope.app.folder.interfaces import IFolder
+from zope.component.interfaces import IFactory
+
+class GSGroupsInfoFactory(object):
+    implements(IFactory)
+    
+    title = u'GroupServer Groups Info Factory'
+    descripton = u'Create a new GroupServer groups information instance'
+    
+    def __call__(self, context):
+        retval = GSGroupsInfo(context)
+        return retval
+        
+    def getInterfaces(self):
+        retval = implementedBy(GSGroupsInfo)
+        assert retval
+        return retval
 
 class GSGroupsInfo(object):
     implements( IGSGroupsInfo )

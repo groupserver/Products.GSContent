@@ -120,6 +120,10 @@
                 factory=".view.GSSiteInfo"
                 /> 
 
+  <utility factory=".groupsInfo.GSGroupsInfoFactory"
+    name="groupserver.GroupsInfo"
+    permission="zope.Public"/>
+
   <adapter provides=".interfaces.IGSGroupsInfo"
                 for="zope.app.folder.interfaces.IFolder"
                 permission="zope2.Public"

@@ -3,7 +3,7 @@ import zope.interface
 from zope.interface import implements, implementedBy
 from zope.component import adapts, createObject
 from zope.app.folder.interfaces import IFolder
-from interfaces import IGSSiteInfo, IGSGroupsInfo, IGSGroupInfo
+from interfaces import IGSGroupsInfo, IGSGroupInfo
 from zope.component.interfaces import IFactory
 
 class GSGroupInfoFactory(object):

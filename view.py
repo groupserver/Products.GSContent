@@ -154,7 +154,7 @@ class GSContentView(BrowserView):
             model = form.get('model_override', model)
             
             site_root = self.context.site_root()
-            
+              
             localScripts = site_root.LocalScripts.forms  
             oldScripts = site_root.Scripts.forms
             
