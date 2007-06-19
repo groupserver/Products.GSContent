@@ -98,6 +98,10 @@
   <browser:resourceDirectory name="pane"
     directory="browser/javascript/pane/" permission="zope2.Public" />
 
+  <browser:resourceDirectory name="disclosureButton"
+    directory="browser/javascript/disclosure_button" 
+    permission="zope2.Public" />
+
   <!-- Colour Schemes -->
   <browser:resourceDirectory name="blueIcons"
     directory="browser/images/16x16/blue/" permission="zope2.Public" />
