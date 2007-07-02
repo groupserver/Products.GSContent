@@ -6,6 +6,8 @@ from interfaces import IGSSiteInfo, IGSGroupsInfo
 from zope.app.folder.interfaces import IFolder
 from zope.component.interfaces import IFactory
 
+import AccessControl
+
 class GSGroupsInfoFactory(object):
     implements(IFactory)
     
@@ -62,17 +64,16 @@ class GSGroupsInfo(object):
 
     def get_visible_groups(self):
         if self.__visibleGroups == None:
+            securityManager = AccessControl.getSecurityManager()
+
             allGroups = self.get_all_groups()
             
             # Quite a simple process, really: itterate through all the groups,
             #   checking to see if the "messages" instance is visible.
             visibleGroups = []
             for group in allGroups:
-                try:
-                    group.messages.getId()
-                except:
-                    continue
-                else:
+                if (hasattr(group, 'messages') 
+                  and securityManager.checkPermission('view', group.messages)):
                     visibleGroups.append(group)
             self.__visibleGroups = visibleGroups
         return self.__visibleGroups

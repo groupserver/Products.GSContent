@@ -32,8 +32,7 @@ class GSGroupInfoFactory(object):
 
     def __get_group_object_by_id(self, context, groupId):
         groupsInfo = IGSGroupsInfo(context)
-        assert hasattr(groupsInfo.groupsObj, groupId),\
-          'No group with the ID %s' % groupId
+        assert hasattr(groupsInfo.groupsObj, groupId)
         retval = getattr(groupsInfo.groupsObj, groupId)
         return retval
 
