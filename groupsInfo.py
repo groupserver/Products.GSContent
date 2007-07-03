@@ -73,7 +73,7 @@ class GSGroupsInfo(object):
             visibleGroups = []
             for group in allGroups:
                 if (hasattr(group, 'messages') 
-                  and securityManager.checkPermission('view', group.messages)):
+                  and securityManager.checkPermission('View', group.messages)):
                     visibleGroups.append(group)
             self.__visibleGroups = visibleGroups
         return self.__visibleGroups
