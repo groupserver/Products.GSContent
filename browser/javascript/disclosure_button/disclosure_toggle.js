@@ -74,4 +74,6 @@ function getRealText(text)
     return retval;
 }
 
+/* Add the disclosure buttons to the widgets after the page has loaded */
+Event.observe(window, 'load', addArrowsToDisclosureButtons);
 

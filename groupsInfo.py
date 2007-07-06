@@ -37,8 +37,9 @@ class GSGroupsInfo(object):
         self.__visibleGroups = None
         
     def __get_groups_object(self):
-        assert self.siteInfo
-        assert self.siteInfo.siteObj
+        assert self.siteInfo, 'Site Info is set to %s' % self.siteInfo
+        assert self.siteInfo.siteObj, \
+          'Site Object is %s' % self.siteInfo.siteObj
         
         assert hasattr(self.siteInfo.siteObj, 'groups'), \
           'Site "%s" has not "groups" instance within "Content"' % \
