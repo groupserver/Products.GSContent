@@ -113,7 +113,9 @@
     directory="browser/images/16x16/yellow/" permission="zope2.Public" />
   <browser:resourceDirectory name="whiteIcons"
     directory="browser/images/16x16/white/" permission="zope2.Public" />
-
+  <browser:resourceDirectory name="anim"
+    directory="browser/images/anim/" permission="zope2.Public" />
+    
   <utility factory=".view.GSSiteInfoFactory"
     name="groupserver.SiteInfo"
     permission="zope.Public"/>
