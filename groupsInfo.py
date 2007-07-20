@@ -73,7 +73,8 @@ class GSGroupsInfo(object):
             #   checking to see if the "messages" instance is visible.
             visibleGroups = []
             for group in allGroups:
-                if (hasattr(group, 'messages') 
+                if (hasattr(group, 'messages')
+                  and securityManager.checkPermission('View', group)
                   and securityManager.checkPermission('View', group.messages)):
                     visibleGroups.append(group)
             self.__visibleGroups = visibleGroups
