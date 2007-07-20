@@ -71,7 +71,7 @@
         type="text/javascript">&#160;</script>
     <!-- Grab any javascript that is defined in our context -->
       <span
-        tal:condition="python:hasattr(context, 'javascript.xml')"
+        tal:condition="python:hasattr(context.aq_explicit, 'javascript.xml')"
         tal:replace="structure python:getattr(context, 'javascript.xml')(method='html')"/>
     </tal:block>
     
