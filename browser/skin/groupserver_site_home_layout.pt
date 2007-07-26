@@ -11,8 +11,6 @@
     <metal:block define-slot="title" />    
     <metal:block define-slot="metadata" />
     
-    <metal:block define-slot="javascript" />
-    
     <link rel="stylesheet" type="text/css" 
       href="/Presentation/Tofu/Common/css/globalstyle.css" />
     <link 
@@ -55,6 +53,9 @@
       
       <metal:block define-slot="body" />   
       <div class="noFloat">&#160;</div>
+
+      <metal:block define-slot="javascript" />
+    
       <!--Footer-->
       <metal:block metal:define-slot="footer"
         tal:content="structure python:getattr(context, 'footerlinks.xml', getattr(context.Templates.output, 'footerlinks.xml'))(method='html')" />
