@@ -79,11 +79,11 @@
   <!-- Prototype and Scriptaculous -->
 
   <browser:resourceDirectory name="scriptaculous"
-    directory="browser/javascript/scriptaculous-js-1.7.0/src/" 
+    directory="browser/javascript/scriptaculous-js-1.7.0/src-jsmin/"
     permission="zope2.Public" />
 
   <browser:resourceDirectory name="prototype"
-    directory="browser/javascript/scriptaculous-js-1.7.0/lib/" 
+    directory="browser/javascript/scriptaculous-js-1.7.0/lib-jsmin/" 
     permission="zope2.Public" />
 
   <!-- Javascript Crypto Implementations -->
@@ -99,7 +99,7 @@
     directory="browser/javascript/pane/" permission="zope2.Public" />
 
   <browser:resourceDirectory name="disclosureButton"
-    directory="browser/javascript/disclosure_button" 
+    directory="browser/javascript/disclosure_button-jsmin" 
     permission="zope2.Public" />
 
   <!-- Colour Schemes -->
