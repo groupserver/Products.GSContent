@@ -115,6 +115,10 @@
     directory="browser/images/16x16/white/" permission="zope2.Public" />
   <browser:resourceDirectory name="anim"
     directory="browser/images/anim/" permission="zope2.Public" />
+
+  <browser:resource name="blueSprites.gif"
+    file="browser/images/16x16/all-blue.gif" 
+    permission="zope2.Public" />
     
   <utility factory=".view.GSSiteInfoFactory"
     name="groupserver.SiteInfo"
