@@ -120,6 +120,18 @@
     file="browser/images/16x16/all-blue.gif" 
     permission="zope2.Public" />
     
+  <browser:resource name="greenSprites.gif"
+    file="browser/images/16x16/all-green.gif" 
+    permission="zope2.Public" />
+    
+  <browser:resource name="blackSprites.gif"
+    file="browser/images/16x16/all-black.gif" 
+    permission="zope2.Public" />
+    
+  <browser:resource name="blackSprites.gif"
+    file="browser/images/16x16/all-orange.gif" 
+    permission="zope2.Public" />
+    
   <utility factory=".view.GSSiteInfoFactory"
     name="groupserver.SiteInfo"
     permission="zope.Public"/>
