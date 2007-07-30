@@ -46,7 +46,14 @@
         tal:content="structure python:getattr(context, 'menumain.xml', getattr(context.Templates.output, 'menumain.xml'))(method='html')" />
     </div><!--toparea-->
     
-    <metal:block metal:define-slot="search" />
+    <metal:block metal:define-slot="search">
+      <form  action="/s/index.html" method="get" id="searcharea"
+        encoding="multipart/form-data">
+        <input class="text" title="Text to search for" type="text" 
+          name="s" id="searchTextInput"/> 
+        <input class="button" type="submit" value="Search" />
+      </form>
+    </metal:block>
     
     <div id="divisionHomeContent">
       <metal:block metal:define-slot="pagetitle"/>

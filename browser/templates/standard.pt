@@ -94,7 +94,7 @@
 
     <!-- The body of the document. Most of the body is created from 
       - content_en object in our context, but we also add the One True
-      - Form, which is needed for XForms and Search.
+      - Form, which is needed for XForms
     -->
     <tal:block metal:fill-slot="body">
       <form method="post" action="" 
@@ -102,23 +102,7 @@
         onkeypress="javascript:return keypressEventHandler(this, event)"
         tal:attributes="action python:view.request.URL">
       
-        <!-- Site Search -->
-        <div id="searcharea">
-          <h3>Site Search</h3>
-          <input type="text" class="text" name="sitesearch+query"/>
-          <input type="submit" name="__submit+sitesearch+search" 
-            onclick="submitButtonHandler(this)" value="Go" class="button"/>
-        </div>
-
         <div class="xforms_model">
-          <!-- The site-search model -->
-          <input type="hidden" name="__submit__" value=""/>
-          <input type="hidden" name="__models__" value="sitesearch"/>
-          <input type="hidden" name="__instance+sitesearch+query" value=""/>
-          <input type="hidden" name="__submission_action+sitesearch+search" 
-            value="search_all.xml"/>
-          <input type="hidden" name="__submission_method+sitesearch+search"
-            value="get"/>
           <!-- The page-specific models -->
           <div tal:condition="python:hasattr(context.aq_explicit, 'models')"
             tal:replace="structure python:getattr(context, 'models')(method='html')"/>
