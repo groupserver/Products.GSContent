@@ -97,13 +97,14 @@
       - Form, which is needed for XForms
     -->
     <tal:block metal:fill-slot="body">
-      <form method="post" action="" 
+      <form method="post" action="."
         enctype="application/x-www-form-urlencoded"
         onkeypress="javascript:return keypressEventHandler(this, event)"
         tal:attributes="action python:view.request.URL">
       
         <div class="xforms_model">
           <!-- The page-specific models -->
+          <input type="hidden" name="__submit__" value=""/>
           <div tal:condition="python:hasattr(context.aq_explicit, 'models')"
             tal:replace="structure python:getattr(context, 'models')(method='html')"/>
         </div>
