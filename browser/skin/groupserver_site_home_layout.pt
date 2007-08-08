@@ -12,7 +12,7 @@
     <metal:block define-slot="metadata" />
     
     <link rel="stylesheet" type="text/css" 
-        href="/Presentation/Tofu/Common/css/globalstyle-20070731.css" />
+      href="/Presentation/Tofu/Common/css/globalstyle-20070807.css" />
     <link 
         tal:condition="python: hasattr(context, 'PresentationCustom')"
         rel="stylesheet" type="text/css" 
