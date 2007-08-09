@@ -54,59 +54,26 @@
       - XHTM2, because it has a metadata format that makes sense, unlike 
       - XHTML1.) 
       -->
-    
-    <!-- Grab any javascript that is defined in our context, and also 
-      - load the XForms javascript, which we need for search. -->
-    <tal:block metal:fill-slot="javascript">
-      <!-- Prototype, Scriptaculous, and disclosure buttons -->
-      <script type="text/javascript"
-        src="/++resource++prototype/prototype.js">&#160;</script>
-      <script type="text/javascript"
-          src="/++resource++scriptaculous/scriptaculous.js">&#160;</script>
-      <script src="/++resource++disclosureButton/disclosure_toggle.js" 
-        type="text/javascript">&#160;</script>
-    <!-- Grab any javascript that is defined in our context -->
-      <span
-        tal:condition="python:hasattr(context, 'javascript.xml')"
-        tal:replace="structure python:getattr(context, 'javascript.xml')(method='html')"/>
-    </tal:block>
-    
+        
     <tal:block metal:fill-slot="style">
       <style tal:condition="python:hasattr(context, 'style.xml')"
         tal:replace="structure python:getattr(context, 'style.xml')(method='html')"/>
     </tal:block>
+
+    <tal:block metal:fill-slot="javascript">
+      <!-- Standard GroupServer JavaScript: XForms popup help -->
+      <script type="text/javascript" 
+        src="/Presentation/Tofu/XForms/js/xforms.js">&#160;</script>
+    <!-- Grab any javascript that is defined in our context -->
+      <span
+        tal:condition="python:hasattr(context.aq_explicit, 'javascript.xml')"
+        tal:replace="structure python:getattr(context, 'javascript.xml')(method='html')"/>
+    </tal:block>
+
   </head>
   
   <body>
-    <!-- The body of the document. Most of the body is created from 
-      - content_en object in our context, but we also add the One True
-      - Form, which is needed for XForms and Search.
-    -->
     <tal:block metal:fill-slot="body">
-      <form method="post" action="" 
-        enctype="application/x-www-form-urlencoded"
-        onkeypress="javascript:return keypressEventHandler(this, event)">
-      
-        <!-- Site Search -->
-        <div id="searcharea">
-          <h3>Site Search</h3>
-          <input type="text" class="text" name="sitesearch+query"/>
-          <input type="submit" name="__submit+sitesearch+search" 
-            onclick="submitButtonHandler(this)" value="Go" class="button"/>
-        </div>
-        
-        <div class="xforms_model">
-        <!-- The site-search model -->
-          <input type="hidden" name="__submit__" value=""/>
-          <input type="hidden" name="__models__" value="sitesearch"/>
-          <input type="hidden" name="__instance+sitesearch+query" value=""/>
-          <input type="hidden" name="__submission_action+sitesearch+search" 
-            value="search_all.xml"/>
-          <input type="hidden" name="__submission_method+sitesearch+search"
-            value="get"/>
-        </div>
-      </form>
-
       <div id="content"
         tal:replace="structure python:getattr(context, 'content_en')(method='html', siteName=view.siteInfo.get_name())">
         This should never be seen.

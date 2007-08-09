@@ -69,8 +69,11 @@
       <metal:block define-slot="body" />   
       <div class="noFloat">&#160;</div>
 
+    <script type="text/javascript"
+      src="/++resource++protoculous-20080809.js">&#160;</script>
+    <script type="text/javascript"
+      src="/++resource++disclosureButton/disclosure_toggle.js">&#160;</script>
     <metal:block define-slot="javascript" />
-    
 
       <!--Footer-->
       <metal:block metal:define-slot="footer"
