@@ -12,13 +12,15 @@
     <metal:block define-slot="metadata" />
     
     <link rel="stylesheet" type="text/css" 
-      href="/Presentation/Tofu/Common/css/globalstyle-20070808.css" />
+      href="/++resource++globalstyle-20070809.css" />
     <link 
         tal:condition="python: hasattr(context, 'PresentationCustom')"
         rel="stylesheet" type="text/css" 
         href="/PresentationCustom/Tofu/Common/css/globalstyle.css" />
     <link rel="stylesheet" type="text/css" media="print"
-      href="/Presentation/Tofu/Common/css/print.css" />
+      href="/++resource++print-20070809.css" />
+    <link rel="stylesheet" type="text/css" media="handheld"
+      href="/++resource++handheld-20070809.css" />
     
     <metal:block define-slot="style" />
     
@@ -62,7 +64,7 @@
       <div class="noFloat">&#160;</div>
 
       <script type="text/javascript"
-        src="/++resource++protoculous-20080809.js">&#160;</script>
+        src="/++resource++protoculous-20070809.js">&#160;</script>
       <script type="text/javascript"
         src="/++resource++disclosureButton/disclosure_toggle.js">&#160;</script>
       <metal:block define-slot="javascript" />

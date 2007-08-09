@@ -132,9 +132,20 @@
     file="browser/images/16x16/all-orange.gif" 
     permission="zope2.Public" />
     
-  <browser:resource name="protoculous-20080809.js"
+  <browser:resource name="protoculous-20070809.js"
     file="browser/javascript/protopacked/20070809/files/compressed/protoculous/version (1.5.1.1 + 1.7.1_beta3)/protoculous-shrinkvars.js" 
     permission="zope2.Public" />
+
+  <browser:resource name="globalstyle-20070809.css"
+    file="browser/css/globalstyle-20070809.css" 
+    permission="zope2.Public" />
+  <browser:resource name="print-20070809.css"
+    file="browser/css/print-20070809.css" 
+    permission="zope2.Public" />
+  <browser:resource name="handheld-20070809.css"
+    file="browser/css/handheld-20070809.css" 
+    permission="zope2.Public" />
+
 
   <utility factory=".view.GSSiteInfoFactory"
     name="groupserver.SiteInfo"
