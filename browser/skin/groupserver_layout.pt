@@ -12,7 +12,7 @@
     <metal:block define-slot="metadata" />
     
     <link rel="stylesheet" type="text/css" 
-      href="/++resource++globalstyle-20070809.css" />
+      href="/++resource++globalstyle-20070810.css" />
     <link 
         tal:condition="python: hasattr(context, 'PresentationCustom')"
         rel="stylesheet" type="text/css" 
