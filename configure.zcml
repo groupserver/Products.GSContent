@@ -99,8 +99,8 @@
     permission="zope2.Public" />
 
   <!-- CSS files -->
-  <browser:resource name="globalstyle-20070810a.css"
-    file="browser/css/globalstyle-20070810a.css" 
+  <browser:resource name="globalstyle-20070810b.css"
+    file="browser/css/globalstyle-20070810b.css" 
     permission="zope2.Public" />
   <browser:resource name="print-20070809.css"
     file="browser/css/print-20070809.css" 
