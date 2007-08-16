@@ -347,6 +347,7 @@ form#searcharea {
 #latestTopics .topic, #topics .topic, #posts .topic {
   display: block;
   float: left;
+  margin-right: 0.7em;
 }
 
 .fileName {
