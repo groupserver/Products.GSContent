@@ -449,20 +449,17 @@ ul.contacts li {
 }
 
 /********************/
-/* Multiple columns */
+/* Multiple Columns */
 /********************/
 .cols h2 {
     margin-top: 0px;
 }
 
 .leftColumn {
-    height: 100%;
-    min-height: 30em;
-    width: 40%;
+    padding-right: 60%;
 }
 
 .rightColumn {
-    padding-left: 5%;
     width: 55%;
     float: right;
 }
