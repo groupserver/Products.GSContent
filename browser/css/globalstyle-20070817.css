@@ -291,6 +291,7 @@ fieldset legend {
 }
 #divisionHomeContent {
     left: 30px;
+    padding: 1.39em 0px 0px 0px; /*18px*/
 }
 
 /* Icons in the page */
