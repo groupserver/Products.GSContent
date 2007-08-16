@@ -98,15 +98,9 @@
     directory="browser/javascript/disclosure_button-jsmin" 
     permission="zope2.Public" />
 
-  <!-- CSS files -->
-  <browser:resource name="globalstyle-20070816.css"
-    file="browser/css/globalstyle-20070816.css" 
-    permission="zope2.Public" />
-  <browser:resource name="print-20070809.css"
-    file="browser/css/print-20070809.css" 
-    permission="zope2.Public" />
-  <browser:resource name="handheld-20070809.css"
-    file="browser/css/handheld-20070809.css" 
+  <!-- CSS file -->
+  <browser:resource name="globalstyle-20070817.css"
+    file="browser/css/globalstyle-20070817.css" 
     permission="zope2.Public" />
 
   <!-- Colour Schemes -->
