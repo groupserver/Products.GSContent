@@ -486,7 +486,7 @@ ul.contacts li {
 
 /* Summary for the Latest Topics page */
 #topicsSummary {
-    border-collapse: seperate;
+    border-collapse: separate;
 }
 #topicsSummary .topic, #topicsSummary th.posts, #topicsSummary th.date, #topicsSummary td.posts, #topicsSummary td.date {
     text-align: left;
@@ -1219,7 +1219,7 @@ textarea, input.text {
         #content {
           margin: 0px;
           padding: 0px;
-          position: static
+          position: static;
           width: 100%;
           top: auto;
           right: auto;

@@ -99,7 +99,7 @@
     permission="zope2.Public" />
 
   <!-- CSS file -->
-  <browser:resource name="globalstyle-20070817.css"
+  <browser:resource name="globalstyle-20070817a.css"
     file="browser/css/globalstyle-20070817.css" 
     permission="zope2.Public" />
 
