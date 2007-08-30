@@ -99,8 +99,8 @@
     permission="zope2.Public" />
 
   <!-- CSS file -->
-  <browser:resource name="globalstyle-20070821.css"
-    file="browser/css/globalstyle-20070821.css" 
+  <browser:resource name="globalstyle-20070830.css"
+    file="browser/css/globalstyle-20070830.css" 
     permission="zope2.Public" />
 
   <!-- Colour Schemes -->
