@@ -818,7 +818,7 @@ p#divisionAdminTasks img,  p.divisionAdminTasks img{
 /**********/
 /* Search */
 /**********/
-#latestTopics .topic, #topics .topic, #posts .topic {
+.searchResults .topic, .searchResults .fileName {
   font-size: 108%;
   line-height: 1.29em;
 }
