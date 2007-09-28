@@ -162,4 +162,44 @@
                 permission="zope2.Public"
                 factory=".groupInfo.GSGroupInfo"
                 />
+                
+  <browser:skin name="abel" 
+    layers="abel stdLayout default"/>
+  <browser:skin name="abelStaff" 
+    layers="abelStaff abel stdLayout default"/>
+  <browser:skin name="abelPCE1" 
+    layers="abelPCE1 abel stdLayout default"/>
+  <browser:skin name="abelPASPCE2" 
+    layers="abelPASPCE2 abel stdLayout default"/>
+  <browser:skin name="abelPASResults" 
+    layers="abelPASResults abel stdLayout default"/>
+  <browser:skin name="abelSpecial" 
+    layers="abelSpecial abel stdLayout default"/>
+
+  <browser:skin name="canterburyWater" 
+    layers="canterburyWater abel stdLayout default"/>
+
+  <browser:skin name="tofu" 
+    layers="tofu stdLayout default"/>
+  <browser:skin name="ogs" 
+    layers="tofu stdLayout default"/>
+  <browser:skin name="ogn" 
+    layers="ogn ogs stdLayout default"/>
+  <browser:skin name="cst" 
+    layers="cst stdLayout default"/>
+  <browser:skin name="apapa" 
+    layers="apapa stdLayout default"/>
+  <browser:skin name="eDem" 
+    layers="edem stdLayout default"/>
+  <browser:skin name="playback" 
+    layers="playback stdLayout default"/>
+  <browser:skin name="rgpn" 
+    layers="rgpn stdLayout default"/>
+  <browser:skin name="lgol" 
+    layers="lgol stdLayout default"/>
+  <browser:skin name="doWire"
+    layers="doWire stdLayout default"/>
+  <browser:skin name="derbin" 
+    layers="derbin stdLayout default"/>
+
 </configure>
