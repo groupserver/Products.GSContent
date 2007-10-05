@@ -162,9 +162,4 @@
                 permission="zope2.Public"
                 factory=".groupInfo.GSGroupInfo"
                 />
-
-  <browser:layer name="gsLayout"/>
-
-  <include files="*Skin.zcml"/>
-
 </configure>
