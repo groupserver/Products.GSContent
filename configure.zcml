@@ -81,6 +81,11 @@
     file="browser/javascript/protopacked/20070809/files/compressed/protoculous/version (1.5.1.1 + 1.7.1_beta3)/protoculous-shrinkvars.js" 
     permission="zope2.Public" />
 
+  <!-- Javascript jQuery -->
+  <browser:resource name="jquery-1.2.1.min.js"
+    file="browser/javascript/jquery/jquery-1.2.1.min.js" 
+    permission="zope2.Public" />
+
   <!-- Javascript Crypto Implementations -->
   <browser:resourceDirectory name="crypto"
     directory="browser/javascript/crypto/" permission="zope2.Public" />
