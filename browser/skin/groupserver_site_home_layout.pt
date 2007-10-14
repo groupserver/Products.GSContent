@@ -11,12 +11,19 @@
     <metal:block define-slot="title" />    
     <metal:block define-slot="metadata" />
     
-    <link rel="stylesheet" type="text/css" 
+    <!-- styling typically covering all sites -->
+    <link rel="stylesheet" type="text/css"
       href="/++resource++globalstyle-20070830.css" />
-    <link 
-        tal:condition="python: hasattr(context, 'PresentationCustom')"
-        rel="stylesheet" type="text/css" 
-        href="/PresentationCustom/Tofu/Common/css/globalstyle.css" />
+
+    <!-- styling just covering local customisations to sites -->
+    <link rel="stylesheet" type="text/css"
+      href="/++resource++site-20070830.css" />
+
+    <tal:block
+        tal:condition="python: hasattr(context, 'PresentationCustom')">
+        <!-- now deprecated, but still in use, method for getting local customisations -->
+        <link rel="stylesheet" type="text/css" href="/PresentationCustom/Tofu/Common/css/globalstyle.css" />
+    </tal:block>
 
     <metal:block define-slot="style" />
     

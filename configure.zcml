@@ -29,6 +29,7 @@
   <browser:defaultView for=".interfaces.IGSContentFolder" name="index.html"/>
 
   <five:defaultViewable class="OFS.Folder.Folder"/>
+  <five:defaultViewable class="OFS.OrderedFolder.OrderedFolder"/>
 
   <!--Site homepage-->
   <browser:page for=".interfaces.IGSSiteFolder" 
@@ -106,6 +107,10 @@
   <!-- CSS file -->
   <browser:resource name="globalstyle-20070830.css"
     file="browser/css/globalstyle-20070830.css" 
+    permission="zope2.Public" />
+
+  <browser:resource name="site-20070830.css"
+    file="browser/css/site-20070830.css" 
     permission="zope2.Public" />
 
   <!-- Colour Schemes -->
