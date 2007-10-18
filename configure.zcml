@@ -101,7 +101,7 @@
 
   <!-- JavaScript disclosure button -->
   <browser:resourceDirectory name="disclosureButton"
-    directory="browser/javascript/disclosure_button-jsmin" 
+    directory="browser/javascript/disclosure_button" 
     permission="zope2.Public" />
 
   <!-- CSS file -->

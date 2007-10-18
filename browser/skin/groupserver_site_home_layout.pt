@@ -66,8 +66,8 @@
       <metal:block define-slot="body" />   
       <div class="noFloat">&#160;</div>
 
-      <script type="text/javascript"
-        src="/++resource++protoculous-20070809.js">&#160;</script>
+      <script type="text/javascript" 
+        src="/++resource++jquery-1.2.1.min.js">&#160;</script>
       <script type="text/javascript"
         src="/++resource++disclosureButton/disclosure_toggle.js">&#160;</script>
       <metal:block define-slot="javascript" />

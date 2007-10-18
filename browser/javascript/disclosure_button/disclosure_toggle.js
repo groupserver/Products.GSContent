@@ -1,79 +1,51 @@
 // Functions for handling the disclosure buttons.
-var disclosureHiddenArrow = "\u25b6";
-var disclosureShownArrow = "\u25bc";
-var disclosureNBSP = "\u00a0";
+GSDisclosureButton = function () {
+    /* GroupServer Disclosure Button Module.
+    
+        A disclosure button consists of a 
+    
+        Functions
+        
+        "init"   Add arrows to all the disclosure buttons, and
+                 attach a click callback.
+    */
 
-function showHideDisclosure(widget)
-{
-    var w = $(widget);
-    setToggleArrow(w);
-    showhide = w.getElementsByClassName('disclosureShowHide')[0];
-    Effect.toggle(showhide, 'blind', {duration: 1, delay: 0});
-}
+    // Private variables
+    // Arrows
+    var hiddenArrow = "\u25b6";
+    var shownArrow = "\u25bc";
+    var NBSP = "\u00a0";
+    // Elements of the disclosure widgets
+    var dw = ".disclosureWidget";
+    var db = ".disclosureButton";
+    var dsh = ".disclosureShowHide";
 
-function addArrowsToDisclosureButtons()
-{
-    var i = 0;
-    widgets = document.getElementsByClassName('disclosureWidget');
-    for (i=0; i< widgets.length; i++)
-    {
-        button = widgets[i].getElementsByClassName('disclosureButton')[0];
-        addHiddenArrowToElement(button);
+    // Private methods
+    var buttonClicked = function () {
+        text = jQuery(this).text()
+        coreText = text.substring(2, text.length);
+        arrow = text.substring(0, 1);
+        showHideWidget = jQuery(this).parents(dw).find(dsh)
+        
+        if ( arrow == hiddenArrow ) {
+            jQuery(this).text(shownArrow+NBSP+coreText);
+        } else {
+            jQuery(this).text(hiddenArrow+NBSP+coreText);
+        }
+        showHideWidget.slideToggle("slow");
     }
-}
+    
+    // Public methods and properties
+    return {
+        init: function () {
+            jQuery(db).prepend(hiddenArrow+NBSP);
+            jQuery(db).removeAttr('href').css("cursor","pointer");
+            jQuery(db).click( buttonClicked );
+        }
+    };
+}(); // GSDisclosureButton
 
-function setToggleArrow(w)
-{
-    button = $(w).getElementsByClassName('disclosureButton')[0];
-    if (widgetHidden(w))
-    {
-        addShownArrowToElement(button);
-    }
-    else
-    {
-        addHiddenArrowToElement(button);
-    }
-}
-
-function widgetHidden(widget)
-{
-    var retval = true;
-    var w = $(widget);
-    var showhide = w.getElementsByClassName('disclosureShowHide')[0];
-    var showhideDisplay = showhide.getStyle('display');
-    retval = (showhideDisplay == 'none');
-    return retval;
-}
-
-function addShownArrowToElement(element)
-{
-    var e = $(element);
-    var text  = getRealText(e.childNodes[0].data);
-    e.childNodes[0].data = disclosureShownArrow + disclosureNBSP + text;
-}
-
-function addHiddenArrowToElement(element)
-{
-    var e = $(element);
-    var text  = getRealText(e.childNodes[0].data);
-    e.childNodes[0].data = disclosureHiddenArrow + disclosureNBSP + text;
-}
-
-function getRealText(text)
-{
-    var retval = '';
-    c0 = text.charAt(0);
-    if ((c0 == disclosureHiddenArrow) || (c0 == disclosureShownArrow))
-    {
-        retval = text.substring(2, text.length);
-    }
-    else
-    {
-        retval = text;
-    }
-    return retval;
-}
-
-/* Add the disclosure buttons to the widgets after the page has loaded */
-Event.observe(window, 'load', addArrowsToDisclosureButtons);
+jQuery(document).ready( function () {
+    GSDisclosureButton.init(); 
+});
 
