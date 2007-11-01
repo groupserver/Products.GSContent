@@ -13,7 +13,7 @@
     
     <!-- styling typically covering all sites -->
     <link rel="stylesheet" type="text/css"
-      href="/++resource++globalstyle-20070830.css" />
+      href="/++resource++globalstyle-20071101.css" />
 
     <!-- styling just covering local customisations to sites -->
     <link rel="stylesheet" type="text/css"
@@ -69,7 +69,7 @@
       <script type="text/javascript" 
         src="/++resource++jquery-1.2.1.min.js">&#160;</script>
       <script type="text/javascript"
-        src="/++resource++disclosureButton/disclosure_toggle.js">&#160;</script>
+        src="/++resource++disclosureButton-20071101/disclosure_toggle.js">&#160;</script>
       <metal:block define-slot="javascript" />
     
       <!--Footer-->

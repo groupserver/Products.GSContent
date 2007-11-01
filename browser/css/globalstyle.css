@@ -324,27 +324,29 @@ form#searcharea {
 
 /* Search Results */
 
-#latestTopics ul, #topics ul, #posts ul {
+ul.searchResults {
   margin: 0px 0px 1.4em 0px;
 }
 
-#latestTopics ul li, #topics ul li, #posts ul li {
+ul.searchResults li {
   list-style: none;
   margin-top: 1.4em;
 }
 
-#topics .disclosureWidget ul, #posts .disclosureWidget ul, #topics .disclosureWidget p, #posts .disclosureWidget p {
+.searchResults .disclosureWidget ul, .searchResults .disclosureWidget p {
   margin: 0px;
 }
-#topics .disclosureWidget li, #posts .disclosureWidget li {
+.searchResults .disclosureWidget li {
   margin: 0px 0px 0px 1.4em;
 }
-
-.tags, .metadata, .groupInfo, #posts .email-summary, #latestTopics .disclosureWidget, #topics .disclosureWidget, #posts .disclosureWidget {
+.searchResults .tags ul {
+  margin-left: 0px;
+}
+.tags, .metadata, .groupInfo, .searchResults .email-summary, .searchResults .disclosureWidget {
   padding-left: 1.4em;
 }
 
-#latestTopics .topic, #topics .topic, #posts .topic {
+.searchResults .topic {
   display: block;
   float: left;
   margin-right: 0.7em;
@@ -630,6 +632,14 @@ table#results th.file {
     height: 20em;
 }
 
+/**************/
+/* Popup Help */
+/**************/
+.popup-help {
+  float: right;
+  width: 15em;
+}
+
 /************************************************************************/
 /*                    ABEL-Specific Style                               */
 /************************************************************************/
@@ -816,7 +826,7 @@ p#divisionAdminTasks img,  p.divisionAdminTasks img{
 /**********/
 /* Search */
 /**********/
-#latestTopics .topic, #topics .topic, #posts .topic {
+.searchResults .topic, .searchResults .fileName {
   font-size: 108%;
   line-height: 1.29em;
 }
@@ -1119,6 +1129,16 @@ textarea, input.text {
 .postList {
     border-bottom: thick solid #41638B;
 }
+
+/**************/
+/* Popup Help */
+/**************/
+.popup-help h3 {
+    line-height: 1.39em; /* 18px */
+    border-bottom: thin solid #41638B;
+    margin: 0px;
+}
+
 
 @media print {
         /***************************************************************/
