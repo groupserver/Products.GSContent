@@ -211,11 +211,13 @@ fieldset legend {
     line-height: 26px;
 }
 
-/* Site Navigation Menu Icons */
+/* Site Navigation Menu 
+ */
 
 #Home-menu-link, #Resources-menu-link, #Groups-menu-link,
 #Feedback-menu-link, #Results-menu-link, #Help-menu-link, 
-#log-out-link, #profile-link, #About-menu-link {
+#log-out-link, #profile-link, #About-menu-link, #Blog-menu-link,
+#GroupServer-menu-link, #Download-menu-link {
     padding: 0px 0px 0px 18px;
     background-repeat: no-repeat;
 }
@@ -295,7 +297,7 @@ fieldset legend {
 }
 
 /* Icons in the page */
-.ziplink, .pdflink, .excellink, .imagelink, .powerpoint,
+.ziplink, .pdflink, .excellink, .imagelink, .powerpoint, .tel, .email,
 .textlink, .wordlink, .weblink, .rsslink, .atomlink, .alternateATOM {
     padding: 0px 0px 0px 18px;
     background-repeat: no-repeat;
@@ -640,6 +642,37 @@ table#results th.file {
   width: 15em;
 }
 
+/****************/
+/* Microformats */
+/****************/
+
+.vcard div.org, .vcard .email, .vcard .adr * {
+  display: block;
+}
+.vcard span.org {
+  display: inline;
+}
+
+.vcard .org, .vcard .email, .vcard .adr {
+  margin: 1em 0em 1em 0em;
+}
+
+.vcard .type {
+  text-transform: capitalize;
+  border: none;
+}
+
+.vcard .adr * {
+    padding-left: 1.4em;
+}
+.vcard .adr .type {
+    padding-left: 0px;
+}
+
+.tel {
+  font-family: monospace;
+  }
+
 /************************************************************************/
 /*                    ABEL-Specific Style                               */
 /************************************************************************/
@@ -767,60 +800,72 @@ p#divisionAdminTasks img,  p.divisionAdminTasks img{
 /* Site Navigation Menu Icons */
 
 #Home-menu-link {
-    background: url("/++resource++blueSprites.gif") no-repeat 0px 0px;
+    background: url("/++resource++blueSprites-20071109.gif") no-repeat 0px 0px;
 }
 #Resources-menu-link {
-    background: url("/++resource++blueSprites.gif") no-repeat 0px -64px;
+    background: url("/++resource++blueSprites-20071109.gif") no-repeat 0px -64px;
 }
 #Groups-menu-link {
-    background: url("/++resource++blueSprites.gif") no-repeat 0px -128px;
+    background: url("/++resource++blueSprites-20071109.gif") no-repeat 0px -128px;
 }
-#Feedback-menu-link {
-    background: url("/++resource++blueSprites.gif") no-repeat 0px -256px;
+#Feedback-menu-link, #Blog-menu-link {
+    background: url("/++resource++blueSprites-20071109.gif") no-repeat 0px -256px;
 }
 #Results-menu-link {
-    background: url("/++resource++blueSprites.gif") no-repeat 0px -224px;
+    background: url("/++resource++blueSprites-20071109.gif") no-repeat 0px -224px;
 }
 #Help-menu-link {
-    background: url("/++resource++blueSprites.gif") no-repeat 0px -96px;
+    background: url("/++resource++blueSprites-20071109.gif") no-repeat 0px -96px;
 }
 #log-out-link {
-    background: url("/++resource++blueSprites.gif") no-repeat 0px -192px;
+    background: url("/++resource++blueSprites-20071109.gif") no-repeat 0px -192px;
 }
 #profile-link {
-    background: url("/++resource++blueSprites.gif") no-repeat 0px -160px;
+    background: url("/++resource++blueSprites-20071109.gif") no-repeat 0px -160px;
 }
 #About-menu-link {
-    background: url("/++resource++blueSprites.gif") no-repeat 0px -32px;
+    background: url("/++resource++blueSprites-20071109.gif") no-repeat 0px -32px;
+}
+#Download-menu-link {
+    background: url("/++resource++blueSprites-20071109.gif") no-repeat 0px -623px;
+}
+#GroupServer-menu-link  {
+    background: url("/++resource++blueSprites-20071109.gif") no-repeat 0px -592px;
 }
 
-/* Icons for in the pge */
+/* Icons for in the page */
 .ziplink {
-    background: url("/++resource++blueSprites.gif") no-repeat 0px -400px;
+    background: url("/++resource++blueSprites-20071109.gif") no-repeat 0px -400px;
 }
 .pdflink {
-    background: url("/++resource++blueSprites.gif") no-repeat 0px -560px;
+    background: url("/++resource++blueSprites-20071109.gif") no-repeat 0px -560px;
 }
 .excellink {
-    background: url("/++resource++blueSprites.gif") no-repeat 0px -304px;
+    background: url("/++resource++blueSprites-20071109.gif") no-repeat 0px -304px;
 }
 .imagelink {
-    background: url("/++resource++blueSprites.gif") no-repeat 0px -528px;
+    background: url("/++resource++blueSprites-20071109.gif") no-repeat 0px -528px;
 }
 .powerpoint {
-    background: url("/++resource++blueSprites.gif") no-repeat 0px -432px;
+    background: url("/++resource++blueSprites-20071109.gif") no-repeat 0px -432px;
 }
 .textlink {
-    background: url("/++resource++blueSprites.gif") no-repeat 0px -368px;
+    background: url("/++resource++blueSprites-20071109.gif") no-repeat 0px -368px;
 }
 .wordlink {
-    background: url("/++resource++blueSprites.gif") no-repeat 0px -464px;
+    background: url("/++resource++blueSprites-20071109.gif") no-repeat 0px -464px;
 }
 .weblink {
-    background: url("/++resource++blueSprites.gif") no-repeat 0px -496px;
+    background: url("/++resource++blueSprites-20071109.gif") no-repeat 0px -496px;
 }
 .rsslink, .atomlink, .alternateATOM {
-    background: url("/++resource++blueSprites.gif") no-repeat 0px -336px;
+    background: url("/++resource++blueSprites-20071109.gif") no-repeat 0px -336px;
+}
+.tel {
+    background: url("/++resource++blueSprites-20071109.gif") no-repeat 0px -655px;
+}
+.email {
+    background: url("/++resource++blueSprites-20071109.gif") no-repeat 0px -687px;
 }
 
 /**********/
@@ -1001,9 +1046,15 @@ p#divisionAdminTasks img,  p.divisionAdminTasks img{
 /*********/
 /* Forms */
 /*********/
-textarea, input.text {
+textarea, input.text, .text input, .password input {
   font: 114% monospace;
+  width: 32em;
 }
+.required label:before {
+  content: '*';
+  color: red;
+}
+
 .hint {
     font-size: 85%; /*11px*/
     font-style: italic;
@@ -1189,7 +1240,11 @@ textarea, input.text {
         #topicNavigation, #postsNavigation, #usefulLinks, table#results, #singlePostTopicNavigation, #posting,  #toggleStickyTopic {
             display: none;
           }
-}
+          
+        .disclosureShowHide {
+            display: block;
+        }
+}/*END print stylesheet*/
 
 @media handheld {
         /***************************************************************/

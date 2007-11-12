@@ -105,43 +105,35 @@
     permission="zope2.Public" />
 
   <!-- CSS file -->
-  <browser:resource name="globalstyle-20071101.css"
+  <browser:resource name="globalstyle-20071113.css"
     file="browser/css/globalstyle.css" 
     permission="zope2.Public" />
 
-  <browser:resource name="site-20070830.css"
-    file="browser/css/site-20070830.css" 
+  <browser:resource name="site-20071113.css"
+    file="browser/css/site.css" 
     permission="zope2.Public" />
 
   <!-- Colour Schemes -->
-  <browser:resourceDirectory name="blueIcons"
-    directory="browser/images/16x16/blue/" permission="zope2.Public" />
-  <browser:resourceDirectory name="greenIcons"
-    directory="browser/images/16x16/green/" permission="zope2.Public" />
-  <browser:resourceDirectory name="blackIcons"
-    directory="browser/images/16x16/black/" permission="zope2.Public" />
-  <browser:resourceDirectory name="yellowIcons"
-    directory="browser/images/16x16/yellow/" permission="zope2.Public" />
-  <browser:resourceDirectory name="whiteIcons"
-    directory="browser/images/16x16/white/" permission="zope2.Public" />
-  <browser:resourceDirectory name="anim"
-    directory="browser/images/anim/" permission="zope2.Public" />
-
-  <browser:resource name="blueSprites.gif"
+  <browser:resource name="blueSprites-20071113.gif"
     file="browser/images/16x16/all-blue.gif" 
     permission="zope2.Public" />
     
-  <browser:resource name="greenSprites.gif"
+  <browser:resource name="greenSprites-20071113.gif"
     file="browser/images/16x16/all-green.gif" 
     permission="zope2.Public" />
     
-  <browser:resource name="blackSprites.gif"
+  <browser:resource name="blackSprites-20071113.gif"
     file="browser/images/16x16/all-black.gif" 
     permission="zope2.Public" />
     
-  <browser:resource name="orangeSprites.gif"
+  <browser:resource name="orangeSprites-20071113.gif"
     file="browser/images/16x16/all-orange.gif" 
     permission="zope2.Public" />
+
+  <browser:resource name="whiteSprites-20071113.gif"
+    file="browser/images/16x16/all-white.gif" 
+    permission="zope2.Public" />
+
     
   <!-- Factories -->
   <utility factory=".view.GSSiteInfoFactory"
