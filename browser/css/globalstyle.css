@@ -349,6 +349,7 @@ ul.searchResults li {
 }
 
 .searchResults .topic {
+  font-weight: bold;
   display: block;
   float: left;
   margin-right: 0.7em;
@@ -382,6 +383,10 @@ ul.searchResults li {
 .tags ul li {
   list-style: none;
   padding: 0px 1.4em 0px 0px;
+}
+
+.postCount {
+  font-weight: bold;
 }
 
 #searchInput {
