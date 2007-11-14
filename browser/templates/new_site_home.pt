@@ -7,7 +7,7 @@
   metal:use-macro="context/@@groupserver_layout/page">
   <head>
     <title metal:fill-slot="title">
-      Foo
+      <title tal:replace="view/siteInfo/get_name">Site Name</title>
     </title>      
 
     <meta name="title" content="Standard Template for Search"/>
