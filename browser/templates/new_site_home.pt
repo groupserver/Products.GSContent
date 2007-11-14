@@ -33,7 +33,7 @@
         <ul tal:define="groups view/groupsInfo/get_visible_groups">
           <tal:block tal:repeat="group groups">
             <li>
-              <a tal:attributes="href string:/groups/${group/title_or_id}"
+              <a tal:attributes="href string:/groups/${group/getId}"
                 tal:content="group/title_or_id"
                 href="#">Group Name</a>
             </li>
