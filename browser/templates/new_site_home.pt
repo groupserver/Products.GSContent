@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" 
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:tal="http://xml.zope.org/namespaces/tal"
+  xmlns:metal="http://xml.zope.org/namespaces/metal"
+  metal:use-macro="context/@@groupserver_layout/page">
+  <head>
+    <title metal:fill-slot="title">
+      Foo
+    </title>      
+
+    <meta name="title" content="Standard Template for Search"/>
+    <meta name="author" content="Michael JasonSmith" />
+    <meta name="description" 
+      content="This template is used to render the search page on GroupServer" 
+    />
+    <meta name="date" content="2007-04-26"/>
+    <tal:block metal:fill-slot="style"> 
+      <style type="text/css">
+        .groupInfo, .tags, .email-summary, .metadata {
+          clear: left; 
+        }
+      </style>
+    </tal:block>
+  </head>
+  <body>
+    <tal:block metal:fill-slot="contextnavigation">
+      <div id="contextnav" class="xhtml2-nl">
+        <p class="label">
+          <a href="/groups">Groups</a>
+        </p>
+        <ul tal:define="groups view/groupsInfo/get_visible_groups">
+          <tal:block tal:repeat="group groups">
+            <li>
+              <a tal:attributes="href string:/groups/${group/title_or_id}"
+                tal:content="group/title_or_id"
+                href="#">Group Name</a>
+            </li>
+          </tal:block>
+        </ul>
+      </div>
+    </tal:block>  
+    <tal:blocl metal:fill-slot="breadcrumb"/>
+    <tal:block metal:fill-slot="body">
+      <div class="cols">
+        <div class="rightColumn">
+         <span tal:replace="structure here/introduction" />
+        </div><!--rightColumn-->
+        <div class="leftColumn">
+          <h2>Latest Topics</h2>
+          <div id="latestTopics">Loading the latest topics list 
+            <img src="/++resource++anim/wait.gif"/>
+          </div>
+          <p>
+            <a title="Latest 20 topics on this site"
+              href="/s/index.html?t=1&amp;p=0&amp;f=0&amp;r=0&amp;l=20">More 
+              topics&#8230;</a>
+          </p>
+        </div><!--leftColumn-->
+      </div>
+    </tal:block>
+    <tal:block metal:fill-slot="javascript">
+      <script type="text/javascript">
+        jQuery.noConflict();
+        var uri = "/s/search.ajax?i=0&amp;l=8&amp;";
+        jQuery("#latestTopics").load(uri);
+      </script>
+    </tal:block>
+  </body>
+</html>

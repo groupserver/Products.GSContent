@@ -14,6 +14,9 @@ class IGSFullPageContentFolder(Interface):
 class IGSSiteFolder(Interface):
     pass
 
+class IGSSiteHomepageFolder(IGSSiteFolder):
+    pass
+
 class IGSSiteInfo(Interface):
     pass
 

@@ -38,6 +38,13 @@
     template="browser/templates/site_home.pt" 
     permission="zope2.View" />
 
+  <browser:page for=".interfaces.IGSSiteHomepageFolder"
+    name="index.html"
+    class=".view.GSSiteHomepageView"
+    template="browser/templates/new_site_home.pt"
+    permission="zope.Public" />
+
+
   <!-- The Not Found (404) page -->
   <browser:page for="*" name="not_found.html" 
     class=".view.GSContentView"

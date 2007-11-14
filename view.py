@@ -3,6 +3,7 @@
 import Globals
 from Products.Five import BrowserView
 from Products.Five.browser.pagetemplatefile import ZopeTwoPageTemplateFile
+from zope.component import createObject
 from zope.interface import implements
 from zope.component.interfaces import IFactory
 import Products.GSContent.interfaces
@@ -138,12 +139,19 @@ class GSSiteInfo:
         assert len(retval) >= 1
         return retval
 
+class GSSiteHomepageView(BrowserView):
+    def __init__(self, context, request):
+        self.context = context
+        self.request = request
+        self.siteInfo = createObject('groupserver.SiteInfo', context)
+        self.groupsInfo = createObject('groupserver.GroupsInfo', context)
+
 class GSContentView(BrowserView):
     '''View object for standard GroupServer content objects'''
     def __init__(self, context, request):
         self.context = context
         self.request = request
-        self.siteInfo = IGSSiteInfo( context )
+        self.siteInfo = createObject('groupserver.SiteInfo', context)
     
     def process_form(self):
         form = self.context.REQUEST.form
