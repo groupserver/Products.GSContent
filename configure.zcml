@@ -109,7 +109,7 @@
     file="browser/css/globalstyle.css" 
     permission="zope2.Public" />
 
-  <browser:resource name="site-20071113.css"
+  <browser:resource name="site-20071114.css"
     file="browser/css/site.css" 
     permission="zope2.Public" />
 
@@ -132,6 +132,10 @@
 
   <browser:resource name="whiteSprites-20071113.gif"
     file="browser/images/16x16/all-white.gif" 
+    permission="zope2.Public" />
+
+  <browser:resourceDirectory name="anim"
+    directory="browser/images/anim/"
     permission="zope2.Public" />
 
     
