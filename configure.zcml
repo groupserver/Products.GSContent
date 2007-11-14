@@ -100,8 +100,8 @@
     directory="browser/javascript/pane/" permission="zope2.Public" />
 
   <!-- JavaScript disclosure button -->
-  <browser:resourceDirectory name="disclosureButton-20071101"
-    directory="browser/javascript/disclosure_button" 
+  <browser:resource name="disclosureButton-20071114.js"
+    file="browser/javascript/disclosure_button/disclosure_toggle.js"
     permission="zope2.Public" />
 
   <!-- CSS file -->

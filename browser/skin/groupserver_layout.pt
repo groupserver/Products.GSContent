@@ -75,7 +75,7 @@
     <script type="text/javascript" 
       src="/++resource++jquery-1.2.1.min.js">&#160;</script>
     <script type="text/javascript"
-      src="/++resource++disclosureButton-20071101/disclosure_toggle.js">&#160;</script>
+      src="/++resource++disclosureButton-20071114.js">&#160;</script>
     <metal:block define-slot="javascript" />
 
       <!--Footer-->

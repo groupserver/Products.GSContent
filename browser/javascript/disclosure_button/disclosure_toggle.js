@@ -85,6 +85,9 @@ GSDisclosureButton = function () {
             jQuery(db).prepend(hiddenArrow+NBSP);
             jQuery(db).removeAttr('href').css("cursor","pointer");
             jQuery(db).click( buttonClicked );
+        },
+        toggle_all: function() {
+            jQuery(db).click()
         }
     };
 }(); // GSDisclosureButton
