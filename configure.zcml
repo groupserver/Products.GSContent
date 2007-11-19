@@ -107,12 +107,12 @@
     directory="browser/javascript/pane/" permission="zope2.Public" />
 
   <!-- JavaScript disclosure button -->
-  <browser:resource name="disclosureButton-20071114.js"
+  <browser:resource name="disclosureButton-20071115.js"
     file="browser/javascript/disclosure_button/disclosure_toggle.js"
     permission="zope2.Public" />
 
   <!-- CSS file -->
-  <browser:resource name="globalstyle-20071113b.css"
+  <browser:resource name="globalstyle-20071115.css"
     file="browser/css/globalstyle.css" 
     permission="zope2.Public" />
 

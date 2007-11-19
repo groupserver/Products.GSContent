@@ -651,14 +651,18 @@ table#results th.file {
 /* Microformats */
 /****************/
 
-.vcard div.org, .vcard .email, .vcard .adr * {
+.vcard .hide {
+  display: none;
+}
+
+div.vcard div.org, div.vcard .email, div.vcard .adr * {
   display: block;
 }
-.vcard span.org {
+div.vcard span.org {
   display: inline;
 }
 
-.vcard .org, .vcard .email, .vcard .adr {
+div.vcard .org, div.vcard .email, div.vcard .adr {
   margin: 1em 0em 1em 0em;
 }
 
@@ -667,10 +671,10 @@ table#results th.file {
   border: none;
 }
 
-.vcard .adr * {
+div.vcard .adr * {
     padding-left: 1.4em;
 }
-.vcard .adr .type {
+div.vcard .adr .type {
     padding-left: 0px;
 }
 

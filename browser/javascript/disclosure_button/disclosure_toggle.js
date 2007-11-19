@@ -44,8 +44,14 @@ GSDisclosureButton = function () {
         
         FUNCTIONS
         
-          "init"   Add an arrow and a click-callback to all disclosure
-                   widgets. Launched after the document is "ready".
+          "init"       Add an arrow and a click-callback to all disclosure
+                       widgets. Launched after the document is "ready".
+          "show_all"   Show the contents of all the disclosure widgets.
+          "hide_all"   Hide the contents of all the disclosure widgets.
+          "toggle_all" Show the contents of all the hidden disclosure
+                       widgets, and hide the conents of all the shown 
+                       disclosure widgets. (The 'click' event is sent to
+                       all the disclosure widgets.)
                    
         DEPENDENCIES
           
@@ -59,11 +65,12 @@ GSDisclosureButton = function () {
     var hiddenArrow = "\u25b6";
     var shownArrow = "\u25bc";
     var NBSP = "\u00a0";
+    var speed = 'fast';
     // Elements of the disclosure widgets
     var dw = ".disclosureWidget";
     var db = ".disclosureButton";
     var dsh = ".disclosureShowHide";
-
+    
     // Private methods
     var buttonClicked = function () {
         text = jQuery(this).text()
@@ -76,7 +83,23 @@ GSDisclosureButton = function () {
         } else {
             jQuery(this).text(hiddenArrow+NBSP+coreText);
         }
-        showHideWidget.slideToggle("slow");
+        showHideWidget.slideToggle(speed);
+    }
+    
+    var show = function (button) {
+        var text = jQuery(this).text();
+        var coreText = text.substring(2, text.length);
+        jQuery(this).text(shownArrow+NBSP+coreText);
+        
+        jQuery(this).parents(dw).find(dsh).slideDown(speed);
+    }
+
+    var hide = function (button) {
+        var text = jQuery(this).text();
+        var coreText = text.substring(2, text.length);
+        jQuery(this).text(hiddenArrow+NBSP+coreText);
+        
+        jQuery(this).parents(dw).find(dsh).slideUp(speed);
     }
     
     // Public methods and properties
@@ -87,7 +110,13 @@ GSDisclosureButton = function () {
             jQuery(db).click( buttonClicked );
         },
         toggle_all: function() {
-            jQuery(db).click()
+            jQuery(db).click();
+        },
+        show_all: function () {
+            jQuery(db).each(show);
+        },
+        hide_all: function () {
+            jQuery(db).each(hide);
         }
     };
 }(); // GSDisclosureButton
