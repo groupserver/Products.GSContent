@@ -1,3 +1,4 @@
+# coding=utf-8
 '''GroupServer-Content View Class
 '''
 import Globals

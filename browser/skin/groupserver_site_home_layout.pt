@@ -13,7 +13,7 @@
     
     <!-- styling typically covering all sites -->
     <link rel="stylesheet" type="text/css"
-      href="/++resource++globalstyle-20071115.css" />
+      href="/++resource++globalstyle-20071123.css" />
 
     <!-- styling just covering local customisations to sites -->
     <link rel="stylesheet" type="text/css"

@@ -344,7 +344,7 @@ ul.searchResults li {
 .searchResults .tags ul {
   margin-left: 0px;
 }
-.tags, .metadata, .groupInfo, .searchResults .email-summary, .searchResults .disclosureWidget {
+.tags, .metadata, .groupInfo, .email-summary, .searchResults .disclosureWidget {
   padding-left: 1.4em;
 }
 
@@ -371,7 +371,7 @@ ul.searchResults li {
 
 .groupInfo, .tags, .email-summary, .metadata {
   display: block;
-  clear: both;
+  clear: left;
 }
 
 .tags p, .tags ul, .tags li {
