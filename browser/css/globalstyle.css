@@ -441,6 +441,20 @@ ul.contacts li {
     list-style-type: none;
 }
 
+#profileAtributes {
+  margin: 0px;
+}
+#profileAtributes th {
+  padding-right: 1em;
+}
+
+#emailContact {
+  clear: left;
+}
+#emailContact li {
+  list-style-type: none;
+}
+
 /**********************/
 /* Disclosure Buttons */
 /**********************/
@@ -460,6 +474,9 @@ ul.contacts li {
 /********************/
 /* Multiple Columns */
 /********************/
+.cols {
+  clear: both;
+}
 .cols h2 {
     margin-top: 0px;
 }
