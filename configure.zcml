@@ -18,6 +18,11 @@
     class=".view.GSContentView"
     template="browser/templates/standard.pt" permission="zope2.View" />
 
+  <browser:page for=".interfaces.IGSNotficationPreview" 
+    name="index.html"
+    class=".notificationView.GSNotificationView"
+    permission="zope2.View" />
+
   <browser:page for=".interfaces.IGSFullPageContentFolder" name="index.html"
     class=".view.GSContentView"
     template="browser/templates/site_home.pt" permission="zope2.View" />

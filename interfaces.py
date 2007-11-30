@@ -17,8 +17,12 @@ class IGSSiteFolder(Interface):
 class IGSSiteHomepageFolder(IGSSiteFolder):
     pass
 
+class IGSNotficationPreview(Interface):
+    pass
+
 class IGSSiteInfo(Interface):
     pass
+
 
 class IGSGroupInfo(Interface):
     def get_id():

@@ -8,6 +8,7 @@ from zope.component import createObject
 from zope.interface import implements
 from zope.component.interfaces import IFactory
 import Products.GSContent.interfaces
+from Products.XWFCore import XWFUtils
 
 from interfaces import IGSSiteInfo
 
@@ -138,6 +139,13 @@ class GSSiteInfo:
         retval = ''
         retval = '/'.join(self.siteObj.getPhysicalPath())
         assert len(retval) >= 1
+        return retval
+        
+    def get_support_email(self):
+        retval = XWFUtils.get_support_email(self.context, self.get_id())
+        assert type(retval) == str
+        assert retval
+        assert '@' in retval
         return retval
 
 class GSSiteHomepageView(BrowserView):
