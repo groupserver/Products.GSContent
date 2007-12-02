@@ -25,7 +25,7 @@ class GSNotificationView(BrowserView):
             'siteName': self.siteInfo.get_name(),
             'siteId': self.siteInfo.get_id(),
             'canonicalHost': self.siteInfo.get_url(),
-            'canonical': self.siteInfo.get_url(),
+            'canonical': self.siteInfo.get_url().strip('http://'),
             'supportEmail': self.siteInfo.get_support_email(),
             # Get User Stuff
             'preferredName': XWFUtils.get_user_realnames(user),
