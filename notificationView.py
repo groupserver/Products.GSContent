@@ -24,7 +24,7 @@ class GSNotificationView(BrowserView):
         n_dict = {
             'siteName': self.siteInfo.get_name(),
             'siteId': self.siteInfo.get_id(),
-            'canonicalHost': self.siteInfo.get_url(),
+            'canonicalHost': self.siteInfo.get_url().strip('http://'),
             'canonical': self.siteInfo.get_url().strip('http://'),
             'supportEmail': self.siteInfo.get_support_email(),
             # Get User Stuff
