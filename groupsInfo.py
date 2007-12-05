@@ -93,7 +93,7 @@ class GSGroupsInfo(object):
         visibleGroupIds = self.get_visible_group_ids()
         return [g for g in gIds if (g in visibleGroupIds)]
 
-    def get_member_groups_for_user(self, user, authenticatedUser):
+    def get_member_groups_for_user(self, user, authUsr=None):
         """Get a list of all groups that the user is a member of.
         
         ARGUMENTS
@@ -113,10 +113,10 @@ class GSGroupsInfo(object):
         """
         assert user
         retval = []
-        if (user.getId() == authenticatedUser.getId()):
+        if (authUsr and (user.getId() == authUsr.getId())):
             retval = self.__get_member_groups_for_user(user)
         else:
-            retval = self.__get_visible_member_groups_for_user(user)
+            retval = self.__get_visible_member_groups_for_user(user,authUsr)
         assert type(retval) == list
         return retval
 
@@ -144,15 +144,16 @@ class GSGroupsInfo(object):
         assert type(retval) == list
         return retval
 
-    def __get_visible_member_groups_for_user(self, user):
+    def __get_visible_member_groups_for_user(self, user, authUsr):
         """Get the publicly visible groups that the user is a member of.
         
         ARGUMENTS
             user: A user instance.
+            authUsr: The authenticated user (may be None)
             
         RETURNS
             A list of groups that the user is currently a member of, and
-            has posted to.
+            has posted to. (Unless
         
         SIDE EFFECTS
             None.
@@ -164,10 +165,16 @@ class GSGroupsInfo(object):
         uId = user.getId()
         q = self.groupQuery
         for g in memberGroups:
-            authors = [ar['user_id'] for ar in
-                        q.authors_posts_in_group(sId, g.getId())]
-            if uId in authors:
-                retval.append(g)
+            if authUsr:
+                authUsrRoles = authUsr.getRolesInContext(g)
+                if (('GroupAdmin' in authUsrRoles)
+                    or ('DivisionAdmin' in authUsrRoles)):
+                    retval.append(g)
+            else:
+                authors = [ar['user_id'] for ar in
+                            q.authors_posts_in_group(sId, g.getId())]
+                if (uId in authors):
+                    retval.append(g)
         assert type(retval) == list
         return retval
 
