@@ -93,6 +93,30 @@ class GSGroupsInfo(object):
         visibleGroupIds = self.get_visible_group_ids()
         return [g for g in gIds if (g in visibleGroupIds)]
 
+    def get_non_member_groups_for_user(self, user):
+        '''List the visible groups that the user is not a member of.
+        
+        WARNING
+            Listing the groups that the user is *not* a member of is
+            as bad as listing the groups that the user *is* a member of.
+        '''
+        assert user
+        visibleGroups = self.get_visible_groups()
+        retval = [g for g in visibleGroups 
+                  if ('GroupMember' not in user.getRolesInContext(group))]
+        assert type(retval) == list
+        return retval
+        
+    def get_joinable_groups_for_user(self, user):
+        assert user
+        listManager = self.context.ListManager
+        assert listManager
+        nonMemberGroups = self.get_non_member_groups()
+        retval = [g for g in nonMemberGroups if
+                  listManager.get_listProperty(g.getId(), 'subscribe')]
+        assert type(retval) == list
+        return retval
+
     def get_member_groups_for_user(self, user, authUsr=None):
         """Get a list of all groups that the user is a member of.
         

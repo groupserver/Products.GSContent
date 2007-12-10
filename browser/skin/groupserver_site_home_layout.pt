@@ -61,6 +61,7 @@
     </metal:block>
     
     <div id="divisionHomeContent">
+      <div id="messages" metal:define-slot="messages"/>
       <metal:block metal:define-slot="pagetitle"/>
       
       <metal:block define-slot="body" />   

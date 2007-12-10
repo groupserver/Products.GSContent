@@ -17,7 +17,10 @@ class IGSSiteFolder(Interface):
 class IGSSiteHomepageFolder(IGSSiteFolder):
     pass
 
-class IGSNotficationPreview(Interface):
+class IGSNotificationPreview(Interface):
+    pass
+
+class IGSNotficationPreview(Interface): # TODO: delete
     pass
 
 class IGSSiteInfo(Interface):

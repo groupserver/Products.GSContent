@@ -18,7 +18,7 @@
     class=".view.GSContentView"
     template="browser/templates/standard.pt" permission="zope2.View" />
 
-  <browser:page for=".interfaces.IGSNotficationPreview" 
+  <browser:page for=".interfaces.IGSNotificationPreview" 
     name="index.html"
     class=".notificationView.GSNotificationView"
     permission="zope2.View" />
