@@ -101,9 +101,8 @@ class GSGroupsInfo(object):
             as bad as listing the groups that the user *is* a member of.
         '''
         assert user
-        visibleGroups = self.get_visible_groups()
-        retval = [g for g in visibleGroups 
-                  if ('GroupMember' not in user.getRolesInContext(group))]
+        retval = [g for g in self.get_visible_groups()
+                  if ('GroupMember' not in user.getRolesInContext(g))]
         assert type(retval) == list
         return retval
         
@@ -111,7 +110,7 @@ class GSGroupsInfo(object):
         assert user
         listManager = self.context.ListManager
         assert listManager
-        nonMemberGroups = self.get_non_member_groups()
+        nonMemberGroups = self.get_non_member_groups_for_user(user)
         retval = [g for g in nonMemberGroups if
                   listManager.get_listProperty(g.getId(), 'subscribe')]
         assert type(retval) == list
