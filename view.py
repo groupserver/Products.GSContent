@@ -161,6 +161,7 @@ class GSContentView(BrowserView):
         self.context = context
         self.request = request
         self.siteInfo = createObject('groupserver.SiteInfo', context)
+        self.groupsInfo = createObject('groupserver.GroupsInfo', context)
     
     def process_form(self):
         form = self.context.REQUEST.form
