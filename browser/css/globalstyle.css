@@ -114,15 +114,28 @@ label {
     margin: 0px 10px 10px 0px;
 }
 
-input, fieldset .hint {
-    margin: 10px 0px 10px 10px;
+.form-widget {
+  margin: 1.39em 0px 2.78em 0px;
+}
+
+input, fieldset .hint, textarea, select, .wym_box {
+  margin: 1.39em 0px 0px 1.39em;
+  width: 80%
+}
+option {
+  padding: 0.34em;
+}
+input.button {
+  font-size: 100%;    /*16px*/
+  line-height: 1.125; /*18px*/
+  padding: 0.35em;    /* 4px*/
 }
 
 fieldset legend {
     margin: 0px 0px 0px -30px;
 }
 
-.formelementbutton input, .checkgroup input, .radiogroup input {
+.formelementbutton input, .checkgroup input, .radiogroup input, .checkboxType {
     width: auto;
 }
 
@@ -147,6 +160,15 @@ fieldset legend {
 
 .radiogroup label {
   
+}
+
+.checkboxType, .checkboxLabel {
+  display: inline;
+  margin: 0px 0.64em 0px 0px;
+}
+
+.hiddenType {
+  display: none;
 }
 
 /* Feedback Messages */
@@ -443,9 +465,23 @@ ul.contacts li {
 
 #profileAtributes {
   margin: 0px;
+  border-spacing: 1.39em 1.39em;
+  border-collapse: separate;
+}
+#profileAtributes tr {
+  margin: 1.39em 0px 0px 0px;
 }
 #profileAtributes th {
-  padding-right: 1em;
+  vertical-align: top;
+}
+#profileAtributes th, #profileAtributes td {
+  margin: 1.39em 1.39em 0px 0px;
+}
+#profileAtributes td p {
+  margin: 0px;
+}
+#profileAtributes td p + p{
+  margin: 1.39em;
 }
 
 #emailContact {
@@ -453,6 +489,10 @@ ul.contacts li {
 }
 #emailContact li {
   list-style-type: none;
+}
+
+.userProfile .email-summary {
+  overflow: hidden;
 }
 
 /**********************/
