@@ -13,11 +13,11 @@
     
     <!-- styling typically covering all sites -->
     <link rel="stylesheet" type="text/css"
-      href="/++resource++globalstyle-20071126.css" />
+      href="/++resource++globalstyle-20071220.css" />
 
     <!-- styling just covering local customisations to sites -->
     <link rel="stylesheet" type="text/css"
-      href="/++resource++site-20071114.css" />
+      href="/++resource++site-20071220.css" />
 
     <tal:block
         tal:condition="python: hasattr(context, 'PresentationCustom')">

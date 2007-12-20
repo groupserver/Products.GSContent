@@ -118,7 +118,7 @@ label {
   margin: 1.39em 0px 2.78em 0px;
 }
 
-input, fieldset .hint, textarea, select, .wym_box {
+input, fieldset .hint, textarea, select, .wym_box, .form-widget .error, .readonlyWidget {
   margin: 1.39em 0px 0px 1.39em;
   width: 80%
 }
@@ -1131,7 +1131,7 @@ textarea, input.text, .text input, .password input {
     color: #f0ecd8;
     border-left: 10px solid #41638b; 
 }
-.message-error {
+.message-error, .form-widget .error {
     background-color: #d86464;
     color: white;
     font-weight: bold;
