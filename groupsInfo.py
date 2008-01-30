@@ -116,6 +116,12 @@ class GSGroupsInfo(object):
         assert type(retval) == list
         return retval
 
+    def get_joinable_group_ids_for_user(self, user):
+        groups = self.get_joinable_groups_for_user(user)
+        retval = [g.getId() for g in groups]
+        assert type(retval) == list
+        return retval
+
     def get_member_groups_for_user(self, user, authUsr=None):
         """Get a list of all groups that the user is a member of.
         

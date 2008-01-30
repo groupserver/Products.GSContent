@@ -43,6 +43,7 @@
       </div><!--titlebar-->
       <div id="utilities">
         <div id="utilitylinks" 
+          metal:define-slot="utilitylinks"
           tal:content="structure python:getattr(context.Templates.output, 'utilitylinks.xml')(method='html')">
           </div>
       </div><!--utilities-->
