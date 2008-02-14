@@ -45,8 +45,8 @@ p, ul, ol, dl, table, fieldset, .xhtml2-address {
   margin-top: 0px;
 }
 
-ul, ol, dd {
-  margin-left: 2em;
+ul, ol, dd, blockquote {
+  margin-left: 1.4em;
 }
 ul ul, ul ol, ol ul, ol ol {
   margin-top: 0px;
@@ -72,7 +72,6 @@ q:before {
 q:after {
   content: close-quote;
 }
-
 
 p img {padding: 0px 30px 30px 0px}
 
@@ -129,6 +128,7 @@ input.button {
   font-size: 100%;    /*16px*/
   line-height: 1.125; /*18px*/
   padding: 0.35em;    /* 4px*/
+  width: auto;
 }
 
 fieldset legend {
@@ -471,19 +471,45 @@ ul.contacts li {
 #profileAtributes tr {
   margin: 1.39em 0px 0px 0px;
 }
-#profileAtributes th {
-  vertical-align: top;
+#changeUserEmailSettings table {
+  width: 100%;
 }
-#profileAtributes th, #profileAtributes td {
-  margin: 1.39em 1.39em 0px 0px;
+#changeUserEmailSettings tbody tr {
+  height: 4.6em;
 }
-#profileAtributes td p {
-  margin: 0px;
-}
-#profileAtributes td p + p{
-  margin: 1.39em;
+#changeUserEmailSettings .address *,  #changeUserEmailSettings .status *{
+  margin: 0px 1.39em 0px 1.39em;
 }
 
+#profileAtributes th, table.profile th {
+  vertical-align: top;
+}
+#profileAtributes th {
+  margin: 1.39em 1.39em 0px 0px;
+}
+#profileAtributes td p, table.profile p {
+  margin: 0px;
+}
+#profileAtributes td p + p {
+  margin: 1.39em 0px 0px 0px;
+}
+
+table.profile select,  table.profile input {
+  width: auto;
+  display: inline;
+  margin: 0px 0px 0px 1.39em;
+}
+#userGroupEmailSettings td, #userGroupEmailSettings th {
+  padding: 0px 1.39em;
+}
+#userGroupEmailSettings tbody tr {
+  height: 2.78em;
+}
+
+table.profile .na {
+  text-align: center;
+}
+userGroupEmailSettings
 #emailContact {
   clear: left;
 }
@@ -702,6 +728,8 @@ table#results th.file {
 .popup-help {
   float: right;
   width: 15em;
+  z-index: 512;
+  background: white;
 }
 
 /****************/

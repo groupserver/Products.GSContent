@@ -117,6 +117,9 @@
     permission="zope2.Public" />
 
   <!-- CSS file -->
+  <browser:resource name="globalstyle-20080215.css"
+    file="browser/css/globalstyle.css" 
+    permission="zope2.Public" />
   <browser:resource name="globalstyle-20071220.css"
     file="browser/css/globalstyle.css" 
     permission="zope2.Public" />
