@@ -102,12 +102,21 @@ GSDisclosureButton = function () {
         jQuery(this).parents(dw).find(dsh).slideUp(speed);
     }
     
+    var prepare = function (button) {
+        var visible = false;
+        visible = jQuery(this).parents(dw).find(dsh).css('display') != 'none';
+        if (visible) {
+          jQuery(this).prepend(shownArrow+NBSP);
+        } else {
+          jQuery(this).prepend(hiddenArrow+NBSP);
+        }
+        jQuery(this).removeAttr('href').css("cursor","pointer");
+    }
+    
     // Public methods and properties
     return {
         init: function () {
-            jQuery(db).prepend(hiddenArrow+NBSP);
-            jQuery(db).removeAttr('href').css("cursor","pointer");
-            jQuery(db).click( buttonClicked );
+            jQuery(db).each( prepare ).click( buttonClicked );
         },
         toggle_all: function() {
             jQuery(db).click();
