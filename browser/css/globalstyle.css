@@ -790,6 +790,10 @@ h1,h2,h3,h4, h5,h6,caption,legend,th,label,.label,#titlebar .division,.row .labe
 #titlebar .division, h1 {
     font-weight: bold;
 }
+#titlebar a {
+  text-decoration: none;
+  border: none;
+}
 #titlebar .division {
     font-size: 197%; /*26px*/
 }
