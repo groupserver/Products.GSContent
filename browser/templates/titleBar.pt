@@ -1,0 +1,12 @@
+<tal:block tal:define="view options/view;">
+  <div class="titlebar">
+    <div tal:condition="view/siteImageShow">
+      <img src="/foo" title="Site Logo"
+        tal:attributes="src string:/${view/siteImageUrl};
+          title string:Logo for ${view/siteName}"/>
+    </div>
+    <span tal:condition="view/siteTextShow"
+      tal:content="${view/siteName}"/>
+  </div>
+</tal:block>
+

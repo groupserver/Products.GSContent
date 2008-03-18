@@ -49,6 +49,10 @@
     template="browser/templates/new_site_home.pt"
     permission="zope.Public" />
 
+  <!-- Content provider to be used in displaying the site title bar -->
+  <interface 
+    interface=".interfaces.IGSTitleBar"
+    type="zope.contentprovider.interfaces.ITALNamespaceData"/>
 
   <!-- The Not Found (404) page -->
   <browser:page for="*" name="not_found.html" 
@@ -74,6 +78,7 @@
         template="browser/skin/groupserver_site_home_layout.pt"
         name="groupserver_site_home_layout" 
         permission="zope.Public" />
+ 
  
   <!--The resources used by the pages. -->
   <browser:resourceDirectory name="images"
