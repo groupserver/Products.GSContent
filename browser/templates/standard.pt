@@ -65,10 +65,10 @@
     <!-- Grab any javascript that is defined in our context -->
       <span
         tal:condition="python:hasattr(context.aq_explicit, 'javascript.xml')"
-        tal:replace="structure python:getattr(context.aq_explicit, 'javascript.xml')(method='html')"/>
+        tal:replace="structure python:getattr(context, 'javascript.xml')(method='html')"/>
       <span
         tal:condition="python:hasattr(context.aq_explicit, 'javascript')"
-        tal:replace="structure python:getattr(context.aq_explicit, 'javascript')(method='html')"/>
+        tal:replace="structure python:getattr(context, 'javascript')(method='html')"/>
     </tal:block>
     
     <tal:block metal:fill-slot="style">
