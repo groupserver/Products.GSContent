@@ -65,7 +65,7 @@
     <!-- Grab any javascript that is defined in our context -->
       <span
         tal:condition="python:hasattr(context.aq_explicit, 'javascript.xml') or hasattr(context.aq_explicit, 'javascript')"
-        tal:replace="structure python:getattr(context.aq_explicit, 'javascript.xml', getattr(context.aq_explicit, 'javascript'))(method='html')"/>
+        tal:replace="structure python:getattr(context.aq_explicit, 'javascript.xml', 'javascript')(method='html')"/>
     </tal:block>
     
     <tal:block metal:fill-slot="style">
