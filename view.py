@@ -110,21 +110,28 @@ class GSSiteInfo:
             retval = getattr(self.context, 'GlobalConfiguration', None)
         
         return retval
-        
+
+    @property
+    def id(self):
+        return self.get_id()
     def get_id(self):
         retval = None
         if self.siteObj:
             retval = self.siteObj.getId()
-        
         return retval
-        
+    
+    @property
+    def name(self):
+        return self.get_name()        
     def get_name(self):
         retval = self.config.getProperty('siteName', '')
         if not retval and self.siteObj:
             retval = self.siteObj.title_or_id()
-
         return retval
-        
+
+    @property
+    def url(self):
+        return self.get_url()        
     def get_url(self):
         retval = ''
         canonicalHost = self.config.getProperty('canonicalHost', '')

@@ -102,18 +102,27 @@ class GSGroupInfo(object):
     def group_exists(self):
         return (self.groupObj != None)
 
+    @property
+    def id(self):
+        return self.get_id()
     def get_id(self):
         retval = ''
         if self.group_exists():
             retval = self.groupObj.getId()
         return retval
         
+    @property
+    def name(self):
+        return self.get_name()
     def get_name(self):
         retval = ''
         if self.group_exists():
             retval = self.groupObj.title_or_id()
         return retval
 
+    @property
+    def url(self):
+        return self.get_url()
     def get_url(self):
         retval = '%s/groups' % self.siteInfo.get_url()
         if self.group_exists():
