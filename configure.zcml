@@ -51,7 +51,7 @@
 
   <!-- Content provider to be used in displaying the site title bar -->
   <interface 
-    interface=".interfaces.IGSTitleBar"
+    interface=".interfaces.IGSSiteImage"
     type="zope.contentprovider.interfaces.ITALNamespaceData"/>
 
   <!-- The Not Found (404) page -->

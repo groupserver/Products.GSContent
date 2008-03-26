@@ -3,10 +3,10 @@
     <div tal:condition="view/siteImageShow">
       <img src="/foo" title="Site Logo"
         tal:attributes="src string:/${view/siteImageUrl};
-          title string:Logo for ${view/siteName}"/>
+          title python:'Logo for %s' % view.siteInfo.name"/>
     </div>
     <span tal:condition="view/siteTextShow"
-      tal:content="${view/siteName}"/>
+      tal:content="python:view.siteInfo.name"/>
   </div>
 </tal:block>
 

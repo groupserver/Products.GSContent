@@ -26,7 +26,26 @@ class IGSNotficationPreview(Interface): # TODO: delete
 class IGSSiteInfo(Interface):
     pass
 
+class IGSSiteImage(Interface):
+    pageTemplateFileName = Text(title=u"Page Template File Name",
+      description=u'The name of the ZPT file that is used to render the '\
+        u'title bar.',
+      required=False,
+      default=u"browser/templates/titleBar.pt")
+      
+    showImageRegardlessOfSiteSetting = Bool(
+      title=u'Show Image Regardles of Site Setting',
+      description=u"Show the site image, regardless of the value of "
+        u"the showImage property.",
+      required=False,
+      default=False)      
 
+    showImageWithSiteName = Bool(
+      title=u'Show Image with the Site Name',
+      description=u"Show the site image, as well as the site name.",
+      required=False,
+      default=False)      
+        
 class IGSGroupInfo(Interface):
     def get_id():
         """Get the ID of the group"""

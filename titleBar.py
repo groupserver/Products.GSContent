@@ -3,8 +3,8 @@ import zope.app.pagetemplate.viewpagetemplatefile
 from zope.pagetemplate.pagetemplatefile import PageTemplateFile
 import zope.interface, zope.component, zope.publisher.interfaces
 import zope.viewlet.interfaces, zope.contentprovider.interfaces 
-from interfaces import *
 
+from interfaces import *
 
 class GSSiteImageContentProvider(object):
     """GroupServer view of the site image
@@ -47,10 +47,18 @@ class GSSiteImageContentProvider(object):
         
     @property
     def siteImageUrl(self):
-       siteId = self.siteInfo.get_id()
-       retval = (hasattr(self.context, '%s.jpg' % siteId) and '%s.jpg' % siteId) or 
-          (hasattr(self.context, '%s.png' % siteId) and '%s.png' % siteId) or
-          (hasattr(self.context, '%s.gif' % siteId) and '%s.gif' % siteId) or ''
+        exts = ['png', 'jpg', 'gif']
+        imgs = [i for i in [self.__imgName(ext) for ext in exts] if i]
+        if imgs:
+            retval = imgs[0]
+        else:
+            retval = ''
+        assert type(retval) == str
+        return retval
+
+    def __imgName(self, ext):
+        imgName = '%s.%s' % (self.siteInfo.id, ext)
+        retval = hasattr(self.context, imgName) and imgName or ''
         assert type(retval) == str
         return retval
         
@@ -69,5 +77,5 @@ class GSSiteImageContentProvider(object):
 
 zope.component.provideAdapter(GSSiteImageContentProvider,
     provides=zope.contentprovider.interfaces.IContentProvider,
-    name="groupserver.titleBar")
+    name="groupserver.TitleBar")
 

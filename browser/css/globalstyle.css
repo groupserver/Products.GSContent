@@ -442,7 +442,7 @@ ul.searchResults li {
 ul.contacts li {
     list-style-type: none;
     padding-left: 30px;
-    background-image: url("++resource++whiteIcons/user.gif");
+    background-image: url("++resource++whiteSprites-20071113/user.gif");
     background-repeat: no-repeat;
 }
 
