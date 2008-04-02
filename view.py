@@ -142,6 +142,14 @@ class GSSiteInfo:
 
         return retval
         
+    @property
+    def showImage(self):
+        return self.config.getProperty('showImage', False)
+
+    @property
+    def skin(self):
+        return self.config.getProperty('skin', 'green')
+
     def get_path(self):
         retval = ''
         retval = '/'.join(self.siteObj.getPhysicalPath())
@@ -154,7 +162,12 @@ class GSSiteInfo:
         assert retval
         assert '@' in retval
         return retval
-
+        
+    def get_property(self, prop, default=None):
+        assert self.siteObj, 'Site instance does not exist\n'\
+          'Context %s\nID %s' % (self.context, self.id)
+        return self.siteObj.getProperty(prop, default)
+        
 class GSSiteHomepageView(BrowserView):
     def __init__(self, context, request):
         self.context = context
