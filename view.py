@@ -193,11 +193,10 @@ class GSContentView(BrowserView):
             
             site_root = self.context.site_root()
               
-            localScripts = site_root.LocalScripts.forms  
-            oldScripts = site_root.Scripts.forms
+            scriptsFolder = getattr(site_root.LocalScripts, 'forms', 
+              getattr(site_root.Scripts, 'forms'))
             
-            modelDir = getattr(localScripts, model, 
-                               getattr(oldScripts, model, None))
+            modelDir = getattr(scriptsFolder, model, None)
             if modelDir:
                 assert hasattr(modelDir, model)
                 if hasattr(modelDir, instance):
