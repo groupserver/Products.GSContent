@@ -195,7 +195,7 @@ class GSContentView(BrowserView):
 
             localScripts = getattr(site_root.LocalScripts, 'forms', None)
             oldScripts = getattr(site_root.Scripts, 'forms')
-            assert oldScripts, 'Could not get folder Scripts/forms')
+            assert oldScripts, 'Could not get folder Scripts/forms'
              
             modelDir = localScripts and getattr(localScripts, model, 
               getattr(oldScripts, model, None)) or getattr(oldScripts, model, None)
