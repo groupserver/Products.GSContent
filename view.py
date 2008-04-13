@@ -192,11 +192,13 @@ class GSContentView(BrowserView):
             model = form.get('model_override', model)
             
             site_root = self.context.site_root()
-              
-            scriptsFolder = getattr(site_root.LocalScripts, 'forms', 
-              getattr(site_root.Scripts, 'forms'))
-            
-            modelDir = getattr(scriptsFolder, model, None)
+
+            localScripts = getattr(site_root.LocalScripts, 'forms', None)
+            oldScripts = getattr(site_root.Scripts, 'forms')
+            assert oldScripts, 'Could not get folder Scripts/forms')
+             
+            modelDir = localScripts and getattr(localScripts, model, 
+              getattr(oldScripts, model, None)) or getattr(oldScripts, model, None)
             if modelDir:
                 assert hasattr(modelDir, model)
                 if hasattr(modelDir, instance):
