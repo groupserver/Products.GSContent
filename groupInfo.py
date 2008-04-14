@@ -34,6 +34,7 @@ class GSGroupInfoFactory(object):
         groupsInfo = IGSGroupsInfo(context)
         assert hasattr(groupsInfo.groupsObj, groupId)
         retval = getattr(groupsInfo.groupsObj, groupId)
+        assert retval
         return retval
 
 class GSGroupInfo(object):
