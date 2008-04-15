@@ -70,7 +70,19 @@
     <div id="divisionHomeContent">
       <div id="messages" metal:define-slot="messages"/>
       <metal:block metal:define-slot="pagetitle"/>
-      
+      <div id="notifications" metal:define-slot="notifications"
+        tal:condition="context/notifications | nothing">
+        <tal:block 
+          repeat="notification python:context.notifications.objectValues('XML Template')">
+          <p tal:replace="structure python:notification(method='html')">
+            You Maniacs! 
+            You blew it up! 
+            Ah, <strong>damn you!</strong>
+            God damn you all to <strong>Hell!</strong>
+          </p>
+        </tal:block>
+      </div>
+
       <metal:block define-slot="body" />   
       <div class="noFloat">&#160;</div>
 
