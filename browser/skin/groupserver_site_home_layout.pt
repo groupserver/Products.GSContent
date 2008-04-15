@@ -37,17 +37,17 @@
       <div id="externalbar" 
         metal:define-slot="externallinks"
         tal:content="structure python:getattr(context, 'menuexternal.xml', getattr(context.Templates.output, 'menuexternal.xml'))(method='html')" />
-      <div
+      <!--div
         tal:define="site view/context;
           showImageRegardlessOfSiteSetting python:False;
           showImageWithSiteName python:True"
-        tal:replace="structure provider:groupserver.TitleBar" />
-      <!--div id="titlebar">
+        tal:replace="structure provider:groupserver.TitleBar" /-->
+      <div id="titlebar">
         <a href="/">
           <span class="logo">&#160;</span>
           <span class="group">&#160;</span>
           <span class="division" tal:content="siteName">Site Name</span></a>
-      </div--><!--titlebar-->
+      </div><!--titlebar-->
       <div id="utilities">
         <div id="utilitylinks" 
           metal:define-slot="utilitylinks"
