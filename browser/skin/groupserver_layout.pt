@@ -75,7 +75,7 @@
       <div id="notifications" metal:define-slot="notifications"
         tal:condition="context/notifications | nothing">
         <tal:block 
-          repeat="notification python:context.notifications.objectValues('XML Template')">
+          repeat="notification python:context.notifications.objectValues()">
           <p tal:replace="structure python:notification(method='html')">
             You Maniacs! 
             You blew it up! 
