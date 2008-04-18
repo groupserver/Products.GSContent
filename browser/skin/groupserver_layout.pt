@@ -17,7 +17,7 @@
     
     <!-- styling just covering local customisations to sites -->
     <link rel="stylesheet" type="text/css" 
-      href="/++resource++site-20071220.css" />
+      href="/++resource++site-20080418.css" />
 
     <tal:block
         tal:condition="python: hasattr(context, 'PresentationCustom')">
