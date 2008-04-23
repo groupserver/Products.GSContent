@@ -174,7 +174,9 @@ class GSGroupsInfo(object):
         return retval
 
     def __get_visible_member_groups_for_user(self, user, authUsr):
-        """Get the publicly visible groups that the user is a member of.
+        """Get the publicly visible groups that the user is a member of,
+           and the private groups that the viewing user (authUsr) is
+           also a member of.
         
         ARGUMENTS
             user: A user instance.
@@ -196,7 +198,8 @@ class GSGroupsInfo(object):
         for g in memberGroups:
             if authUsr:
                 authUsrRoles = authUsr.getRolesInContext(g)
-                if (('GroupAdmin' in authUsrRoles)
+                if (('GroupMember' in authUsrRoles)
+                    or ('GroupAdmin' in authUsrRoles)
                     or ('DivisionAdmin' in authUsrRoles)):
                     retval.append(g)
             else:
