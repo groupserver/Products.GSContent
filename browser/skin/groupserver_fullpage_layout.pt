@@ -22,8 +22,7 @@
     <base tal:attributes="href string:${request/URL1}/" />
   </head>
   <body
-    tal:define="site context/Scripts/get/division_object;
-    siteName python:context.Scripts.get.option('siteName') or (site and site.title_or_id())"
+    tal:define="siteName python:view.siteInfo.get_name()"
     tal:attributes="id python:'page-%s' % request.URLPATH1.strip('/').replace('/','_');">
     <div id="toparea">
       <div id="externalbar" 

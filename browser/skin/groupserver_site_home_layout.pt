@@ -30,18 +30,12 @@
     <base tal:attributes="href string:${request/URL1}/" />
   </head>
   <body 
-    tal:define="site context/Scripts/get/division_object;
-    siteName python:view.siteInfo.get_name()"
+    tal:define="siteName python:view.siteInfo.get_name()"
     tal:attributes="id python:'page-%s' % request.URLPATH1.strip('/').replace('/','_');">
     <div id="toparea">
       <div id="externalbar" 
         metal:define-slot="externallinks"
         tal:content="structure python:getattr(context, 'menuexternal.xml', getattr(context.Templates.output, 'menuexternal.xml'))(method='html')" />
-      <!--div
-        tal:define="site view/context;
-          showImageRegardlessOfSiteSetting python:False;
-          showImageWithSiteName python:True"
-        tal:replace="structure provider:groupserver.TitleBar" /-->
       <div id="titlebar">
         <a href="/">
           <span class="logo">&#160;</span>

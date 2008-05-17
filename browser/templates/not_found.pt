@@ -4,8 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
   xmlns:metal="http://xml.zope.org/namespaces/metal"
   xmlns:tal="http://xml.zope.org/namespaces/tal"
-  tal:define="site context/Scripts/get/division_object;
-  siteName python:view.siteInfo.get_name()">
+  tal:define="siteName python:view.siteInfo.get_name()">
   <tal:block metal:use-macro="context/@@groupserver_site_home_layout/page">
     <head>
       <title metal:fill-slot="title">
