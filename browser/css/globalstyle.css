@@ -135,7 +135,7 @@ fieldset legend {
     margin: 0px 0px 0px -30px;
 }
 
-.formelementbutton input, .checkgroup input, .radiogroup input, .checkboxType {
+.formelementbutton input, .checkgroup input, .radiogroup input, .checkboxType, .raidoType {
     width: auto;
 }
 
@@ -162,7 +162,7 @@ fieldset legend {
   
 }
 
-.checkboxType, .checkboxLabel {
+.checkboxType, .checkboxLabel, .radioType, .radioLabel {
   display: inline;
   margin: 0px 0.64em 0px 0px;
 }
@@ -1155,6 +1155,9 @@ textarea, input.text, .text input, .password input {
 .required label:before {
   content: '*';
   color: red;
+}
+.required label.radioLabel:before {
+  content: '';
 }
 
 .hint {
