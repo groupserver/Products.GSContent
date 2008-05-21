@@ -121,6 +121,9 @@ input, fieldset .hint, textarea, select, .wym_box, .form-widget .error, .readonl
   margin: 1.39em 0px 0px 1.39em;
   width: 80%
 }
+input.radioType {
+  width: auto;
+}
 option {
   padding: 0.34em;
 }
