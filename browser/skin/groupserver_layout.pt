@@ -14,7 +14,7 @@
       href="/++resource++globalstyle-20080310.css" />
     <!-- styling just covering local customisations to sites -->
     <link rel="stylesheet" type="text/css" 
-      href="/++resource++site-20080529.css" />
+      href="/++resource++site-20080530.css" />
     <tal:block condition="python:hasattr(context, 'PresentationCustom')">
         <!-- now deprecated, but still in use, method for getting local 
            - customisations -->
