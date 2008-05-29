@@ -14,7 +14,7 @@
       href="/++resource++globalstyle-20080310.css" />
     <!-- styling just covering local customisations to sites -->
     <link rel="stylesheet" type="text/css" 
-      href="/++resource++site-20080528.css" />
+      href="/++resource++site-20080529.css" />
     <tal:block condition="python:hasattr(context, 'PresentationCustom')">
         <!-- now deprecated, but still in use, method for getting local 
            - customisations -->
@@ -46,15 +46,15 @@
         </div><!--titlebar-->
       </div><!--titlebanner-->
       <div id="mainnav">
+        <div id="sitenavigation" metal:define-slot="sitenavigation"
+          tal:content="structure python:getattr(context, 'menumain.xml', getattr(context.Templates.output, 'menumain.xml'))(method='html')">
+          &#160;
+        </div><!--sitenavigation-->
         <div id="utilitylinks" 
           metal:define-slot="utilitylinks"
           tal:content="structure python:getattr(context.Templates.output, 'utilitylinks.xml')(method='html')">
           &#160;
         </div><!--utilitylinks-->          
-        <div id="sitenavigation" metal:define-slot="sitenavigation"
-          tal:content="structure python:getattr(context, 'menumain.xml', getattr(context.Templates.output, 'menumain.xml'))(method='html')">
-          &#160;
-        </div><!--sitenavigation-->
       </div><!--mainnav-->
     </div><!--toparea-->
     <div id="bodyblock">
@@ -63,7 +63,7 @@
           &#160;
       </metal:block><!--contextnavigation-->          
       <div id="content">
-        <div id="messages" metal:define-slot="messages">&#160;</div>
+        <metal:block define-slot="messages">&#160;</metal:block>
         <div id="notifications" metal:define-slot="notifications"
           tal:condition="context/notifications | nothing">
           <tal:block 
