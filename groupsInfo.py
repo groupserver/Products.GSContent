@@ -8,7 +8,9 @@ from zope.component.interfaces import IFactory
 import AccessControl
 from Products.GSGroup.queries import GroupQuery
 from Products.XWFCore.cache import LRUCache
+from Products.XWFCore.XWFUtils import get_group_by_siteId_and_groupId
 
+import time
 import logging
 log = logging.getLogger('GSGroupsInfo')
 
@@ -31,14 +33,10 @@ class GSGroupsInfo(object):
     implements( IGSGroupsInfo )
     adapts(IFolder)
 
-    siteUserVisibleGroups = LRUCache()
-    siteUserVisibleGroups.set_max_objects(256)
-    
-    siteAllGroups = LRUCache()
-    siteAllGroups.set_max_objects(128)
+    siteUserVisibleGroupsIds = LRUCache()
+    siteUserVisibleGroupsIds.set_max_objects(256)
     
     def __init__(self, context):
-    
         self.context=context
         self.siteInfo = IGSSiteInfo(context)
         self.groupsObj = self.__get_groups_object()
@@ -67,36 +65,43 @@ class GSGroupsInfo(object):
 
     def get_all_groups(self):
         assert self.groupsObj
-        if self.siteAllGroups.has_key(self.siteInfo.id):
-            allGroups = self.siteAllGroups.get(self.siteInfo.id)
-        else:
-            allGroups = [g for g in \
-                         self.groupsObj.objectValues(self.folderTypes)
-                         if g.getProperty('is_group', False)]
-            self.siteAllGroups.add(self.siteInfo.id, allGroups)
+        allGroups = [g for g in \
+                     self.groupsObj.objectValues(self.folderTypes)
+                     if g.getProperty('is_group', False)]
         assert type(allGroups) == list
         return allGroups
 
     def get_visible_groups(self):
+        top = time.time()
+
         user = AccessControl.getSecurityManager().getUser()
         userId = user.getId()
         
         key = '%s-%s' % (self.siteInfo.id, userId)
         
-        if self.siteUserVisibleGroups.has_key(key):
+        if self.siteUserVisibleGroupsIds.has_key(key):
             m = u'Using visible-groups cache for (%s) on %s (%s)' %\
               (userId, self.siteInfo.name, self.siteInfo.id)
             log.info(m)
-            visibleGroups = self.siteUserVisibleGroups.get(key)
+            visibleGroupsIds = self.siteUserVisibleGroupsIds.get(key)
+            visibleGroups = []
+            for groupId in visibleGroupsIds:
+               visibleGroups.append(getattr(self.groupsObj, groupId))
         else:
             m = u'Generating visible-groups for (%s) on %s (%s)' %\
               (userId, self.siteInfo.name, self.siteInfo.id)
             log.info(m)
             visibleGroups = self.__visible_groups_for_current_user()
-            self.siteUserVisibleGroups.add(key, visibleGroups)
+            visibleGroupsIds = [group.getId() for group in visibleGroups]
+            self.siteUserVisibleGroupsIds.add(key, visibleGroupsIds)
             
-        assert self.siteUserVisibleGroups.has_key(key)
+        assert self.siteUserVisibleGroupsIds.has_key(key)
         assert type(visibleGroups) == list
+        
+        bottom = time.time()
+        log.info("Generated visible-groups for (%s) on %s (%s) in %.2fms" % 
+                  (userId, self.siteInfo.name, self.siteInfo.id, (bottom-top)*1000.0))        
+
         return visibleGroups
         
     def __visible_groups_for_current_user(self):
@@ -125,11 +130,7 @@ class GSGroupsInfo(object):
         m = u'Clearing visible-groups cache for %s (%s)' %\
           (self.siteInfo.name, self.siteInfo.id)
         log.info(m)
-        self.siteUserVisibleGroups.clear()
-        m = u'Clearing all-groups cache for %s (%s)' %\
-          (self.siteInfo.name, self.siteInfo.id)
-        log.info(m)
-        self.siteAllGroups.clear()
+        self.siteUserVisibleGroupsIds.clear()
 
     def get_non_member_groups_for_user(self, user):
         '''List the visible groups that the user is not a member of.
