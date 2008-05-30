@@ -43,8 +43,6 @@ class GSGroupsInfo(object):
         self.siteInfo = IGSSiteInfo(context)
         self.groupsObj = self.__get_groups_object()
         
-        self.__allGroups = None
-        self.__visibleGroups = None
         self.folderTypes = ['Folder', 'Folder (Ordered)']
 
         self.da = context.zsqlalchemy
@@ -91,12 +89,12 @@ class GSGroupsInfo(object):
             self.siteUserVisibleGroups.add(self.siteInfo.id, userGroupsCache)
 
         if userGroupsCache.has_key(userId):
-            m = 'Using visible-groups cache for (%s) on %s (%s)' %\
+            m = u'Using visible-groups cache for (%s) on %s (%s)' %\
               (userId, self.siteInfo.name, self.siteInfo.id)
             log.info(m)
             visibleGroups = userGroupsCache.get(userId)
         else:
-            m = 'Generating visible-groups for (%s) on %s (%s)' %\
+            m = u'Generating visible-groups for (%s) on %s (%s)' %\
               (userId, self.siteInfo.name, self.siteInfo.id)
             log.info(m)
             visibleGroups = self.__visible_groups_for_current_user()
@@ -128,6 +126,12 @@ class GSGroupsInfo(object):
     def filter_visible_group_ids(self, gIds):
         visibleGroupIds = self.get_visible_group_ids()
         return [g for g in gIds if (g in visibleGroupIds)]
+
+    def clear_visible_groups_cache(self):
+        m = u'Clearing visible-groups cache for %s (%s)' %
+          (self.siteInfo.name, self.siteInfo.id)
+        log.info(m)
+        self.siteUserVisibleGroups.remove(self.siteInfo.id)
 
     def get_non_member_groups_for_user(self, user):
         '''List the visible groups that the user is not a member of.
