@@ -32,7 +32,7 @@ class GSGroupsInfo(object):
     adapts(IFolder)
 
     siteUserVisibleGroups = LRUCache()
-    siteUserVisibleGroups.set_max_objects(64)
+    siteUserVisibleGroups.set_max_objects(256)
     
     siteAllGroups = LRUCache()
     siteAllGroups.set_max_objects(128)
@@ -81,27 +81,21 @@ class GSGroupsInfo(object):
         user = AccessControl.getSecurityManager().getUser()
         userId = user.getId()
         
-        if self.siteUserVisibleGroups.has_key(self.siteInfo.id):
-            userGroupsCache = self.siteUserVisibleGroups.get(self.siteInfo.id)
-        else:
-            userGroupsCache = LRUCache()
-            userGroupsCache.set_max_objects(512)
-            self.siteUserVisibleGroups.add(self.siteInfo.id, userGroupsCache)
-
-        if userGroupsCache.has_key(userId):
+        key = '%s-%s' % (self.siteInfo.id, userId)
+        
+        if self.siteUserVisibleGroups.has_key(key):
             m = u'Using visible-groups cache for (%s) on %s (%s)' %\
               (userId, self.siteInfo.name, self.siteInfo.id)
             log.info(m)
-            visibleGroups = userGroupsCache.get(userId)
+            visibleGroups = self.siteUserVisibleGroups.get(key)
         else:
             m = u'Generating visible-groups for (%s) on %s (%s)' %\
               (userId, self.siteInfo.name, self.siteInfo.id)
             log.info(m)
             visibleGroups = self.__visible_groups_for_current_user()
-            userGroupsCache.add(userId, visibleGroups)
+            self.siteUserVisibleGroups.add(key, visibleGroups)
             
-        assert self.siteUserVisibleGroups.has_key(self.siteInfo.id)
-        assert self.siteUserVisibleGroups.get(self.siteInfo.id).has_key(userId)
+        assert self.siteUserVisibleGroups.has_key(key)
         assert type(visibleGroups) == list
         return visibleGroups
         
@@ -131,11 +125,11 @@ class GSGroupsInfo(object):
         m = u'Clearing visible-groups cache for %s (%s)' %\
           (self.siteInfo.name, self.siteInfo.id)
         log.info(m)
-        self.siteUserVisibleGroups.remove(self.siteInfo.id)
+        self.siteUserVisibleGroups.clear()
         m = u'Clearing all-groups cache for %s (%s)' %\
           (self.siteInfo.name, self.siteInfo.id)
         log.info(m)
-        self.siteAllGroups.remove(self.siteInfo.id)
+        self.siteAllGroups.clear()
 
     def get_non_member_groups_for_user(self, user):
         '''List the visible groups that the user is not a member of.
