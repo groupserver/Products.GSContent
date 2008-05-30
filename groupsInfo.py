@@ -128,7 +128,7 @@ class GSGroupsInfo(object):
         return [g for g in gIds if (g in visibleGroupIds)]
 
     def clear_visible_groups_cache(self):
-        m = u'Clearing visible-groups cache for %s (%s)' %
+        m = u'Clearing visible-groups cache for %s (%s)' %\
           (self.siteInfo.name, self.siteInfo.id)
         log.info(m)
         self.siteUserVisibleGroups.remove(self.siteInfo.id)

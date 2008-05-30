@@ -7,3 +7,9 @@ groupInfo_security = ModuleSecurityInfo('Products.GSContent.groupInfo')
 from groupInfo import GSGroupInfoFactory
 allow_class(GSGroupInfoFactory)
 
+groupsInfo_security = ModuleSecurityInfo('Products.GSContent.groupsInfo')
+from groupsInfo import GSGroupsInfoFactory, GSGroupsInfo
+allow_class(GSGroupsInfoFactory)
+allow_class(GSGroupsInfo)
+
+
