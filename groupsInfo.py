@@ -127,11 +127,15 @@ class GSGroupsInfo(object):
         visibleGroupIds = self.get_visible_group_ids()
         return [g for g in gIds if (g in visibleGroupIds)]
 
-    def clear_visible_groups_cache(self):
+    def clear_groups_cache(self):
         m = u'Clearing visible-groups cache for %s (%s)' %\
           (self.siteInfo.name, self.siteInfo.id)
         log.info(m)
         self.siteUserVisibleGroups.remove(self.siteInfo.id)
+        m = u'Clearing all-groups cache for %s (%s)' %\
+          (self.siteInfo.name, self.siteInfo.id)
+        log.info(m)
+        self.siteAllGroups.remove(self.siteInfo.id)
 
     def get_non_member_groups_for_user(self, user):
         '''List the visible groups that the user is not a member of.
