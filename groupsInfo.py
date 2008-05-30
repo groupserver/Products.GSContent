@@ -5,9 +5,12 @@ from zope.publisher.interfaces import IRequest
 from interfaces import IGSSiteInfo, IGSGroupsInfo
 from zope.app.folder.interfaces import IFolder
 from zope.component.interfaces import IFactory
-
 import AccessControl
 from Products.GSGroup.queries import GroupQuery
+from Products.XWFCore.cache import LRUCache
+
+import logging
+log = logging.getLogger('GSGroupsInfo')
 
 class GSGroupsInfoFactory(object):
     implements(IFactory)
@@ -27,6 +30,12 @@ class GSGroupsInfoFactory(object):
 class GSGroupsInfo(object):
     implements( IGSGroupsInfo )
     adapts(IFolder)
+
+    siteUserVisibleGroups = LRUCache()
+    siteUserVisibleGroups.set_max_objects(64)
+    
+    siteAllGroups = LRUCache()
+    siteAllGroups.set_max_objects(128)
     
     def __init__(self, context):
     
@@ -40,7 +49,7 @@ class GSGroupsInfo(object):
 
         self.da = context.zsqlalchemy
         self.groupQuery = GroupQuery(context, self.da)
-        
+                
     def __get_groups_object(self):
         assert self.siteInfo, 'Site Info is set to %s' % self.siteInfo
         assert self.siteInfo.siteObj, \
@@ -60,30 +69,57 @@ class GSGroupsInfo(object):
 
     def get_all_groups(self):
         assert self.groupsObj
-        if self.__allGroups == None:
+        if self.siteAllGroups.has_key(self.siteInfo.id):
+            allGroups = self.siteAllGroups.get(self.siteInfo.id)
+        else:
             allGroups = [g for g in \
                          self.groupsObj.objectValues(self.folderTypes)
                          if g.getProperty('is_group', False)]
-            self.__allGroups = allGroups
-            
-        return self.__allGroups
+            self.siteAllGroups.add(self.siteInfo.id, allGroups)
+        assert type(allGroups) == list
+        return allGroups
 
     def get_visible_groups(self):
-        if self.__visibleGroups == None:
-            securityManager = AccessControl.getSecurityManager()
+        user = AccessControl.getSecurityManager().getUser()
+        userId = user.getId()
+        
+        if self.siteUserVisibleGroups.has_key(self.siteInfo.id):
+            userGroupsCache = self.siteUserVisibleGroups.get(self.siteInfo.id)
+        else:
+            userGroupsCache = LRUCache()
+            userGroupsCache.set_max_objects(512)
+            self.siteUserVisibleGroups.add(self.siteInfo.id, userGroupsCache)
 
-            allGroups = self.get_all_groups()
+        if userGroupsCache.has_key(userId):
+            m = 'Using visible-groups cache for (%s) on %s (%s)' %\
+              (userId, self.siteInfo.name, self.siteInfo.id)
+            log.info(m)
+            visibleGroups = userGroupsCache.get(userId)
+        else:
+            m = 'Generating visible-groups for (%s) on %s (%s)' %\
+              (userId, self.siteInfo.name, self.siteInfo.id)
+            log.info(m)
+            visibleGroups = self.__visible_groups_for_current_user()
+            userGroupsCache.add(userId, visibleGroups)
             
-            # Quite a simple process, really: itterate through all the groups,
-            #   checking to see if the "messages" instance is visible.
-            visibleGroups = []
-            for group in allGroups:
-                if (hasattr(group, 'messages')
-                  and securityManager.checkPermission('View', group)
-                  and securityManager.checkPermission('View', group.aq_explicit.messages)):
-                    visibleGroups.append(group)
-            self.__visibleGroups = visibleGroups
-        return self.__visibleGroups
+        assert self.siteUserVisibleGroups.has_key(self.siteInfo.id)
+        assert self.siteUserVisibleGroups.get(self.siteInfo.id).has_key(userId)
+        assert type(visibleGroups) == list
+        return visibleGroups
+        
+    def __visible_groups_for_current_user(self):
+        securityManager = AccessControl.getSecurityManager()
+        allGroups = self.get_all_groups()
+        # Quite a simple process, really: itterate through all the groups,
+        #   checking to see if the "messages" instance is visible.
+        visibleGroups = []
+        for group in allGroups:
+            if (hasattr(group, 'messages')
+              and securityManager.checkPermission('View', group)
+              and securityManager.checkPermission('View', group.aq_explicit.messages)):
+                visibleGroups.append(group)
+        assert type(visibleGroups) == list
+        return visibleGroups
         
     def get_visible_group_ids(self):
         retval = [g.getId() for g in self.get_visible_groups()]
