@@ -230,7 +230,7 @@ class GSNotFoundError(BrowserView):
     index = ZopeTwoPageTemplateFile('browser/templates/not_found.pt')
     # make the template publishable
     def __call__(self, *args, **kw):
-        self.request.response.setStatus(404)
+        self.request.response.setStatus(404, lock=True)
         return self.index(self, *args, **kw)
 
 class GSUnknownError(BrowserView):

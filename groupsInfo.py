@@ -33,7 +33,7 @@ class GSGroupsInfo(object):
     implements( IGSGroupsInfo )
     adapts(IFolder)
 
-    siteUserVisibleGroupsIds = LRUCache()
+    siteUserVisibleGroupsIds = LRUCache("siteUserVisibleGroupIds")
     siteUserVisibleGroupsIds.set_max_objects(256)
     
     def __init__(self, context):
