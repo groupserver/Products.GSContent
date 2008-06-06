@@ -177,6 +177,9 @@ class GSSiteHomepageView(BrowserView):
 
 class GSContentView(BrowserView):
     '''View object for standard GroupServer content objects'''
+    
+    content_object_name = 'content_en'
+    
     def __init__(self, context, request):
         self.context = context
         self.request = request
@@ -223,6 +226,14 @@ class GSContentView(BrowserView):
     
         result['form'] = form            
         return result
+
+    def getPublishedRevision (self):
+        """ Get the published revision object, or just the current one """
+        prev = getattr(self.context.aq_explicit, 'published_revision', None)
+        if prev:
+            return getattr(self.context.aq_explicit, prev, None)
+        else:
+            return getattr(self.context.aq_explicit, self.content_object_name, None)
 
     # To be converted: Scripts.get_firstLevelFolder(context)
 
