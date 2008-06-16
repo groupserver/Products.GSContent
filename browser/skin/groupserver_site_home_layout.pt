@@ -52,11 +52,31 @@
           tal:content="structure python:getattr(context, 'menumain.xml', getattr(context.Templates.output, 'menumain.xml'))(method='html')">
           &#160;
         </div><!--sitenavigation-->
-        <div id="utilitylinks" 
-          metal:define-slot="utilitylinks"
-          tal:content="structure python:getattr(context.Templates.output, 'utilitylinks.xml')(method='html')">
-          &#160;
-        </div><!--utilitylinks-->          
+        <div id="utilitylinks"
+          metal:define-slot="utilitylinks">
+          <ul tal:define="userId user/getId;">
+            <li tal:condition="not:userId">
+              <a id="log-in-link" href="/login.html"
+                title="Log in here">Log In</a>
+            </li>
+            <tal:block condition="userId">
+              <li>
+                <a id="log-out-link"
+                  tal:attributes="title string:Log out of ${siteName}"
+                    href="/cookie_authentication/logout">Log Out</a>
+              </li>
+              <li 
+                tal:define="rn python:modules['Products.XWFCore.XWFUtils'].get_user_realnames;
+                  userName python:rn(user, userId, context)">
+                <a id="profile-link"
+                  tal:attributes="href string:/p/${userId}/;
+                    title string:Profile of ${userName}">
+                  <span class="fn" tal:content="userName"/>
+                  (profile)</a>
+              </li>
+            </tal:block>
+          </ul>
+        </div><!--utilitylinks-->
       </div><!--mainnav-->
     </div><!--toparea-->
     <div id="bodyblock">    
