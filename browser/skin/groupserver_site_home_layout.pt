@@ -57,19 +57,21 @@
           <ul tal:define="userId user/getId;">
             <li tal:condition="not:userId">
               <a id="log-in-link" href="/login.html"
+                tal:attributes="href string:/login.html?came_from=${request/URL}"
                 title="Log in here">Log In</a>
             </li>
             <tal:block condition="userId">
               <li>
                 <a id="log-out-link"
-                  tal:attributes="title string:Log out of ${siteName}"
+                  tal:attributes="title string:Log out from ${siteName}"
                     href="/cookie_authentication/logout">Log Out</a>
               </li>
               <li 
                 tal:define="rn python:modules['Products.XWFCore.XWFUtils'].get_user_realnames;
-                  userName python:rn(user, userId, context)">
+                  userName python:rn(user, userId, context);
+                  nn user/get_canonicalNickname">
                 <a id="profile-link"
-                  tal:attributes="href string:/p/${userId}/;
+                  tal:attributes="href string:/p/${nn}/;
                     title string:Profile of ${userName}">
                   <span class="fn" tal:content="userName"/>
                   (profile)</a>
