@@ -57,7 +57,7 @@
           <ul tal:define="userId user/getId;">
             <li tal:condition="not:userId">
               <a id="log-in-link" href="/login.html"
-                tal:attributes="href string:/login.html?came_from=${request/URL}"
+                tal:attributes="href python:('/logout.html' in request.URL or '/login.html' in request.URL) and '/login.html' or '/login.html?came_from=%s' % request.URL"
                 title="Log in here">Log In</a>
             </li>
             <tal:block condition="userId">
