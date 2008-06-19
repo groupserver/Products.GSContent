@@ -104,8 +104,9 @@
           <div tal:condition="python:hasattr(context.aq_explicit, 'models')"
             tal:replace="structure python:getattr(context, 'models')(method='html')"/>
         </div>
+        
         <div id="content"
-          tal:replace="structure python:view.getPublishedRevision()(method='html', siteName=view.siteInfo.get_name())">
+          tal:replace="structure python:getattr(context, 'content_en')(method='html', siteName=view.siteInfo.get_name())">
           This should never be seen.
         </div>
         
