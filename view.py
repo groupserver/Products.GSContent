@@ -229,6 +229,12 @@ class GSContentView(BrowserView):
 class GSNotFoundError(BrowserView):
     index = ZopeTwoPageTemplateFile('browser/templates/not_found.pt')
     # make the template publishable
+    def __init__(self, context, request):
+        self.context = context
+        self.request = request
+        self.siteInfo = createObject('groupserver.SiteInfo', context)
+        self.groupsInfo = createObject('groupserver.GroupsInfo', context)
+
     def __call__(self, *args, **kw):
         self.request.response.setStatus(404, lock=True)
         return self.index(self, *args, **kw)
