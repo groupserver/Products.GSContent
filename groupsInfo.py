@@ -9,6 +9,7 @@ import AccessControl
 from Products.GSGroup.queries import GroupQuery
 from Products.XWFCore.cache import LRUCache
 from Products.XWFCore.XWFUtils import get_group_by_siteId_and_groupId
+from Products.CustomUserFolder.interfaces import ICustomUser
 
 import time
 import logging
@@ -140,6 +141,8 @@ class GSGroupsInfo(object):
             as bad as listing the groups that the user *is* a member of.
         '''
         assert user
+        assert ICustomUser.providedBy(user), '%s is not a user' % user
+
         retval = [g for g in self.get_visible_groups()
                   if ('GroupMember' not in user.getRolesInContext(g))]
         assert type(retval) == list

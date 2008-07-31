@@ -95,7 +95,7 @@ class GSGroupInfo(object):
                     break
         try:
             if getattr(group_object.aq_inner.aq_explicit, 'is_group', False):
-                retval = group_object.aq_inner.aq_explicit
+                retval = group_object
         except:
             pass
         return retval
