@@ -1152,7 +1152,6 @@ p#divisionAdminTasks img,  p.divisionAdminTasks img{
 /* Forms */
 /*********/
 textarea, input.text, .text input, .password input {
-  font: 114% monospace;
   width: 32em;
 }
 .required label:before {
