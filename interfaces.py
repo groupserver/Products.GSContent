@@ -1,6 +1,6 @@
 from zope.interface.interface import Interface
 from zope.contentprovider.interfaces import IContentProvider
-from zope.schema import *
+from zope.schema import Bool, Text
 
 class IFolder(Interface):
     pass
@@ -47,15 +47,15 @@ class IGSSiteImage(Interface):
       default=False)      
         
 class IGSGroupInfo(Interface):
-    def get_id():
+    def get_id(): #@NoSelf
         """Get the ID of the group"""
-    def get_name():
+    def get_name(): #@NoSelf
         """Get the name of the group"""
-    def get_url():
+    def get_url(): #@NoSelf
         """Get the URL of the group"""
 
 class IGSGroupsInfo(Interface):
-    def get_visible_group_ids():
+    def get_visible_group_ids(): #@NoSelf
         """Get the IDs of Visible Groups
         
         ARGUMENTS

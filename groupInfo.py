@@ -1,5 +1,3 @@
-import zope.interface
-import zope.interface 
 from zope.interface import implements, implementedBy
 from zope.component import adapts, createObject
 from zope.app.folder.interfaces import IFolder

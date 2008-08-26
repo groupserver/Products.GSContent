@@ -3,11 +3,8 @@
 '''
 import Globals
 from Products.Five import BrowserView
-from Products.Five.browser.pagetemplatefile import ZopeTwoPageTemplateFile
 from zope.component import createObject
-from zope.interface import implements
-from zope.component.interfaces import IFactory
-import Products.GSContent.interfaces
+
 from Products.XWFCore import XWFUtils
 
 class GSNotificationView(BrowserView):
@@ -32,7 +29,8 @@ class GSNotificationView(BrowserView):
             'mailto': user.get_emailAddresses()[0],
         }
         for propertyId in self.context.propertyIds():
-          n_dict[propertyId] = self.context.getProperty(propertyId)
+            n_dict[propertyId] = self.context.getProperty(propertyId)
+            
         return n_dict
         
     def __call__(self):
@@ -43,7 +41,7 @@ class GSNotificationView(BrowserView):
         user = self.context.acl_users.getUserById(loggedInUser.getId())
         email = user.get_emailAddresses()[0]
         retval = user.render_notification(n_type, n_id, n_dict, email)
-        print retval
+        
         return retval
                 
 Globals.InitializeClass( GSNotificationView )

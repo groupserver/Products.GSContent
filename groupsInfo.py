@@ -1,11 +1,11 @@
-from zope.interface import implements
-import zope.interface
-from zope.component import adapts, provideAdapter
-from zope.publisher.interfaces import IRequest
+from zope.interface import implements, implementedBy
+from zope.component import adapts
 from interfaces import IGSSiteInfo, IGSGroupsInfo
 from zope.app.folder.interfaces import IFolder
 from zope.component.interfaces import IFactory
+
 import AccessControl
+
 from Products.GSGroup.queries import GroupQuery
 from Products.XWFCore.cache import LRUCache
 from Products.XWFCore.XWFUtils import get_group_by_siteId_and_groupId
@@ -59,7 +59,7 @@ class GSGroupsInfo(object):
         
         assert groupsObj.getProperty('is_groups' , False), \
           'Groups instance for "%s" exists, but the "is_groups" property '\
-          'is not True' % siteInfo.get_name()
+          'is not True' % self.siteInfo.get_name()
         
         assert groupsObj
         return groupsObj
@@ -87,7 +87,7 @@ class GSGroupsInfo(object):
             visibleGroupsIds = self.siteUserVisibleGroupsIds.get(key)
             visibleGroups = []
             for groupId in visibleGroupsIds:
-               visibleGroups.append(getattr(self.groupsObj, groupId))
+                visibleGroups.append(getattr(self.groupsObj, groupId))
         else:
             m = u'Generating visible-groups for (%s) on %s (%s)' %\
               (userId, self.siteInfo.name, self.siteInfo.id)

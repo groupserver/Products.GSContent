@@ -1,16 +1,18 @@
 # coding=utf-8
 '''GroupServer-Content View Class
 '''
+from interfaces import IGSSiteInfo
+from zope.component import createObject
+from zope.component.interfaces import IFactory
+from zope.interface import implements, implementedBy
+
 import Globals
+
 from Products.Five import BrowserView
 from Products.Five.browser.pagetemplatefile import ZopeTwoPageTemplateFile
-from zope.component import createObject
-from zope.interface import implements
-from zope.component.interfaces import IFactory
-import Products.GSContent.interfaces
 from Products.XWFCore import XWFUtils
 
-from interfaces import IGSSiteInfo
+import Products.GSContent.interfaces
 
 class GSSiteInfoFactory(object):
     implements(IFactory)
@@ -19,7 +21,6 @@ class GSSiteInfoFactory(object):
     descripton = u'Create a new GroupServer site information instance'
     
     def __call__(self, context):
-        retval = None
         retval = GSSiteInfo(context)
         return retval
         
@@ -151,7 +152,6 @@ class GSSiteInfo:
         return self.config.getProperty('skin', 'green')
 
     def get_path(self):
-        retval = ''
         retval = '/'.join(self.siteObj.getPhysicalPath())
         assert len(retval) >= 1
         return retval
@@ -240,10 +240,10 @@ class GSNotFoundError(BrowserView):
         return self.index(self, *args, **kw)
 
 class GSUnknownError(BrowserView):
-   index = ZopeTwoPageTemplateFile('browser/templates/unknown_error.pt')
-   def __call__(self, *args, **kw):
-       # should this really be a 500, that suggests a server error?
-       #self.request.response.setStatus(500)
-       return self.index(self, *args, **kw)
+    index = ZopeTwoPageTemplateFile('browser/templates/unknown_error.pt')
+    def __call__(self, *args, **kw):
+        # should this really be a 500, that suggests a server error?
+        #self.request.response.setStatus(500)
+        return self.index(self, *args, **kw)
 
 Globals.InitializeClass( GSContentView )

@@ -1,19 +1,17 @@
-from zope.component import createObject
-import zope.app.pagetemplate.viewpagetemplatefile
+from zope.component import createObject, adapts, provideAdapter
 from zope.pagetemplate.pagetemplatefile import PageTemplateFile
-import zope.interface, zope.component, zope.publisher.interfaces
-import zope.viewlet.interfaces, zope.contentprovider.interfaces 
+from zope.interface import implements, Interface
+from zope.publisher.interfaces.browser import IDefaultBrowserLayer
+from zope.contentprovider.interfaces import IContentProvider, UpdateNotCalled
 
-from interfaces import *
+from interfaces import IGSSiteImage
 
 class GSSiteImageContentProvider(object):
     """GroupServer view of the site image
     """
 
-    zope.interface.implements( IGSSiteImage )
-    zope.component.adapts(zope.interface.Interface,
-        zope.publisher.interfaces.browser.IDefaultBrowserLayer,
-        zope.interface.Interface)
+    implements( IGSSiteImage )
+    adapts(Interface, IDefaultBrowserLayer, Interface)
 
     def __init__(self, context, request, view):
         self.__parent__ = self.view = view
@@ -30,7 +28,7 @@ class GSSiteImageContentProvider(object):
 
     def render(self):
         if not self.__updated:
-            raise interfaces.UpdateNotCalled
+            raise UpdateNotCalled
 
         pageTemplate = PageTemplateFile(self.pageTemplateFileName)
         return pageTemplate(view=self)
@@ -41,7 +39,6 @@ class GSSiteImageContentProvider(object):
 
     @property
     def siteName(self):
-        retval = u''
         retval = self.siteInfo.get_name()
         return retval
         
@@ -75,7 +72,7 @@ class GSSiteImageContentProvider(object):
         assert type(retval) == bool
         return retval
 
-zope.component.provideAdapter(GSSiteImageContentProvider,
-    provides=zope.contentprovider.interfaces.IContentProvider,
-    name="groupserver.TitleBar")
+provideAdapter(GSSiteImageContentProvider,
+               provides=IContentProvider,
+               name="groupserver.TitleBar")
 
