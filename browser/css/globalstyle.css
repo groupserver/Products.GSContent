@@ -730,7 +730,7 @@ table#results th.file {
 /**************/
 .popup-help {
   float: right;
-  width: 15em;
+  width: 15.4em;
   z-index: 512;
   background: white;
 }
@@ -769,6 +769,19 @@ div.vcard .adr .type {
 .tel {
   font-family: monospace;
   }
+
+/**************/
+/* Image Page */
+/**************/
+
+.image .metadata {
+  width: 15.4em; /*11u*/
+  float: right;
+}
+
+.image #linkurl {
+  width: 32em;/*23u*/
+}
 
 /************************************************************************/
 /*                    ABEL-Specific Style                               */
