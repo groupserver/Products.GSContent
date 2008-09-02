@@ -783,6 +783,19 @@ div.vcard .adr .type {
   width: 32em;/*23u*/
 }
 
+.image #navigation {
+  display: block;
+  list-style: none;
+}
+
+.image #navigation li {
+  display: block;
+  float: left;
+  margin: 0px 2.78em 0px 0px;
+  height: 2.78em;/**2u*/
+  line-height: 2.78em;
+}
+
 /************************************************************************/
 /*                    ABEL-Specific Style                               */
 /************************************************************************/
