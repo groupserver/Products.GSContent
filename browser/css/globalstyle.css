@@ -606,6 +606,15 @@ pre.email-body, .email-remainder pre {
     padding: 10px 0px 10px 10px; clear: both;
 }
 
+.fileMetadata .figure {
+  float:left;
+  padding-right: 1.39em;
+}
+
+.fileMetadata li {
+  list-style: none;
+}
+
 .cannotPost {
 	margin: 5px 0 0 0;
 }
