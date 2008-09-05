@@ -11,7 +11,7 @@
       <span tal:replace="context/title | nothing">
         Standard GroupServer Template for Static Content Objects
       </span>:
-      <span tal:replace="python:view.siteInfo.get_name()"/>
+      <span tal:replace="view/siteInfo/title"/>
     </title>
     
     <tal:block metal:fill-slot="metadata">

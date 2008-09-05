@@ -131,6 +131,11 @@ class GSSiteInfo:
         return retval
 
     @property
+    def title(self):
+        retval = self.config.getProperty('siteTitle', self.name)
+        return retval
+        
+    @property
     def url(self):
         return self.get_url()        
     def get_url(self):
