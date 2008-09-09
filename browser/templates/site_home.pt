@@ -8,7 +8,7 @@
   <head>
     
   	<title metal:fill-slot="title">
-      <span tal:replace="python:view.siteInfo.get_name()"/>
+      <span tal:replace="view/siteInfo/title"/>
     </title>
     
     <tal:block metal:fill-slot="metadata">

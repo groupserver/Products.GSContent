@@ -7,7 +7,7 @@
   metal:define-macro="page">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <metal:block define-slot="title" />    
+    <metal:block define-slot="title" />
     <metal:block define-slot="metadata" />
     <!-- styling typically covering all sites -->
     <link rel="stylesheet" type="text/css"

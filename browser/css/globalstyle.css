@@ -373,7 +373,7 @@ ul.searchResults li {
   padding-left: 1.4em;
 }
 
-.searchResults .topic {
+.searchResults .topic, .feeds .title {
   font-weight: bold;
   display: block;
   float: left;
@@ -1007,7 +1007,7 @@ p#divisionAdminTasks img,  p.divisionAdminTasks img{
 /**********/
 /* Search */
 /**********/
-.searchResults .topic, .searchResults .fileName {
+.searchResults .topic, .searchResults .fileName, .feeds .title {
   font-size: 108%;
   line-height: 1.29em;
 }
