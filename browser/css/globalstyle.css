@@ -606,13 +606,19 @@ pre.email-body, .email-remainder pre {
     padding: 10px 0px 10px 10px; clear: both;
 }
 
-.fileMetadata .figure {
-  float:left;
-  padding-right: 1.39em;
+.fileMetadata {
+  clear: both;
+  margin: 0 0 1.39em 2.09em;
+  padding: 0 0 1.39em 0;
+  border-bottom: 0.1px dotted #999999;
 }
 
-.fileMetadata li {
-  list-style: none;
+.fileMetadata .figure {
+  float:left;
+}
+
+.fileMetadata .info {
+  clear: both;
 }
 
 .cannotPost {

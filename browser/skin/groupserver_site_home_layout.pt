@@ -11,7 +11,7 @@
     <metal:block define-slot="metadata" />
     <!-- styling typically covering all sites -->
     <link rel="stylesheet" type="text/css"
-      href="/++resource++globalstyle-20080310.css" />
+      href="/++resource++globalstyle-20080911.css" />
     <!-- styling just covering local customisations to sites -->
     <link rel="stylesheet" type="text/css"
       href="/++resource++site-20080611.css" />
