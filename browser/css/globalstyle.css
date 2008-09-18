@@ -351,7 +351,7 @@ form#searcharea {
 
 /* Search Results */
 
-ul.searchResults {
+ul.searchResults, ul.feeds {
   margin: 0px 0px 1.4em 0px;
 }
 
@@ -375,9 +375,9 @@ ul.searchResults li, ul.feeds li {
 
 .searchResults .topic, .feeds .title {
   font-weight: bold;
-  margin-right: 0.7em;
 }
 .searchResults .topic {
+  margin-right: 0.7em;
   display: block;
   float: left;
 }
