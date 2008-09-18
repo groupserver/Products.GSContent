@@ -375,9 +375,11 @@ ul.searchResults li, ul.feeds li {
 
 .searchResults .topic, .feeds .title {
   font-weight: bold;
+  margin-right: 0.7em;
+}
+.searchResults .topic {
   display: block;
   float: left;
-  margin-right: 0.7em;
 }
 
 .fileName {
