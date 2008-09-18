@@ -355,7 +355,7 @@ ul.searchResults {
   margin: 0px 0px 1.4em 0px;
 }
 
-ul.searchResults li {
+ul.searchResults li, ul.feeds li {
   list-style: none;
   margin-top: 1.4em;
 }
