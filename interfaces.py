@@ -46,14 +46,6 @@ class IGSSiteImage(Interface):
       required=False,
       default=False)      
         
-class IGSGroupInfo(Interface):
-    def get_id(): #@NoSelf
-        """Get the ID of the group"""
-    def get_name(): #@NoSelf
-        """Get the name of the group"""
-    def get_url(): #@NoSelf
-        """Get the URL of the group"""
-
 class IGSGroupsInfo(Interface):
     def get_visible_group_ids(): #@NoSelf
         """Get the IDs of Visible Groups
