@@ -87,9 +87,10 @@
       <div id="content">
         <metal:block define-slot="messages">&#160;</metal:block>
         <div id="notifications" metal:define-slot="notifications"
-          tal:condition="context/notifications | nothing">
+          tal:define="notifications context/notifications | nothing"
+          tal:condition="notifications">
           <tal:block 
-            repeat="notification python:context.notifications.objectValues()">
+            repeat="notification python:notifications.objectValues()">
             <p tal:replace="structure python:notification(method='html')">
               You Maniacs! 
               You blew it up! 
