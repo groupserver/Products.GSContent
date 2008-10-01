@@ -46,6 +46,7 @@ class GSGroupsInfo(object):
 
         self.da = context.zsqlalchemy
         self.groupQuery = GroupQuery(context, self.da)
+        self.__allGroups = None
                 
     def __get_groups_object(self):
         assert self.siteInfo, 'Site Info is set to %s' % self.siteInfo
@@ -66,11 +67,14 @@ class GSGroupsInfo(object):
 
     def get_all_groups(self):
         assert self.groupsObj
-        allGroups = [g for g in \
-                     self.groupsObj.objectValues(self.folderTypes)
-                     if g.getProperty('is_group', False)]
-        assert type(allGroups) == list
-        return allGroups
+        if self.__allGroups == None:
+            self.__allGroups = [g for g in \
+                         self.groupsObj.objectValues(self.folderTypes)
+                         if g.getProperty('is_group', False)]
+            self.__allGroups.sort(groups_sorter)
+        retval = self.__allGroups
+        assert type(retval) == list
+        return retval
 
     def get_visible_groups(self):
         top = time.time()
@@ -251,4 +255,15 @@ class GSGroupsInfo(object):
                     retval.append(g)
         assert type(retval) == list
         return retval
+
+def groups_sorter(a, b):
+    at = a.title_or_id() 
+    bt = b.title_or_id() 
+    if at < bt:
+        retval = -1
+    elif at == bt:
+        retval = 0
+    else:
+        retval = 1
+    return retval
 
