@@ -256,8 +256,8 @@ class GSGroupsInfo(object):
         return retval
 
 def groups_sorter(a, b):
-    at = a.title_or_id() 
-    bt = b.title_or_id() 
+    at = a.title_or_id().lower()
+    bt = b.title_or_id().lower()
     if at < bt:
         retval = -1
     elif at == bt:
