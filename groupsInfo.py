@@ -36,7 +36,7 @@ class GSGroupsInfo(object):
 
     siteUserVisibleGroupsIds = LRUCache("siteUserVisibleGroupIds")
     siteUserVisibleGroupsIds.set_max_objects(256)
-    
+
     def __init__(self, context):
         self.context=context
         self.siteInfo = IGSSiteInfo(context)
@@ -146,7 +146,6 @@ class GSGroupsInfo(object):
         '''
         assert user
         assert ICustomUser.providedBy(user), '%s is not a user' % user
-
         retval = [g for g in self.get_visible_groups()
                   if ('GroupMember' not in user.getRolesInContext(g))]
         assert type(retval) == list
