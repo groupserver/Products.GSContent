@@ -78,11 +78,15 @@ class GSGroupsInfo(object):
 
     def get_visible_groups(self):
         top = time.time()
+        
+        # get the top level site ID to use with the cache
+        site_root = self.context.site_root()
+        top_level_site_id = site_root.getId()
 
         user = AccessControl.getSecurityManager().getUser()
         userId = user.getId()
         
-        key = '%s-%s' % (self.siteInfo.id, userId)
+        key = '%s-%s-%s' % (top_level_site_id, self.siteInfo.id, userId)
         
         if self.siteUserVisibleGroupsIds.has_key(key):
             m = u'Using visible-groups cache for (%s) on %s (%s)' %\
