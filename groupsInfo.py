@@ -91,7 +91,10 @@ class GSGroupsInfo(object):
             visibleGroupsIds = self.siteUserVisibleGroupsIds.get(key)
             visibleGroups = []
             for groupId in visibleGroupsIds:
-                visibleGroups.append(getattr(self.groupsObj, groupId))
+                try:
+                    visibleGroups.append(getattr(self.groupsObj, groupId))
+                except:
+                    log.info("trouble adding '%s' to visible groups" % groupId)
         else:
             m = u'Generating visible-groups for (%s) on %s (%s)' %\
               (userId, self.siteInfo.name, self.siteInfo.id)
