@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" 
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
@@ -34,9 +33,11 @@
         <metal:block metal:define-slot="search">
           <form  action="/s/index.html" method="get" id="searcharea"
             encoding="multipart/form-data">
-            <input class="text" title="Text to search for" type="text" 
-              name="s" id="searchTextInput"/> 
-            <input class="button" type="submit" value="Search" />
+            <div>
+              <input class="text" title="Text to search for" type="text" 
+                name="s" id="searchTextInput"/> 
+              <input class="button" type="submit" value="Search" />
+            </div>
           </form><!--searcharea-->
         </metal:block>
         <div id="titlebar">
