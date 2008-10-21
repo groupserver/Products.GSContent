@@ -16,7 +16,7 @@
     <link rel="stylesheet" type="text/css"
       href="/++resource++site-20080611.css" />
     <tal:block
-        tal:condition="python: hasattr(context, 'PresentationCustom')">
+        condition="python: hasattr(context, 'PresentationCustom')">
         <!-- now deprecated, but still in use, method for getting 
            - local customisations -->
         <link rel="stylesheet" type="text/css" 
@@ -35,7 +35,7 @@
       <div id="titlebanner">
         <metal:block metal:define-slot="search">
           <form  action="/s/index.html" method="get" id="searcharea"
-            encoding="multipart/form-data">
+            enctype="application/x-www-form-urlencoded">
             <div>
               <input class="text" title="Text to search for" type="text" 
                 name="s" id="searchTextInput"/> 

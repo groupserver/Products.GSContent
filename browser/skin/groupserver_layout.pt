@@ -1,5 +1,6 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" 
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
 <html xmlns="http://www.w3.org/1999/xhtml"
   xmlns:metal="http://xml.zope.org/namespaces/metal"
   xmlns:tal="http://xml.zope.org/namespaces/tal"
@@ -14,9 +15,10 @@
     <!-- styling just covering local customisations to sites -->
     <link rel="stylesheet" type="text/css" 
       href="/++resource++site-20080611.css" />
-    <tal:block condition="python:hasattr(context, 'PresentationCustom')">
-        <!-- now deprecated, but still in use, method for getting local 
-           - customisations -->
+    <tal:block 
+        condition="python:hasattr(context, 'PresentationCustom')">
+        <!-- now deprecated, but still in use, method for getting 
+           - local customisations -->
         <link rel="stylesheet" type="text/css" 
           href="/PresentationCustom/Tofu/Common/css/globalstyle.css" />
     </tal:block>
@@ -32,7 +34,7 @@
       <div id="titlebanner">
         <metal:block metal:define-slot="search">
           <form  action="/s/index.html" method="get" id="searcharea"
-            encoding="multipart/form-data">
+            enctype="application/x-www-form-urlencoded">
             <div>
               <input class="text" title="Text to search for" type="text" 
                 name="s" id="searchTextInput"/> 
