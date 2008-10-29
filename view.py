@@ -48,6 +48,7 @@ class GSSiteInfo:
               * "self.siteObj" to the site-instance, and 
               * "self.config" to the site-configuration instance.
         """
+        assert context, 'No context'
         self.context = context
         self.siteObj = self.__get_site_object()
         self.config = self.__get_site_config()
@@ -71,22 +72,21 @@ class GSSiteInfo:
         ENVIRONMENT
             "self.context": The context of the object.     
         """
-        retval = self.context
-        markerAttr = 'is_division'
-        while retval:
-            try:
-                if getattr(retval.aq_inner.aq_explicit, markerAttr, False):
+        retval = self.context.restrictedTraverse(
+           '/'.join(self.context.REQUEST.VirtualRootPhysicalPath))
+        if not retval:
+            retval = self.context
+            markerAttr = 'is_division'
+            while retval:
+                try:
+                    if getattr(retval.aq_inner.aq_explicit, markerAttr, False):
+                        break
+                    else:
+                        retval = retval.aq_parent
+                except:
                     break
-                else:
-                    retval = retval.aq_parent
-            except:
-                break
 
-        try:
-            retval = retval.aq_inner.aq_explicit
-        except AttributeError:
-            retval = None
-        
+        assert retval, 'No site object'
         return retval
                 
     def __get_site_config(self):
@@ -119,6 +119,7 @@ class GSSiteInfo:
         retval = None
         if self.siteObj:
             retval = self.siteObj.getId()
+        assert retval
         return retval
     
     @property
