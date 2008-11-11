@@ -123,9 +123,12 @@ class GSGroupsInfo(object):
         #   checking to see if the "messages" instance is visible.
         visibleGroups = []
         for group in allGroups:
+            # This definition is too restrictive...
+            #if (hasattr(group, 'messages')
+            #  and securityManager.checkPermission('View', group)
+            #  and securityManager.checkPermission('View', group.aq_explicit.messages)):
             if (hasattr(group, 'messages')
-              and securityManager.checkPermission('View', group)
-              and securityManager.checkPermission('View', group.aq_explicit.messages)):
+              and securityManager.checkPermission('View', group)):
                 visibleGroups.append(group)
         assert type(visibleGroups) == list
         return visibleGroups
@@ -152,7 +155,7 @@ class GSGroupsInfo(object):
             as bad as listing the groups that the user *is* a member of.
         '''
         assert user
-        assert ICustomUser.providedBy(user), '%s is not a user' % user
+        #assert ICustomUser.providedBy(user), '%s is not a user' % user
         retval = [g for g in self.get_visible_groups()
                   if ('GroupMember' not in user.getRolesInContext(g))]
         assert type(retval) == list
