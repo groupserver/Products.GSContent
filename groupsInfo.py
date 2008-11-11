@@ -123,12 +123,20 @@ class GSGroupsInfo(object):
         #   checking to see if the "messages" instance is visible.
         visibleGroups = []
         for group in allGroups:
-            # This definition is too restrictive...
-            #if (hasattr(group, 'messages')
-            #  and securityManager.checkPermission('View', group)
-            #  and securityManager.checkPermission('View', group.aq_explicit.messages)):
+            # AM: "Visible groups" should really be: groups which a user
+            #   is a member of, public groups, and private groups. Therefore,
+            #   we should only be checking the visibility of the group, not
+            #   of the messages. 
+            #   A separate method ("visible messages" or similar) should be
+            #   used to determine what messages and files should be included
+            #   in search results (and in turn, latest topics and files on a 
+            #   site homepage) should be shown to users.
+            #   **HOWEVER** at this point in time, we do not make a distinction.
+            #   Therefore, to preserve security, we define "visible groups"
+            #   very restrictively.
             if (hasattr(group, 'messages')
-              and securityManager.checkPermission('View', group)):
+              and securityManager.checkPermission('View', group)
+              and securityManager.checkPermission('View', group.aq_explicit.messages)):
                 visibleGroups.append(group)
         assert type(visibleGroups) == list
         return visibleGroups
@@ -155,6 +163,9 @@ class GSGroupsInfo(object):
             as bad as listing the groups that the user *is* a member of.
         '''
         assert user
+        # AM: The following assert prevents us getting the non-member
+        #   groups for Anonymous users. This in turn prevents us
+        #   getting the joinable groups for Anonymous users.
         #assert ICustomUser.providedBy(user), '%s is not a user' % user
         retval = [g for g in self.get_visible_groups()
                   if ('GroupMember' not in user.getRolesInContext(g))]
