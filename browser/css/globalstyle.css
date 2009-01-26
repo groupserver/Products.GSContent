@@ -439,6 +439,23 @@ ul.searchResults li, ul.feeds li {
     padding: 0.69em 0px 0.69em 0px;
 }
 
+/* Tabs */
+#tabmenu ul {
+  margin: 0px;
+  padding: 0px;
+  line-height: 2.08em;
+}
+
+#tabmenu li {
+  list-style-type: none;
+  display: block;
+  float: left;
+  line-height: 2.08em;
+}
+
+#tabmenu a {
+  padding: 0.3em 1.39em;`
+}
 /************************/
 /* Contacts and Profile */
 /************************/
@@ -533,6 +550,10 @@ userGroupEmailSettings
     display: block;
     text-decoration: none;
 }
+
+.history .disclosureButton {
+   display: inline;
+ }
 
 /*********************/
 /* Division Selector */
@@ -914,7 +935,7 @@ p#divisionAdminTasks img,  p.divisionAdminTasks img{
 #contextnav dd dd a, #contextnav li li a {
     font-weight: normal;
 }
-#contextnav a:hover,  #contextnav .label, #contextnav .label a {
+#contextnav a:hover,  #contextnav .label, #contextnav .label a, #tabmenu a {
     font-weight: bold;
     color: #f0ecd8;
 }
@@ -935,9 +956,20 @@ p#divisionAdminTasks img,  p.divisionAdminTasks img{
     border-bottom: none;
 }
 
+#tabmenu a {
+  border-top: thin solid #41638b;
+  border-right: thin solid #41638b;
+  border-bottom: none;
+  border-left: thin solid #41638b;
+}
+
 /* Mouse Overs */
-#contextnav .label, #contextnav dd a:hover, #contextnav li a:hover {
-    background: #839ab8;
+#contextnav .label, #contextnav dd a:hover, #contextnav li a:hover, #tabmenu a {
+  background: #839ab8;
+}
+#tabmenu a.current, #tabmenu a:hover {
+  color: #41638b;
+  background: none;
 }
 
 /* Site Navigation Menu Icons */
