@@ -102,6 +102,10 @@
   <browser:resource name="jquery-1.2.1.min.js"
     file="browser/javascript/jquery/jquery-1.2.1.min.js" 
     permission="zope2.Public" />
+    
+  <browser:resource name="jquery-1.3.1.min.js"
+    file="browser/javascript/jquery/jquery-1.2.1.min.js" 
+    permission="zope2.Public" />
 
   <!-- Javascript Crypto Implementations -->
   <browser:resourceDirectory name="crypto"
@@ -118,6 +122,11 @@
   <!-- JavaScript disclosure button -->
   <browser:resource name="disclosureButton-20080310.js"
     file="browser/javascript/disclosure_button/disclosure_toggle.js"
+    permission="zope2.Public" />
+
+  <!-- Javascript jsTree -->
+  <browser:resourceDirectory name="jsTree-20090204"
+    directory="browser/javascript/jstree/source/" 
     permission="zope2.Public" />
 
   <!-- CSS file -->
