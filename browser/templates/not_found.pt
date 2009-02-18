@@ -32,15 +32,16 @@
       
       <div metal:fill-slot="body">
         <h1>Page Not Found</h1>
-        <p>
+        <p tal:define="siteId view/siteInfo/id;
+          get_support_email python:modules['Products.XWFCore.XWFUtils'].get_support_email">
           The page you were looking for was not found. 
           It's likely that this is just an accident, but if you received
           the link in an email message, please check it carefully. 
           If you still are unable to access the page you were 
           looking for, please contact 
-          <a title="Email OnlineGroups.Net Support"
-            href="mailto:support@onlinegroups.net"
-            class="email">support@onlinegroups.net</a>.
+          <a class="email"
+              tal:attributes="href python:'mailto:%s' % get_support_email(context, siteId)">
+-            <span tal:content="siteName"/> support</a>.
         </p>
       </div>
     </body>
