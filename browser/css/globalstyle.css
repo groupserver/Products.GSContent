@@ -722,9 +722,6 @@ table#results th.file {
 #toggleStickyTopic .hint {
     width: 10em;
 }
-#toggleStickyTopic input {
-    display: none;
-}
 #toggleStickyTopic input.button {
     margin: 1.4em 0px 0px 0px;
     display: block;
@@ -756,10 +753,10 @@ table#results th.file {
     margin-top: 10px;
 }
 /* Message entry box */
-#message {
-    width: 100%;
-    max-width: 80em;
-    height: 20em;
+#add-to-topic textarea {
+    font-family: monospace;
+    width: 35.26em;
+    height: 27.8em;
 }
 
 /**************/

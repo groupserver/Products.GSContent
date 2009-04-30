@@ -1,10 +1,7 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
-<html xmlns="http://www.w3.org/1999/xhtml"
-  xmlns:metal="http://xml.zope.org/namespaces/metal"
-  xmlns:tal="http://xml.zope.org/namespaces/tal"
-  metal:define-macro="page">
+<tal:block 
+  metal:define-macro="page"><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <metal:block define-slot="title" />    
@@ -25,7 +22,7 @@
     <metal:block define-slot="style" />
     <base tal:attributes="href string:${request/URL1}/" />
   </head>
-  <body tal:define="siteName python:view.siteInfo.get_name()"
+  <body tal:define="siteName view/siteInfo/name"
     tal:attributes="id python:'page-%s' % request.URLPATH1.strip('/').replace('/','_');">
     <div id="toparea">
       <div id="externalbar" 
@@ -114,10 +111,10 @@
       </div><!--content-->
     </div><!--bodyblock-->
     <script type="text/javascript" 
-      src="/++resource++jquery-1.2.1.min.js">&#160;</script>
+      src="/++resource++jquery-1.2.6.min.js">&#160;</script>
     <script type="text/javascript"
       src="/++resource++disclosureButton-20080310.js">&#160;</script>
     <metal:block define-slot="javascript" />
   </body>
 </html>
-
+</tal:block>
