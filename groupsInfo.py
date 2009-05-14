@@ -85,8 +85,8 @@ class GSGroupsInfo(object):
 
         user = AccessControl.getSecurityManager().getUser()
         userId = user.getId()
-        
-        key = '%s-%s' % (top_level_site_id, '-'.join(user.getGroups()))
+        groups = '-'.join(user.getGroups())
+        key = '-'.join((top_level_site_id, self.siteInfo.id, groups))
 
         if self.siteUserVisibleGroupsIds.has_key(key):
             m = u'Using visible-groups cache for (%s) on %s (%s)' %\
