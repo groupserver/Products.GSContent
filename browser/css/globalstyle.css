@@ -35,7 +35,7 @@ body * {
 }
 
 p, ul, ol, dl, table, fieldset, .xhtml2-address {
-    margin: 1.4em 0px 1.4em 0px;
+    margin: 1.39em 0px 1.39em 0px;
 }
 
 .label {
@@ -46,7 +46,7 @@ p, ul, ol, dl, table, fieldset, .xhtml2-address {
 }
 
 ul, ol, dd, blockquote {
-  margin-left: 1.4em;
+  margin-left: 1.39em;
 }
 ul ul, ul ol, ol ul, ol ol {
   margin-top: 0px;
@@ -129,7 +129,7 @@ option {
 }
 input.button {
   font-size: 100%;    /*16px*/
-  line-height: 1.125; /*18px*/
+  line-height: 1.125em; /*18px*/
   padding: 0.35em;    /* 4px*/
   width: auto;
 }
@@ -232,7 +232,7 @@ fieldset legend {
 }
 #sitenavigation ul, #utilitylinks ul {
     padding: 5px 0px 0px 0px;
-    line-height: 26px;
+    line-height: 26px;/*--=mpj17=-- TOdo */
 }
 
 /* Site Navigation Menu 
@@ -351,25 +351,25 @@ form#searcharea {
 /* Search Results */
 
 ul.searchResults, ul.feeds {
-  margin: 0px 0px 1.4em 0px;
+  margin: 0px 0px 1.39em 0px;
 }
 
 ul.searchResults li, ul.feeds li {
   list-style: none;
-  margin-top: 1.4em;
+  margin-top: 1.39em;
 }
 
 .searchResults .disclosureWidget ul, .searchResults .disclosureWidget p {
   margin: 0px;
 }
 .searchResults .disclosureWidget li {
-  margin: 0px 0px 0px 1.4em;
+  margin: 0px 0px 0px 1.39em;
 }
 .searchResults .tags ul {
   margin-left: 0px;
 }
 .tags, .metadata, .groupInfo, .email-summary, .searchResults .disclosureWidget {
-  padding-left: 1.4em;
+  padding-left: 1.39em;
 }
 
 .searchResults .topic, .feeds .title {
@@ -382,7 +382,7 @@ ul.searchResults li, ul.feeds li {
 }
 
 .fileName {
-  padding-left: 1.4em;
+  padding-left: 1.39em;
 }
 
 .fileIcon {
@@ -404,11 +404,11 @@ ul.searchResults li, ul.feeds li {
   display: inline;
 }
 .tags p {
-  margin-right: 1.4em;
+  margin-right: 1.39em;
 }
 .tags ul li {
   list-style: none;
-  padding: 0px 1.4em 0px 0px;
+  padding: 0px 1.39em 0px 0px;
 }
 
 .postCount {
@@ -653,7 +653,7 @@ pre.email-body, .email-remainder pre {
 .emaildetails-odd, .emaildetails-self-odd, .emaildetails-even, .emaildetails-self-even
 {
 	margin: 0px;
-  padding: 1.4em;
+  padding: 1.39em;
 }
 
 .email-metadata {
@@ -699,11 +699,11 @@ table#results caption {
   font-weight: bold;
 }
 table#results .file {
-    padding: 0px 1.4em 0px 1.4em;
+    padding: 0px 1.39em 0px 1.39em;
 }
 table#results .file a {
     text-decoration: underline;
-    margin-right: 1.4em;
+    margin-right: 1.39em;
 }
 table#results .file a img {
   border: none;
@@ -723,7 +723,7 @@ table#results th.file {
     width: 10em;
 }
 #toggleStickyTopic input.button {
-    margin: 1.4em 0px 0px 0px;
+    margin: 1.39em 0px 0px 0px;
     display: block;
 }
 
@@ -794,7 +794,7 @@ div.vcard .org, div.vcard .email, div.vcard .adr {
 }
 
 div.vcard .adr * {
-    padding-left: 1.4em;
+    padding-left: 1.39em;
 }
 div.vcard .adr .type {
     padding-left: 0px;
@@ -898,7 +898,9 @@ h6 {
     line-height: 1.3em; /*18px*/
     margin: 1.3em 0px 1.3em 0px; /*18px*/
 }
-
+label, th {
+  line-height: 1.39em;
+}
 /* Links */
 a {
     color: #01375b;
@@ -1385,7 +1387,8 @@ textarea, input.text, .text input, .password input {
           font-size: 120%;
         }
 
-        h1,h2,h3,h4, h5, h6, caption, legend, th, label, .label, #titlebar .division, .row .label {
+        h1,h2,h3,h4, h5, h6, caption, legend, th, 
+        label, .label, #titlebar .division, .row .label {
           font-family: Trebuchet,'Trebuchet MS',arial,helvetica,clean,sans-serif;
           color: black;
         }
