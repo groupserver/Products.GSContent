@@ -157,7 +157,7 @@
     file="browser/css/globalstyle.css" 
     permission="zope2.Public" />
 
-  <browser:resource name="site-20090611.css"
+  <browser:resource name="site-20090827.css"
     file="browser/css/site.css" 
     permission="zope2.Public" />
 
