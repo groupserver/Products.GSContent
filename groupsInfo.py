@@ -77,8 +77,6 @@ class GSGroupsInfo(object):
         return retval
 
     def get_visible_groups(self):
-        top = time.time()
-        
         # get the top level site ID to use with the cache
         site_root = self.context.site_root()
         top_level_site_id = site_root.getId()
@@ -89,9 +87,6 @@ class GSGroupsInfo(object):
         key = '-'.join((top_level_site_id, self.siteInfo.id, groups))
 
         if self.siteUserVisibleGroupsIds.has_key(key):
-            m = u'Using visible-groups cache for (%s) on %s (%s)' %\
-              (userId, self.siteInfo.name, self.siteInfo.id)
-            log.info(m)
             visibleGroupsIds = self.siteUserVisibleGroupsIds.get(key)
             visibleGroups = []
             for groupId in visibleGroupsIds:
@@ -100,19 +95,17 @@ class GSGroupsInfo(object):
                 except:
                     log.info("trouble adding '%s' to visible groups" % groupId)
         else:
-            m = u'Generating visible-groups for (%s) on %s (%s)' %\
-              (userId, self.siteInfo.name, self.siteInfo.id)
-            log.info(m)
+            top = time.time()
             visibleGroups = self.__visible_groups_for_current_user()
             visibleGroupsIds = [group.getId() for group in visibleGroups]
             self.siteUserVisibleGroupsIds.add(key, visibleGroupsIds)
+            bottom = time.time()
+            log.info("Generated visible-groups for (%s) on %s (%s) in %.2fms" % 
+                      (userId, self.siteInfo.name, self.siteInfo.id, (bottom-top)*1000.0))        
             
         assert self.siteUserVisibleGroupsIds.has_key(key)
         assert type(visibleGroups) == list
         
-        bottom = time.time()
-        log.info("Generated visible-groups for (%s) on %s (%s) in %.2fms" % 
-                  (userId, self.siteInfo.name, self.siteInfo.id, (bottom-top)*1000.0))        
 
         return visibleGroups
         
