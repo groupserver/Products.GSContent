@@ -133,6 +133,8 @@ class GSSiteInfo:
     @property
     def title(self):
         retval = self.config.getProperty('siteTitle', self.name)
+        if isinstance(retval, str):
+            retval = unicode(retval, 'utf-8', 'ignore')
         return retval
         
     @property
@@ -171,7 +173,11 @@ class GSSiteInfo:
     def get_property(self, prop, default=None):
         assert self.siteObj, 'Site instance does not exist\n'\
           'Context %s\nID %s' % (self.context, self.id)
-        return self.siteObj.getProperty(prop, default)
+        retval = self.siteObj.getProperty(prop, default)
+        if isinstance(retval, str):
+            retval = unicode(retval, 'utf-8', 'ignore')
+        
+        return retval
         
 class GSSiteHomepageView(BrowserView):
     def __init__(self, context, request):
