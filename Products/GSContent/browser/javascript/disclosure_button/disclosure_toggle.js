@@ -1,5 +1,5 @@
 // Functions for handling the disclosure buttons.
-GSDisclosureButton = function () {
+var GSDisclosureButton = function () {
     /* GroupServer Disclosure Button Module.
     
         In general, A disclosure button is used to hide non-essential data 
