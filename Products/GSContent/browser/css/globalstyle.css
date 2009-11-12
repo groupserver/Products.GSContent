@@ -665,14 +665,9 @@ pre.email-body, .email-remainder pre {
 
 .userimage {
     margin: 0px;
-    padding: 0px 10px 0px 0px;
+    padding: 0px 9px 9px 0px;
     float: left;
 }
-
-.userimage img {
-    width: 80px;
-}
-
 
 #topicsSummary {
 	min-width: 600px;

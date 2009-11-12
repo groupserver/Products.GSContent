@@ -8,7 +8,7 @@
     <metal:block define-slot="metadata" />
     <!-- styling typically covering all sites -->
     <link rel="stylesheet" type="text/css" 
-      href="/++resource++globalstyle-20090126.css" />
+      href="/++resource++globalstyle-20091113.css" />
     <!-- styling just covering local customisations to sites -->
     <link rel="stylesheet" type="text/css" 
       href="/++resource++site-20091013.css" />
