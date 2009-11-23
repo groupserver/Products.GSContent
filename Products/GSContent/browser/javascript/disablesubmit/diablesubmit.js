@@ -10,7 +10,9 @@ var GSDisableSubmit = function () {
     */
 
     // Private variables
-    var foo = null;
+    // The disabled  button that says "Processing", followed by
+    //    ellipsis.
+    var newButtonText = '<input class="processing button" type="button" disabled="disabled" value="Processing\u2026"/>';
     
     // Private methods
     var handle_submit = function(event) {
@@ -22,14 +24,17 @@ var GSDisableSubmit = function () {
         return true;
     }
     var disable_button = function(submitButton) {
+        // --=mpj17=-- If I disable the button the form is not 
+        //      processed by zope.formlib, as disabled buttons are
+        //      "unsuccessful" by definition, so they are not POSTed
+        //      to Zope as part of the form data. So, I *hide* the
+        //      button (using CSS) and add a disabled button in its
+        //      place.
         var s = null;
         s = jQuery(submitButton);
-        s.attr('value', 'Processing\u2026');
-        // --=mpj17=-- If I disable the button the form is not 
-        //      processed by zope.formlib. Disabled buttons are
-        //      "unsuccessful" by definition, so they are not POSTed
-        //      to Zope as part of the form data.
-        //s.attr('disabled', 'disabled');
+        s.before(newButtonText);
+        s.addClass('hiddenType');
+        s.css('display', 'none');
         return true;
     }
     // Public methods and properties
