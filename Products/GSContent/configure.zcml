@@ -140,6 +140,11 @@
     directory="browser/javascript/jstree/source/" 
     permission="zope2.Public" />
 
+  <!-- Disable Submit -->
+  <browser:resource name="disableSubmit-20091123.js"
+    file="browser/javascript/disablesubmit/diablesubmit.js" 
+    permission="zope2.Public" />
+
   <!-- CSS file -->
   <browser:resource name="globalstyle-20091113.css"
     file="browser/css/globalstyle.css"

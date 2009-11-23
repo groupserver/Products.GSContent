@@ -114,6 +114,8 @@
       src="/++resource++jquery-1.3.1.min.js">&#160;</script>
     <script type="text/javascript"
       src="/++resource++disclosureButton-20091105.js">&#160;</script>
+    <script type="text/javascript"
+      src="/++resource++disableSubmit-20091123.js">&#160;</script>
     <metal:block define-slot="javascript" />
   </body>
 </html>
