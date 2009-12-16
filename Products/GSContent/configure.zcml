@@ -118,6 +118,10 @@
     file="browser/javascript/jquery/jquery-1.3.2.min.js" 
     permission="zope2.Public" />
 
+  <browser:resource name="jquery.dataTables.min-1.5.6.js"
+    file="browser/javascript/jquery/jquery.dataTables.min-1.5.6.js" 
+    permission="zope2.Public" />
+
   <!-- Javascript Crypto Implementations -->
   <browser:resourceDirectory name="crypto"
     directory="browser/javascript/crypto/" permission="zope2.Public" />
