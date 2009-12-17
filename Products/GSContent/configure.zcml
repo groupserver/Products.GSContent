@@ -122,6 +122,10 @@
     file="browser/javascript/jquery/jquery.dataTables.min-1.5.6.js" 
     permission="zope2.Public" />
 
+  <!-- Images for dataTables -->
+  <browser:resourceDirectory name="dataTablesImages-1.5.6"
+    directory="browser/images/dataTables" permission="zope2.Public" />
+
   <!-- Javascript Crypto Implementations -->
   <browser:resourceDirectory name="crypto"
     directory="browser/javascript/crypto/" permission="zope2.Public" />
