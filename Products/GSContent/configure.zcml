@@ -51,12 +51,8 @@
     type="zope.contentprovider.interfaces.ITALNamespaceData"/>
 
   <!-- The Not Found (404) page -->
-  <!-- <browser:page for="*" name="not_found.html" 
-    class=".view.GSContentView"
-    template="browser/templates/not_found.pt" permission="zope2.Public" />
-  -->
-  <browser:page for="*" name="not_found.html"
-    class=".view.GSNotFoundError" permission="zope2.Public" />
+  <!--browser:page for="*" name="not_found.html"
+    class=".view.GSNotFoundError" permission="zope2.Public" /-->
  
   <!-- Unknown Error (500) page -->
   <browser:page for="*" name="unknown_error.html"
