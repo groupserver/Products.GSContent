@@ -542,6 +542,33 @@ userGroupEmailSettings
   overflow: hidden;
 }
 
+/* Site and Group Membership */
+#membership {
+  margin: 1.39em 0px 1.39em 0px;
+  width: 20.85em;
+}
+.userProfile #groups {
+  float: right;
+  border-left: thick solid black;
+  padding: 0px 0px 0px 0.69em;
+}
+.userProfile #sites {
+  padding-left: 20.85em;
+}
+#membership h2 {
+  margin: 0px 0px 0.45em 0px; /*9px*/
+}
+#membership ul {
+  margin: 0.69em 0px 0.69em 0.69em;
+}
+#membership li {
+  list-style: none;  
+}
+#membership a {
+  display: block;
+  padding: 0.69em 0px 0.69em 0px;
+}
+
 /**********************/
 /* Disclosure Buttons */
 /**********************/
@@ -903,7 +930,6 @@ a {
 }
 a:hover, a:visited {
     color: #41638b;
-    /*background: transparent none no-repeat;*/
 }
 
 p#divisionAdminTasks img,  p.divisionAdminTasks img{
@@ -913,7 +939,6 @@ p#divisionAdminTasks img,  p.divisionAdminTasks img{
 /* Site Navigation Menu */ 
 #sitenavigation {
     background: #839ab8;
-    /*url("/Presentation/Tofu/Common/images/16x16/ABEL/menu-background.png") repeat-x scroll top left; */
 }
 #sitenavigation a, #sitenavigation a:visited, #utilitylinks a, #utilitylinks a:visited {
     color: #d8e6f0;
@@ -929,7 +954,7 @@ p#divisionAdminTasks img,  p.divisionAdminTasks img{
 #contextnav dd dd a, #contextnav li li a {
     font-weight: normal;
 }
-#contextnav a:hover,  #contextnav .label, #contextnav .label a, #tabmenu a {
+#contextnav a:hover,  #contextnav .label, #contextnav .label a, #tabmenu a, .userProfile a:hover {
     font-weight: bold;
     color: #f0ecd8;
 }
@@ -957,8 +982,12 @@ p#divisionAdminTasks img,  p.divisionAdminTasks img{
   border-left: thin solid #41638b;
 }
 
+.userProfile #groups {
+  border-color: #41638b;
+}
+
 /* Mouse Overs */
-#contextnav .label, #contextnav dd a:hover, #contextnav li a:hover, #tabmenu a {
+#contextnav .label, #contextnav dd a:hover, #contextnav li a:hover, #tabmenu a, .userProfile a:hover {
   background: #839ab8;
 }
 #tabmenu a.current, #tabmenu a:hover {
