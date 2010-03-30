@@ -237,20 +237,6 @@ class GSContentView(BrowserView):
 
     # To be converted: Scripts.get_firstLevelFolder(context)
 
-class GSNotFoundError(BrowserView):
-    index = ZopeTwoPageTemplateFile('browser/templates/not_found.pt')
-    # make the template publishable
-    def __init__(self, context, request):
-        self.context = context
-        self.request = request
-        self.siteInfo = createObject('groupserver.SiteInfo', context)
-        self.groupsInfo = createObject('groupserver.GroupsInfo', context)
-
-    def __call__(self, *args, **kw):
-        self.request.response.setHeader('Content-Type', 'text/html; charset=UTF-8')
-        self.request.response.setStatus(404, lock=True)
-        return self.index(self, *args, **kw)
-
 class GSUnknownError(BrowserView):
     index = ZopeTwoPageTemplateFile('browser/templates/unknown_error.pt')
     def __call__(self, *args, **kw):
