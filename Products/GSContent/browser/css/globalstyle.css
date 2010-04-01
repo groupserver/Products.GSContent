@@ -562,7 +562,7 @@ userGroupEmailSettings
   width: 20.85em; /*15u*/
 }
 .userProfile #siteMembership {
-  border-left: thick solid black;
+  border-left: 0.69em solid black;
   padding: 0px;
   width: 20.85em; /*15u*/
   float: right;
@@ -974,7 +974,7 @@ p#divisionAdminTasks img,  p.divisionAdminTasks img{
 
 /** Borders */
 #content, #contextnav, #divisionHomeContent {
-    border-top: thick solid #41638b;
+    border-top: 0.69em solid #41638b;
 }
 
 #contextnav dd, #contextnav li {
@@ -1391,7 +1391,7 @@ textarea, input.text, .text input, .password input {
     border-bottom: thin solid #41638B;
 }
 .postList {
-    border-bottom: thick solid #41638B;
+    border-bottom: 0.69em solid #41638B;
 }
 
 /**************/
