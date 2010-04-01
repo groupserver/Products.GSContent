@@ -545,28 +545,37 @@ userGroupEmailSettings
 /* Site and Group Membership */
 #membership {
   margin: 1.39em 0px 1.39em 0px;
-  width: 20.85em;
-}
-.userProfile #groups {
-  float: right;
-  border-left: thick solid black;
-  padding: 0px 0px 0px 0.69em;
-}
-.userProfile #sites {
-  padding-left: 20.85em;
-}
-#membership h2 {
-  margin: 0px 0px 0.45em 0px; /*9px*/
+  width: 43.78em;
 }
 #membership ul {
-  margin: 0.69em 0px 0.69em 0.69em;
+  margin: 0px;
 }
 #membership li {
   list-style: none;  
 }
-#membership a {
+#membership a, #siteMembership .current {
   display: block;
-  padding: 0.69em 0px 0.69em 0px;
+  padding: 0.69em;
+}
+.userProfile #groups {
+  padding: 0px 0px 0px 0.69em;
+  width: 20.85em; /*15u*/
+}
+.userProfile #siteMembership {
+  border-left: thick solid black;
+  padding: 0px;
+  width: 20.85em; /*15u*/
+  float: right;
+}
+#groups h2 {
+  margin: 0px 0px 0.45em 0px; /*0.5u*/
+}
+#siteMembership h2 {
+  margin: 0 0 0.45em 0.45em; /*0.5u*/
+}
+#siteMembership .current {
+  color: white;
+  background: black;
 }
 
 /**********************/
