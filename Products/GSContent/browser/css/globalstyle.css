@@ -963,7 +963,7 @@ p#divisionAdminTasks img,  p.divisionAdminTasks img{
 #contextnav dd dd a, #contextnav li li a {
     font-weight: normal;
 }
-#contextnav a:hover,  #contextnav .label, #contextnav .label a, #tabmenu a, .userProfile a:hover {
+#contextnav a:hover,  #contextnav .label, #contextnav .label a, #tabmenu a {
     font-weight: bold;
     color: #f0ecd8;
 }
@@ -996,7 +996,7 @@ p#divisionAdminTasks img,  p.divisionAdminTasks img{
 }
 
 /* Mouse Overs */
-#contextnav .label, #contextnav dd a:hover, #contextnav li a:hover, #tabmenu a, .userProfile a:hover {
+#contextnav .label, #contextnav dd a:hover, #contextnav li a:hover, #tabmenu a {
   background: #839ab8;
 }
 #tabmenu a.current, #tabmenu a:hover {
