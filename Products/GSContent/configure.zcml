@@ -86,10 +86,6 @@
     interface=".interfaces.IGSContentFolder" />
 
   <!-- Javascript Prototype and Scriptaculous -->
-  <browser:resource name="protoculous-20070809.js"
-    file="browser/javascript/protopacked/20070809/files/compressed/protoculous/version (1.5.1.1 + 1.7.1_beta3)/protoculous-shrinkvars.js" 
-    permission="zope2.Public" />
-
   <!-- Javascript jQuery -->
   <browser:resource name="jquery-ui-1.7.2.custom.min.js"
     file="browser/javascript/jquery/jquery-ui-1.7.2/jquery-ui-1.7.2.custom.min.js" 
