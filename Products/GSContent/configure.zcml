@@ -85,7 +85,6 @@
   <five:implements class="Products.FileSystemSite.DirectoryView.DirectoryViewSurrogate"
     interface=".interfaces.IGSContentFolder" />
 
-  <!-- Javascript Prototype and Scriptaculous -->
   <!-- Javascript jQuery -->
   <browser:resource name="jquery-ui-1.7.2.custom.min.js"
     file="browser/javascript/jquery/jquery-ui-1.7.2/jquery-ui-1.7.2.custom.min.js" 
