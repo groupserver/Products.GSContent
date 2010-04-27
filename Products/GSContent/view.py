@@ -141,13 +141,21 @@ class GSSiteInfo:
     def url(self):
         return self.get_url()        
     def get_url(self):
-        retval = ''
+        '''Gets the URL from the site. It is made up of the canonical 
+        host and the canonical port. If the canonical port is not set,
+        or is set to port 80, then it is not included in the URL.'''
+        retval = '/'
+
         canonicalHost = self.config.getProperty('canonicalHost', '')
         if canonicalHost:
             retval = 'http://%s' % canonicalHost
         elif self.siteObj:
             retval = '/%s' % self.siteObj.absolute_url(1)
 
+        canonicalPort = self.config.getProperty('canonicalPort', '80')
+        if canonicalPort != '80':
+          retval = '%s:%s' % (retval, canonicalPort)
+          
         return retval
         
     @property
