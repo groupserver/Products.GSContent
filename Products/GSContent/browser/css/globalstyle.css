@@ -1411,7 +1411,8 @@ textarea, input.text, .text input, .password input {
         body {
           color: black;
           background-color: white;
-          font-family: Georgia, "Times New Roman", Times, serif;
+          font-family: arial,helvetica,clean,sans-serif;
+          font-size: 9.5pt;
           margin: 0px;
           padding: 0px;
         }
@@ -1422,25 +1423,20 @@ textarea, input.text, .text input, .password input {
 
         h1,h2,h3,h4, h5, h6, caption, legend, th, 
         label, .label, #titlebar .division, .row .label {
-          font-family: Trebuchet,'Trebuchet MS',arial,helvetica,clean,sans-serif;
           color: black;
         }
 
         /* Do not display any of the navigation elements. */
-        #externallinks, #utilities, #sitenavigation, #contextnav, #searcharea, .helpLink, #footerLinks {
+        #externallinks, #utilitylinks, #sitenavigation, #contextnav, #searcharea, .helpLink, #footerLinks {
             display: none;
         }
 
-        #content {
+        #content, #divisionHomeContent {
+          border-top: none;
           margin: 0cm;
           padding: 0cm;
           border: none;
           position: static
-        }
-
-        /* Reformat the title-bar text, which is not the page title.*/
-        #titlebar {
-          display: none;
         }
 
         /* Reformat the links:                        */
@@ -1451,12 +1447,16 @@ textarea, input.text, .text input, .password input {
           background-color: inherit;
           text-decoration: none;
         }
-        #topicNavigation, #postsNavigation, #usefulLinks, table#results, #singlePostTopicNavigation, #posting,  #toggleStickyTopic {
+        #titlebar, #topicNavigation, #postsNavigation, #usefulLinks, table#results, #singlePostTopicNavigation, #posting,  #toggleStickyTopic {
             display: none;
           }
           
         .disclosureShowHide {
             display: block;
+        }
+        
+        .pageBreakBefore {
+          page-break-before: always;
         }
 }/*END print stylesheet*/
 
