@@ -130,14 +130,10 @@
     permission="zope2.Public" />
 
   <!-- CSS file -->
-  <browser:resource name="globalstyle-20091113.css"
+  <browser:resource name="globalstyle-20100525.css"
     file="browser/css/globalstyle.css"
     permission="zope2.Public" />
-  <browser:resource name="globalstyle-20090126.css"
-    file="browser/css/globalstyle.css"
-    permission="zope2.Public" />
-
-  <browser:resource name="site-20100330.css"
+  <browser:resource name="site-20100525.css"
     file="browser/css/site.css" 
     permission="zope2.Public" />
 

@@ -8,10 +8,10 @@
     <metal:block define-slot="metadata" />
     <!-- styling typically covering all sites -->
     <link rel="stylesheet" type="text/css" 
-      href="/++resource++globalstyle-20091113.css" />
+      href="/++resource++globalstyle-20100525.css" />
     <!-- styling just covering local customisations to sites -->
     <link rel="stylesheet" type="text/css" 
-      href="/++resource++site-20100330.css" />
+      href="/++resource++site-20100525.css" />
     <tal:block 
         condition="python:hasattr(context, 'PresentationCustom')">
         <!-- now deprecated, but still in use, method for getting 
