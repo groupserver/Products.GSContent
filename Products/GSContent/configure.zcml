@@ -26,9 +26,6 @@
     
   <browser:defaultView for=".interfaces.IGSContentFolder" name="index.html"/>
 
-  <five:defaultViewable class="OFS.Folder.Folder"/>
-  <five:defaultViewable class="OFS.OrderedFolder.OrderedFolder"/>
-
   <!--Site homepage-->
   <browser:page for=".interfaces.IGSSiteFolder" 
     name="index.html"
@@ -71,13 +68,6 @@
   <!--The resources used by the pages. -->
   <browser:resourceDirectory name="images"
     directory="browser/images" permission="zope2.Public" />
-  
-  <!-- Mark all DirectoryView folders as using the defaultViewable, 
-    which by default is index.html (as opposed to the zope2 default which
-    is index_html -->
-  
-  <five:defaultViewable
-    class="Products.FileSystemSite.DirectoryView.DirectoryViewSurrogate"/>
   
   <five:implements class="Products.FileSystemSite.DirectoryView.DirectoryViewSurrogate"
     interface=".interfaces.IGSContentFolder" />
