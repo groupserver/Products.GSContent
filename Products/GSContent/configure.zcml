@@ -5,10 +5,13 @@
   xmlns:sqlos="http://namespaces.sqlobject.org/sqlos"
   xmlns:five="http://namespaces.zope.org/five">
   
-  <!-- declare a marker interface on the Folder class to allow us 
-    to add marker Interfaces, views and adaptation -->
-  <five:implements class="OFS.Folder.Folder"
-    interface="zope.app.folder.interfaces.IFolder" />
+  <class class="OFS.Folder.Folder">
+      <implements interface="zope.app.folder.interfaces.IFolder" />
+  </class>
+
+  <class class="Products.FileSystemSite.DirectoryView.DirectoryViewSurrogate">
+      <implements interface=".interfaces.IGSContentFolder" />
+  </class>
   
   <!--View of the index-pages -->
   <browser:page for=".interfaces.IGSContentFolder" name="index.html"
@@ -69,9 +72,6 @@
   <browser:resourceDirectory name="images"
     directory="browser/images" permission="zope2.Public" />
   
-  <five:implements class="Products.FileSystemSite.DirectoryView.DirectoryViewSurrogate"
-    interface=".interfaces.IGSContentFolder" />
-
   <!-- Javascript jQuery -->
   <browser:resource name="jquery-ui-1.7.2.custom.min.js"
     file="browser/javascript/jquery/jquery-ui-1.7.2/jquery-ui-1.7.2.custom.min.js" 
