@@ -6,7 +6,7 @@ from zope.component import createObject
 from zope.component.interfaces import IFactory
 from zope.interface import implements, implementedBy
 
-import Globals
+from AccessControl.class_init import InitializeClass
 
 from Products.Five import BrowserView
 from Products.Five.browser.pagetemplatefile import ZopeTwoPageTemplateFile
@@ -253,5 +253,5 @@ class GSUnknownError(BrowserView):
         #self.request.response.setStatus(500)
         return self.index(self, *args, **kw)
 
-Globals.InitializeClass( GSContentView )
+InitializeClass( GSContentView )
 

@@ -1,7 +1,7 @@
 # coding=utf-8
 '''GroupServer-Content View Class
 '''
-import Globals
+from AccessControl.class_init import InitializeClass
 from Products.Five import BrowserView
 from zope.component import createObject
 
@@ -44,5 +44,5 @@ class GSNotificationView(BrowserView):
         
         return retval
                 
-Globals.InitializeClass( GSNotificationView )
+InitializeClass( GSNotificationView )
 
