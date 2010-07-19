@@ -702,6 +702,30 @@ pre.email-body, .email-remainder pre {
   padding-right: 2.08em;
 }
 
+.email-link {
+     background-image:url("/++resource++16x16/world_link.png");
+     min-width: 16px;
+     min-height: 16px;
+     width: 16px;
+     height: 16px;
+     display: -moz-inline-stack;
+     display: inline-block;
+     text-decoration: none;
+     border: none;
+}
+
+.fb-link {
+     background-image:url("/++resource++16x16/facebook.png");
+     min-width: 16px;
+     min-height: 16px;
+     width: 16px;
+     height: 16px;
+     display: -moz-inline-stack;
+     display: inline-block;
+     text-decoration: none;
+     border: none;
+}
+
 .userimage {
     margin: 0px;
     padding: 0px 9px 9px 0px;

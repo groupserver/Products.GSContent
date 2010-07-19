@@ -6,7 +6,7 @@ from zope.component import createObject
 from zope.component.interfaces import IFactory
 from zope.interface import implements, implementedBy
 
-from AccessControl.class_init import InitializeClass
+from App.class_init import InitializeClass
 
 from Products.Five import BrowserView
 from Products.Five.browser.pagetemplatefile import ZopeTwoPageTemplateFile

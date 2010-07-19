@@ -116,6 +116,11 @@
     file="browser/javascript/disablesubmit/diablesubmit.js" 
     permission="zope2.Public" />
 
+  <!-- Link sharing -->
+  <browser:resource name="share-20100720.js"
+    file="browser/javascript/share/share.js" 
+    permission="zope2.Public" />
+
   <!-- CSS file -->
   <browser:resource name="globalstyle-20100525.css"
     file="browser/css/globalstyle.css"
@@ -143,6 +148,10 @@
 
   <browser:resource name="whiteSprites-20071113.gif"
     file="browser/images/16x16/all-white.gif" 
+    permission="zope2.Public" />
+
+  <browser:resourceDirectory name="16x16"
+    directory="browser/images/16x16/" 
     permission="zope2.Public" />
 
   <browser:resourceDirectory name="anim"

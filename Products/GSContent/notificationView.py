@@ -1,7 +1,7 @@
 # coding=utf-8
 '''GroupServer-Content View Class
 '''
-from AccessControl.class_init import InitializeClass
+from App.class_init import InitializeClass
 from Products.Five import BrowserView
 from zope.component import createObject
 
