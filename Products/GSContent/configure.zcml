@@ -116,11 +116,6 @@
     file="browser/javascript/disablesubmit/diablesubmit.js" 
     permission="zope2.Public" />
 
-  <!-- Link sharing -->
-  <browser:resource name="share-20100720.js"
-    file="browser/javascript/share/share.js" 
-    permission="zope2.Public" />
-
   <!-- CSS file -->
   <browser:resource name="globalstyle-20100525.css"
     file="browser/css/globalstyle.css"
@@ -157,7 +152,6 @@
   <browser:resourceDirectory name="anim"
     directory="browser/images/anim/"
     permission="zope2.Public" />
-
     
   <!-- Factories -->
   <utility factory=".view.GSSiteInfoFactory"
