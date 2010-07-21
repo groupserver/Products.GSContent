@@ -86,7 +86,6 @@ class GSSiteInfo:
             retval = retval.aq_inner.aq_explicit
         except AttributeError:
             retval = None
-        
         return retval
                 
     def __get_site_config(self):
