@@ -46,17 +46,6 @@ class IGSSiteImage(Interface):
       required=False,
       default=False)      
         
-class IGSGroupsInfo(Interface):
-    def get_visible_group_ids(): #@NoSelf
-        """Get the IDs of Visible Groups
-        
-        ARGUMENTS
-            None.
-            
-        RETURNS
-            A list of strings, representing the IDs of visible groups.
-        """
-
 class IGSTitleBar(IContentProvider):
     """Render the site title bar, with image and/or sitename"""
     
