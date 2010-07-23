@@ -196,9 +196,24 @@ class GSContentView(BrowserView):
     '''View object for standard GroupServer content objects'''
     def __init__(self, context, request):
         BrowserView.__init__(self, context, request)
-        self.siteInfo = createObject('groupserver.SiteInfo', context.aq_self)
-        self.groupsInfo = createObject('groupserver.GroupsInfo', context.aq_self)
+        self.__siteInfo = self.__groupsInfo = None
     
+    @property
+    def siteInfo(self):
+        if self.__siteInfo == None:
+            self.__siteInfo = createObject('groupserver.SiteInfo', 
+                                self.context.aq_self)
+        assert self.__siteInfo
+        return self.__siteInfo
+        
+    @property
+    def groupsInfo(self):
+        if self.__groupsInfo == None:
+            self.__groupsInfo = createObject('groupserver.GroupsInfo', 
+                                    self.context.aq_self)
+        assert self.__groupsInfo
+        return self.__groupsInfo
+        
     def process_form(self):
         form = self.context.REQUEST.form
         result = {}

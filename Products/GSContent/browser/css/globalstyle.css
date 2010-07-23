@@ -691,12 +691,13 @@ pre.email-body, .email-remainder pre {
 }
 .emaildetails-odd, .emaildetails-self-odd, .emaildetails-even, .emaildetails-self-even
 {
-	margin: 0px;
+  margin: 0px;
   padding: 1.39em;
 }
 
 .email-metadata {
   margin-top: 0px;
+  padding-bottom: 1.39em;
 }
 .email-metadata .author, .email-metadata .posted {
   padding-right: 2.08em;
@@ -1546,4 +1547,3 @@ textarea, input.text, .text input, .password input {
           left: auto;
         }
 }
-
