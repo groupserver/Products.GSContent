@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<configure xmlns="http://namespaces.zope.org/zope"
+  xmlns:browser="http://namespaces.zope.org/browser"
+  xmlns:rdb="http://namespaces.zope.org/rdb"
+  xmlns:sqlos="http://namespaces.sqlobject.org/sqlos"
+  xmlns:five="http://namespaces.zope.org/five">
+  
+  <class class="OFS.Folder.Folder">
+      <implements interface="zope.app.folder.interfaces.IFolder" />
+  </class>
+
+  <class class="Products.FileSystemSite.DirectoryView.DirectoryViewSurrogate">
+      <implements interface=".interfaces.IGSContentFolder" />
+  </class>
+  
+  <!--View of the index-pages -->
+  <browser:page for=".interfaces.IGSContentFolder" name="index.html"
+    class=".view.GSContentView"
+    template="browser/templates/standard.pt" permission="zope2.View" />
+
+  <browser:page for=".interfaces.IGSNotificationPreview" 
+    name="index.html"
+    class=".notificationView.GSNotificationView"
+    permission="zope2.View" />
+
+  <browser:page for=".interfaces.IGSFullPageContentFolder" name="index.html"
+    class=".view.GSContentView"
+    template="browser/templates/site_home.pt" permission="zope2.View" />
+    
+  <browser:defaultView for=".interfaces.IGSContentFolder" name="index.html"/>
+
+  <!--Site homepage-->
+  <browser:page for=".interfaces.IGSSiteFolder" 
+    name="index.html"
+    class=".view.GSContentView"
+    template="browser/templates/site_home.pt" 
+    permission="zope2.View" />
+
+  <browser:page for=".interfaces.IGSSiteHomepageFolder"
+    name="index.html"
+    class=".view.GSSiteHomepageView"
+    template="browser/templates/new_site_home.pt"
+    permission="zope.Public" />
+
+  <!-- Content provider to be used in displaying the site title bar -->
+  <interface 
+    interface=".interfaces.IGSSiteImage"
+    type="zope.contentprovider.interfaces.ITALNamespaceData"/>
+
+  <!-- Unknown Error (500) page -->
+  <browser:page for="*" name="unknown_error.html"
+    class=".view.GSContentView"
+    template="browser/templates/unknown_error.pt" 
+    permission="zope2.Public" />
+  
+  <!-- A marker interface -->
+  <interface interface=".interfaces.IGSContentFolder"
+    type="zope.app.content.interfaces.IContentType" />
+
+  <browser:page for="*"
+    template="browser/skin/groupserver_layout.pt"
+    name="groupserver_layout" 
+    permission="zope.Public" />
+
+  <browser:page for="*" 
+        template="browser/skin/groupserver_site_home_layout.pt"
+        name="groupserver_site_home_layout" 
+        permission="zope.Public" />
+ 
+ 
+  <!--The resources used by the pages. -->
+  <browser:resourceDirectory name="images"
+    directory="browser/images" permission="zope2.Public" />
+  
+  <!-- Javascript jQuery -->
+  <browser:resource name="jquery-ui-1.7.2.custom.min.js"
+    file="browser/javascript/jquery/jquery-ui-1.7.2/jquery-ui-1.7.2.custom.min.js" 
+    permission="zope2.Public" />
+
+  <browser:resource name="jquery-1.3.2.min.js"
+    file="browser/javascript/jquery/jquery-1.3.2.min.js" 
+    permission="zope2.Public" />
+
+  <browser:resource name="jquery.dataTables.min-1.5.6.js"
+    file="browser/javascript/jquery/jquery.dataTables.min-1.5.6.js" 
+    permission="zope2.Public" />
+
+  <!-- Images for dataTables -->
+  <browser:resourceDirectory name="dataTablesImages-1.5.6"
+    directory="browser/images/dataTables" permission="zope2.Public" />
+
+  <!-- Javascript Crypto Implementations -->
+  <browser:resourceDirectory name="crypto"
+    directory="browser/javascript/crypto/" permission="zope2.Public" />
+
+  <!-- Javascript Date Implementations -->
+  <browser:resourceDirectory name="date"
+    directory="browser/javascript/date/" permission="zope2.Public" />
+
+  <!-- Javascript AJAX Pane Loader -->
+  <browser:resourceDirectory name="pane"
+    directory="browser/javascript/pane/" permission="zope2.Public" />
+
+  <!-- JavaScript disclosure button -->
+  <browser:resource name="disclosureButton-20091105.js"
+    file="browser/javascript/disclosure_button/disclosure_toggle.js"
+    permission="zope2.Public" />
+
+  <!-- Javascript jsTree -->
+  <browser:resourceDirectory name="jsTree-20090204"
+    directory="browser/javascript/jstree/source/" 
+    permission="zope2.Public" />
+
+  <!-- Disable Submit -->
+  <browser:resource name="disableSubmit-20091123.js"
+    file="browser/javascript/disablesubmit/diablesubmit.js" 
+    permission="zope2.Public" />
+
+  <!-- CSS file -->
+  <browser:resource name="globalstyle-20100525.css"
+    file="browser/css/globalstyle.css"
+    permission="zope2.Public" />
+  <browser:resource name="site-20100525.css"
+    file="browser/css/site.css" 
+    permission="zope2.Public" />
+
+  <!-- Colour Schemes -->
+  <browser:resource name="blueSprites-20071113.gif"
+    file="browser/images/16x16/all-blue.gif" 
+    permission="zope2.Public" />
+    
+  <browser:resource name="greenSprites-20071113.gif"
+    file="browser/images/16x16/all-green.gif" 
+    permission="zope2.Public" />
+    
+  <browser:resource name="blackSprites-20071113.gif"
+    file="browser/images/16x16/all-black.gif" 
+    permission="zope2.Public" />
+    
+  <browser:resource name="orangeSprites-20071113.gif"
+    file="browser/images/16x16/all-orange.gif" 
+    permission="zope2.Public" />
+
+  <browser:resource name="whiteSprites-20071113.gif"
+    file="browser/images/16x16/all-white.gif" 
+    permission="zope2.Public" />
+
+  <browser:resourceDirectory name="16x16"
+    directory="browser/images/16x16/" 
+    permission="zope2.Public" />
+
+  <browser:resourceDirectory name="anim"
+    directory="browser/images/anim/"
+    permission="zope2.Public" />
+    
+  <!-- Factories -->
+  <utility factory=".view.GSSiteInfoFactory"
+    name="groupserver.SiteInfo"
+    permission="zope.Public"/>
+
+  <adapter provides=".interfaces.IGSSiteInfo"
+                for="zope.app.folder.interfaces.IFolder"
+                permission="zope2.Public"
+                factory=".view.GSSiteInfo"
+                /> 
+
+</configure>

@@ -1,6 +1,0 @@
-= GroupServer Content Product =
-
-The code in this product is responsible for displaying the content-pages on
-GroupServer: what we call the "pragmatic templates". It controls the basic 
-layout of the XHTML 1.0 pages, contains the core CSS, and the DOJO JavaScript
-library which we use everywhere.
