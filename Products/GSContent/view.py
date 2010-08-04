@@ -12,8 +12,6 @@ from Products.Five import BrowserView
 from Products.Five.browser.pagetemplatefile import ZopeTwoPageTemplateFile
 from Products.XWFCore import XWFUtils
 
-import Products.GSContent.interfaces
-
 class GSSiteInfoFactory(object):
     implements(IFactory)
     
@@ -153,8 +151,16 @@ class GSSiteInfo:
 
         canonicalPort = self.config.getProperty('canonicalPort', '80')
         if canonicalPort != '80':
-          retval = '%s:%s' % (retval, canonicalPort)
-          
+            retval = '%s:%s' % (retval, canonicalPort)
+        return retval
+
+    @property
+    def site_admins(self):
+        return self.get_site_admins()
+    def get_site_admins(self):
+        admins = self.siteObj.users_with_local_role('DivisionAdmin')
+        retval = [ createObject('groupserver.UserFromId', 
+                      self.context, a) for a in admins ]
         return retval
         
     @property
