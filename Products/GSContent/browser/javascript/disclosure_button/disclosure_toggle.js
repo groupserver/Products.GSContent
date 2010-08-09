@@ -64,7 +64,6 @@ var GSDisclosureButton = function () {
     // Arrows
     var hiddenArrow = "\u25b6";
     var shownArrow = "\u25bc";
-    var NBSP = "\u00a0";
     var speed = 'fast';
     // Elements of the disclosure widgets
     var dw = ".disclosureWidget";
@@ -73,31 +72,31 @@ var GSDisclosureButton = function () {
     
     // Private methods
     var buttonClicked = function () {
-        text = jQuery(this).text()
-        coreText = text.substring(2, text.length);
-        arrow = text.substring(0, 1);
+        html = jQuery(this).html()
+        coreHTML = html.substring(2, html.length);
+        arrow = html.substring(0, 1);
         showHideWidget = jQuery(this).parents(dw).find(dsh)
         
         if ( arrow == hiddenArrow ) {
-            jQuery(this).text(shownArrow+NBSP+coreText);
+            jQuery(this).html(shownArrow+" "+coreHTML);
         } else {
-            jQuery(this).text(hiddenArrow+NBSP+coreText);
+            jQuery(this).html(hiddenArrow+" "+coreHTML);
         }
         showHideWidget.slideToggle(speed);
     }
     
     var show = function (button) {
-        var text = jQuery(this).text();
-        var coreText = text.substring(2, text.length);
-        jQuery(this).text(shownArrow+NBSP+coreText);
+        var html = jQuery(this).html();
+        var coreHTML = html.substring(2, html.length);
+        jQuery(this).html(shownArrow+" "+coreHTML);
         
         jQuery(this).parents(dw).find(dsh).slideDown(speed);
     }
 
     var hide = function (button) {
-        var text = jQuery(this).text();
-        var coreText = text.substring(2, text.length);
-        jQuery(this).text(hiddenArrow+NBSP+coreText);
+        var html = jQuery(this).html();
+        var coreHTML = html.substring(2, html.length);
+        jQuery(this).html(hiddenArrow+" "+coreHTML);
         
         jQuery(this).parents(dw).find(dsh).slideUp(speed);
     }
@@ -106,9 +105,9 @@ var GSDisclosureButton = function () {
         var visible = false;
         visible = jQuery(this).parents(dw).find(dsh).css('display') != 'none';
         if (visible) {
-          jQuery(this).prepend(shownArrow+NBSP);
+          jQuery(this).prepend(shownArrow+" ");
         } else {
-          jQuery(this).prepend(hiddenArrow+NBSP);
+          jQuery(this).prepend(hiddenArrow+" ");
         }
         jQuery(this).removeAttr('href').css("cursor","pointer");
     }
