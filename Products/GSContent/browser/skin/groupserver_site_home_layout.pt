@@ -23,7 +23,7 @@
     <metal:block define-slot="style" />
     <base tal:attributes="href string:${request/URL1}/" />
   </head>
-  <body tal:define="siteName view/siteInfo/name | Nothing"
+  <body tal:define="siteName view/siteInfo/name | nothing"
     tal:attributes="id python:'page-%s' % request.URLPATH1.strip('/').replace('/','_');">
     <div id="toparea">
       <div id="externalbar" 
