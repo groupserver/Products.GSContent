@@ -195,8 +195,11 @@ class GSSiteInfo:
 class GSSiteHomepageView(BrowserView):
     def __init__(self, context, request):
         BrowserView.__init__(self, context, request)
-        self.siteInfo = createObject('groupserver.SiteInfo', context.aq_self)
-        self.groupsInfo = createObject('groupserver.GroupsInfo', context.aq_self)
+        # these two might be required in 2.10
+        #self.siteInfo = createObject('groupserver.SiteInfo', context.aq_self)
+        #self.groupsInfo = createObject('groupserver.GroupsInfo', context.aq_self)
+        self.siteInfo = createObject('groupserver.SiteInfo', context)
+        self.groupsInfo = createObject('groupserver.GroupsInfo', context)
 
 class GSContentView(BrowserView):
     '''View object for standard GroupServer content objects'''
@@ -207,16 +210,22 @@ class GSContentView(BrowserView):
     @property
     def siteInfo(self):
         if self.__siteInfo == None:
+            # this might be required in 2.10
+            #self.__siteInfo = createObject('groupserver.SiteInfo', 
+            #                    self.context.aq_self)
             self.__siteInfo = createObject('groupserver.SiteInfo', 
-                                self.context.aq_self)
+                                self.context)
         assert self.__siteInfo
         return self.__siteInfo
         
     @property
     def groupsInfo(self):
         if self.__groupsInfo == None:
+            # this might be required in 2.10
+            #self.__groupsInfo = createObject('groupserver.GroupsInfo', 
+            #                        self.context.aq_self)
             self.__groupsInfo = createObject('groupserver.GroupsInfo', 
-                                    self.context.aq_self)
+                                    self.context)
         assert self.__groupsInfo
         return self.__groupsInfo
         
