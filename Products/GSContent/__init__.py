@@ -9,7 +9,8 @@ allow_class(GSSiteInfo)
 
 # XXX: Dirty hack, purely to support legacy code. Remove as soon as possible
 def GSGroupsInfoFactory():
-    logger.warn("Deprecated: GSGroupsInfoFactory should be imported directly fr$
+    logger.warn("Deprecated: GSGroupsInfoFactory should be imported directly "
+                "from gs.groups.groupsInfo")
     from gs.groups.groupsInfo import GSGroupsInfoFactory as GSGIFactory
     return GSGIFactory()
 
