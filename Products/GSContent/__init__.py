@@ -1,10 +1,14 @@
 # This space intentionally left blank
 import titleBar, view
+import logging
 from AccessControl import ModuleSecurityInfo
 from AccessControl import allow_class, allow_module
 
+logger = logging.getLogger("Products.GSContent")
+
+from Products.GSContent.view import GSSiteInfo
+
 siteInfo_security = ModuleSecurityInfo('Products.GSContent.view')
-from view import GSSiteInfo
 allow_class(GSSiteInfo)
 
 # XXX: Dirty hack, purely to support legacy code. Remove as soon as possible
