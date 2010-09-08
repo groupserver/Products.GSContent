@@ -66,13 +66,15 @@
                     href="/cookie_authentication/logout">Log Out</a>
               </li>
               <li 
-                tal:define="rn python:modules['Products.XWFCore.XWFUtils'].get_user_realnames;
-                  userName python:rn(user, userId, context);
-                  nn user/get_canonicalNickname">
-                <a id="profile-link"
-                  tal:attributes="href string:/p/${nn}/;
-                    title string:Profile of ${userName}">
-                  <span class="fn" tal:content="userName"/>
+                tal:define="fn python:user.getProperty('fn','?');
+                  nn user/get_canonicalNickname;
+                  url string:/p/${nn};
+                  up1 view/request/URLPATH1;
+                  cur python:up1==url;">
+                <a id="profile-link" title="View your profile"
+                  tal:attributes="href url;
+                    class python:(cur and 'current') or 'not-current';">
+                  <span class="fn" tal:content="fn"/>
                   (profile)</a>
               </li>
             </tal:block>

@@ -69,8 +69,8 @@
                 tal:define="fn python:user.getProperty('fn','?');
                   nn user/get_canonicalNickname;
                   url string:/p/${nn};
-                  bp view/request/BASEPATH3;
-                  cur python:bp==url;">
+                  up1 view/request/URLPATH1;
+                  cur python:up1==url;">
                 <a id="profile-link" title="View your profile"
                   tal:attributes="href url;
                     class python:(cur and 'current') or 'not-current';">
