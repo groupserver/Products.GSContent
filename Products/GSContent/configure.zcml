@@ -124,6 +124,14 @@
     file="browser/css/site.css" 
     permission="zope2.Public" />
 
+  <!--Favourite Icon-->
+  <browser:resource name="favicon.ico"
+    image="browser/images/favicon/gs-favicon-all-sizes.ico" 
+    permission="zope2.Public" />
+  <browser:resource name="favicongs.ico"
+    image="browser/images/favicon/gs-favicon-all-sizes.ico" 
+    permission="zope2.Public" />
+    
   <!-- Colour Schemes -->
   <browser:resource name="blueSprites-20071113.gif"
     file="browser/images/16x16/all-blue.gif" 
@@ -152,7 +160,7 @@
   <browser:resourceDirectory name="anim"
     directory="browser/images/anim/"
     permission="zope2.Public" />
-    
+
   <!-- Factories -->
   <utility factory=".view.GSSiteInfoFactory"
     name="groupserver.SiteInfo"
