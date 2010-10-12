@@ -73,13 +73,9 @@
     directory="browser/images" permission="zope2.Public" />
   
   <!-- Javascript jQuery -->
-  <browser:resource name="jquery-ui-1.7.2.custom.min.js"
+  <!--browser:resource name="jquery-ui-1.7.2.custom.min.js"
     file="browser/javascript/jquery/jquery-ui-1.7.2/jquery-ui-1.7.2.custom.min.js" 
-    permission="zope2.Public" />
-
-  <browser:resource name="jquery-1.3.2.min.js"
-    file="browser/javascript/jquery/jquery-1.3.2.min.js" 
-    permission="zope2.Public" />
+    permission="zope2.Public" /-->
 
   <browser:resource name="jquery.dataTables.min-1.5.6.js"
     file="browser/javascript/jquery/jquery.dataTables.min-1.5.6.js" 
