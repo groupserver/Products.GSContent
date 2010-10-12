@@ -5,7 +5,21 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <metal:block define-slot="title" />    
-    <metal:block define-slot="metadata" />
+
+    <tal:block  metal:define-slot="metadata-global"
+      tal:condition="python:hasattr(context, 'metadata.xml')"
+      tal:replace="structure python:getattr(context, 'metadata.xml')()">
+      &#160;
+    </tal:block>
+    <link rel="home" href="/"
+      tal:attributes="title string:${view/siteInfo/name} Home;"/>
+    <link rel="help" href="/help"
+      tal:attributes="title string:${view/siteInfo/name} Help;"/>
+    <tal:block  metal:define-slot="metadata" />
+
+    <!--Favourite Icon-->
+    <link rel="shortcut icon" type="" href="/++resource++favicon.ico"/>
+
     <!-- styling typically covering all sites -->
     <link rel="stylesheet" type="text/css" 
       href="/++resource++globalstyle-20100525.css" />
