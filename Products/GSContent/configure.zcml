@@ -128,9 +128,6 @@
   <browser:resource name="favicon.ico"
     image="browser/images/favicon/gs-favicon-all-sizes.ico" 
     permission="zope2.Public" />
-  <browser:resource name="favicongs.ico"
-    image="browser/images/favicon/gs-favicon-all-sizes.ico" 
-    permission="zope2.Public" />
     
   <!-- Colour Schemes -->
   <browser:resource name="blueSprites-20071113.gif"
