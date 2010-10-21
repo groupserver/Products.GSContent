@@ -35,7 +35,7 @@
     </tal:block>
     <link rel="stylesheet" href="/++resource++sharebox-20100721.css"/>
     <metal:block define-slot="style" />
-    <base tal:attributes="href string:${request/URL1}/" />
+    <base tal:attributes="href string:${request/URL}" />
   </head>
   <body tal:define="siteName view/siteInfo/name | nothing"
     tal:attributes="id python:'page-%s' % request.URLPATH1.strip('/').replace('/','_');">
