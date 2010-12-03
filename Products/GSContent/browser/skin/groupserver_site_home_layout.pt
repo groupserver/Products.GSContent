@@ -33,7 +33,6 @@
         <link rel="stylesheet" type="text/css" 
           href="/PresentationCustom/Tofu/Common/css/globalstyle.css" />
     </tal:block>
-    <link rel="stylesheet" href="/++resource++sharebox-20100721.css"/>
     <metal:block define-slot="style" />
     <base tal:attributes="href string:${request/URL}" />
   </head>
