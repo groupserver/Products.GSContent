@@ -1,3 +1,5 @@
+/*@import url("/++resource++jquery-ui-1.8.5-css/ui-lightness/jquery-ui-1.8.5.custom.css");*/
+
 /* GroupServer Standard Stylesheet
  *
  * The stylesheet is in five parts. The first part is taken from the 
@@ -65,11 +67,11 @@ h1, h2 {
 }
 
 h1 {
-  font-size: 278%; /* 2u */
+  font-size: 276.9%; /* 2u */
   margin: 0 0 0.692em; /*1u*/
 }
 h2 {
-  font-size: 208%; /* 1.5u */
+  font-size: 207.7%; /* 1.5u */
 }
 h3 {
   font-size: 138.5%; /* 1u */
@@ -85,7 +87,7 @@ p, ul, ol, dl, fieldset, table, pre {
 }
 /* Text: Lists */
 ul, ol {
-  margin-left: 2.08em; /*1.5u*/
+  margin-left: 2.077em; /*1.5u*/
 }
 ul ul, ul ol, ol ol, ol ul {
   margin-top: 0;
@@ -101,7 +103,7 @@ dl dd {
 
 /* Text: Tables */
 td, th {
-  padding: 0.70em; /*0.5u*/
+  padding: 0.692em; /*0.5u*/
   border: none;
 }
 /*TODO: Captions */
@@ -226,7 +228,7 @@ body {
   margin: 0;
 }
 #searcharea .button {
-  padding: 0 0.692em;
+    padding: 0 0.692em;
 }
 
 #sitenavigation ul, #utilitylinks ul {
@@ -237,7 +239,6 @@ body {
   line-height: 2.08em;
 }
 #sitenavigation li, #utilitylinks li {
-  margin: 0px;
   padding: 0px;
   height: auto;
   width: auto;
@@ -246,6 +247,13 @@ body {
   border-left: thin solid black;
   border-bottom: none;
   border-right: thin solid black;
+  font-weight: bold;
+}
+#sitenavigation li {
+  margin: 0 1.383em 0 0;
+}
+#utilitylinks li {
+  margin: 0 0 0 1.383em;
 }
 #sitenavigation a, #utilitylinks a {
   padding: 0.7em;
@@ -328,6 +336,21 @@ div.noFloat {
   text-decoration: none;
 }
 
+/* Two columns with a 1.5u gap */
+#content .leftColumn, #content .rightColumn {
+  width: 26.308em; /* 19u */
+}
+/* Two columns with a 1.5u gap */
+#divisionHomeContent .leftColumn, #divisionHomeContent .rightColumn {
+  width: 34.615em; /* 25u */
+}
+.leftColumn {
+    float: left;
+}
+.rightColumn {
+    float: right;
+}
+
 /************************/
 /* Page-specific styles */
 /************************/
@@ -353,6 +376,12 @@ div.noFloat {
   width: auto;
 }
 
+#topicSummary .label { 
+  margin-bottom: 0;
+}
+#topicSummary ul {
+  margin-top: 0;
+}
 #topic-index caption {
   display: none;
 }
@@ -455,5 +484,252 @@ input.full-share-input {
   min-height: 16.615em;
 }.email-metadata .topic {
   display: none;
+}
+
+/***********/
+/* Profile */
+/***********/
+.cols h2 {
+  margin-top: 0;
+}
+
+/******************/
+/* Group Homepage */
+/******************/
+
+/* UUUUUUUUUUUUUUUUUU */
+/* U H2 PPPPPP AAAA U  */
+/* UUUUUUUUUUUUUUUUUU */
+
+/* IIIIIIII  TTTTTTTT */
+/* IIIIIIII  TTTTTTTT */
+/* IIIIIIII  TTTTTTTT */
+/* IIIIIIII  TTTTTTTT */
+/* U: Us Bar; P: user photos, A: Us Bar tasks, I: Info Tabs, T: Task */
+/* Tabs*/
+
+#us-bar {
+  margin: 1.385em 0px;
+  height: 4.846em; /* 3.5u */
+  padding: 0.692em;
+  background-image: none;
+  background: white;
+}
+#us-bar h2, #us-photos, #us-tasks {
+  float: left;
+  margin: 0px;
+  padding-right: 1.385em;
+}
+#us-photos a {
+  display: inline-block;
+  width: 3.462em;
+  height: 4.846em;
+  background: #999999;
+}
+#us-photos img {
+  height: 4.846em;
+}
+#us-tasks ul {
+  font-weight: normal;
+  margin-top: 0px;
+}
+.ui-tabs .ui-tabs-hide {
+  display: none;
+}
+
+/* Topic List */
+/* Used by the group homepage, the site homepage, and the search page. */
+.searchResults {
+  margin-left: 0;
+}
+.searchResults li {
+  list-style: none;
+  margin: 1.385em 0;
+}
+.searchResults .topic {
+  display: inline-block;
+  font-size: 138.5%; /* 1u */
+  line-height: 1.5;
+  margin-right: 1em;
+}
+.searchResults .fileName {
+  font-family: monospace;
+}
+.searchResults .tags ul, .searchResults .metadata, .searchResults .groupInfo {
+  margin: 0 0 0 1.385em;
+}
+.searchResults .tags li {
+  margin: 0 1.385em 0 0;
+}
+.searchResults .postCount {
+  font-weight: bold;
+}
+.searchResults .fileIcon {
+  margin-right: 0.692em;
+}
+
+/* File icon sprites. */
+.fileIcon, .fileName {
+  display: inline-block;
+  background: transparent url("/++resource++whiteFileSprites-20070810.png") no-repeat scroll;
+  text-decoration: none;
+  border: none;
+}
+.fileIcon {
+  width: 16px; /* These are images, so I switch to px */
+  height: 16px;
+}
+.fileName {
+  padding-left: 2.077em;
+}
+.ascii, .text, .text-richtext, .text-x-generic, .text-x-generic-template,
+.text-x-log {
+  /* Plain text */
+  background-position: 0px -32px;
+}
+.text-html, .application-xhtml-xml, .application-xml, .html, .text-html,
+.text-vnd-wap-wml, .text-xml  {
+  /* Web */
+  background-position: 0px -64px;
+}
+.video-x-generic {
+  /* Video */
+  background-position: 0px -96px; 
+}
+.application-x-perl, .application-x-php, .application-x-python-bytecode,
+.application-x-shellscript, .application-x-shockwave-flash,
+.application-xslt-xml, .application-xslt+xml, .shellscript, .text-x-csh,
+.text-x-python, .text-x-script, .text-x-sh, .text-x-zsh
+{
+  /* Script */
+  background-position: 0px -128px;
+}
+.application-x-tex, .text-x-bibtex, .text-x-tex {
+  /* TeX */
+  background-position: 0px -160px;
+}
+.application-x-7z-compressed, .application-x-archive,
+.application-x-arj, .application-x-bzip-compressed-tar,
+.application-x-bzip, .application-x-compressed-tar, .application-x-compress,
+.application-x-cpio-compressed, .application-x-cpio, .application-x-deb,
+.application-x-gzip, .application-x-jar, .application-x-lha, 
+.application-x-lhz, application-x-stuffit, .application-x-tar,
+.application-x-tarz, .application-x-zip-compressed, .application-zip,
+.application-x-rar, .application-x-rpm, .deb, .folder_tar, .gnome-package,
+.plan, .package_editors, .package, .package_wordprocessing, 
+.package-x-generic, .rpm, .tar {
+  /* Compressed */
+  background-position: 0px -192px;
+}
+.application-ogg, .audio, .audio-x-generic, .audio-mpeg, .audio-x-wav {
+  /* Audio/Sound */
+  background-position: 0px -122px;
+}
+/* skip 1\ldots */
+.image-png, .application-vnd-oasis-opendocument-image, .image-bmp,
+.image-gif, .image-jpeg, .image-pjpeg, .image, .image, .image-svg-xml,
+.image-svg+xml, .image-tiff, .image-x-generic, .image-x, .image-x-xpixmap {
+  /* Images */
+  background-position: 0px -288px;
+}
+.application-x-executable, .application-x-ms-dos-executable, .exec, 
+.gnome-fs-executable  {
+  /* Executable */
+  background-position: 0px -320px;
+}
+/* skip 5\ldots */
+.application-magicpoint, .application-vnd-ms-powerpoint, 
+.application-vnd-oasis-opendocument-presentation, 
+.application-vnd-oasis-opendocument-presentation-template,
+.application-vnd-oasis-opendocument-text-web, 
+.application-vnd-stardivision-impress, .application-x-kpresenter {
+  /* Presentation */
+  background-position: 0px -512px;
+}
+.application-msexcel, .application-vnd-lotus-1-2-3, .application-vnd-ms-excel,
+.application-vnd-oasis-opendocument-spreadsheet, 
+.application-vnd-oasis-opendocument-spreadsheet-template, 
+.application-vnd-openxmlformats-officedocument-spreadsheetml-sheet, 
+.application-vnd-stardivision-calc, .application-vnd-sun-xml-calc,
+.application-vnd-sun-xml-calc-template, .application-vnd-sun-xml-calc,
+.application-vnd-sun-xml-calc-template, .application-x-applix-spreadsheet,
+.application-x-applix-spreadsheet, .application-x-gnumeric, 
+.application-x-msexcel, .application-x-kspread, 
+.text-x-comma-separated-values, .x-office-spreadsheet, 
+.x-office-spreadsheet-template
+ {
+  /* Spreadsheet*/
+  background-position: 0px -544px;
+}
+.application-vnd-ms-publisher, .application-vnd-oasis-opendocument-graphics,
+.application-vnd-oasis-opendocument-graphics-template, .application-vnd-sun-xml-draw,
+.application-vnd-sun-xml-draw-template, .application-x-killustrator,
+.x-office-drawing, .x-office-drawing-template, .x-office-presentation,
+.x-office-presentation-template {
+  /* Drawing and publishing */
+  background-position: 0px -576px;
+}
+.x-office-document, .application-ms-tnef, .x-office-document-template {
+  /* Generic Office Document */
+  background-position: 0px -608px;
+}
+/* Skip 2\ldots */
+.application-msword, .application-rtf, .application-vnd-lotus-wordpro, 
+.application-vnd-ms-word-document-macroEnabled-12, 
+.application-vnd-oasis-opendocument-text, 
+.application-vnd-oasis-opendocument-text-template, 
+.application-vnd-openxmlformats-officedocument-wordprocessingml-document,
+.application-vnd-sun-xml-impress, .application-vnd-sun-xml-impress-template
+.application-vnd-stardivision-writer, .application-vnd-sun-xml-writer,
+.application-vnd-sun-xml-writer-template, .application-wordperfect,
+.application-x-abiword, application-x-applix-word, .application-x-abiword,
+.application-x-applix-word, .application-x-kword {
+  /* Wordprocessor */
+  background-position: 0px -704px;
+}
+.text-x-vcalendar, .text-x-vcard, .x-office-address-book, 
+.x-office-calendar {
+  /* VCard and Calendar */
+  background-position: 0px -736px;
+}
+/*Skip 1\ldots*/
+.application-x-font-afm, .application-x-font-bdf, 
+.application-x-font-linux-psf, .application-x-font-pcf, 
+.application-x-font-sunos-news, .application-x-font-ttf, .font-x-generic,
+.x-font-afm {
+  /* Font */
+  background-position: 0px -800px;
+}
+/*Skip 1\ldots*/
+.application-pdf {
+  background-position: 0px -864px;
+}
+.application-certificate {
+  background-position: 0px -896px;
+}
+.application-postscript, .application-x-dvi {
+  background-position: 0px -928px;
+}
+/*End of File Icon Sprites */
+
+/* Search Page */
+#searchInput input {
+  margin: 0 1.385em 0 0;
+  display: inline-block;
+}
+#searchInput .button {
+  padding: 0 0.692em;
+}
+.searchResults .disclosureWidget {
+  margin-left: 1.385em;
+}
+.refineButton {
+  margin: 0.692em 0 0 0;
+}
+.refinement {
+  margin: 0 0 0 1.385em;
+}
+.refinement li {
+  margin: 0;
 }
 
