@@ -281,6 +281,12 @@ body {
 #contextnav .label {
   border-top: thin solid black;
 }
+#contextnav .label, #contextnav a {
+  padding: 0.692em 0px 0.692em 1.385em;
+}
+#contextnav .label a {
+  padding: 0;
+}
 #contextnav .label, #contextnav ul {
   margin:0;
 }
@@ -290,9 +296,6 @@ body {
 #contextnav li {
   list-style-type: none;
   margin: 0;
-}
-#contextnav a {
-  padding: 0.692em 0px 0.692em 1.385em;
 }
 #contextnav li li a {
   padding: 0.692em 0px 0.692em 2.8em; 
@@ -537,8 +540,9 @@ input.full-share-input {
   display: none;
 }
 
-/* Topic List */
-/* Used by the group homepage, the site homepage, and the search page. */
+/* Search Lists: Topic, Post, and File */
+/* Lists of search results used by the group homepage, the site */
+/* homepage, profile page and the search page. */
 .searchResults {
   margin-left: 0;
 }
@@ -546,7 +550,7 @@ input.full-share-input {
   list-style: none;
   margin: 1.385em 0;
 }
-.searchResults .topic {
+.searchResults .topic, .searchResults .fileName {
   display: inline-block;
   font-size: 138.5%; /* 1u */
   line-height: 1.5;
@@ -555,7 +559,7 @@ input.full-share-input {
 .searchResults .fileName {
   font-family: monospace;
 }
-.searchResults .tags ul, .searchResults .metadata, .searchResults .groupInfo {
+.searchResults .tags ul, .searchResults .metadata, .searchResults .groupInfo, .searchResults .email-summary {
   margin: 0 0 0 1.385em;
 }
 .searchResults .tags li {
@@ -566,6 +570,9 @@ input.full-share-input {
 }
 .searchResults .fileIcon {
   margin-right: 0.692em;
+}
+.searchResults .figure {
+  margin: 0.692em 0 0.629em 1.385em;
 }
 
 /* File icon sprites. */
@@ -580,7 +587,8 @@ input.full-share-input {
   height: 16px;
 }
 .fileName {
-  padding-left: 2.077em;
+  /* 1u gap for the icon to the left of the name. */
+  padding-left: 1em; 
 }
 .ascii, .text, .text-richtext, .text-x-generic, .text-x-generic-template,
 .text-x-log {
@@ -713,6 +721,9 @@ input.full-share-input {
 /*End of File Icon Sprites */
 
 /* Search Page */
+#searchInput {
+  margin: 1.385em 0 2.789em 0;
+}
 #searchInput input {
   margin: 0 1.385em 0 0;
   display: inline-block;
@@ -731,5 +742,6 @@ input.full-share-input {
 }
 .refinement li {
   margin: 0;
-}
+}  clear: both;
+
 
