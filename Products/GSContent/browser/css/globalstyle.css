@@ -359,6 +359,7 @@ div.noFloat {
   background-image: url("/++resource++postImages/arrow_right_bar.png");
 }
 
+/* The profile image, which appears everywhere. */
 .userimage {
   float: left;
   width: 6.231em;  /* 4.5u */
@@ -569,7 +570,7 @@ input.full-share-input {
   display: inline-block;
   width: 3.462em;
   height: 4.846em;
-  background: #999999;
+  background: #999;
 }
 #us-photos img {
   height: 4.846em;
@@ -868,4 +869,28 @@ input.full-share-input {
   margin: 0.692em 0.692em 0.692em 0;
 }
 
-/* Profile: Change Image */
+/* Members List */
+#gs-group-member-list li.vcard {
+  display: inline-block;
+  width: 18.000em; /*13u*/
+  height: 2.769em; /* 2u*/
+  margin: 1.385em;
+}
+#gs-group-member-list li.vcard img {
+  height: 2.769em;
+}
+#gs-group-member-list .vcard li {
+  list-style: none;
+}
+#gs-group-member-list .photo {
+  width:  2.077em; /* 1.5u */
+  height: 2.769em; /* 2.0u */
+  padding: 0;
+  display: inline-block;
+  float: left;
+  background: #999;
+}
+#gs-group-member-list .vcard ul {
+  margin-left: 2.769em;
+}
+
