@@ -894,3 +894,26 @@ input.full-share-input {
   margin-left: 2.769em;
 }
 
+/* Sign Up */
+/* In place of a context-navigation menu a progress-menu is shown for */
+/* sign up. */
+#signup-progress li {
+  list-style: none;
+  padding-left: 2.077em;
+}
+#signup-progress .done:before {
+  content: "\2713 "; /*A check box*/
+}
+#signup-progress .current {
+  font-weight: bold;
+}
+#signup-progress .current:before {
+  content: "\2023 "; /*A triangle*/
+}
+#signup-progress .done {
+  padding-left: 1.385em;
+}
+#signup-progress .current {
+  padding-left: 0.692px;
+}
+
