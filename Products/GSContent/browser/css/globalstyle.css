@@ -324,6 +324,7 @@ div.noFloat {
   height: 0;
 }
 
+/* Text Markup: Inline Lists. Usually used for navigating between pages */
 .inline-list {
   margin-left: 0;
 }
@@ -331,6 +332,13 @@ div.noFloat {
   list-style: none;
   display: inline-block;
   margin-right: 1.385em;
+}
+
+.userimage {
+  float: left;
+  width: 6.231em;  /* 4.5u */
+  height: 8.308em; /* 6u */
+  padding: 0 0.692em 0.692em 0;
 }
 
 /* Disclosure Widget */
@@ -407,8 +415,17 @@ div.noFloat {
      cursor: pointer;
 }
 /*TODO: Turn these into sprites */
-.email-share {
-     background-image:url("/++resource++sharebox/world_link.png");
+.url, .email {
+    display: inline-block;
+    padding-left: 1.385em;
+    line-height: 1.385; 
+}
+.email {
+    background: url("/++resource++blueSprites-20071113.gif") no-repeat 0px -687px;
+}
+
+.email-share, .url {
+    background:transparent url("/++resource++sharebox/world_link.png") no-repeat;
 }
 .fb-share {
      background-image:url("/++resource++sharebox/facebook.png");
@@ -444,7 +461,7 @@ input.full-share-input {
 }
 
 .postList {
-  margin-top: 1.39em;
+  margin-top: 1.385em;
   border-top: thin solid black;
 }
 
@@ -452,11 +469,11 @@ input.full-share-input {
 .hentry {
   position: relative;
   border-bottom: thin solid black;
-  padding: 1.39em 0;
+  padding: 1.385em 0;
   margin: 0;
 }
 .email-metadata {
-  margin: 0 0 1.39em 0;
+  margin: 0 0 1.385em 0;
 }
 .email-metadata .author, .email-metadata .posted {
   padding-right: 2.077em;
@@ -722,7 +739,7 @@ input.full-share-input {
 
 /* Search Page */
 #searchInput {
-  margin: 1.385em 0 2.789em 0;
+  margin: 1.385em 0 2.769em 0;
 }
 #searchInput input {
   margin: 0 1.385em 0 0;
@@ -748,7 +765,7 @@ input.full-share-input {
 /* Image Page */
 /* Because people forget to scale images before posting, GroupServer */
 /* resizes the image before displaying it on the Image Page. Besides */
-/* the image the Image Page shows some Mmetadata associated with the */
+/* the image the Image Page shows some Metadata associated with the */
 /* posted file. */
 .image .metadata {
   width: 15.231em; /*11u*/
@@ -771,5 +788,22 @@ input.full-share-input {
 }
 .image #linkurl {
   width: 31.846em;/*23u*/
+}
+
+/* Invitations Pages */
+.group-invitation p {
+  margin-left: 1.385em; 
+}
+.group-invitation ul {
+  margin-left: 3.47em;
+}
+.group-invitation fieldset {
+  padding-left: 0px;
+  margin-left: 1.385em;
+}
+
+/* Login */
+#login-form .textType{
+  height: auto; /* I do not know why I have to do this */
 }
 
