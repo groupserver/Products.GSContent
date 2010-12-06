@@ -151,13 +151,13 @@ textarea, input.textType, input.fileType, select {
 }
 .checkboxType, .radioType {
   clear: left;
-  margin: 0 0.692em 0 0;
+  margin: 1.385em 0.692em 1.385em 0;
   width: 1.385em;
   height: 1.385em;
 }
 .checkboxLabel, .radioLabel {
   width: 34.615em;
-  margin: 0 0 1.389em 0;
+  margin: 1.385em 0 1.389em 0;
 }
 .buttons {
   clear: left;
@@ -333,6 +333,31 @@ div.noFloat {
   display: inline-block;
   margin-right: 1.385em;
 }
+/* Intra-area navigation: topic, post, image, manage members, search */
+.navlinks a, .navlinks span {
+  background-repeat: no-repeat;
+  padding: 0 0 0 1.385em;
+}
+/* TODO: Create sprites */
+.navlinks .first {
+  background-image: url("/++resource++postImages/arrow_left_bar.png");
+}
+.navlinks .prev {
+  background-image: url("/++resource++postImages/arrow_left.png");
+}
+.navlinks .up {
+  /*TODO: Up Icon*/
+}
+.navlinks .next, .navlinks .last {
+  padding: 0 1.385em 0 0;
+  background-position: right;
+}
+.navlinks .next {
+  background-image: url("/++resource++postImages/arrow_right.png");
+}
+.navlinks .last {
+  background-image: url("/++resource++postImages/arrow_right_bar.png");
+}
 
 .userimage {
   float: left;
@@ -415,7 +440,7 @@ div.noFloat {
      cursor: pointer;
 }
 /*TODO: Turn these into sprites */
-.url, .email {
+code.url, .email {
     display: inline-block;
     padding-left: 1.385em;
     line-height: 1.385; 
@@ -424,7 +449,7 @@ div.noFloat {
     background: url("/++resource++blueSprites-20071113.gif") no-repeat 0px -687px;
 }
 
-.email-share, .url {
+.email-share, code.url {
     background:transparent url("/++resource++sharebox/world_link.png") no-repeat;
 }
 .fb-share {
@@ -806,4 +831,54 @@ input.full-share-input {
 #login-form .textType{
   height: auto; /* I do not know why I have to do this */
 }
+
+/* Content Manager */
+/*Content Manager: Change Privacy*/
+/* The Change Privacy page for the content manager is in two columns. */
+/* However, this throws out the column-code. So, I lay this page out */
+/* manually. */
+#products-gscontentmanager-privacy .radioLabel, #products-gscontentmanager-privacy .radioType {
+  display: inline-block;
+  float: none;
+  width: auto;
+}
+
+/* Manage Members */
+/* The Manage Members page is a complex beast. Essentially a form, it */
+/* is a *huge* form. */
+#foo        .message-result p {
+          margin: 0;
+        }
+        .message-result ul {
+          margin: 0 0 0.69em;
+        }
+        .message-result li {
+          margin: 0 1em 0;
+        }
+#manage-members .statusActions {
+  position: relative;
+  border-top: thin solid black;
+  border-bottom: thin solid black;
+  padding-bottom: 1.385em;
+  padding-left: 0.692em;
+  overflow: hidden;
+}
+#manage-members .userimage {
+  position: absolute;
+  float: none;
+  top: 0;
+  right: 0;
+  padding: 1.385em;
+}
+#foo        .form-widget {
+          margin: 0.69em 0 0.69em;
+        }
+#foo        .ptnCoach {
+          margin: 0;
+        }
+#foo        .ptnCoachRemove label {
+          font-size: 138.5%;
+          line-height: 1em;
+          margin: 1em 0;
+        }
 
