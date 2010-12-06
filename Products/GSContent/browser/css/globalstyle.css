@@ -742,6 +742,34 @@ input.full-share-input {
 }
 .refinement li {
   margin: 0;
-}  clear: both;
+  clear: both;
+}  
 
+/* Image Page */
+/* Because people forget to scale images before posting, GroupServer */
+/* resizes the image before displaying it on the Image Page. Besides */
+/* the image the Image Page shows some Mmetadata associated with the */
+/* posted file. */
+.image .metadata {
+  width: 15.231em; /*11u*/
+  float: right;
+  position: relative;
+}
+.image .metadata div {
+  position: relative;
+  left: 6.923em; /* 5u */
+  text-indent: -1.385em;
+}
+.image .metadata .photo {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.image .metadata #filename .fileName {
+    display: inline-block;
+    padding-left: 2.769em;
+}
+.image #linkurl {
+  width: 31.846em;/*23u*/
+}
 
