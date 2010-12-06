@@ -846,15 +846,9 @@ input.full-share-input {
 /* Manage Members */
 /* The Manage Members page is a complex beast. Essentially a form, it */
 /* is a *huge* form. */
-#foo        .message-result p {
-          margin: 0;
-        }
-        .message-result ul {
-          margin: 0 0 0.69em;
-        }
-        .message-result li {
-          margin: 0 1em 0;
-        }
+#manage-members .navlinks {
+  display: inline;
+}      
 #manage-members .statusActions {
   position: relative;
   border-top: thin solid black;
@@ -870,15 +864,8 @@ input.full-share-input {
   right: 0;
   padding: 1.385em;
 }
-#foo        .form-widget {
-          margin: 0.69em 0 0.69em;
-        }
-#foo        .ptnCoach {
-          margin: 0;
-        }
-#foo        .ptnCoachRemove label {
-          font-size: 138.5%;
-          line-height: 1em;
-          margin: 1em 0;
-        }
+#manage-members .statusActions label, #manage-members .statusActions input {
+  margin: 0.692em 0.692em 0.692em 0;
+}
 
+/* Profile: Change Image */
