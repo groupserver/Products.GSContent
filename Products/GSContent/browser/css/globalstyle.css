@@ -917,3 +917,23 @@ input.full-share-input {
   padding-left: 0.692px;
 }
 
+/* Invitations */
+#invite-message-preview {
+  border: thin solid black;
+  padding: 0.692em; 
+  background: #999 none repeat scroll 0pt 0pt; 
+  margin: 1.385em 0;
+}
+#invite-message-preview-button {
+  margin-left: 2.077em;
+  padding: 0.692em;
+  border: thin solid black;
+  background: #999 none repeat scroll 0 0;
+  width:  34.615em;
+  cursor: pointer;
+}
+/* Invite by CSV */
+#gs-group-member-invite-csv select {
+  margin: 0px 0px 1.385em 1.385em;
+}
+
