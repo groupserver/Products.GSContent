@@ -937,3 +937,41 @@ input.full-share-input {
   margin: 0px 0px 1.385em 1.385em;
 }
 
+/* View Profile: Membership List */
+#gs-profile-view #membership ul {
+  margin: 1.385em 0;
+}
+#gs-profile-view #membership li {
+  list-style: none;  
+}
+#gs-profile-view #membership a, #gs-profile-view #membership .current {
+  display: block;
+  padding: 0.692em 0;
+  margin: 1.385em 0 0 0;
+}
+#gs-profile-view #membership .current {
+  border-top: thin solid black;
+  border-right: thin solid black;
+  border-bottom: thin solid black;
+}
+#gs-profile-view #membership .manage {
+  padding: 0;
+  margin: 0 0 0 1.385em;
+}
+#gs-profile-view #siteMembership {
+  border-left: 0.692em solid black;
+}
+#gs-profile-view #siteMembership a, #gs-profile-view #siteMembership .current {
+  padding: 0.692em;
+}
+
+#gs-profile-view #membership .rightColumn,  #gs-profile-view #membership .leftColumn{
+  margin: 1.385em 0;
+}
+#gs-profile-view #groups h2 {
+  margin: 0 0 0.692em 0; /*0.5u*/
+}
+#gs-profile-view #siteMembership h2 {
+  margin: 0 0 0.692em 0.692em; /*0.5u*/
+}
+
