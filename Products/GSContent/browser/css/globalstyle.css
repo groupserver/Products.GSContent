@@ -975,3 +975,32 @@ input.full-share-input {
   margin: 0 0 0.692em 0.692em; /*0.5u*/
 }
 
+/* Group Member Log */
+/* The group-member log lists when the members joined and left the */
+/* group. The list of members has the bullet replaced with a + or - */
+/* as appropriate. To switch between the All, Join and Leave tabs the */
+/* class of the list is changed, and this triggers the different CSS */
+/* rules to be evoked. */
+#gs-group-member-log #tabbody {
+  clear: left;
+}
+#gs-group-member-log .join-event, .leave-event {
+  list-style: none;
+}
+#gs-group-member-log li.join-event:before {
+  content: "+ ";
+  font-weight: bold;
+  font-size: 138.5%;
+}
+#gs-group-member-log li.leave-event:before {
+  content: "\2212  "; /* Hex Code for the minus sign &#8722; */
+  font-weight: bold;
+  font-size: 138.5%;
+}
+#gs-group-member-log .join .leave-event {
+  display: None;
+}
+#gs-group-member-log .leave .join-event {
+  display: None;
+}
+

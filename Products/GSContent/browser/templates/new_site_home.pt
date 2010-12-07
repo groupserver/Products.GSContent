@@ -9,17 +9,7 @@
 
     <meta name="title" content="Standard Template for Search"/>
     <meta name="author" content="Michael JasonSmith" />
-    <meta name="description" 
-      content="This template is used to render the search page on GroupServer" 
-    />
     <meta name="date" content="2007-04-26"/>
-    <tal:block metal:fill-slot="style"> 
-      <style type="text/css">
-        .groupInfo, .tags, .email-summary, .metadata {
-          clear: left; 
-        }
-      </style>
-    </tal:block>
   </head>
   <body>
     <tal:block metal:fill-slot="contextnavigation">
