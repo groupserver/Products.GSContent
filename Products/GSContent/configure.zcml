@@ -165,4 +165,8 @@
                 factory=".view.GSSiteInfo"
                 /> 
 
+  <browser:resource name="icons.png"
+    file="browser/images/icons-chp.png" 
+    permission="zope2.Public" />
+
 </configure>
