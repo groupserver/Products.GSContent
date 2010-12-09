@@ -67,23 +67,27 @@
         <div id="utilitylinks"
           metal:define-slot="utilitylinks">
           <ul tal:define="userId user/getId;">
-            <li tal:condition="not:userId">
+            <li tal:condition="not:userId"
+              class="ui-corner-top">
               <a id="log-in-link" href="/login.html"
                 tal:attributes="href python:('/logout.html' in request.URL or '/login.html' in request.URL) and '/login.html' or '/login.html?came_from=%s' % request.URL"
                 title="Log in here">Log In</a>
             </li>
             <tal:block condition="userId">
-              <li>
+              <li class="ui-state-default ui-corner-top">
                 <a id="log-out-link"
                   tal:attributes="title string:Log out from ${siteName}"
                     href="/cookie_authentication/logout">Log Out</a>
               </li>
-              <li 
+              <li  class="ui-corner-top"
                 tal:define="fn python:user.getProperty('fn','?');
                   nn user/get_canonicalNickname;
                   url string:/p/${nn};
                   up1 view/request/URLPATH1;
-                  cur python:up1==url;">
+                  cur python:up1==url;
+                  c string:ui-state-default ui-corner-top ui-tabs-selected ui-state-active;
+                  nc string:ui-state-default ui-corner-top"
+                tal:attributes="class python:(cur and c) or nc">
                 <a id="profile-link" title="View your profile"
                   tal:attributes="href url;
                     class python:(cur and 'current') or 'not-current';">
