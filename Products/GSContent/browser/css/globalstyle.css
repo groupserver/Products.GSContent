@@ -110,7 +110,9 @@ tbody th {
   text-align: left;
 }
 
+/*********/
 /* Forms */
+/*********/
 label {
   display: block;
   font-weight: bold;
@@ -152,6 +154,12 @@ textarea, input.textType, input.fileType, select {
   margin: 0.692em 0 0.692em 1.385em;
   display: block;
 }
+.checkboxType, .checkboxLabel {
+  display: inline-block;
+}
+.checkboxType {
+  margin: 1.385em 0;
+}
 .radioItem input, .radioItem label, .checkboxGroup input, .checkboxGroup label{
   position: absolute;
   display: inline;
@@ -182,6 +190,7 @@ input.button {
   margin-left: 0;
   padding: 0.692em;
 }
+
 /*Messages at the top of forms*/
 #form-message, .form-widget-message {
   padding: 0.692em;
@@ -199,8 +208,11 @@ input.button {
   margin: 0 0.692em 0 0; 
 }
 
-/* GroupServer Page Layout */
+/* WYMeditor */
+/* The styling for the WYMeditor is *not* done here. It is done by a */
+/* separate CSS that the WYMeditor loads */
 
+/* GroupServer Page Layout */
 /* Main Layout: 52u main block, with a banner running across the */
 /* page. T: title, S: search, M: main-nav, U: utility links,       */
 /* C: context menu, B: body block.                                 */
