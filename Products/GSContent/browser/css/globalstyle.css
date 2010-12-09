@@ -184,7 +184,7 @@ input.button {
 
 /* GroupServer Page Layout */
 
-/* Main Layout: 51.5u main block, with a banner running across the */
+/* Main Layout: 52u main block, with a banner running across the */
 /* page. T: title, S: search, M: main-nav, U: utility links,       */
 /* C: context menu, B: body block.                                 */
 /* TTTTTTTTTTTTTTTT     SSSSSSSSS */
@@ -207,7 +207,7 @@ body {
 #titlebanner, #mainnav, #bodyblock {
   position: relative; /* Create a new positioning context */
   margin: 1.385em auto 0 auto;
-  width: 71.3275em; /* 51.5u */
+  width: 72.000em; /* 52u */
   text-align: left;
 }
 
@@ -314,7 +314,7 @@ body {
 }
 
 #content {
-  width: 54.692em; /* 39.5u */
+  width: 55.385em; /* 40u */
   position: absolute;
   top: 0;
   right: 0;
@@ -386,7 +386,7 @@ div.noFloat {
   text-decoration: none;
 }
 
-/* Two columns with a 1.5u gap */
+/* Two columns with a 2u gap */
 #content .leftColumn, #content .rightColumn {
   width: 26.308em; /* 19u */
 }
