@@ -149,7 +149,7 @@ textarea, input.textType, input.fileType, select {
 /* wrapped in a div, which can then be styled correctly. */
 .radioItem, .checkboxGroup {
   position: relative; /* Create a new positioning context */
-  margin: 0 0 0 1.385em;;
+  margin: 0.692em 0 0.692em 1.385em;
 }
 .radioItem input, .radioItem label, .checkboxGroup input, .checkboxGroup label{
   position: absolute;
@@ -164,6 +164,11 @@ textarea, input.textType, input.fileType, select {
 .radioItem label, .checkboxGroup label {
   top: 0;
   left: 1.385em;
+}
+/* zope.formlib adds br elements between my radio buttons. Hack around */
+/* this issue in the CSS. */
+.form-widget .value br {
+  display: none;
 }
 /* The submit button, which never reads "Submit". */
 .buttons {
