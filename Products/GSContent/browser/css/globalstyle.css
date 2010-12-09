@@ -128,7 +128,7 @@ label {
 }
 input, select, textarea {
   display: block;
-  margin-left: 2.08em;
+  margin-left: 2.077em;
 }
 input.textType {
   height: 1.385em;
@@ -150,6 +150,7 @@ textarea, input.textType, input.fileType, select {
 .radioItem, .checkboxGroup {
   position: relative; /* Create a new positioning context */
   margin: 0.692em 0 0.692em 1.385em;
+  display: block;
 }
 .radioItem input, .radioItem label, .checkboxGroup input, .checkboxGroup label{
   position: absolute;
@@ -180,6 +181,22 @@ input.button {
   font-weight: bold;
   margin-left: 0;
   padding: 0.692em;
+}
+/*Messages at the top of forms*/
+#form-message, .form-widget-message {
+  padding: 0.692em;
+}
+#form-message {
+  margin: 1.385em 0;
+}
+.form-widget-message {
+  margin: 1.385em 0 1.385em 2.077em;
+  padding: 0.692em;
+  width: 33.231em;
+}
+#form-message .ui-icon, .form-widget-message .ui-icon {
+  float: left;
+  margin: 0 0.692em 0 0; 
 }
 
 /* GroupServer Page Layout */
@@ -248,7 +265,7 @@ body {
   margin: 0;
   height: auto;
   display: block;
-  line-height: 2.08em;
+  line-height: 2.077em;
 }
 #sitenavigation li, #utilitylinks li {
   padding: 0;
@@ -319,7 +336,9 @@ body {
   top: 0;
   right: 0;
 }
-
+#divisionHomeContent {
+  padding-top: 1.385em;
+}
 /* Text Markup */
 p.label {
   font-weight: bold;
@@ -542,7 +561,7 @@ code.url {
 .application-x-abiword, application-x-applix-word, .application-x-abiword,
 .application-x-applix-word, .application-x-kword {
   /* Wordprocessor */
-  background-position: 0 -816px;
+  background-position: 0 -815px;
 }
 .text-x-vcalendar, .text-x-vcard, .x-office-address-book, 
 .x-office-calendar {
@@ -765,7 +784,7 @@ input.full-share-input {
   list-style: none;
   margin: 1.385em 0;
 }
-.searchResults .fileResult .fileIcon {
+.searchResults .fileResult .fileIcon, .fileMetadata .fileIcon, #topicsSummary .fileIcon {
   margin: 0;
   padding: 0;
 }
@@ -793,7 +812,7 @@ input.full-share-input {
   margin-right: 0.692em;
 }
 .searchResults .figure {
-  margin: 0.692em 0 0.629em 1.385em;
+  margin: 0.692em 0 0.692em 1.385em;
 }
 
 /* Search Page */
@@ -871,10 +890,8 @@ input.full-share-input {
 /* The Change Privacy page for the content manager is in two columns. */
 /* However, this throws out the column-code. So, I lay this page out */
 /* manually. */
-#products-gscontentmanager-privacy .radioLabel, #products-gscontentmanager-privacy .radioType {
-  display: inline-block;
-  float: none;
-  width: auto;
+#changeprivacy .rightColumn .value {
+  margin-top: 2.769em;
 }
 
 /* Manage Members */
@@ -1137,9 +1154,7 @@ a, a:hover, a:visited {
 ----------------------------------*/
 .ui-state-highlight, .ui-widget-content .ui-state-highlight, .ui-widget-header .ui-state-highlight  {border: 1px solid #999999; background: #ffffff none 50% 50% repeat-x; color: #363636; }
 .ui-state-highlight a, .ui-widget-content .ui-state-highlight a,.ui-widget-header .ui-state-highlight a { color: #363636; }
-.ui-state-error, .ui-widget-content .ui-state-error, .ui-widget-header .ui-state-error {border: 1px solid #999999; background: #ffffff none 50% 50% repeat-x; color: #999999; }
-.ui-state-error a, .ui-widget-content .ui-state-error a, .ui-widget-header .ui-state-error a { color: #999999; }
-.ui-state-error-text, .ui-widget-content .ui-state-error-text, .ui-widget-header .ui-state-error-text { color: #999999; }
+.ui-state-error, .ui-widget-content .ui-state-error, .ui-widget-header .ui-state-error {border: 1px solid black;}
 .ui-priority-primary, .ui-widget-content .ui-priority-primary, .ui-widget-header .ui-priority-primary { font-weight: bold; }
 .ui-priority-secondary, .ui-widget-content .ui-priority-secondary,  .ui-widget-header .ui-priority-secondary { opacity: .7; filter:Alpha(Opacity=70); font-weight: normal; }
 .ui-state-disabled, .ui-widget-content .ui-state-disabled, .ui-widget-header .ui-state-disabled { opacity: .35; filter:Alpha(Opacity=35); background-image: none; }
@@ -1148,14 +1163,14 @@ a, a:hover, a:visited {
 ----------------------------------*/
 
 /* states and images */
-.ui-icon { width: 16px; height: 16px; background-image: url(images/ui-icons_222222_256x240.png); }
-.ui-widget-content .ui-icon {background-image: url(images/ui-icons_222222_256x240.png); }
-.ui-widget-header .ui-icon {background-image: url(images/ui-icons_222222_256x240.png); }
-.ui-state-default .ui-icon { background-image: url(images/ui-icons_888888_256x240.png); }
-.ui-state-hover .ui-icon, .ui-state-focus .ui-icon {background-image: url(images/ui-icons_454545_256x240.png); }
-.ui-state-active .ui-icon {background-image: url(images/ui-icons_454545_256x240.png); }
-.ui-state-highlight .ui-icon {background-image: url(images/ui-icons_999999_256x240.png); }
-.ui-state-error .ui-icon, .ui-state-error-text .ui-icon {background-image: url(images/ui-icons_999999_256x240.png); }
+.ui-icon { width: 16px; height: 16px; background-image: url(/++resource++jquery-icons/ui-icons_222222_256x240.png); }
+.ui-widget-content .ui-icon {background-image: url(/++resource++jquery-icons/ui-icons_222222_256x240.png); }
+.ui-widget-header .ui-icon {background-image: url(/++resource++jquery-icons/ui-icons_222222_256x240.png); }
+.ui-state-default .ui-icon { background-image: url(/++resource++jquery-icons/ui-icons_888888_256x240.png); }
+.ui-state-hover .ui-icon, .ui-state-focus .ui-icon {background-image: url(/++resource++jquery-icons/ui-icons_454545_256x240.png); }
+.ui-state-active .ui-icon {background-image: url(/++resource++jquery-icons/ui-icons_454545_256x240.png); }
+.ui-state-highlight .ui-icon {background-image: url(/++resource++jquery-icons/ui-icons_999999_256x240.png); }
+.ui-state-error .ui-icon, .ui-state-error-text .ui-icon {background-image: url(/++resource++jquery-icons/ui-icons_222222_256x240.png); }
 
 /* positioning */
 .ui-icon-carat-1-n { background-position: 0 0; }
