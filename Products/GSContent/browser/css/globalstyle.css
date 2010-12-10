@@ -432,6 +432,10 @@ div.noFloat {
     float: right;
 }
 
+/* Used when all text is upper-case, such as legal disclaimers */
+.allupper {
+  font-family: serif;
+}
 /*********/
 /* Icons */
 /*********/
@@ -702,14 +706,14 @@ input.full-share-input {
   margin: 0;
 }
 .email-metadata {
-  margin: 0 0 1.385em 0;
+  margin: 0 0 1.385em 0.692em;
 }
 .email-metadata .author, .email-metadata .posted {
   padding-right: 2.077em;
 }
 .hentry .userimage {
   position: absolute;
- 
+  left: 0.692em;
 }
 .hentry .entry-content, .hentry .email-remainder, .hentry .fileNotification {
   position: relative;
@@ -730,8 +734,15 @@ input.full-share-input {
 /* shown. */
 #single-post-page .hentry {
   border-top: thin solid black;
+  border-bottom: thin solid black;  
   min-height: 16.615em;
-}.email-metadata .topic {
+}
+.email-metadata .topic {
+  display: block;
+  font-size: 138.5%; /* 1u */
+  margin: 0 0 1em 0;
+}
+#single-post-page .email-metadata .topic {
   display: none;
 }
 
