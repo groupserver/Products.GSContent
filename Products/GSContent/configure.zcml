@@ -168,6 +168,9 @@
   <browser:resource name="icons.png"
     file="browser/images/icons-chp.png" 
     permission="zope2.Public" />
+  <browser:resource name="icons-colour.png"
+    file="browser/images/icons.png" 
+    permission="zope2.Public" />
   <browser:resourceDirectory name="jquery-icons"
     directory="browser/images/jquery-icons/"
     permission="zope2.Public" />
