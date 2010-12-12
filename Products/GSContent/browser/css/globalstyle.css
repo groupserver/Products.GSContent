@@ -1077,6 +1077,15 @@ input.full-share-input {
   display: None;
 }
 
+/* Change Site Greeting Page */
+#gs-greeting-changegreeting #preview {
+  margin: 1.385em 0 0 1.385em;
+}
+#gs-greeting-changegreeting li {
+  list-style: none;
+  margin-bottom: 0.692em;
+}
+
 /* Error Pages */
 /* The technical message goes at the end of the page. It is mostly */
 /* there for developers, so it is de-emphasized. */
