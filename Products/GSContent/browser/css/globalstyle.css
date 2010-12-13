@@ -1,15 +1,6 @@
 /* GroupServer Standard Stylesheet
- *
- * The stylesheet is in five parts. The first part is taken from the 
- * Yahoo! UI project, and is used to reset all the element styles. The
- * second lays out the page, placing the elements in the correct place. 
- * The top of the page is based on a 30px grid, with 10px spacing used
- * when elements are closely related. The main body of the page is
- * formatted using an 18px grid. The third part of this stylesheet is
- * the default colour-scheme, and is followed by the print and handheld
- * stylesheets.
- *
- * -- Michael JasonSmith (mpj17) 2007
+ * 
+ * -- Michael JasonSmith (mpj17) 2010
  *
  */
 
@@ -403,7 +394,7 @@ div.noFloat {
   background-position: 0 -1584px;
 }
 
-/* The profile image, which appears everywhere. */
+/* Text Markup: The profile image, which appears everywhere. */
 .userimage {
   float: left;
   width: 6.231em;  /* 4.5u */
@@ -411,12 +402,13 @@ div.noFloat {
   padding: 0 0.692em 0.692em 0;
 }
 
-/* Disclosure Widget */
+/* Text Markup: Disclosure Widget */
 .disclosureButton {
   display: block;
   text-decoration: none;
 }
 
+/* Text Markup: Columns */
 /* Two columns with a 2u gap */
 #content .leftColumn, #content .rightColumn {
   width: 26.308em; /* 19u */
@@ -432,7 +424,7 @@ div.noFloat {
     float: right;
 }
 
-/* Used when all text is upper-case, such as legal disclaimers */
+/* Text Markup: SHOUTING TEXT */
 .allupper {
   font-family: serif;
 }
@@ -608,11 +600,11 @@ code.url {
 /* Page-specific styles */
 /************************/
 
-/*********/
-/* Topic */
-/*********/
-/* The work-horse page of GroupServer, the Topic page displays all */
-/* the posts in a topic. */
+/************/
+/* Messages */
+/************/
+/* Topic: The work-horse page of GroupServer, the Topic page displays */
+/* all the posts in a topic. */
 #topicNavigation li, #postsNavigation li, #usefulLinks li {
   list-style: none;
 }
@@ -639,7 +631,7 @@ code.url {
   display: none;
 }
 
-/* Share bar */
+/* Messages: Share bar. Widgets to share a topic or post */
 .share-bar {
   display: -moz-inline-stack;
   display: inline-block;
@@ -698,7 +690,7 @@ input.full-share-input {
   border-top: thin solid black;
 }
 
-/* A post, both in a topic, on the posts page, or by itself. */
+/* Messages: Post, both in a topic, on the posts page, or by itself. */
 .hentry {
   position: relative;
   border-bottom: thin solid black;
@@ -722,16 +714,6 @@ input.full-share-input {
 .fileMetadata {
   margin: 1.385em 0;
 }
-/* The Multi File plugin for jQuery allows multiple files to be added */
-.MultiFile-label {
-  margin: 0.692em 2.077em;
-}
-.MultiFile-remove {
-  margin: 0 0.692em 0 0;
-}
-
-/* The Post page is like the Topic page, except the Subject line is */
-/* shown. */
 #single-post-page .hentry {
   border-top: thin solid black;
   border-bottom: thin solid black;  
@@ -744,6 +726,14 @@ input.full-share-input {
 }
 #single-post-page .email-metadata .topic {
   display: none;
+}
+
+/* The Multi File plugin for jQuery allows multiple files to be added */
+.MultiFile-label {
+  margin: 0.692em 2.077em;
+}
+.MultiFile-remove {
+  margin: 0 0.692em 0 0;
 }
 
 /***********/
@@ -796,7 +786,9 @@ input.full-share-input {
 .ui-tabs .ui-tabs-hide {
   display: none;
 }
-
+/**********/
+/* Search */
+/**********/
 /* Search Lists: Topic, Post, and File */
 /* Lists of search results used by the group homepage, the site */
 /* homepage, profile page and the search page. */
