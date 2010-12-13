@@ -930,8 +930,11 @@ input.full-share-input {
   right: 0;
   padding: 1.385em;
 }
-#manage-members .statusActions label, #manage-members .statusActions input {
-  margin: 0.692em 0.692em 0.692em 0;
+#manage-members .radioItem {
+  margin: 0.692em 0;
+}
+#manage-members .statusActions h3 {
+  padding-right: 6.923em; /* 5u gap for the profile photo */
 }
 
 /* Members List */
@@ -1085,6 +1088,15 @@ input.full-share-input {
   padding: 0.692em 0;
   border-top: thin solid #999;
   color: #999;
+}
+
+/* Profile: Email Settings*/
+#gs-profile-email-change .change select, #gs-profile-email-change .change input {
+  display: inline;
+  width: auto;
+}
+#gs-profile-email-change .change input {
+  padding: 0 0.692em;
 }
 
 /* Colour is for happy people */
