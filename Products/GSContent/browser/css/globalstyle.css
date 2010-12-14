@@ -731,12 +731,20 @@ input.full-share-input {
   display: none;
 }
 
-/* The Multi File plugin for jQuery allows multiple files to be added */
+/* Messages: The Multi File plugin for jQuery */
 .MultiFile-label {
   margin: 0.692em 2.077em;
 }
 .MultiFile-remove {
   margin: 0 0.692em 0 0;
+}
+
+/* Messages: The list of topics on the Topics page */
+#topicsSummary caption {
+  display: none;
+}
+#topicsSummary th {
+  text-align: left;
 }
 
 /***********/
@@ -985,18 +993,9 @@ input.full-share-input {
 }
 
 /* Invitations */
-#invite-message-preview {
-  border: thin solid black;
-  padding: 0.692em; 
-  background: #999 none repeat scroll 0pt 0pt; 
-  margin: 1.385em 0;
-}
 #invite-message-preview-button {
-  margin-left: 2.077em;
-  padding: 0.692em;
-  border: thin solid black;
-  background: #999 none repeat scroll 0 0;
-  width:  34.615em;
+  padding: 0.692em; 
+  margin: 1.385em 0;
   cursor: pointer;
 }
 /* Invite by CSV */
