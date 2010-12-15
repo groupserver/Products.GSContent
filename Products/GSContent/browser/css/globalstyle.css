@@ -717,6 +717,9 @@ input.full-share-input {
 .fileMetadata {
   margin: 1.385em 0;
 }
+.hentry .email-body {
+  min-height: 8.308em; /* 6u */
+}
 #single-post-page .hentry {
   border-top: thin solid black;
   border-bottom: thin solid black;  
