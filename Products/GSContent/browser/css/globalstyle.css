@@ -696,6 +696,7 @@ input.full-share-input {
   border-bottom: thin solid black;
   padding: 1.385em 0;
   margin: 0;
+  min-height: 9.962em; /* 7u */
 }
 .email-metadata {
   margin: 0 0 1.385em 0.692em;
@@ -705,9 +706,6 @@ input.full-share-input {
 }
 .email-metadata abbr {
   border: none;
-}
-.hentry {
-  min-height: 9.962em; /* 7u */
 }
 .hentry .userimage {
   position: absolute;
