@@ -107,12 +107,12 @@
     directory="browser/javascript/jstree/source/" 
     permission="zope2.Public" />
 
-  <!-- Disable Submit -->
+  <!-- JavaScript Disable Submit -->
   <browser:resource name="disableSubmit-20091123.js"
     file="browser/javascript/disablesubmit/diablesubmit.js" 
     permission="zope2.Public" />
 
-  <!-- CSS file -->
+  <!-- CSS files -->
   <browser:resource name="globalstyle-20101213.css"
     file="browser/css/globalstyle.css"
     permission="zope2.Public" />
@@ -125,31 +125,7 @@
     image="browser/images/favicon/gs-favicon-all-sizes.ico" 
     permission="zope2.Public" />
     
-  <!-- Colour Schemes -->
-  <browser:resource name="blueSprites-20071113.gif"
-    file="browser/images/16x16/all-blue.gif" 
-    permission="zope2.Public" />
-    
-  <browser:resource name="greenSprites-20071113.gif"
-    file="browser/images/16x16/all-green.gif" 
-    permission="zope2.Public" />
-    
-  <browser:resource name="blackSprites-20071113.gif"
-    file="browser/images/16x16/all-black.gif" 
-    permission="zope2.Public" />
-    
-  <browser:resource name="orangeSprites-20071113.gif"
-    file="browser/images/16x16/all-orange.gif" 
-    permission="zope2.Public" />
-
-  <browser:resource name="whiteSprites-20071113.gif"
-    file="browser/images/16x16/all-white.gif" 
-    permission="zope2.Public" />
-
-  <browser:resourceDirectory name="16x16"
-    directory="browser/images/16x16/" 
-    permission="zope2.Public" />
-
+  <!-- Busy image -->
   <browser:resourceDirectory name="anim"
     directory="browser/images/anim/"
     permission="zope2.Public" />
