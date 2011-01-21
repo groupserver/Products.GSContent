@@ -64,9 +64,10 @@
           tal:content="structure python:getattr(context, 'menumain.xml', getattr(context.Templates.output, 'menumain.xml'))(method='html')">
           &#160;
         </div><!--sitenavigation-->
-        <div id="utilitylinks"
+        <div id="utilitylinks" class="tabs ui-tabs ui-widget"
           metal:define-slot="utilitylinks">
-          <ul tal:define="userId user/getId;">
+          <ul tal:define="userId user/getId;"
+            class="ui-tabs-nav ui-helper-reset ui-helper-clearfix">
             <li tal:condition="not:userId"
               class="ui-corner-top">
               <a id="log-in-link" href="/login.html"

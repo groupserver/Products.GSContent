@@ -263,12 +263,15 @@ body {
     padding: 0 0.692em;
 }
 
+#sitenavigation .ui-tabs, #utilitylinks {
+  padding-top: 0; /*Hack*/
+  padding-bottom: 1px; /*Hack*/
+}
 #sitenavigation ul, #utilitylinks ul {
   padding: 0;
   margin: 0;
   height: auto;
   display: block;
-  line-height: 2.077em;
 }
 #sitenavigation li, #utilitylinks li {
   padding: 0;
