@@ -72,15 +72,12 @@
   <browser:resourceDirectory name="images"
     directory="browser/images" permission="zope2.Public" />
   
-  <!-- Javascript jQuery -->
-  <!--browser:resource name="jquery-ui-1.7.2.custom.min.js"
-    file="browser/javascript/jquery/jquery-ui-1.7.2/jquery-ui-1.7.2.custom.min.js" 
-    permission="zope2.Public" /-->
-
+  <!-- Javascript -->
+  <!--TODO: Move JavaScript code out of GSContent. See Ticket 344
+    <https://projects.iopen.net/groupserver/ticket/344> -->
   <browser:resource name="jquery.dataTables.min-1.5.6.js"
     file="browser/javascript/jquery/jquery.dataTables.min-1.5.6.js" 
     permission="zope2.Public" />
-
   <!-- Images for dataTables -->
   <browser:resourceDirectory name="dataTablesImages-1.5.6"
     directory="browser/images/dataTables" permission="zope2.Public" />
