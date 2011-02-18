@@ -875,23 +875,23 @@ input.full-share-input {
 /* resizes the image before displaying it on the Image Page. Besides */
 /* the image the Image Page shows some Metadata associated with the */
 /* posted file. */
-.image .metadata {
-  width: 15.231em; /*11u*/
-  float: right;
-  position: relative;
+.image .share-bar {
+  margin: 0.692em 0;
 }
-.image .metadata div {
-  position: relative;
-  left: 6.923em; /* 5u */
+.image .metadata {
+  width: 23.538em; /*17u*/
+  position: absolute;
+  right: 0;
+}
+.image .metadata div { /*Each line in the metadata */
+  margin-left: 1.385em;
   text-indent: -1.385em;
 }
 .image .metadata .photo {
-  position: absolute;
-  left: 0;
-  top: 0;
-}
-.image #linkurl {
-  width: 31.846em;/*23u*/
+  float: right;
+  padding: 0;
+  margin:0;
+  text-indent:0;
 }
 
 /* Invitations Pages */
