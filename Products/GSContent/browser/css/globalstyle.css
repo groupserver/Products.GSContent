@@ -153,15 +153,17 @@ textarea, input.textType, input.fileType, select {
 }
 .radioItem input, .radioItem label, .checkboxGroup input, .checkboxGroup label{
   position: absolute;
-  display: inline;
   margin: 0;
 }
 .radioItem input, .checkboxGroup input {
-  bottom: 0; /* Yes, the bottom. It looks better that way. */
+  display: inline;
+  top: 0; 
   left: 0;
   
 }
 .radioItem label, .checkboxGroup label {
+  position: relative;
+  display: inline;
   top: 0;
   left: 1.385em;
 }
