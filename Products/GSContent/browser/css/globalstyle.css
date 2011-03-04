@@ -443,7 +443,7 @@ div.noFloat {
 /* http://www.smashingmagazine.com/2009/04/27/the-mystery-of-css-sprites-techniques-tools-and-tutorials/ */
 
 /* Links: URLs that link to different things.*/
-code.url, .alternateATOM, .email, .fileIcon {
+code.url, .alternateATOM, .email, .pdflink, .fileIcon {
   display: inline-block;
   padding-left: 1.385em;
   line-height: 1.385; 
@@ -590,7 +590,7 @@ code.url {
   background-position: 0 -912px;
 }
 /*Skip 1\ldots*/
-.application-pdf {
+.application-pdf, .pdflink {
   background-position: 0 -976px;
 }
 .application-certificate {
