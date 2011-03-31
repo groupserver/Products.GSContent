@@ -34,7 +34,10 @@
           href="/PresentationCustom/Tofu/Common/css/globalstyle.css" />
     </tal:block>
     <metal:block define-slot="style" />
-    <base tal:attributes="href string:${request/URL}" />
+    <base 
+      tal:define="hasIndex python:'index.html' in request['URL'];
+        url python:(hasIndex and ('%s/' % request['URL1'])) or request['URL']"
+      tal:attributes="href url" />
   </head>
   <body tal:define="siteName view/siteInfo/name | nothing"
     tal:attributes="id python:'page-%s' % request.URLPATH1.strip('/').replace('/','_');">
