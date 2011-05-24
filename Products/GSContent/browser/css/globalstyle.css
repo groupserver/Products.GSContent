@@ -722,6 +722,10 @@ input.full-share-input {
 .hentry .entry-content, .hentry .email-remainder, .hentry .fileNotification {
   position: relative;
   left: 8.308em;
+  width: 45.692em; /* 40u content minus 7u image = 33u messages */
+}
+.hentry .fileNotification {
+  border-top: thin solid black;
 }
 .fileMetadata {
   margin: 1.385em 0;
