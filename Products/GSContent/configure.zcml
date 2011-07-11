@@ -67,11 +67,6 @@
         name="groupserver_site_home_layout" 
         permission="zope.Public" />
  
- 
-  <!--The resources used by the pages. -->
-  <browser:resourceDirectory name="images"
-    directory="browser/images" permission="zope2.Public" />
-  
   <!-- Javascript -->
   <!--TODO: Move JavaScript code out of GSContent. See Ticket 344
     <https://projects.iopen.net/groupserver/ticket/344> -->
@@ -109,30 +104,11 @@
     file="browser/javascript/disablesubmit/diablesubmit.js" 
     permission="zope2.Public" />
 
-  <!-- CSS files -->
-  <browser:resource name="globalstyle-20110406.css"
-    file="browser/css/globalstyle.css"
-    permission="zope2.Public" />
-  <browser:resource name="globalstyle-20110308.css"
-    file="browser/css/globalstyle.css"
-    permission="zope2.Public" />
-  <browser:resource name="site-20110406.css"
-    file="browser/css/site.css" 
-    permission="zope2.Public" />
-  <browser:resource name="site-20110308.css"
-    file="browser/css/site.css" 
-    permission="zope2.Public" />
-
   <!--Favourite Icon-->
   <browser:resource name="favicon.ico"
     image="browser/images/favicon/gs-favicon-all-sizes.ico" 
     permission="zope2.Public" />
     
-  <!-- Busy image -->
-  <browser:resourceDirectory name="anim"
-    directory="browser/images/anim/"
-    permission="zope2.Public" />
-
   <!-- Factories -->
   <utility factory=".view.GSSiteInfoFactory"
     name="groupserver.SiteInfo"
@@ -144,14 +120,5 @@
                 factory=".view.GSSiteInfo"
                 /> 
 
-  <browser:resource name="icons.png"
-    file="browser/images/icons-chp.png" 
-    permission="zope2.Public" />
-  <browser:resource name="icons-colour.png"
-    file="browser/images/icons.png" 
-    permission="zope2.Public" />
-  <browser:resourceDirectory name="jquery-icons"
-    directory="browser/images/jquery-icons/"
-    permission="zope2.Public" />
-
 </configure>
+
