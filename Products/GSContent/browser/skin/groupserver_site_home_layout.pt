@@ -22,10 +22,10 @@
 
     <!-- styling typically covering all sites -->
     <link rel="stylesheet" type="text/css"
-      href="/++resource++globalstyle-20110406.css" />
+      href="/++resource++globalstyle-20110714.css" />
     <!-- styling just covering local customisations to sites -->
     <link rel="stylesheet" type="text/css"
-      href="/++resource++site-20110406.css" />
+      href="/++resource++site-20110714.css" />
     <tal:block
         condition="python: hasattr(context, 'PresentationCustom')">
         <!-- now deprecated, but still in use, method for getting 
