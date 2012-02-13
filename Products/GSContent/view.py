@@ -192,12 +192,6 @@ class GSSiteInfo:
         
         return retval
         
-class GSSiteHomepageView(BrowserView):
-    def __init__(self, context, request):
-        BrowserView.__init__(self, context, request)
-        self.siteInfo = createObject('groupserver.SiteInfo', context)
-        self.groupsInfo = createObject('groupserver.GroupsInfo', context)
-
 class GSContentView(BrowserView):
     '''View object for standard GroupServer content objects'''
     def __init__(self, context, request):
