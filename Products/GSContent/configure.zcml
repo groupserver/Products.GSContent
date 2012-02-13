@@ -30,17 +30,17 @@
   <browser:defaultView for=".interfaces.IGSContentFolder" name="index.html"/>
 
   <!--Site homepage-->
-  <browser:page for=".interfaces.IGSSiteFolder" 
+  <!--browser:page for=".interfaces.IGSSiteFolder" 
     name="index.html"
     class=".view.GSContentView"
     template="browser/templates/site_home.pt" 
-    permission="zope2.View" />
+    permission="zope2.View" /-->
 
-  <browser:page for=".interfaces.IGSSiteHomepageFolder"
+  <!--browser:page for=".interfaces.IGSSiteHomepageFolder"
     name="index.html"
     class=".view.GSSiteHomepageView"
     template="browser/templates/new_site_home.pt"
-    permission="zope.Public" />
+    permission="zope.Public" /-->
 
   <!-- Content provider to be used in displaying the site title bar -->
   <interface 
