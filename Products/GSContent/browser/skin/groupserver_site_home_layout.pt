@@ -22,7 +22,7 @@
 
     <!-- styling typically covering all sites -->
     <link rel="stylesheet" type="text/css"
-      href="/++resource++globalstyle-20110714.css" />
+      href="/++resource++globalstyle-20120515.css" />
     <!-- styling just covering local customisations to sites -->
     <link rel="stylesheet" type="text/css"
       href="/++resource++site-20110714.css" />
