@@ -3,8 +3,7 @@
   xmlns:tal="http://xml.zope.org/namespaces/tal"
   metal:use-macro="context/@@groupserver_site_home_layout/page">
   <head>
-    
-  	<title metal:fill-slot="title">
+    <title metal:fill-slot="title">
       <span tal:replace="view/siteInfo/title"/>
     </title>
     <!-- 
