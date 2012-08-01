@@ -45,16 +45,6 @@
         metal:define-slot="externallinks"
         tal:content="structure python:getattr(context, 'menuexternal.xml', getattr(context.Templates.output, 'menuexternal.xml'))(method='html')">&#160;</div>
       <div id="titlebanner">
-        <metal:block metal:define-slot="search">
-          <form  action="/s/index.html" method="get" id="searcharea"
-            enctype="application/x-www-form-urlencoded">
-            <div>
-              <input class="text" title="Text to search for" type="text" 
-                name="s" id="searchTextInput"/> 
-              <input class="button" type="submit" value="Search" />
-            </div>
-          </form><!--searcharea-->
-        </metal:block>
         <div id="titlebar">
           <a href="/"><span class="logo">&#160;</span>
             <span class="group">&#160;</span>
