@@ -29,13 +29,6 @@
     
   <browser:defaultView for=".interfaces.IGSContentFolder" name="index.html"/>
 
-  <!--Site homepage-->
-  <!--browser:page for=".interfaces.IGSSiteFolder" 
-    name="index.html"
-    class=".view.GSContentView"
-    template="browser/templates/site_home.pt" 
-    permission="zope2.View" /-->
-
   <!-- Content provider to be used in displaying the site title bar -->
   <interface 
     interface=".interfaces.IGSSiteImage"
@@ -51,15 +44,6 @@
   <interface interface=".interfaces.IGSContentFolder"
     type="zope.app.content.interfaces.IContentType" />
 
-  <browser:page for="*"
-    template="browser/skin/groupserver_layout.pt"
-    name="groupserver_layout" 
-    permission="zope.Public" />
-
-  <browser:page for="*" 
-        template="browser/skin/groupserver_site_home_layout.pt"
-        name="groupserver_site_home_layout" 
-        permission="zope.Public" />
  
   <!-- Javascript -->
   <!--TODO: Move JavaScript code out of GSContent. See Ticket 344
