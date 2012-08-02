@@ -30,6 +30,7 @@ setup(name='Products.GSContent',
       zip_safe=False,
       install_requires=[
           'setuptools',
+          'gs.content.layout',
           'gs.content.js.jquery'
           # -*- Extra requirements: -*-
       ],
