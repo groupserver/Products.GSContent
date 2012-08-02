@@ -1,0 +1,60 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:metal="http://xml.zope.org/namespaces/metal"
+  xmlns:tal="http://xml.zope.org/namespaces/tal"
+  metal:use-macro="context/@@groupserver_site_home_layout/page">
+  <head>
+    <title metal:fill-slot="title">
+      <span tal:replace="view/siteInfo/title"/>
+    </title>
+    <!-- 
+      - This template martials the content from Zope, placing the 
+      - data in various slots. The resulting object is then passed
+      - to the skin (gs_template), which adds all the navigation fluff.
+      -
+      - There are five slots that are filled by this template:
+      -   1. The title of the page, aquired from the title of the 
+      -      context-object (which is normally a folder),
+      -   2. The meatadata, acquired from an optional "metadata.xml" 
+      -      object in the context,
+      -   3. The Javascript, acquired from an optional "javascript.xml"
+      -      object in the context,
+      -   4. The CSS-style, acquired from an optional "style.xml" object
+      -      in the context, and
+      -   5. The content of the page, acquired from "content_en.xml".
+      - (At some stage the name of the content-object has to be altered so
+      - we can grab the content according the user's preferred langage.)
+      -
+      - It is assumed that the XML documents understand the "method='html'"
+      - argument. The objects can be of any XML format: XHTML1, XHTML2, or
+      - Joshbook. However, for the most part only "content.xml" will be in
+      - a format other than XHTML1. (The optional metadata may also be in
+      - XHTM2, because it has a metadata format that makes sense, unlike 
+      - XHTML1.) 
+      -->
+        
+    <tal:block metal:fill-slot="style">
+      <style tal:condition="python:hasattr(context, 'style.xml')"
+        tal:replace="structure python:getattr(context, 'style.xml')(method='html')"/>
+    </tal:block>
+
+    <tal:block metal:fill-slot="javascript">
+      <!-- Standard GroupServer JavaScript: XForms popup help -->
+      <script type="text/javascript" 
+        src="/Presentation/Tofu/XForms/js/xforms.js">&#160;</script>
+    <!-- Grab any javascript that is defined in our context -->
+      <span
+        tal:condition="python:hasattr(context.aq_explicit, 'javascript.xml')"
+        tal:replace="structure python:getattr(context, 'javascript.xml')(method='html')"/>
+    </tal:block>
+
+  </head>
+  
+  <body>
+    <tal:block metal:fill-slot="body">
+      <div id="content"
+        tal:replace="structure python:getattr(context, 'content_en')(method='html', siteName=view.siteInfo.get_name())">
+        This should never be seen.
+      </div>
+    </tal:block>
+  </body>
+</html>
