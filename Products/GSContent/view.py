@@ -122,7 +122,10 @@ class GSSiteInfo:
     def name(self):
         return self.get_name()        
     def get_name(self):
-        retval = self.config.getProperty('siteName', '')
+        try:
+            retval = self.config.getProperty('siteName', '')
+        except AttributeError:
+            retval = ''
         if not retval and self.siteObj:
             retval = self.siteObj.title_or_id()
         return retval
