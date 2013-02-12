@@ -83,7 +83,7 @@ groupserverHelp_popup = function (helpSectionId) {
     },
     errro: function(type, errror) {
       groupserverHelp_loadError(error, groupserverHelp__window);
-    },
+    }
   })
 }
 
