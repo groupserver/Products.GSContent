@@ -260,13 +260,5 @@ class GSContentView(BrowserView):
 
     # To be converted: Scripts.get_firstLevelFolder(context)
 
-class GSUnknownError(BrowserView):
-    index = ZopeTwoPageTemplateFile('browser/templates/unknown_error.pt')
-    def __call__(self, *args, **kw):
-        self.request.response.setHeader('Content-Type', 'text/html; charset=UTF-8')
-        # should this really be a 500, that suggests a server error?
-        #self.request.response.setStatus(500)
-        return self.index(self, *args, **kw)
-
 InitializeClass( GSContentView )
 
