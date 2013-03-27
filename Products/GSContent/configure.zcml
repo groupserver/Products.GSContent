@@ -29,11 +29,6 @@
     
   <browser:defaultView for=".interfaces.IGSContentFolder" name="index.html"/>
 
-  <!-- Content provider to be used in displaying the site title bar -->
-  <interface 
-    interface=".interfaces.IGSSiteImage"
-    type="zope.contentprovider.interfaces.ITALNamespaceData"/>
-
   <!-- A marker interface -->
   <interface interface=".interfaces.IGSContentFolder"
     type="zope.app.content.interfaces.IContentType" />
