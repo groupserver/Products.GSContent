@@ -34,12 +34,6 @@
     interface=".interfaces.IGSSiteImage"
     type="zope.contentprovider.interfaces.ITALNamespaceData"/>
 
-  <!-- Unknown Error (500) page -->
-  <browser:page for="*" name="unknown_error.html"
-    class=".view.GSContentView"
-    template="browser/templates/unknown_error.pt" 
-    permission="zope2.Public" />
-  
   <!-- A marker interface -->
   <interface interface=".interfaces.IGSContentFolder"
     type="zope.app.content.interfaces.IContentType" />
