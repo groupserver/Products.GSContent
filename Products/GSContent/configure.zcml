@@ -72,11 +72,6 @@
     directory="browser/javascript/jstree/source/" 
     permission="zope2.Public" />
 
-  <!-- JavaScript Disable Submit -->
-  <browser:resource name="disableSubmit-20091123.js"
-    file="browser/javascript/disablesubmit/diablesubmit.js" 
-    permission="zope2.Public" />
-
   <!--Favourite Icon-->
   <browser:resource name="favicon.ico"
     image="browser/images/favicon/gs-favicon-all-sizes.ico" 
