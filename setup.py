@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from setuptools import setup, find_packages
 import os
 
@@ -31,7 +32,7 @@ setup(name='Products.GSContent',
       install_requires=[
           'setuptools',
           'gs.content.layout',
-          'gs.content.js.jquery'
+          'gs.content.js.jquery.ui'
           # -*- Extra requirements: -*-
       ],
       entry_points="""
