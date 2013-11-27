@@ -1,78 +1,106 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!-- Copyright © 2013 OnlineGroups.net and Contributors. -->
+<!-- All Rights Reserved. -->
+
+<!-- This software is subject to the provisions of the Zope Public -->
+<!-- License, Version 2.1 (ZPL).  A copy of the ZPL should accompany this -->
+<!-- distribution. -->
+
+<!-- THIS SOFTWARE IS PROVIDED "AS IS" AND ANY AND ALL EXPRESS OR IMPLIED -->
+<!-- WARRANTIES ARE DISCLAIMED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED -->
+<!-- WARRANTIES OF TITLE, MERCHANTABILITY, AGAINST INFRINGEMENT, AND -->
+<!-- FITNESS FOR A PARTICULAR PURPOSE. -->
 <configure xmlns="http://namespaces.zope.org/zope"
-  xmlns:browser="http://namespaces.zope.org/browser"
-  xmlns:rdb="http://namespaces.zope.org/rdb"
-  xmlns:sqlos="http://namespaces.sqlobject.org/sqlos"
-  xmlns:five="http://namespaces.zope.org/five">
-  
+           xmlns:browser="http://namespaces.zope.org/browser">
+
   <class class="OFS.Folder.Folder">
-      <implements interface="zope.app.folder.interfaces.IFolder" />
+    <implements interface="zope.app.folder.interfaces.IFolder" />
   </class>
 
   <class class="Products.FileSystemSite.DirectoryView.DirectoryViewSurrogate">
-      <implements interface=".interfaces.IGSContentFolder" />
+    <implements interface=".interfaces.IGSContentFolder" />
   </class>
-  
-  <!--View of the index-pages -->
-  <browser:page for=".interfaces.IGSContentFolder" name="index.html"
-    class=".view.GSContentView"
-    template="browser/templates/standard.pt" permission="zope2.View" />
 
-  <browser:page 
-    for=".interfaces.IGSNotificationPreview" 
+  <!--View of the index-pages -->
+  <browser:page
     name="index.html"
+    for=".interfaces.IGSContentFolder"
+    class=".view.GSContentView"
+    template="browser/templates/standard.pt"
+    permission="zope2.View" />
+
+  <browser:page
+    name="index.html"
+    for=".interfaces.IGSNotificationPreview"
     class=".notificationView.GSNotificationView"
     permission="zope2.View" />
 
-  <browser:page for=".interfaces.IGSFullPageContentFolder" name="index.html"
+  <browser:page
+    name="index.html"
+    for=".interfaces.IGSFullPageContentFolder"
     class=".view.GSContentView"
-    template="browser/templates/site_home.pt" permission="zope2.View" />
-    
+    template="browser/templates/site_home.pt"
+    permission="zope2.View" />
+
   <browser:defaultView for=".interfaces.IGSContentFolder" name="index.html"/>
 
   <!-- A marker interface -->
-  <interface interface=".interfaces.IGSContentFolder"
+  <interface
+    interface=".interfaces.IGSContentFolder"
     type="zope.app.content.interfaces.IContentType" />
 
- 
+  <!-- =mpj17= A legacy marker interface which fills me with hate -->
+  <interface
+    interface=".interfaces.IGSSiteHomepageFolder"
+    type="zope.app.content.interfaces.IContentType" />
+
   <!-- Javascript -->
   <!--TODO: Move JavaScript code out of GSContent. See Ticket 344
-    <https://projects.iopen.net/groupserver/ticket/344> -->
-  <browser:resource name="jquery.dataTables.min-1.5.6.js"
-    file="browser/javascript/jquery/jquery.dataTables.min-1.5.6.js" 
+      <https://projects.iopen.net/groupserver/ticket/344> -->
+  <browser:resource
+    name="jquery.dataTables.min-1.5.6.js"
+    file="browser/javascript/jquery/jquery.dataTables.min-1.5.6.js"
     permission="zope2.Public" />
   <!-- Images for dataTables -->
-  <browser:resourceDirectory name="dataTablesImages-1.5.6"
-    directory="browser/images/dataTables" permission="zope2.Public" />
+  <browser:resourceDirectory
+    name="dataTablesImages-1.5.6"
+    directory="browser/images/dataTables"
+    permission="zope2.Public" />
 
   <!-- Javascript Date Implementations -->
-  <browser:resourceDirectory name="date"
-    directory="browser/javascript/date/" permission="zope2.Public" />
+  <browser:resourceDirectory
+    name="date"
+    directory="browser/javascript/date/"
+    permission="zope2.Public" />
 
   <!-- Javascript AJAX Pane Loader -->
-  <browser:resourceDirectory name="pane"
-    directory="browser/javascript/pane/" permission="zope2.Public" />
+  <browser:resourceDirectory
+    name="pane"
+    directory="browser/javascript/pane/"
+    permission="zope2.Public" />
 
   <!-- Javascript jsTree -->
-  <browser:resourceDirectory name="jsTree-20090204"
-    directory="browser/javascript/jstree/source/" 
+  <browser:resourceDirectory
+    name="jsTree-20090204"
+    directory="browser/javascript/jstree/source/"
     permission="zope2.Public" />
 
   <!--Favourite Icon-->
-  <browser:resource name="favicon.ico"
-    image="browser/images/favicon/gs-favicon-all-sizes.ico" 
+  <browser:resource
+    name="favicon.ico"
+    image="browser/images/favicon/gs-favicon-all-sizes.ico"
     permission="zope2.Public" />
-    
+
   <!-- Factories -->
-  <utility factory=".view.GSSiteInfoFactory"
+  <utility
     name="groupserver.SiteInfo"
+    factory=".view.GSSiteInfoFactory"
     permission="zope.Public"/>
 
-  <adapter provides=".interfaces.IGSSiteInfo"
-                for="zope.app.folder.interfaces.IFolder"
-                permission="zope2.Public"
-                factory=".view.GSSiteInfo"
-                /> 
+  <adapter
+    for="zope.app.folder.interfaces.IFolder"
+    provides=".interfaces.IGSSiteInfo"
+    permission="zope2.Public"
+    factory=".view.GSSiteInfo" />
 
 </configure>
-
