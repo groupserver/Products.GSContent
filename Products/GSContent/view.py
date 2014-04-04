@@ -61,6 +61,8 @@ class GSSiteInfo(object):
               * "self.siteObj" to the site-instance, and
               * "self.config" to the site-configuration instance.
         """
+        if not context:
+            raise ValueError('No context provided: {0}'.format(context))
         self.context = context
         self.siteObj = self.__get_site_object()
         self.config = self.__get_site_config()
