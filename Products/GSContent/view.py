@@ -19,6 +19,7 @@ from zope.component.interfaces import IFactory
 from zope.interface import implements, implementedBy
 from App.class_init import InitializeClass
 from Products.Five import BrowserView
+from gs.core import to_unicode_or_bust
 from Products.XWFCore import XWFUtils
 from .interfaces import IGSSiteInfo
 
@@ -39,7 +40,7 @@ class GSSiteInfoFactory(object):
         return retval
 
 
-class GSSiteInfo:
+class GSSiteInfo(object):
     """An implementation of the GroupServer Site Information Interface
 
     This adaptor provides information about the site, based on the context
@@ -150,7 +151,7 @@ class GSSiteInfo:
     def title(self):
         retval = self.config.getProperty('siteTitle', self.name)
         if isinstance(retval, str):
-            retval = unicode(retval, 'utf-8', 'ignore')
+            retval = to_unicode_or_bust(retval)
         return retval
 
     @Lazy
@@ -209,8 +210,7 @@ class GSSiteInfo:
           'Context %s\nID %s' % (self.context, self.id)
         retval = self.siteObj.getProperty(prop, default)
         if isinstance(retval, str):
-            retval = unicode(retval, 'utf-8', 'ignore')
-
+            retval = to_unicode_or_bust(retval)
         return retval
 
 
