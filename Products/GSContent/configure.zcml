@@ -31,12 +31,6 @@
 
   <browser:page
     name="index.html"
-    for=".interfaces.IGSNotificationPreview"
-    class=".notificationView.GSNotificationView"
-    permission="zope2.View" />
-
-  <browser:page
-    name="index.html"
     for=".interfaces.IGSFullPageContentFolder"
     class=".view.GSContentView"
     template="browser/templates/site_home.pt"
