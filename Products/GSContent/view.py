@@ -138,7 +138,9 @@ class GSSiteInfo(object):
 
     @property
     def name(self):
-        return self.get_name()
+        r = self.get_name()
+        retval = to_unicode_or_bust(r)
+        return retval
 
     def get_name(self):
         try:
