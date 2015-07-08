@@ -159,24 +159,70 @@ class GSSiteInfo(object):
         return retval
 
     @Lazy
+    def globalConfig(self):
+        retval = getattr(self.context, 'GlobalConfiguration', None)
+        if retval is None:
+            m = 'Could not find "GlobalConfiuration" from {0}'
+            msg = m.format(self.config)
+            raise ValueError(msg)
+        return retval
+
+    def get_option(self, option, default):
+        retval = self.config.getProperty(
+            option, self.globalConfig.getProperty(option, default))
+        return retval
+
+    @Lazy
     def url(self):
         return self.get_url()
 
     def get_url(self):
-        '''Gets the URL from the site. It is made up of the canonical
-        host and the canonical port. If the canonical port is not set,
-        or is set to port 80, then it is not included in the URL.'''
-        retval = '/'
+        '''Gets the URL from the site.
 
-        canonicalHost = self.config.getProperty('canonicalHost', '')
-        if canonicalHost:
-            retval = 'http://%s' % canonicalHost
+:returns: The URL for the site.
+:rtype: str
+
+The URL is made up of the *scheme*, the *canonical host* and the  *canonical
+port*. All can be set by changing properties on the  ``DivisionConfiguration``
+object.
+
+Scheme:
+    Either ``https`` if the ``useHTTPS`` boolean property is set to ``True``.
+    Otherwise ``http`` is used (the default). The ``useHTTPS`` property may
+    also be set on the ``GlobalConfiguration`` object, with the site-specific
+    configuration over-riding the global configuration.
+
+Host:
+    The value of the ``canonicalHost`` property. If not set then ``/`` is used.
+
+Port:
+    If the ``canonicalPort`` property is **either** unset, or the **default**
+    value for the *scheme*  (``80`` for HTTP, ``443`` for HTTPS) then the port
+    is **omitted** from the URL. Otherwise the port is included in the URL. The
+    ``canonicalPort`` property may also be set on the ``GlobalConfiguration``
+    object, with the site-specific configuration over-riding the global
+    configuration.
+'''
+        # Using HTTPS may be a global setting
+        useHTTPS = self.get_option('useHTTPS',  False)
+        # Host is site-specific
+        host = self.config.getProperty('canonicalHost', '')
+        if host:
+            scheme = 'https' if useHTTPS else 'http'
+            retval = '{scheme}://{host}'.format(scheme=scheme, host=host)
         elif self.siteObj:
+            # --=mpj17=-- Things can get weird.
             retval = '/%s' % self.siteObj.absolute_url(1)
+        else:
+            # --=mpj17=-- Things can get very weird
+            retval = '/'
 
-        canonicalPort = self.config.getProperty('canonicalPort', '80')
-        if canonicalPort != '80':
-            retval = '%s:%s' % (retval, canonicalPort)
+        defaultPort = '443' if useHTTPS else '80'
+        port = self.get_option('canonicalPort', defaultPort)
+        if (((port != '443') and useHTTPS)  # Not using HTTPS on the default port
+                or (port != '80') and (not useHTTPS)):  # Not using HTTP on the default port
+            retval = '{0}:{1}'.format(retval, port)
+        assert retval
         return retval
 
     @property
@@ -186,7 +232,7 @@ class GSSiteInfo(object):
     def get_site_admins(self):
         admins = self.siteObj.users_with_local_role('DivisionAdmin')
         retval = [createObject('groupserver.UserFromId',
-                      self.context, a) for a in admins]
+                  self.context, a) for a in admins]
         return retval
 
     @property
@@ -210,8 +256,10 @@ class GSSiteInfo(object):
         return retval
 
     def get_property(self, prop, default=None):
-        assert self.siteObj, 'Site instance does not exist\n'\
-          'Context %s\nID %s' % (self.context, self.id)
+        if self.siteObj is None:
+            m = 'Site instance does not exist:\n  Context {0}\n  ID {1}'
+            msg = m.format(self.context, self.id)
+            raise ValueError(msg)
         retval = self.siteObj.getProperty(prop, default)
         if isinstance(retval, str):
             retval = to_unicode_or_bust(retval)
@@ -228,15 +276,15 @@ class GSContentView(BrowserView):
     def siteInfo(self):
         if self.__siteInfo is None:
             self.__siteInfo = createObject('groupserver.SiteInfo',
-                                self.context)
+                                           self.context)
         assert self.__siteInfo
         return self.__siteInfo
 
     @property
     def groupsInfo(self):
         if self.__groupsInfo is None:
-            self.__groupsInfo = createObject('groupserver.GroupsInfo',
-                                    self.context)
+            self.__groupsInfo = createObject(
+                'groupserver.GroupsInfo', self.context)
         assert self.__groupsInfo
         return self.__groupsInfo
 
@@ -254,9 +302,10 @@ class GSContentView(BrowserView):
             oldScripts = getattr(site_root.Scripts, 'forms')
             assert oldScripts, 'Could not get folder Scripts/forms'
 
-            modelDir = localScripts and getattr(localScripts, model,
-                                          getattr(oldScripts, model, None)) \
-                          or getattr(oldScripts, model, None)
+            modelDir = (localScripts
+                        and getattr(localScripts, model,
+                                    getattr(oldScripts, model, None))
+                        or getattr(oldScripts, model, None))
             if modelDir:
                 assert hasattr(modelDir, model)
                 if hasattr(modelDir, instance):
